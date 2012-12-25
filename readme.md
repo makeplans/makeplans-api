@@ -6,7 +6,7 @@ All data is UTF-8.
 
 ## Versions
 
-The current version of the API is version 1. The versioning scheme is as follows: `/api/v1/` The most recent version of the API is always at `/api/`. So all calls to `/api/resources` are redirected to the current version, at the time being: `/api/v1/resources`
+The current version of the API is version 1. The versioning scheme is as follows: `/api/v1/` The most recent version of the API is always at `/api/`. So all calls to `/api/resources` are redirected to the current version, at the time being: `/api/v1/resources`.
 
 Please keep up to date with the API as older versions may be deprecated.
 
@@ -22,9 +22,9 @@ To specify JSON as output use HTTP-header `Accept: application/json`. Output can
 
 ### Input
 
-To specify JSON as input use HTTP-header `Content-Type: application/json`.  The body must be JSON-formatted and include the object with required attributes. Alternatively you can use normal form data as input, in that case do not specify the Content-type HTTP-header. Form values are specified like this: `resource[title]=Unicorn`
+To specify JSON as input use HTTP-header `Content-Type: application/json`. The body must be JSON-formatted and include the object with required attributes. Alternatively you can use normal form data as input, in that case do not specify the Content-type HTTP-header. Form values are specified like this: `resource[title]=Unicorn`. Normal form input is preferred over JSON/XML.
 
-All parameters that are not input for creating or updating objects should be sent as normal URL parameters. Example: `/bookings?page=2&resources_id=1`
+All parameters that are not input for creating or updating objects should be sent as normal URL parameters. Example: `/bookings?page=2&resources_id=1`.
 
 ## Authentication
 
@@ -114,7 +114,7 @@ All dates are specified in the ISO 8601 format. Timezone is included in the outp
 
 ## Custom data
 
-Custom data are stored as key/value. All values are stored as strings. Custom data can be added to booking and to person.
+Custom data are stored as key/value. All values are stored as strings. Custom data can be added to booking and person.
 
 ## Web hooks
 
@@ -190,7 +190,7 @@ Bookings that are deleted are set to deleted.
 
 ## Active bookings
 
-Bookings with states: awaiting_verification, awaiting_confirmation and confirmed, are considered to be active. Bookings with state awaiting_verification will be updated with state=verification_expired after the current time passes expires_at. However updating states rely on automatic tasks so you must use the active attribute to check whether a booking is active or not. Only active bookings will be returned unless you specify: a specific booking, to return all bookings for a resource or dates, or for a person.
+Bookings with states: awaiting_verification, awaiting_confirmation and confirmed, are considered to be active. Bookings with state awaiting_verification will be updated wto state verification_expired after the current time passes expires_at. However updating states rely on automatic tasks so you must use the active attribute to check whether a booking is active or not. Only active bookings will be returned unless you specify: a specific booking, a specific state such as bookings that are awaiting confirmation, to return all bookings for a resource or dates, or for a person.
 
 ## Listing
 
