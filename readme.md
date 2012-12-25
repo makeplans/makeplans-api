@@ -1,12 +1,5 @@
 # MakePlans API - Version 1.0
 
-# Client libraries
-
-* CakePHP: https://github.com/espen/CakePHP-MakePlans-Plugin
-* Ruby on Rails:  ActiveResource or httparty will make implementation easier.
-
-# General info
-
 MakePlans provides a fairly standard REST API. The base URL is `https://youraccount.makeplans.no/api/`. All requests are done over HTTPS.
 
 All data is UTF-8.
@@ -64,6 +57,11 @@ curl -u APIKEY: \
   https://youraccount.makeplans.no/api/v1/resources
 ```
 
+## Client libraries
+
+* CakePHP: https://github.com/espen/CakePHP-MakePlans-Plugin
+
+
 ## Errors
 
 ### 400 - Bad request
@@ -80,7 +78,7 @@ Trial period expired. Please pay your bill.
 
 ### 403 - Forbidden
 
-API usage error. This means you did something wrong and there should be a message in the body that explains it. Fix it and try again.
+API usage error. This means you did something wrong and there should be a message in the body that explains it. Error message is related to specified resource. Fix it and try again.
 
 Example response:
 
@@ -94,7 +92,7 @@ Example response:
 
 ### 404 - Not Found
 
-Obviously incorrect paths (`/cats`) returns 404. However, even though cool URIs should not change, previously available objects (i.e. `/resources/666`) might have been deleted and thus return a 404 when requested.
+Obviously incorrect paths (`/cats`) returns 404. However, even though cool URIs should not change, previously available objects (i.e. `/resources/666`) might have been deleted and thus return a 404 when requested. In most cases deleted resources will be returned and have a booking state or a flag that indicate that the resource is inactive or deleted.
 
 ### 429 - Too Many Requests
 
@@ -175,6 +173,7 @@ Slots are meant for listing available times on the MakePlans booking-page. You c
 
 * awaiting_verification
 * verification_expired
+* awaiting_payment
 * awaiting_confirmation
 * confirmed
 * declined
@@ -304,7 +303,7 @@ The primary key for a person is the ID. However the following fields are unique:
 <tr><td>Date Of Birth</td><td>Datetime</td><td>Not required</td></tr>
 </table>
 
-# Service
+# Services
 
 ## Attributes
 
@@ -362,3 +361,16 @@ Resources provides services. This link is called a provider.
 <tr><td>Active</td><td>Boolean</td><td>Automatically set</td></tr>
 <tr><td>Resource Id</td><td>Integer</td><td>Required</td></tr>
 <tr><td>Service Id</td><td>Integer</td><td>Required</td></tr>
+</table>
+
+# Client
+
+Information and settings for your account.
+
+## Attributes
+
+<table>
+<tr><td>Id</td><td>Integer</td><td>Automatically set</td></tr>
+<tr><td>Created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>Updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+</tabøe>
