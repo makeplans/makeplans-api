@@ -18,11 +18,11 @@ The API supports JSON and XML for input and output.
 
 ### Output
 
-To specify JSON as output use header `Accept: application/json`. Output can also be defined by using extension in the path: `/resources.json`. Multiple items is returned as an array.
+To specify JSON as output use HTTP-header `Accept: application/json`. Output can also be defined by using extension in the path: `/resources.json`. Multiple items is returned as an array.
 
 ### Input
 
-To specify JSON as input use header `Content-Type: application/json`.  The body must be JSON-formatted and include the object with required attributes. Alternatively you can use normal form data as input, in that case do not specify the Content-type HTTP header. Form values are specified like this: `resource[title]=Unicorn`
+To specify JSON as input use HTTP-header `Content-Type: application/json`.  The body must be JSON-formatted and include the object with required attributes. Alternatively you can use normal form data as input, in that case do not specify the Content-type HTTP-header. Form values are specified like this: `resource[title]=Unicorn`
 
 All parameters that are not input for creating or updating objects should be sent as normal URL parameters. Example: `/bookings?page=2&resources_id=1`
 
@@ -36,7 +36,7 @@ If your app is installable by end-users you should use oAuth. However we do not 
 
 *Not yet implemented*
 
-You must include a User-Agent header with the name of your application and a link to it or your email address so we can get in touch in case you're doing something wrong (so we may warn you before you're blacklisted) or something awesome (so we may congratulate you). Example: `User-Agent: NoPlans (http://noplans.makeplans.no)`. If you don't supply this header, you will get a 400 Bad Request.
+You must include a User-Agent header with the name of your application and a link to it or your email address so we can get in touch in case you're doing something wrong (so we may warn you before you're blacklisted) or something awesome (so we may congratulate you). Example: `User-Agent: NoPlans (http://noplans.makeplans.no)`. If you don't supply this HTTP-header, you will get a 400 Bad Request.
 
 ## Example request and response
 
@@ -46,7 +46,7 @@ curl -u APIKEY: \
   https://youraccount.makeplans.no/api/v1/resources
 ```
 
-To create something, it's the same deal except you also have to include the `Content-Type` header and the JSON data:
+To create something, it's the same deal except you also have to include the `Content-Type` HTTP-header and the JSON data:
 
 ```shell
 curl -u APIKEY: \
@@ -98,7 +98,7 @@ Obviously incorrect paths (`/cats`) returns 404. However, even though cool URIs 
 
 *Not yet implemented - limits might change*
 
-You can perform up to 50 requests per 10 second period from the same IP address for the same account. If you exceed this limit, you'll get a 429 Too Many Requests response for subsequent requests. Check the `Retry-After` header to see how many seconds to wait before retrying the request.
+You can perform up to 50 requests per 10 second period from the same IP address for the same account. If you exceed this limit, you'll get a 429 Too Many Requests response for subsequent requests. Check the `Retry-After` HTTP-header to see how many seconds to wait before retrying the request.
 
 ### 5xx - Server error
 
