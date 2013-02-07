@@ -251,8 +251,8 @@ Response
 <tr><td>service_id</td><td>Integer</td><td>service_id</td><td></td></tr>
 <tr><td>resource_id</td><td>Integer</td><td>resource_id</td><td></td></tr>
 <tr><td>external_id</td><td>Integer</td><td>external_id</td><td></td></tr>
-<tr><td>start</td><td>DateTime</td><td>booked_from</td><td>Query bookings within timeframe..</td></tr>
-<tr><td>end</td><td>DateTime</td><td>booked_to</td><td>Query bookings within timeframe.</td></tr>
+<tr><td>start</td><td>DateTime</td><td>booked_from</td><td>Query bookings within datetime range.</td></tr>
+<tr><td>end</td><td>DateTime</td><td>booked_to</td><td>Query bookings within datetime range.</td></tr>
 <tr><td>since</td><td>DateTime</td><td>updated_at</td><td>Query bookings after timestamp.</td></tr>
 </table>
 
@@ -288,6 +288,10 @@ Deleting a booking will set it to state=deleted and active=false. It will not be
 
 The primary key for a person is the ID. However the following fields are unique: email, phone number and provider+uid. There are no specific requirements for input but a person needs to have either name, email or phone number.
 
+*Not yet implemented*
+
+External_id currently not unique in our database. Due to external circrumstances it will remain so until those issues are fixed. We plan to constrain external_id to be unique and you should treat it as so.
+
 ## Attributes
 
 <table>
@@ -296,11 +300,25 @@ The primary key for a person is the ID. However the following fields are unique:
 <tr><td>Updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
 <tr><td>Name</td><td>String</td><td>Not required*</td></tr>
 <tr><td>Email</td><td>String</td><td>Not required*</td></tr>
-<tr><td>Phone number</td><td>String</td><td>Not required*</td></tr>
-<tr><td>Notes</td><td>Text</td><td>Not required</td></tr>
+<tr><td>Phone number</td><td>String</td><td>Not required*. Phone number as stored.</td></tr>
+<tr><td>Phone number formatted</td><td>String</td><td>Not required. Phone number with international code and no spaces.</td></tr>
 <tr><td>External id</td><td>String</td><td>Not required</td></tr>
-<tr><td>Custom Data</td><td>Array</td><td>Not required.</td></tr>
+<tr><td>Custom Data</td><td>Array</td><td>Not required. Key/value. Stored as strings.</td></tr>
 <tr><td>Date Of Birth</td><td>Datetime</td><td>Not required</td></tr>
+</table>
+
+## Listing
+
+Searching unique fields (email, phonenumber, external_id, uid+provider) will return only one result if found.
+
+### Query Parameters
+
+<table>
+<tr><td>email</td><td>String</td><td>email</td><td>Only exact match</td></tr>
+<tr><td>phonenumber</td><td>String</td><td>phonenumber</td><td>Only exact match</td></tr>
+<tr><td>external_id</td><td>String</td><td>external_id</td><td>Only exact match</td></tr>
+<tr><td>name</td><td>String</td><td>name</td><td></td></tr>
+<tr><td>date_of_birth</td><td>Date</td><td>date_of_birth</td><td></td></tr>
 </table>
 
 # Services
