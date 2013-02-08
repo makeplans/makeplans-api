@@ -137,9 +137,34 @@ So whenever a new booking is created in MakePlans we can send a POST request to 
 
 # Slots
 
-Slots are not a physical object in MakePlans. It is a virtual representation of available times based on attributes from resources and services. I.e. if a resource is open 8am to 16pm and selected service has interval of 60 minutes, slots will return an array of all available times. If there is a booking on the specified date that time will not be returned. So if there only is a booking between 1pm to 2pm these slots will be returned: 8am, 9am, 10am, 11am, 12pm, 2pm, 3pm.
+Slots are not a physical object in MakePlans. It is a virtual representation of available times based on attributes from resources and services. I.e. if a resource is open 8am to 16pm and selected service has interval of 60 minutes, slots will return an array of all time intervals (8am-9am, 9am-10am etc.) and indicate which recoures are available.
 
-Slots are meant for listing available times on the MakePlans booking-page. You can however make bookings at any time and with any length - as long as the resource is available off course.
+Slots are meant for listing available times on the MakePlans booking page. You can however make bookings at any time and with any length - as long as the resource is available off course.
+
+## Attributes
+
+<table>
+<tr><td>Timestamp</td><td>DateTime</td><td>Start</td></tr>
+<tr><td>Timestamp_end</td><td>DateTime</td><td>End</td></tr>
+<tr><td>Formatted Timestamp</td><td>DateTime</td><td>Localized</td></tr>
+<tr><td>Formattet Timestamp_end</td><td>DateTime</td><td>Localized</td></tr>
+<tr><td>Duration</td><td>Integer</td><td>Service interval</td></tr>
+<tr><td>Free</td><td>Integer</td><td>Nr of free resources</td></tr>
+<tr><td>Capacity</td><td>Integer</td><td>Nr of combined free spaces at available resources</td></tr>
+<tr><td>Open Resources</td><td>Array</td><td>Ids of open resources</td></tr>
+<tr><td>Available Resources</td><td>Array</td><td>Ids of resources with availability</td></tr>
+</table>
+
+## Listing
+
+### Query Parameters
+
+<table>
+<tr><td>from</td><td>DateTime</td><td></td><td></td></tr>
+<tr><td>to</td><td>DateTime</td><td></td><td></td></tr>
+<tr><td>selected_resources</td><td>Array</td><td></td><td></td></tr>
+<tr><td>only_free</td><td>Boolean</td><td></td><td>Only return timeslots with availability</td></tr>
+</table>
 
 # Bookings
 
