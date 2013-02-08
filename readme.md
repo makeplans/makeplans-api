@@ -150,10 +150,11 @@ Slots are meant for listing available times on the MakePlans booking page. You c
 <tr><td>Formattet Timestamp_end</td><td>DateTime</td><td>Localized</td></tr>
 <tr><td>Duration</td><td>Integer</td><td>Service interval</td></tr>
 <tr><td>Free</td><td>Integer</td><td>Nr of free resources</td></tr>
-<tr><td>Capacity</td><td>Integer</td><td>Nr of combined free spaces at available resources</td></tr>
 <tr><td>Open Resources</td><td>Array</td><td>Ids of open resources</td></tr>
 <tr><td>Available Resources</td><td>Array</td><td>Ids of resources with availability</td></tr>
 </table>
+
+Capacity is currently not returned. If you require it please let us know.
 
 ## Listing
 
