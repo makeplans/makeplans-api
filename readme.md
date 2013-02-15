@@ -318,6 +318,8 @@ The primary key for a person is the ID. However the following fields are unique:
 
 External_id currently not unique in our database. Due to external circrumstances it will remain so until those issues are fixed. We plan to constrain external_id to be unique and you should treat it as so.
 
+National Id No is also currently not unique or used as identificator for a person.
+
 ## Attributes
 
 <table>
@@ -331,6 +333,7 @@ External_id currently not unique in our database. Due to external circrumstances
 <tr><td>External id</td><td>String</td><td>Not required</td></tr>
 <tr><td>Custom Data</td><td>Array</td><td>Not required. Key/value. Stored as strings.</td></tr>
 <tr><td>Date Of Birth</td><td>Datetime</td><td>Not required</td></tr>
+<tr><td>National Id No</td><td>String</td><td>Not required.</td></tr>
 </table>
 
 ## Listing
@@ -345,6 +348,7 @@ Searching unique fields (email, phonenumber, external_id, uid+provider) will ret
 <tr><td>external_id</td><td>String</td><td>external_id</td><td>Only exact match</td></tr>
 <tr><td>name</td><td>String</td><td>name</td><td></td></tr>
 <tr><td>date_of_birth</td><td>Date</td><td>date_of_birth</td><td></td></tr>
+<tr><td>national_id_no</td><td>String</td><td>national_id_no</td><td></td></tr>
 </table>
 
 # Services
