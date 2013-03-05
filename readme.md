@@ -148,21 +148,18 @@ Slots are meant for listing available times on the MakePlans booking page. You c
 <tr><td>Timestamp_end</td><td>DateTime</td><td>End</td></tr>
 <tr><td>Formatted Timestamp</td><td>DateTime</td><td>Localized</td></tr>
 <tr><td>Formattet Timestamp_end</td><td>DateTime</td><td>Localized</td></tr>
-<tr><td>Duration</td><td>Integer</td><td>Service interval</td></tr>
-<tr><td>Free</td><td>Integer</td><td>Nr of free resources</td></tr>
+<tr><td>Free</td><td>Integer</td><td>Free capacity</td></tr>
 <tr><td>Open Resources</td><td>Array</td><td>Ids of open resources</td></tr>
 <tr><td>Available Resources</td><td>Array</td><td>Ids of resources with availability</td></tr>
 </table>
-
-Capacity is currently not returned. If you require it please let us know.
 
 ## Listing
 
 ### Query Parameters
 
 <table>
-<tr><td>from</td><td>DateTime</td><td></td><td></td></tr>
-<tr><td>to</td><td>DateTime</td><td></td><td></td></tr>
+<tr><td>from</td><td>Date</td><td></td><td></td></tr>
+<tr><td>to</td><td>Date</td><td></td><td></td></tr>
 <tr><td>selected_resources</td><td>Array</td><td></td><td></td></tr>
 <tr><td>only_free</td><td>Boolean</td><td></td><td>Only return timeslots with availability</td></tr>
 </table>
