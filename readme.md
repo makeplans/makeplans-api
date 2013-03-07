@@ -329,7 +329,7 @@ National Id No is also currently not unique or used as identificator for a perso
 <tr><td>Phone number formatted</td><td>String</td><td>Not required. Phone number with international code and no spaces.</td></tr>
 <tr><td>External id</td><td>String</td><td>Not required</td></tr>
 <tr><td>Custom Data</td><td>Array</td><td>Not required. Key/value. Stored as strings.</td></tr>
-<tr><td>Date Of Birth</td><td>Datetime</td><td>Not required</td></tr>
+<tr><td>Date Of Birth</td><td>Date</td><td>Not required</td></tr>
 <tr><td>National Id No</td><td>String</td><td>Not required.</td></tr>
 </table>
 
