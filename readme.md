@@ -184,8 +184,8 @@ Response
         "slot": {
             "timestamp": "2013-03-08T10:00:00+00:00",
             "timestamp_end": "2013-03-08T10:15:00+00:00",
-            "formatted_timestamp": "fredag,  8. mars 2013, 10:00",
-            "formatted_timestamp_end": "fredag,  8. mars 2013, 10:15",
+            "formatted_timestamp": "Friday, March  8, 2013, 10:00 AM",
+            "formatted_timestamp_end": "Friday, March  8, 2013, 10:15 AM",
             "free": 1,
             "open_resources": [
                 1
@@ -357,7 +357,7 @@ Response
 [
     {
         "person": {
-            "created_at": "2013-02-25T23:31:52+01:00",
+            "created_at": "2012-09-20T15:34:16+02:00",
             "custom_data": {},
             "date_of_birth": null,
             "email": "espen@makeplans.no",
@@ -366,7 +366,7 @@ Response
             "name": "Espen Antonsen",
             "national_id_no": null,
             "phonenumber": "",
-            "updated_at": "2013-02-25T23:31:52+01:00",
+            "updated_at": "2012-09-20T15:34:16+02:00",
             "phone_number_formatted": null
         }
     }
@@ -416,16 +416,16 @@ Response
         "service": {
             "active": true,
             "booking_capacity": 1,
-            "created_at": "2012-04-26T16:50:27+02:00",
+            "created_at": "2012-09-20T15:34:16+02:00",
             "day_booking_specify_time": false,
             "has_day_booking": false,
             "id": 1,
-            "interval": 15,
+            "interval": 20,
             "max_slots": null,
-            "price": "680.0",
+            "price": "115.0",
             "same_day": false,
-            "title": "Kiropraktikk",
-            "updated_at": "2012-07-11T12:21:26+02:00"
+            "title": "Chiropractor",
+            "updated_at": "2012-09-20T15:34:16+02:00"
         }
     }
 ]
@@ -466,8 +466,8 @@ Response
             "close_4": "20:00",
             "close_5": null,
             "close_6": null,
-            "created_at": "2012-04-26T16:50:27+02:00",
-            "id": 203,
+            "created_at": "2012-09-20T15:34:16+02:00",
+            "id": 1,
             "open_0": "10:00",
             "open_1": "10:00",
             "open_2": "10:00",
@@ -475,8 +475,8 @@ Response
             "open_4": "10:00",
             "open_5": null,
             "open_6": null,
-            "title": "Gunnar Knekkerud",
-            "updated_at": "2012-07-11T12:21:26+02:00"
+            "title": "Mr. Spine Twister",
+            "updated_at": "2012-09-20T15:34:16+02:00"
         }
     }
 ]
@@ -518,11 +518,11 @@ Response
 [
     {
         "provider": {
-            "created_at": "2011-10-18T13:49:55+02:00",
+            "created_at": "2012-09-20T15:34:16+02:00",
             "id": 1,
             "resource_id": 1,
             "service_id": 1,
-            "updated_at": "2011-10-18T13:49:55+02:00"
+            "updated_at": "2012-09-20T15:34:16+02:00"
         }
     }
 ]
