@@ -40,10 +40,6 @@ If your app is installable by end-users you should use oAuth. However we do not 
 
 You must include a User-Agent HTTP-header with the name of your application and a link to it or your email address so we can get in touch in case you're doing something wrong (so we may warn you before you're blacklisted) or something awesome (so we may congratulate you). Example: `User-Agent: NoPlans (http://noplans.makeplans.no)`.
 
-*Not yet implemented*
-
-If you don't supply this HTTP-header, you will get a 400 Bad Request.
-
 ## Example request and response
 
 ```shell
@@ -85,6 +81,8 @@ We recommened storing a timestamp for when the syncronisation was last performed
 
 ### 400 - Bad request
 
+*Not yet implemented*
+
 Please supply identification for your application.
 
 ### 401 - Unauthorized
@@ -93,7 +91,9 @@ Authentication error. Body will give explanation if there is authorisation issue
 
 ### 402 - Payment Required
 
-Trial period expired. Please pay your bill.
+*Not yet implemented*
+
+Please pay your bill.
 
 ### 403 - Forbidden
 
@@ -175,6 +175,28 @@ Slots are meant for listing available times on the MakePlans booking page. You c
 ## Listing
 
 `GET /services/{id}/slots` will return slots for specified service.
+
+Response
+
+```json
+[
+    {
+        "slot": {
+            "timestamp": "2013-03-08T10:00:00+00:00",
+            "timestamp_end": "2013-03-08T10:15:00+00:00",
+            "formatted_timestamp": "fredag,  8. mars 2013, 10:00",
+            "formatted_timestamp_end": "fredag,  8. mars 2013, 10:15",
+            "free": 1,
+            "open_resources": [
+                1
+            ],
+            "available_resources": [
+                1,2
+            ]
+        }
+    }
+]
+```
 
 ### Query Parameters
 
@@ -262,30 +284,13 @@ Response
             "custom_data": {},
             "expires_at": null,
             "external_id": null,
-            "id": 23,
+            "id": 1,
             "notes": "NYYYYY",
-            "person_id": 18,
+            "person_id": 1,
             "resource_id": 1,
             "service_id": 1,
             "state": "confirmed",
             "updated_at": "2012-09-20T15:34:16+02:00"
-        }
-    },
-    {
-        "booking": {
-            "booked_from": "2012-09-28T07:00:00+02:00",
-            "booked_to": "2012-09-28T08:00:00+02:00",
-            "created_at": "2012-09-20T15:26:03+02:00",
-            "custom_data": {},
-            "expires_at": null,
-            "external_id": null,
-            "id": 20,
-            "notes": "feafa",
-            "person_id": 15,
-            "resource_id": 1,
-            "service_id": 1,
-            "state": "confirmed",
-            "updated_at": "2012-09-20T15:26:03+02:00"
         }
     }
 ]
@@ -344,6 +349,30 @@ The primary key for a person is `id`. However the following fields are unique: `
 
 `National Id No` is currently not unique or used as identificator for a person. This will change.
 
+## Listing
+
+Response
+
+```json
+[
+    {
+        "person": {
+            "created_at": "2013-02-25T23:31:52+01:00",
+            "custom_data": {},
+            "date_of_birth": null,
+            "email": "espen@makeplans.no",
+            "external_id": null,
+            "id": 1,
+            "name": "Espen Antonsen",
+            "national_id_no": null,
+            "phonenumber": "",
+            "updated_at": "2013-02-25T23:31:52+01:00",
+            "phone_number_formatted": null
+        }
+    }
+]
+```
+
 ## Attributes
 
 <table>
@@ -377,6 +406,31 @@ Searching unique fields (email, phonenumber, external_id, uid+provider) will ret
 
 # Services
 
+## Listing
+
+Response
+
+```json
+[
+    {
+        "service": {
+            "active": true,
+            "booking_capacity": 1,
+            "created_at": "2012-04-26T16:50:27+02:00",
+            "day_booking_specify_time": false,
+            "has_day_booking": false,
+            "id": 1,
+            "interval": 15,
+            "max_slots": null,
+            "price": "680.0",
+            "same_day": false,
+            "title": "Kiropraktikk",
+            "updated_at": "2012-07-11T12:21:26+02:00"
+        }
+    }
+]
+```
+
 ## Attributes
 
 <table>
@@ -395,6 +449,38 @@ Searching unique fields (email, phonenumber, external_id, uid+provider) will ret
 </table>
 
 # Resources
+
+## Listing
+
+Response
+
+```json
+[
+    {
+        "resource": {
+            "capacity": 1,
+            "close_0": "20:00",
+            "close_1": "20:00",
+            "close_2": "20:00",
+            "close_3": "20:00",
+            "close_4": "20:00",
+            "close_5": null,
+            "close_6": null,
+            "created_at": "2012-04-26T16:50:27+02:00",
+            "id": 203,
+            "open_0": "10:00",
+            "open_1": "10:00",
+            "open_2": "10:00",
+            "open_3": "10:00",
+            "open_4": "10:00",
+            "open_5": null,
+            "open_6": null,
+            "title": "Gunnar Knekkerud",
+            "updated_at": "2012-07-11T12:21:26+02:00"
+        }
+    }
+]
+```
 
 ## Attributes
 
@@ -423,6 +509,24 @@ Searching unique fields (email, phonenumber, external_id, uid+provider) will ret
 # Providers
 
 Resources provides services. This link is called a provider.
+
+## Listing
+
+Response
+
+```json
+[
+    {
+        "provider": {
+            "created_at": "2011-10-18T13:49:55+02:00",
+            "id": 1,
+            "resource_id": 1,
+            "service_id": 1,
+            "updated_at": "2011-10-18T13:49:55+02:00"
+        }
+    }
+]
+```
 
 ## Attributes
 
