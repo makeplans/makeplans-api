@@ -285,7 +285,7 @@ Response
             "expires_at": null,
             "external_id": null,
             "id": 1,
-            "notes": "NYYYYY",
+            "notes": "Very handsome client",
             "person_id": 1,
             "resource_id": 1,
             "service_id": 1,
