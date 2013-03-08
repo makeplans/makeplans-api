@@ -2,8 +2,6 @@
 
 MakePlans provides a fairly standard REST API. The base URL is `https://youraccount.makeplans.no/api/`. All requests are done over HTTPS.
 
-All data is UTF-8.
-
 ## Versions
 
 The current version of the API is version 1. The versioning scheme is as follows: `/api/v1/` The most recent version of the API is always at `/api/`. So all calls to `/api/resources` are redirected to the current version, at the time being: `/api/v1/resources`.
@@ -12,17 +10,23 @@ Please keep up to date with the API as older versions may be deprecated.
 
 All paths in the rest of this document uses `/api/v1/` as base path.
 
-## Formats
+## Data formats
 
 The API supports JSON and XML for input and output.
 
+We recommend JSON for output and normal form-data for input.
+
+The format of the output data is provided as is and the referenece is this document. We do not use XML Schema. Any additional attributes such as 'type' in XML must be considered only as hints.
+
+All data is UTF-8.
+
 ### Output
 
-To specify JSON as output use HTTP-header `Accept: application/json`. Output can also be defined by using extension in the path: `/resources.json`. Multiple items is returned as an array.
+To specify JSON as output use HTTP-header `Accept: application/json`. Output can also be defined by using extension in the path: `/resources.json` but it is recommended to use `/resources` and specify output format in the HTTP-header. Multiple items is returned as an array.
 
 ### Input
 
-To specify JSON as input use HTTP-header `Content-Type: application/json`. The body must be JSON-formatted and include the object with required attributes. Alternatively you can use normal form data as input, in that case do not specify the Content-type HTTP-header. Form values are specified like this: `resource[title]=Unicorn`. Normal form input is preferred over JSON/XML.
+To specify JSON as input use HTTP-header `Content-Type: application/json`. The body must be JSON-formatted and include the object with required attributes. Alternatively you can use normal form data as input, in that case do not specify the Content-type HTTP-header. Form values are specified like this: `resource[title]=Unicorn`. Normal form input is preferred over JSON/XML to avoid parser issues.
 
 All parameters that are not input for creating or updating objects should be sent as normal URL parameters. Example: `/bookings?page=2&resources_id=1`.
 
@@ -34,9 +38,11 @@ If your app is installable by end-users you should use oAuth. However we do not 
 
 ## Identification
 
+You must include a User-Agent HTTP-header with the name of your application and a link to it or your email address so we can get in touch in case you're doing something wrong (so we may warn you before you're blacklisted) or something awesome (so we may congratulate you). Example: `User-Agent: NoPlans (http://noplans.makeplans.no)`.
+
 *Not yet implemented*
 
-You must include a User-Agent header with the name of your application and a link to it or your email address so we can get in touch in case you're doing something wrong (so we may warn you before you're blacklisted) or something awesome (so we may congratulate you). Example: `User-Agent: NoPlans (http://noplans.makeplans.no)`. If you don't supply this HTTP-header, you will get a 400 Bad Request.
+If you don't supply this HTTP-header, you will get a 400 Bad Request.
 
 ## Example request and response
 
@@ -57,12 +63,25 @@ curl -u APIKEY: \
   https://youraccount.makeplans.no/api/v1/resources
 ```
 
+## Syncronisation
+
+Synchronisation with another system can cause issues. First pick either MakePlans or the other system as a master. If the other system is chosen as a master then we recommend the following:
+
+The 'confirmation by administrator' setting for bookings should be enabled on the account. The synchronisation should then retrieve unprocessed bookings and process them (confirm/decline). This will ensure you can handle any changes occured in the other system since the last syncronisation with MakePlans. New unprocessed bookings must be processed often (every 1-5 minutes) to ensure confirmations are sent out quickly to the end-user after requesting a new reservation.
+
+*NEVER* delete any data in MakePlans to make it easier to adapt to the other system. MakePlans is a customer facing booking application. End-users (stored as people) can change and cancel bookings, thus any modifications or destruction of core data should not occur. Bookings are stored with a history (log) and there is a link between a person and bookings. MakePlans make use of this data and all this data must be kept to ensure the booking process in MakePlans works as expected for the end-user.
+
+Expect all booking and person data to be changed at any time.
+
+We recommened storing a timestamp for when the syncronisation was last performed. When the syncronisation is performed again this timestamp can be used to fetch any changes (i.e. the paramater `since` for bookings).
+
 ## Client libraries
 
 * CakePHP: https://github.com/espen/CakePHP-MakePlans-Plugin
 
-
 ## Errors
+
+4xx errors means you made a mistake and you need to adjust your request.
 
 ### 400 - Bad request
 
@@ -120,7 +139,7 @@ Custom data are stored as key/value. All values are stored as strings. Custom da
 
 *Not yet implemented*
 
-A webhook is simply a user-defined callback in the form of an HTTP POST, which is invoked when something happens.
+A webhook is simply a user-defined callback in the form of an HTTP POST which is invoked when something happens.
 So whenever a new booking is created in MakePlans we can send a POST request to the URL you specify. The body will include the new booking.
 
 ## Available objects
@@ -137,7 +156,7 @@ So whenever a new booking is created in MakePlans we can send a POST request to 
 
 # Slots
 
-Slots are not a physical object in MakePlans. It is a virtual representation of available times based on attributes from resources and services. I.e. if a resource is open 8am to 16pm and selected service has interval of 60 minutes, slots will return an array of all time intervals (8am-9am, 9am-10am etc.) and indicate which recoures are available.
+Slots are not physical objects in MakePlans. It is a virtual representation of available times based on attributes from resources and services. I.e. if a resource is open 8am to 16pm and selected service has interval of 60 minutes, slots will return an array of all time intervals (8am-9am, 9am-10am etc.) and indicate which recoures are available.
 
 Slots are meant for listing available times on the MakePlans booking page. You can however make bookings at any time and with any length - as long as the resource is available off course.
 
@@ -154,6 +173,8 @@ Slots are meant for listing available times on the MakePlans booking page. You c
 </table>
 
 ## Listing
+
+`GET /services/{id}/slots` will return slots for specified service.
 
 ### Query Parameters
 
@@ -246,6 +267,7 @@ Response
             "person_id": 18,
             "resource_id": 1,
             "service_id": 1,
+            "state": "confirmed",
             "updated_at": "2012-09-20T15:34:16+02:00"
         }
     },
@@ -262,6 +284,7 @@ Response
             "person_id": 15,
             "resource_id": 1,
             "service_id": 1,
+            "state": "confirmed",
             "updated_at": "2012-09-20T15:26:03+02:00"
         }
     }
@@ -291,11 +314,15 @@ Example JSON response
 
 To add a new person along with a booking you must use populate `person_attributes`. MakePlans will match to an existing person based on email or phone number (in that order).
 
-## Confirmation
+## Process bookings awaiting confirmation
 
 `PUT /bookings/{booking_id}/confirm` will confirm a booking.
 
 `PUT /bookings/{booking_id}/decline` will decline a booking.
+
+## Cancel a booking
+
+`PUT /bookings/{booking_id}/cancel` will cancel a booking.
 
 ## Update booking
 
@@ -307,15 +334,15 @@ To add a new person along with a booking you must use populate `person_attribute
 
 Deleting a booking will set it to state=deleted and active=false. It will not be visible in listing, only when requesting `GET /bookings/all` or by requesting the booking directly `GET /bookings/{booking_id}`.
 
+Do not use this method if the booking is rescheduled or cancelled.
+
 # People
 
-The primary key for a person is the ID. However the following fields are unique: email, phone number and provider+uid. There are no specific requirements for input but a person needs to have either name, email or phone number.
+The primary key for a person is `id`. However the following fields are unique: `email`, `phone number` and `provider`+`uid`. There are no specific requirements for input but a person needs to have either name, email or phone number.
 
 *Not yet implemented*
 
-External_id currently not unique in our database. Due to external circrumstances it will remain so until those issues are fixed. We plan to constrain external_id to be unique and you should treat it as so.
-
-National Id No is also currently not unique or used as identificator for a person.
+`National Id No` is currently not unique or used as identificator for a person. This will change.
 
 ## Attributes
 
@@ -416,6 +443,7 @@ Information and settings for your account.
 
 <table>
 <tr><td>Id</td><td>Integer</td><td>Automatically set</td></tr>
+<tr><td>Name</td><td>String</td><td>Required</td></tr>
 <tr><td>Created_at</td><td>Datetime</td><td>Automatically set</td></tr>
 <tr><td>Updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
 </tabøe>
