@@ -368,7 +368,7 @@ The primary key for a person is `id`. However the following fields are unique: `
 
 ## Listing
 
-Searching unique fields (email, phonenumber, external_id, uid+provider) will return only one result if found.
+Searching unique fields (`email`, `phonenumber`, `external_id`, `uid`+`provider`) will return only one result if found.
 
 Response
 
