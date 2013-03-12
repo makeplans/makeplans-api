@@ -168,8 +168,8 @@ Slots are meant for listing available times on the MakePlans booking page. You c
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
 <tr><td>timestamp</td><td>DateTime</td><td>Start</td></tr>
 <tr><td>timestamp_end</td><td>DateTime</td><td>End</td></tr>
-<tr><td>formatted_timestamp</td><td>DateTime</td><td>Localized</td></tr>
-<tr><td>formattet_timestamp_end</td><td>DateTime</td><td>Localized</td></tr>
+<tr><td>formatted_timestamp</td><td>DateTime</td><td>Human readable format</td></tr>
+<tr><td>formattet_timestamp_end</td><td>DateTime</td><td>Human readable format</td></tr>
 <tr><td>free</td><td>Integer</td><td>Free capacity</td></tr>
 <tr><td>open_resources</td><td>Array</td><td>Ids of open resources</td></tr>
 <tr><td>available_resources</td><td>Array</td><td>Ids of resources with availability</td></tr>
@@ -355,7 +355,26 @@ The primary key for a person is `id`. However the following fields are unique: `
 
 `National Id No` is currently not unique or used as identificator for a person. This will change.
 
+## Attributes
+
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
+<tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>name</td><td>String</td><td>Not required*</td></tr>
+<tr><td>email</td><td>String</td><td>Not required*</td></tr>
+<tr><td>phone_number</td><td>String</td><td>Not required*. Phone number as stored.</td></tr>
+<tr><td>phone_number_formatted</td><td>String</td><td>Not required. Phone number with international code and no spaces.</td></tr>
+<tr><td>external_id</td><td>String</td><td>Not required</td></tr>
+<tr><td>custom_data</td><td>Array</td><td>Not required. Key/value. Stored as strings.</td></tr>
+<tr><td>date_of_birth</td><td>Date</td><td>Not required</td></tr>
+<tr><td>National_id_no</td><td>String</td><td>Not required.</td></tr>
+</table>
+
 ## Listing
+
+Searching unique fields (email, phonenumber, external_id, uid+provider) will return only one result if found.
 
 Response
 
@@ -379,27 +398,6 @@ Response
 ]
 ```
 
-## Attributes
-
-<table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
-<tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>name</td><td>String</td><td>Not required*</td></tr>
-<tr><td>email</td><td>String</td><td>Not required*</td></tr>
-<tr><td>phone_number</td><td>String</td><td>Not required*. Phone number as stored.</td></tr>
-<tr><td>phone_number_formatted</td><td>String</td><td>Not required. Phone number with international code and no spaces.</td></tr>
-<tr><td>external_id</td><td>String</td><td>Not required</td></tr>
-<tr><td>custom_data</td><td>Array</td><td>Not required. Key/value. Stored as strings.</td></tr>
-<tr><td>date_of_birth</td><td>Date</td><td>Not required</td></tr>
-<tr><td>National_id_no</td><td>String</td><td>Not required.</td></tr>
-</table>
-
-## Listing
-
-Searching unique fields (email, phonenumber, external_id, uid+provider) will return only one result if found.
-
 ### Query Parameters
 
 <table>
@@ -413,6 +411,24 @@ Searching unique fields (email, phonenumber, external_id, uid+provider) will ret
 </table>
 
 # Services
+
+## Attributes
+
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
+<tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>title</td><td>String</td><td>Required</td></tr>
+<tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
+<tr><td>booking_capacity</td><td>Integer</td><td>Not required</td></tr>
+<tr><td>day_booking_specify_time</td><td>Boolean</td><td>Not Required (default false)</td></tr>
+<tr><td>has_day_booking</td><td>Boolean</td><td>Not required (default false)</td></tr>
+<tr><td>interval</td><td>Integer</td><td>Not required (default 60)</td></tr>
+<tr><td>max_slots</td><td>Integer</td><td>Not required (default 1)</td></tr>
+<tr><td>price</td><td>Decimal</td><td>Not required. Uses currency on client.</td></tr>
+<tr><td>same_day</td><td>Boolean</td><td>Not required (default false)</td></tr>
+</table>
 
 ## Listing
 
@@ -439,6 +455,8 @@ Response
 ]
 ```
 
+# Resources
+
 ## Attributes
 
 <table>
@@ -448,16 +466,21 @@ Response
 <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
 <tr><td>title</td><td>String</td><td>Required</td></tr>
 <tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
-<tr><td>booking_capacity</td><td>Integer</td><td>Not required</td></tr>
-<tr><td>day_booking_specify_time</td><td>Boolean</td><td>Not Required (default false)</td></tr>
-<tr><td>has_day_booking</td><td>Boolean</td><td>Not required (default false)</td></tr>
-<tr><td>interval</td><td>Integer</td><td>Not required (default 60)</td></tr>
-<tr><td>max_slots</td><td>Integer</td><td>Not required (default 1)</td></tr>
-<tr><td>price</td><td>Decimal</td><td>Not required. Uses currency on client.</td></tr>
-<tr><td>same_day</td><td>Boolean</td><td>Not required (default false)</td></tr>
+<tr><td>open_0</td><td>Time</td><td></td></tr>
+<tr><td>open_1</td><td>Time</td><td></td></tr>
+<tr><td>open_2</td><td>Time</td><td></td></tr>
+<tr><td>open_3</td><td>Time</td><td></td></tr>
+<tr><td>open_4</td><td>Time</td><td></td></tr>
+<tr><td>open_5</td><td>Time</td><td></td></tr>
+<tr><td>open_6</td><td>Time</td><td></td></tr>
+<tr><td>close_0</td><td>Time</td><td></td></tr>
+<tr><td>close_1</td><td>Time</td><td></td></tr>
+<tr><td>close_2</td><td>Time</td><td></td></tr>
+<tr><td>close_3</td><td>Time</td><td></td></tr>
+<tr><td>close_4</td><td>Time</td><td></td></tr>
+<tr><td>close_5</td><td>Time</td><td></td></tr>
+<tr><td>close_6</td><td>Time</td><td></td></tr>
 </table>
-
-# Resources
 
 ## Listing
 
@@ -491,6 +514,10 @@ Response
 ]
 ```
 
+# Providers
+
+Resources provides services. This link is called a provider.
+
 ## Attributes
 
 <table>
@@ -498,27 +525,10 @@ Response
 <tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
 <tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
 <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>title</td><td>String</td><td>Required</td></tr>
 <tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
-<tr><td>open_0</td><td>Time</td><td></td></tr>
-<tr><td>open_1</td><td>Time</td><td></td></tr>
-<tr><td>open_2</td><td>Time</td><td></td></tr>
-<tr><td>open_3</td><td>Time</td><td></td></tr>
-<tr><td>open_4</td><td>Time</td><td></td></tr>
-<tr><td>open_5</td><td>Time</td><td></td></tr>
-<tr><td>open_6</td><td>Time</td><td></td></tr>
-<tr><td>close_0</td><td>Time</td><td></td></tr>
-<tr><td>close_1</td><td>Time</td><td></td></tr>
-<tr><td>close_2</td><td>Time</td><td></td></tr>
-<tr><td>close_3</td><td>Time</td><td></td></tr>
-<tr><td>close_4</td><td>Time</td><td></td></tr>
-<tr><td>close_5</td><td>Time</td><td></td></tr>
-<tr><td>close_6</td><td>Time</td><td></td></tr>
+<tr><td>resource_id</td><td>Integer</td><td>Required</td></tr>
+<tr><td>service_id</td><td>Integer</td><td>Required</td></tr>
 </table>
-
-# Providers
-
-Resources provides services. This link is called a provider.
 
 ## Listing
 
@@ -537,18 +547,6 @@ Response
     }
 ]
 ```
-
-## Attributes
-
-<table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
-<tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
-<tr><td>resource_id</td><td>Integer</td><td>Required</td></tr>
-<tr><td>service_id</td><td>Integer</td><td>Required</td></tr>
-</table>
 
 # Client
 
