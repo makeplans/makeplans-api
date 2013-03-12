@@ -305,12 +305,12 @@ Response
 
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>service_id</td><td>Integer</td><td>service_id</td><td></td></tr>
-<tr><td>resource_id</td><td>Integer</td><td>resource_id</td><td></td></tr>
-<tr><td>external_id</td><td>String</td><td>external_id</td><td></td></tr>
-<tr><td>start</td><td>DateTime</td><td>booked_from</td><td>Query bookings within datetime range.</td></tr>
-<tr><td>end</td><td>DateTime</td><td>booked_to</td><td>Query bookings within datetime range.</td></tr>
-<tr><td>since</td><td>DateTime</td><td>updated_at</td><td>Query bookings after timestamp.</td></tr>
+<tr><td>service_id</td><td>Integer</td><td></td></tr>
+<tr><td>resource_id</td><td>Integer</td><td></td></tr>
+<tr><td>external_id</td><td>String</td><td></td></tr>
+<tr><td>start</td><td>DateTime</td><td>booked_from after param</td></tr>
+<tr><td>end</td><td>DateTime</td><td>booked_to before param</td></tr>
+<tr><td>since</td><td>DateTime</td><td>updated_at after param</td></tr>
 </table>
 
 ## Add new booking
@@ -404,12 +404,12 @@ Searching unique fields (email, phonenumber, external_id, uid+provider) will ret
 
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>email</td><td>String</td><td>email</td><td>Only exact match</td></tr>
-<tr><td>phonenumber</td><td>String</td><td>phonenumber</td><td>Only exact match</td></tr>
-<tr><td>external_id</td><td>String</td><td>external_id</td><td>Only exact match</td></tr>
-<tr><td>name</td><td>String</td><td>name</td><td></td></tr>
-<tr><td>date_of_birth</td><td>Date</td><td>date_of_birth</td><td></td></tr>
-<tr><td>national_id_no</td><td>String</td><td>national_id_no</td><td></td></tr>
+<tr><td>email</td><td>String</td><td></td></tr>
+<tr><td>phonenumber</td><td>String</td><td></td></tr>
+<tr><td>external_id</td><td>String</td><td></td></tr>
+<tr><td>name</td><td>String</td><td></td></tr>
+<tr><td>date_of_birth</td><td>Date</td><td></td></tr>
+<tr><td>national_id_no</td><td>String</td><td></td></tr>
 </table>
 
 # Services
