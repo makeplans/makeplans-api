@@ -168,8 +168,8 @@ Slots are meant for listing available times on the MakePlans booking page. You c
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
 <tr><td>timestamp</td><td>DateTime</td><td>Start</td></tr>
 <tr><td>timestamp_end</td><td>DateTime</td><td>End</td></tr>
-<tr><td>formatted_timestamp</td><td>DateTime</td><td>Human readable format</td></tr>
-<tr><td>formattet_timestamp_end</td><td>DateTime</td><td>Human readable format</td></tr>
+<tr><td>formatted_timestamp</td><td>String</td><td>Human readable format</td></tr>
+<tr><td>formattet_timestamp_end</td><td>String</td><td>Human readable format</td></tr>
 <tr><td>free</td><td>Integer</td><td>Free capacity</td></tr>
 <tr><td>open_resources</td><td>Array</td><td>Ids of open resources</td></tr>
 <tr><td>available_resources</td><td>Array</td><td>Ids of resources with availability</td></tr>
