@@ -20,6 +20,8 @@ The format of the output data is provided as is and the referenece is this docum
 
 All data is UTF-8.
 
+All examples and object attributes in this documentation are JSON. They are lowercase and use underscore as seperator. XML element names uses hypen instead of underscore (`created-at` instead of `created_at`).
+
 ### Output
 
 To specify JSON as output use HTTP-header `Accept: application/json`. Output can also be defined by using extension in the path: `/resources.json` but it is recommended to use `/resources` and specify output format in the HTTP-header. Multiple items is returned as an array.
@@ -163,13 +165,14 @@ Slots are meant for listing available times on the MakePlans booking page. You c
 ## Attributes
 
 <table>
-<tr><td>Timestamp</td><td>DateTime</td><td>Start</td></tr>
-<tr><td>Timestamp_end</td><td>DateTime</td><td>End</td></tr>
-<tr><td>Formatted Timestamp</td><td>DateTime</td><td>Localized</td></tr>
-<tr><td>Formattet Timestamp_end</td><td>DateTime</td><td>Localized</td></tr>
-<tr><td>Free</td><td>Integer</td><td>Free capacity</td></tr>
-<tr><td>Open Resources</td><td>Array</td><td>Ids of open resources</td></tr>
-<tr><td>Available Resources</td><td>Array</td><td>Ids of resources with availability</td></tr>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>timestamp</td><td>DateTime</td><td>Start</td></tr>
+<tr><td>timestamp_end</td><td>DateTime</td><td>End</td></tr>
+<tr><td>formatted_timestamp</td><td>DateTime</td><td>Localized</td></tr>
+<tr><td>formattet_timestamp_end</td><td>DateTime</td><td>Localized</td></tr>
+<tr><td>free</td><td>Integer</td><td>Free capacity</td></tr>
+<tr><td>open_resources</td><td>Array</td><td>Ids of open resources</td></tr>
+<tr><td>available_resources</td><td>Array</td><td>Ids of resources with availability</td></tr>
 </table>
 
 ## Listing
@@ -201,10 +204,11 @@ Response
 ### Query Parameters
 
 <table>
-<tr><td>from</td><td>Date</td><td></td><td></td></tr>
-<tr><td>to</td><td>Date</td><td></td><td></td></tr>
-<tr><td>selected_resources</td><td>Array</td><td></td><td></td></tr>
-<tr><td>only_free</td><td>Boolean</td><td></td><td>Only return timeslots with availability</td></tr>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>from</td><td>Date</td><td>Default: today 00:00.</td></tr>
+<tr><td>to</td><td>Date</td><td>Default: tomorrow 00:00.</td></tr>
+<tr><td>selected_resources</td><td>Array</td><td>Default: all active providers.</td></tr>
+<tr><td>only_free</td><td>Boolean</td><td>Only return timeslots with availability</td></tr>
 </table>
 
 # Bookings
@@ -212,27 +216,28 @@ Response
 ## Attributes
 
 <table>
-<tr><td>Id</td><td>Integer</td><td>Automatically set</td></tr>
-<tr><td>Service_id</td><td>Integer</td><td>Not required</td></tr>
-<tr><td>Resource_id</td><td>Integer</td><td>Required</td></tr>
-<tr><td>Person_id</td><td>Integer</td><td>Not required</td></tr>
-<tr><td>Booked_from</td><td>Datetime</td><td>Required</td></tr>
-<tr><td>Booked_to</td><td>Datetime</td><td>Required</td></tr>
-<tr><td>Created_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>Updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>Expires_at</td><td>Datetime</td><td>Not required</td></tr>
-<tr><td>Notes</td><td>Text</td><td>Not required</td></tr>
-<tr><td>Reminder_at</td><td>DateTime</td><td>Not required</td></tr>
-<tr><td>Reminded_at</td><td>DateTime</td><td>Not required</td></tr>
-<tr><td>Paid_at</td><td>DateTime</td><td>Not required</td></tr>
-<tr><td>External_id</td><td>String</td><td>Not required</td></tr>
-<tr><td>Google_order_number</td><td>String</td><td>Not required</td></tr>
-<tr><td>Custom_data</td><td>Array</td><td>Not required.</td></tr>
-<tr><td>Created_by</td><td>Integer</td><td>Automatically set</td></tr>
-<tr><td>Updated_by</td><td>Integer</td><td>Automatically set</td></tr>
-<tr><td>State</td><td>Text</td><td>Automatically set</td></tr>
-<tr><td>Active</td><td>Boolean</td><td>Automatically set</td></tr>
-<tr><td>Person attributes</td><td>Object</td><td>See person</td></tr>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
+<tr><td>created_by</td><td>Integer</td><td>Automatically set</td></tr>
+<tr><td>updated_by</td><td>Integer</td><td>Automatically set</td></tr>
+<tr><td>service_id</td><td>Integer</td><td>Not required</td></tr>
+<tr><td>resource_id</td><td>Integer</td><td>Required</td></tr>
+<tr><td>person_id</td><td>Integer</td><td>Not required</td></tr>
+<tr><td>booked_from</td><td>Datetime</td><td>Required</td></tr>
+<tr><td>booked_to</td><td>Datetime</td><td>Required</td></tr>
+<tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>expires_at</td><td>Datetime</td><td>Not required</td></tr>
+<tr><td>notes</td><td>Text</td><td>Not required</td></tr>
+<tr><td>reminder_at</td><td>DateTime</td><td>Not required</td></tr>
+<tr><td>reminded_at</td><td>DateTime</td><td>Not required</td></tr>
+<tr><td>paid_at</td><td>DateTime</td><td>Not required</td></tr>
+<tr><td>external_id</td><td>String</td><td>Not required</td></tr>
+<tr><td>google_order_number</td><td>String</td><td>Not required</td></tr>
+<tr><td>custom_data</td><td>Array</td><td>Not required.</td></tr>
+<tr><td>state</td><td>Text</td><td>Automatically set</td></tr>
+<tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
+<tr><td>person_attributes</td><td>Object</td><td>See person</td></tr>
 </table>
 
 ## States
@@ -299,9 +304,10 @@ Response
 ### Query Parameters
 
 <table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
 <tr><td>service_id</td><td>Integer</td><td>service_id</td><td></td></tr>
 <tr><td>resource_id</td><td>Integer</td><td>resource_id</td><td></td></tr>
-<tr><td>external_id</td><td>Integer</td><td>external_id</td><td></td></tr>
+<tr><td>external_id</td><td>String</td><td>external_id</td><td></td></tr>
 <tr><td>start</td><td>DateTime</td><td>booked_from</td><td>Query bookings within datetime range.</td></tr>
 <tr><td>end</td><td>DateTime</td><td>booked_to</td><td>Query bookings within datetime range.</td></tr>
 <tr><td>since</td><td>DateTime</td><td>updated_at</td><td>Query bookings after timestamp.</td></tr>
@@ -376,17 +382,18 @@ Response
 ## Attributes
 
 <table>
-<tr><td>Id</td><td>Integer</td><td>Automatically set</td></tr>
-<tr><td>Created_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>Updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>Name</td><td>String</td><td>Not required*</td></tr>
-<tr><td>Email</td><td>String</td><td>Not required*</td></tr>
-<tr><td>Phone number</td><td>String</td><td>Not required*. Phone number as stored.</td></tr>
-<tr><td>Phone number formatted</td><td>String</td><td>Not required. Phone number with international code and no spaces.</td></tr>
-<tr><td>External id</td><td>String</td><td>Not required</td></tr>
-<tr><td>Custom Data</td><td>Array</td><td>Not required. Key/value. Stored as strings.</td></tr>
-<tr><td>Date Of Birth</td><td>Date</td><td>Not required</td></tr>
-<tr><td>National Id No</td><td>String</td><td>Not required.</td></tr>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
+<tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>name</td><td>String</td><td>Not required*</td></tr>
+<tr><td>email</td><td>String</td><td>Not required*</td></tr>
+<tr><td>phone_number</td><td>String</td><td>Not required*. Phone number as stored.</td></tr>
+<tr><td>phone_number_formatted</td><td>String</td><td>Not required. Phone number with international code and no spaces.</td></tr>
+<tr><td>external_id</td><td>String</td><td>Not required</td></tr>
+<tr><td>custom_data</td><td>Array</td><td>Not required. Key/value. Stored as strings.</td></tr>
+<tr><td>date_of_birth</td><td>Date</td><td>Not required</td></tr>
+<tr><td>National_id_no</td><td>String</td><td>Not required.</td></tr>
 </table>
 
 ## Listing
@@ -396,6 +403,7 @@ Searching unique fields (email, phonenumber, external_id, uid+provider) will ret
 ### Query Parameters
 
 <table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
 <tr><td>email</td><td>String</td><td>email</td><td>Only exact match</td></tr>
 <tr><td>phonenumber</td><td>String</td><td>phonenumber</td><td>Only exact match</td></tr>
 <tr><td>external_id</td><td>String</td><td>external_id</td><td>Only exact match</td></tr>
@@ -434,18 +442,19 @@ Response
 ## Attributes
 
 <table>
-<tr><td>Id</td><td>Integer</td><td>Automatically set</td></tr>
-<tr><td>Created_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>Updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>Title</td><td>String</td><td>Required</td></tr>
-<tr><td>Active</td><td>Boolean</td><td>Automatically set</td></tr>
-<tr><td>Booking capacity</td><td>Integer</td><td>Not required</td></tr>
-<tr><td>Day booking specify time</td><td>Boolean</td><td>Not Required (default false)</td></tr>
-<tr><td>Has day booking</td><td>Boolean</td><td>Not required (default false)</td></tr>
-<tr><td>Interval</td><td>Integer</td><td>Not required (default 60)</td></tr>
-<tr><td>Max slots</td><td>Integer</td><td>Not required (default 1)</td></tr>
-<tr><td>Price</td><td>Decimal</td><td>Not required. Uses currency on client.</td></tr>
-<tr><td>Same day</td><td>Boolean</td><td>Not required (default false)</td></tr>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
+<tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>title</td><td>String</td><td>Required</td></tr>
+<tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
+<tr><td>booking_capacity</td><td>Integer</td><td>Not required</td></tr>
+<tr><td>day_booking_specify_time</td><td>Boolean</td><td>Not Required (default false)</td></tr>
+<tr><td>has_day_booking</td><td>Boolean</td><td>Not required (default false)</td></tr>
+<tr><td>interval</td><td>Integer</td><td>Not required (default 60)</td></tr>
+<tr><td>max_slots</td><td>Integer</td><td>Not required (default 1)</td></tr>
+<tr><td>price</td><td>Decimal</td><td>Not required. Uses currency on client.</td></tr>
+<tr><td>same_day</td><td>Boolean</td><td>Not required (default false)</td></tr>
 </table>
 
 # Resources
@@ -485,25 +494,26 @@ Response
 ## Attributes
 
 <table>
-<tr><td>Id</td><td>Integer</td><td>Automatically set</td></tr>
-<tr><td>Created_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>Updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>Title</td><td>String</td><td>Required</td></tr>
-<tr><td>Active</td><td>Boolean</td><td>Automatically set</td></tr>
-<tr><td>Open_0</td><td>Time</td><td></td></tr>
-<tr><td>Open_1</td><td>Time</td><td></td></tr>
-<tr><td>Open_2</td><td>Time</td><td></td></tr>
-<tr><td>Open_3</td><td>Time</td><td></td></tr>
-<tr><td>Open_4</td><td>Time</td><td></td></tr>
-<tr><td>Open_5</td><td>Time</td><td></td></tr>
-<tr><td>Open_6</td><td>Time</td><td></td></tr>
-<tr><td>Close_0</td><td>Time</td><td></td></tr>
-<tr><td>Close_1</td><td>Time</td><td></td></tr>
-<tr><td>Close_2</td><td>Time</td><td></td></tr>
-<tr><td>Close_3</td><td>Time</td><td></td></tr>
-<tr><td>Close_4</td><td>Time</td><td></td></tr>
-<tr><td>Close_5</td><td>Time</td><td></td></tr>
-<tr><td>Close_6</td><td>Time</td><td></td></tr>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
+<tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>title</td><td>String</td><td>Required</td></tr>
+<tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
+<tr><td>open_0</td><td>Time</td><td></td></tr>
+<tr><td>open_1</td><td>Time</td><td></td></tr>
+<tr><td>open_2</td><td>Time</td><td></td></tr>
+<tr><td>open_3</td><td>Time</td><td></td></tr>
+<tr><td>open_4</td><td>Time</td><td></td></tr>
+<tr><td>open_5</td><td>Time</td><td></td></tr>
+<tr><td>open_6</td><td>Time</td><td></td></tr>
+<tr><td>close_0</td><td>Time</td><td></td></tr>
+<tr><td>close_1</td><td>Time</td><td></td></tr>
+<tr><td>close_2</td><td>Time</td><td></td></tr>
+<tr><td>close_3</td><td>Time</td><td></td></tr>
+<tr><td>close_4</td><td>Time</td><td></td></tr>
+<tr><td>close_5</td><td>Time</td><td></td></tr>
+<tr><td>close_6</td><td>Time</td><td></td></tr>
 </table>
 
 # Providers
@@ -531,12 +541,13 @@ Response
 ## Attributes
 
 <table>
-<tr><td>Id</td><td>Integer</td><td>Automatically set</td></tr>
-<tr><td>Created_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>Updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>Active</td><td>Boolean</td><td>Automatically set</td></tr>
-<tr><td>Resource Id</td><td>Integer</td><td>Required</td></tr>
-<tr><td>Service Id</td><td>Integer</td><td>Required</td></tr>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
+<tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
+<tr><td>resource_id</td><td>Integer</td><td>Required</td></tr>
+<tr><td>service_id</td><td>Integer</td><td>Required</td></tr>
 </table>
 
 # Client
@@ -546,8 +557,9 @@ Information and settings for your account.
 ## Attributes
 
 <table>
-<tr><td>Id</td><td>Integer</td><td>Automatically set</td></tr>
-<tr><td>Name</td><td>String</td><td>Required</td></tr>
-<tr><td>Created_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>Updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
-</tabøe>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
+<tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>name</td><td>String</td><td>Required</td></tr>
+</table>
