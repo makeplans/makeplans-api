@@ -2,6 +2,18 @@
 
 MakePlans provides a fairly standard REST API. The base URL is `https://youraccount.makeplans.no/api/`. All requests are done over HTTPS.
 
+## How to get started
+
+1) Sign up for a trial account in our test-environment: http://app.test.makeplans.net/client/new
+
+2) Enable the API and get the API-key from the account page.
+
+3) Read this documentation.
+
+4) Profit.
+
+When your integration is ready to be released then you can sign up for a real account at http://app.makeplans.net/client/new
+
 ## Versions
 
 The current version of the API is version 1. The versioning scheme is as follows: `/api/v1/` The most recent version of the API is always at `/api/`. So all calls to `/api/resources` are redirected to the current version, at the time being: `/api/v1/resources`.
@@ -67,7 +79,7 @@ Synchronisation with another system can cause issues. First pick either MakePlan
 
 The 'confirmation by administrator' setting for bookings should be enabled on the account. The synchronisation should then retrieve unprocessed bookings and process them (confirm/decline). This will ensure you can handle any changes occured in the other system since the last syncronisation with MakePlans. New unprocessed bookings must be processed often (every 1-5 minutes) to ensure confirmations are sent out quickly to the end-user after requesting a new reservation.
 
-*NEVER* delete any data in MakePlans to make it easier to adapt to the other system. MakePlans is a customer facing booking application. End-users (stored as people) can change and cancel bookings, thus any modifications or destruction of core data should not occur. Bookings are stored with a history (log) and there is a link between a person and bookings. MakePlans make use of this data and all this data must be kept to ensure the booking process in MakePlans works as expected for the end-user.
+**NEVER** delete any data in MakePlans to make it easier to adapt to the other system. MakePlans is a customer facing booking application. End-users (stored as people) can change and cancel bookings, thus any modifications or destruction of core data should not occur. Bookings are stored with a history (log) and there is a link between a person and bookings. MakePlans make use of this data and all this data must be kept to ensure the booking process in MakePlans works as expected for the end-user.
 
 Expect all booking and person data to be changed at any time.
 
