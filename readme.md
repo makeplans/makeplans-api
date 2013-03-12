@@ -168,8 +168,8 @@ Slots are meant for listing available times on the MakePlans booking page. You c
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
 <tr><td>timestamp</td><td>DateTime</td><td>Start</td></tr>
 <tr><td>timestamp_end</td><td>DateTime</td><td>End</td></tr>
-<tr><td>formatted_timestamp</td><td>String</td><td>Human readable format</td></tr>
-<tr><td>formattet_timestamp_end</td><td>String</td><td>Human readable format</td></tr>
+<tr><td>formatted_timestamp</td><td>String</td><td>Localised human readable format</td></tr>
+<tr><td>formattet_timestamp_end</td><td>String</td><td>Localised human readable format</td></tr>
 <tr><td>free</td><td>Integer</td><td>Free capacity</td></tr>
 <tr><td>open_resources</td><td>Array</td><td>Ids of open resources</td></tr>
 <tr><td>available_resources</td><td>Array</td><td>Ids of resources with availability</td></tr>
@@ -218,15 +218,13 @@ Response
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
 <tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
-<tr><td>created_by</td><td>Integer</td><td>Automatically set</td></tr>
-<tr><td>updated_by</td><td>Integer</td><td>Automatically set</td></tr>
+<tr><td>created_by</td><td>DateTime</td><td>Automatically set</td></tr>
+<tr><td>updated_by</td><td>DateTime</td><td>Automatically set</td></tr>
 <tr><td>service_id</td><td>Integer</td><td>Not required</td></tr>
 <tr><td>resource_id</td><td>Integer</td><td>Required</td></tr>
 <tr><td>person_id</td><td>Integer</td><td>Not required</td></tr>
 <tr><td>booked_from</td><td>Datetime</td><td>Required</td></tr>
 <tr><td>booked_to</td><td>Datetime</td><td>Required</td></tr>
-<tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
 <tr><td>expires_at</td><td>Datetime</td><td>Not required</td></tr>
 <tr><td>notes</td><td>Text</td><td>Not required</td></tr>
 <tr><td>reminder_at</td><td>DateTime</td><td>Not required</td></tr>
