@@ -251,7 +251,7 @@ Response
 
 ### Normal state flow
 
-The normal booking flow when a customer initiates a new booking starts with `awaiting_verification`. If verification is required MakePlans sends out email or SMS for the customer to verify. When successfully verified the state is updated to `confirmed` or `awaiting_confirmation` if reservations requires confirmation by administrator. For confirmation it is the updated to `confirmed` as normally if confirmed, and to `declined` if it is not confirmed.
+The normal booking flow when a customer initiates a new booking starts with `awaiting_verification`. If verification is required MakePlans sends out email or SMS for the customer to verify. When successfully verified the state is updated to `confirmed` or `awaiting_confirmation` if reservations requires confirmation by administrator. For confirmation it is then updated to `confirmed` as normally if confirmed, and to `declined` if it is not confirmed.
 
 Bookings that have been confirmed and then cancelled, either by customer or administrator, are set to `cancelled`.
 
@@ -259,7 +259,7 @@ Bookings that are deleted are set to `deleted`.
 
 ## Active bookings
 
-Bookings with states: `awaiting_verification`, `awaiting_confirmation` and `confirmed`, are considered to be active. Bookings with state `awaiting_verification` will be updated with state verification_expired after the current time passes expires_at. However updating states rely on automatic tasks so you must use the active attribute to check whether a booking is active or not. Only active bookings will be returned unless you specify: a specific booking, a specific state such as bookings that are awaiting confirmation, to return all bookings for a resource or dates, or for a person.
+Bookings with states `awaiting_verification`, `awaiting_confirmation` or `confirmed` are considered to be active. Bookings with state `awaiting_verification` will be updated with state `verification_expired` after the current time passes `expires_at`. However updating states rely on automatic tasks so you must use the `active` attribute to check whether a booking is active or not. Only active bookings will be returned unless you specify: a booking by id, a specific state such as bookings that are awaiting confirmation, to return all bookings for a resource or dates, or for a person.
 
 ## Listing
 
@@ -273,7 +273,7 @@ Bookings with states: `awaiting_verification`, `awaiting_confirmation` and `conf
 
 `GET /bookings/unconfirmed` will return all unconfirmed bookings.
 
-`GET /bookings/all` will return all bookings of all states (including declined, cancelled, expired and deleted).
+`GET /bookings/all` will return all bookings of all states (including `declined`, `cancelled`, `expired` and `deleted`).
 
 Response
 
@@ -314,10 +314,6 @@ Response
 ## Add new booking
 
 `POST /bookings` will create a new booking
-
-Example JSON request
-
-Example JSON response
 
 ### Add new booking with new person
 
