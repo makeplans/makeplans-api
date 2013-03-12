@@ -1,8 +1,6 @@
 # MakePlans API - Version 1.0
 
-MakePlans provides a fairly standard REST API. The base URL is `https://youraccount.makeplans.no/api/`. All requests are done over HTTPS.
-
-## How to get started
+# Get started
 
 1) Sign up for a trial account in our test-environment: http://app.test.makeplans.net/client/new
 
@@ -14,7 +12,9 @@ MakePlans provides a fairly standard REST API. The base URL is `https://youracco
 
 When your integration is ready to be released then you can sign up for a real account at http://app.makeplans.net/client/new
 
-## Versions
+MakePlans provides a fairly standard REST API. The base URL is `https://youraccount.makeplans.no/api/` for production apps and `http://youraccount.test.makeplans.net/api/` for test apps. All requests in the production environment are done over HTTPS. Currently requests for the test environment and on the international site is done using normal HTTP (we plan to change this soon). The Norwegian version uses .no and the International version uses .net as TLD.
+
+## Versioning
 
 The current version of the API is version 1. The versioning scheme is as follows: `/api/v1/` The most recent version of the API is always at `/api/`. So all calls to `/api/resources` are redirected to the current version, at the time being: `/api/v1/resources`.
 
