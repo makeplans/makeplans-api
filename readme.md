@@ -16,11 +16,9 @@ MakePlans provides a fairly standard REST API. The base URL is `https://youracco
 
 ## Versioning
 
-The current version of the API is version 1. The versioning scheme is as follows: `/api/v1/` The most recent version of the API is always at `/api/`. So all calls to `/api/resources` are redirected to the current version, at the time being: `/api/v1/resources`.
+The current version of the API is version 1. The versioning scheme is as follows: `/api/v{version_number}/`. All paths in the rest of the document uses `/api/v1/` as base path.
 
 Please keep up to date with the API as older versions may be deprecated.
-
-All paths in the rest of this document uses `/api/v1/` as base path.
 
 ## Data formats
 
@@ -59,6 +57,7 @@ You must include a User-Agent HTTP-header with the name of your application and 
 ```shell
 curl -u APIKEY: \
   -H 'User-Agent: NoPlans (http://noplans.makeplans.no)' \
+  -H 'Accept: application/json' \
   https://youraccount.makeplans.no/api/v1/resources
 ```
 
@@ -66,8 +65,9 @@ To create something, it's the same deal except you also have to include the `Con
 
 ```shell
 curl -u APIKEY: \
-  -H 'Content-Type: application/json' \
   -H 'User-Agent: NoPlans (http://noplans.makeplans.no)' \
+  -H 'Accept: application/json' \
+  -H 'Content-Type: application/json' \
   -d '{ "resource" : { "title": "My new resource!" } }' \
   -X POST \
   https://youraccount.makeplans.no/api/v1/resources
