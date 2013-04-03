@@ -242,7 +242,7 @@ Response
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
 <tr><td>from</td><td>Date</td><td>Default: today 00:00.</td></tr>
 <tr><td>selected_resources</td><td>Array</td><td>Default: all active providers.</td></tr>
-</table>table>
+</table>
 
 # Bookings
 
