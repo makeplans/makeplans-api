@@ -42,6 +42,14 @@ To specify JSON as input use HTTP-header `Content-Type: application/json`. The b
 
 All parameters that are not input for creating or updating objects should be sent as normal URL parameters. Example: `/bookings?page=2&resources_id=1`.
 
+## Date handling
+
+All dates are specified in the ISO 8601 format. Timezone is included in the output and specified by the account. It is not necessary to specify timezone in the input as the account timezone will be used. The date format is also parsed based on the date format specified on the client.
+
+## Custom data
+
+Custom data are stored as key/value. All values are stored as strings. Custom data can be added to booking and person.
+
 ## Authentication
 
 MakePlans uses HTTP Basic Auth. The client has to enable the API first and you will find the API-Key in the account settings. The API-Key is the username and there is no password. MakePlans uses SSL and all requests over http will be redirected to https.
@@ -50,44 +58,43 @@ If your app is installable by end-users you should use oAuth. However we do not 
 
 ## Identification
 
-You must include a User-Agent HTTP-header with the name of your application and a link to it or your email address so we can get in touch in case you're doing something wrong (so we may warn you before you're blacklisted) or something awesome (so we may congratulate you). Example: `User-Agent: NoPlans (http://noplans.makeplans.no)`.
+You must include a User-Agent HTTP-header with the name of your application and a link to it or your email address so we can get in touch in case you're doing something wrong (so we may warn you before you're blacklisted) or something awesome (so we may congratulate you). Example: `User-Agent: YourAppName (http://example.com)`.
 
 ## Example request and response
 
 ```shell
 curl -u APIKEY: \
-  -H 'User-Agent: NoPlans (http://noplans.makeplans.no)' \
+  -H 'User-Agent: YourAppName (http://example.org)' \
   -H 'Accept: application/json' \
-  https://youraccount.makeplans.no/api/v1/resources
+  https://youraccount.makeplans.no/api/v1/services
 ```
 
-To create something, it's the same deal except you also have to include the `Content-Type` HTTP-header and the JSON data:
+To create something you have to make a POST:
 
 ```shell
 curl -u APIKEY: \
-  -H 'User-Agent: NoPlans (http://noplans.makeplans.no)' \
+  -H 'User-Agent: YourAppName (http://example.org)' \
   -H 'Accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{ "resource" : { "title": "My new resource!" } }' \
+  -d 'service[title]=My new service!&service[interval]=40' \
   -X POST \
-  https://youraccount.makeplans.no/api/v1/resources
+  https://youraccount.makeplans.no/api/v1/services
 ```
 
 ## Syncronisation
 
-Synchronisation with another system can cause issues. First pick either MakePlans or the other system as a master. If the other system is chosen as a master then we recommend the following:
-
-The 'confirmation by administrator' setting for bookings should be enabled on the account. The synchronisation should then retrieve unprocessed bookings and process them (confirm/decline). This will ensure you can handle any changes occured in the other system since the last syncronisation with MakePlans. New unprocessed bookings must be processed often (every 1-5 minutes) to ensure confirmations are sent out quickly to the end-user after requesting a new reservation.
+Syncronising data is hard. Please ensure you test before releasing to production. First pick either MakePlans or the other system as a master. If the other system is chosen as a master then we recommend enabling the 'confirmation by administrator' setting for bookings. The synchronisation should then retrieve unprocessed bookings and process them (confirm/decline). This will ensure you can handle any changes occured in the other system since the last syncronisation with MakePlans. New unprocessed bookings must be processed often (every 1-5 minutes) to ensure confirmations are sent out quickly to the end-user after requesting a new reservation.
 
 **NEVER** delete any data in MakePlans to make it easier to adapt to the other system. MakePlans is a customer facing booking application. End-users (stored as people) can change and cancel bookings, thus any modifications or destruction of core data should not occur. Bookings are stored with a history (log) and there is a link between a person and bookings. MakePlans make use of this data and all this data must be kept to ensure the booking process in MakePlans works as expected for the end-user.
 
-Expect all booking and person data to be changed at any time.
+Expect all booking and person data to be changed at any time. All changes for an object will result in a updated attribute `updated_at`.
 
 We recommened storing a timestamp for when the syncronisation was last performed. When the syncronisation is performed again this timestamp can be used to fetch any changes (i.e. the paramater `since` for bookings).
 
 ## Client libraries
 
-* CakePHP: https://github.com/espen/CakePHP-MakePlans-Plugin
+MakePlans does not officially support client libraries but they might be useful for you.
+
+* CakePHP: https://github.com/makeplans/CakePHP-MakePlans-Plugin
 
 ## Errors
 
@@ -140,14 +147,6 @@ System errors (aka we screwed up) returns 5xx errors without any detailed inform
 ## Pagination
 
 Maximum 100 results are returned per page. Specify page with parameter `page`. Pagination is used for: bookings and people. All other objects return all available items.
-
-## Date handling
-
-All dates are specified in the ISO 8601 format. Timezone is included in the output and specified by the account. It is not necessary to specify timezone in the input as the account timezone will be used.
-
-## Custom data
-
-Custom data are stored as key/value. All values are stored as strings. Custom data can be added to booking and person.
 
 ## Web hooks
 
@@ -222,6 +221,28 @@ Response
 <tr><td>selected_resources</td><td>Array</td><td>Default: all active providers.</td></tr>
 <tr><td>only_free</td><td>Boolean</td><td>Only return timeslots with availability</td></tr>
 </table>
+
+## Next available date
+
+`GET /services/{id}/next_available_date` will return the next available date within 30 days with a free slot.
+
+Response
+
+```json
+[
+    {
+        "available_date": "2013-04-03"
+    }
+]
+```
+
+### Query Parameters
+
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>from</td><td>Date</td><td>Default: today 00:00.</td></tr>
+<tr><td>selected_resources</td><td>Array</td><td>Default: all active providers.</td></tr>
+</table>table>
 
 # Bookings
 
