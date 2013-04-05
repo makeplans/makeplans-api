@@ -44,7 +44,7 @@ All parameters that are not input for creating or updating objects should be sen
 
 ## Date handling
 
-All dates are specified in the ISO 8601 format. Timezone is included in the output and specified by the account. It is not necessary to specify timezone in the input as the account timezone will be used. The date format is also parsed based on the date format specified on the client.
+All dates are specified in the ISO 8601 format. Timezone is included in the output and specified by the account. It is not necessary to specify timezone in the input as the account timezone will be used as default. The output will give a full ISO 8601 date format with time zone: `YYYY-MM-DDThh:mm:ssTZD`. For input we recommend that you do not specify time zone unless needed and ommit seconds: `YYYY-MM-DD hh:mm`.
 
 ## Custom data
 
@@ -270,6 +270,17 @@ Response
 <tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
 <tr><td>person_attributes</td><td>Object</td><td>See person</td></tr>
 </table>
+
+### Additional parameters
+
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>public_booking</td><td>Boolean</td><td>Booking must be done within opening hours. Default: false.</td></tr>
+<tr><td>confirmation_send_email</td><td>Boolean</td><td>Send out confirmation email. Default: false.</td></tr>
+<tr><td>confirmation_send_sms</td><td>Boolean</td><td>Send out confirmation SMS. Default: false.</td></tr>
+
+</table>
+
 
 ## States
 
