@@ -132,7 +132,7 @@ Example response:
 
 ### 404 - Not Found
 
-Obviously incorrect paths (`/cats`) returns 404. However, even though cool URIs should not change, previously available objects (e.g. `/resources/666`) might have been deleted and thus return a 404 when requested. In most cases deleted resources will be returned and have a booking state or a flag that indicate that the resource is inactive or deleted.
+Obviously incorrect paths (`/cats`) returns 404. However, even though cool URIs should not change, previously available objects, lets say `/resources/666`, might have been deleted and thus return a 404 when requested. In most cases deleted resources will be returned and have a booking state or a flag that indicate that the resource is inactive or deleted.
 
 ### 429 - Too Many Requests
 
