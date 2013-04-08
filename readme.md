@@ -88,7 +88,7 @@ Syncronising data is hard. Please ensure you test before releasing to production
 
 Expect all booking and person data to be changed at any time. All changes for an object will result in a updated attribute `updated_at`.
 
-We recommened storing a timestamp for when the syncronisation was last performed. When the syncronisation is performed again this timestamp can be used to fetch any changes (i.e. the paramater `since` for bookings).
+We recommened storing a timestamp for when the syncronisation was last performed. When the syncronisation is performed again this timestamp can be used to fetch any changes on the `updated_at` attribute for the object you want to retrieve (e.g. the parameter `since` for bookings).
 
 ## Client libraries
 
@@ -132,7 +132,7 @@ Example response:
 
 ### 404 - Not Found
 
-Obviously incorrect paths (`/cats`) returns 404. However, even though cool URIs should not change, previously available objects (i.e. `/resources/666`) might have been deleted and thus return a 404 when requested. In most cases deleted resources will be returned and have a booking state or a flag that indicate that the resource is inactive or deleted.
+Obviously incorrect paths (`/cats`) returns 404. However, even though cool URIs should not change, previously available objects (e.g. `/resources/666`) might have been deleted and thus return a 404 when requested. In most cases deleted resources will be returned and have a booking state or a flag that indicate that the resource is inactive or deleted.
 
 ### 429 - Too Many Requests
 
@@ -175,7 +175,7 @@ So whenever a new booking is created in MakePlans we can send a POST request to 
 
 # Slots
 
-Slots are not physical objects in MakePlans. It is a virtual representation of available times based on attributes from resources and services. I.e. if a resource is open 8am to 16pm and selected service has interval of 60 minutes, slots will return an array of all time intervals (8am-9am, 9am-10am etc.) and indicate which recoures are available.
+Slots are not physical objects in MakePlans. It is a virtual representation of available times based on attributes from resources and services. So if a resource is open 8am to 16pm and selected service has interval of 60 minutes, slots will return an array of all time intervals (8am-9am, 9am-10am etc.) and indicate which recoures are available.
 
 Slots are meant for listing available times on the MakePlans booking page. You can however make bookings at any time and with any length - as long as the resource is available off course.
 
