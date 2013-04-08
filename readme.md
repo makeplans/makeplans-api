@@ -144,6 +144,12 @@ You can perform up to 50 requests per 10 second period from the same IP address 
 
 System errors (aka we screwed up) returns 5xx errors without any detailed information. We log all system errors, but please contact us if you get this response.
 
+```json
+{
+    "error": "system error"
+}
+```
+
 ## Pagination
 
 Maximum 100 results are returned per page. Specify page with parameter `page`. Pagination is used for: bookings and people. All other objects return all available items.
@@ -271,17 +277,6 @@ Response
 <tr><td>person_attributes</td><td>Object</td><td>See person</td></tr>
 </table>
 
-### Additional parameters
-
-<table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>public_booking</td><td>Boolean</td><td>Booking must be done within opening hours. Default: false.</td></tr>
-<tr><td>confirmation_send_email</td><td>Boolean</td><td>Send out confirmation email. Default: false.</td></tr>
-<tr><td>confirmation_send_sms</td><td>Boolean</td><td>Send out confirmation SMS. Default: false.</td></tr>
-
-</table>
-
-
 ## States
 
 * awaiting_verification
@@ -358,6 +353,15 @@ Response
 ## Add new booking
 
 `POST /bookings` will create a new booking
+
+### Additional parameters
+
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>public_booking</td><td>Boolean</td><td>Public bookings follow normal public rules such as opening hours, not able to book in the past or past specified allowed date in the future. Default: false.</td></tr>
+<tr><td>confirmation_send_email</td><td>Boolean</td><td>Send out confirmation email. Default: false.</td></tr>
+<tr><td>confirmation_send_sms</td><td>Boolean</td><td>Send out confirmation SMS. Default: false.</td></tr>
+</table>
 
 ### Add new booking with new person
 
@@ -504,20 +508,20 @@ Response
 <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
 <tr><td>title</td><td>String</td><td>Required</td></tr>
 <tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
-<tr><td>open_0</td><td>Time</td><td></td></tr>
-<tr><td>open_1</td><td>Time</td><td></td></tr>
-<tr><td>open_2</td><td>Time</td><td></td></tr>
-<tr><td>open_3</td><td>Time</td><td></td></tr>
-<tr><td>open_4</td><td>Time</td><td></td></tr>
-<tr><td>open_5</td><td>Time</td><td></td></tr>
-<tr><td>open_6</td><td>Time</td><td></td></tr>
-<tr><td>close_0</td><td>Time</td><td></td></tr>
-<tr><td>close_1</td><td>Time</td><td></td></tr>
-<tr><td>close_2</td><td>Time</td><td></td></tr>
-<tr><td>close_3</td><td>Time</td><td></td></tr>
-<tr><td>close_4</td><td>Time</td><td></td></tr>
-<tr><td>close_5</td><td>Time</td><td></td></tr>
-<tr><td>close_6</td><td>Time</td><td></td></tr>
+<tr><td>open_0</td><td>Time</td><td>Opening time for Monday</td></tr>
+<tr><td>open_1</td><td>Time</td><td>Opening time for Tuesday</td></tr>
+<tr><td>open_2</td><td>Time</td><td>Opening time for Wednesday</td></tr>
+<tr><td>open_3</td><td>Time</td><td>Opening time for Thursday</td></tr>
+<tr><td>open_4</td><td>Time</td><td>Opening time for Friday</td></tr>
+<tr><td>open_5</td><td>Time</td><td>Opening time for Saturday</td></tr>
+<tr><td>open_6</td><td>Time</td><td>Opening time for Sunday</td></tr>
+<tr><td>close_0</td><td>Time</td><td>Closing time for Monday</td></tr>
+<tr><td>close_1</td><td>Time</td><td>Closing time for Tuesday</td></tr>
+<tr><td>close_2</td><td>Time</td><td>Closing time for Wednesday</td></tr>
+<tr><td>close_3</td><td>Time</td><td>Closing time for Thursday</td></tr>
+<tr><td>close_4</td><td>Time</td><td>Closing time for Friday</td></tr>
+<tr><td>close_5</td><td>Time</td><td>Closing time for Saturday</td></tr>
+<tr><td>close_6</td><td>Time</td><td>Closing time for Sunday</td></tr>
 </table>
 
 ## Listing
