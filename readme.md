@@ -169,8 +169,6 @@ So whenever a new booking is created in MakePlans we can send a POST request to 
 * [Services](#services)
 * [Resources](#resources)
 * [Providers](#providers)
-* [Reports](#reports)
-* [Users](#users)
 * [Client](#client)
 
 # Slots
