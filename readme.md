@@ -163,15 +163,15 @@ So whenever a new booking is created in MakePlans we can send a POST request to 
 
 ## Available objects
 
-* Slots
-* Bookings
-* People
-* Services
-* Resources
-* Providers
-* Reports
-* Users
-* Client
+* [Slots](#slots)
+* [Bookings](#bookings)
+* [People](#people)
+* [Services](#services)
+* [Resources](#resources)
+* [Providers](#providers)
+* [Reports](#reports)
+* [Users](#users)
+* [Client](#client)
 
 # Slots
 
