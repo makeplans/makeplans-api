@@ -352,7 +352,7 @@ Response
 
 ## Add new booking
 
-`POST /bookings` will create a new booking
+`POST /bookings` will create a new booking.
 
 ### Additional parameters
 
@@ -440,6 +440,18 @@ Response
 ]
 ```
 
+## Add new person
+
+`POST /people` will create a new person.
+
+## Update person
+
+`PUT /people/{person_id}` will update existing person with id `{person_id}`.
+
+## Delete person
+
+*Not yet implemented*
+
 ### Query Parameters
 
 <table>
@@ -496,6 +508,18 @@ Response
     }
 ]
 ```
+
+## Add new service
+
+`POST /services` will create a new service.
+
+## Update service
+
+`PUT /services/{service_id}` will update existing service with id `{service_id}`.
+
+## Delete service
+
+`DELETE /services/{service_id}` will delete existing service with id `{service_id}`. Deleting a service will set it to active=false and will not be returned in any listings.
 
 # Resources
 
@@ -556,6 +580,18 @@ Response
 ]
 ```
 
+## Add new resource
+
+`POST /resources` will create a new resource.
+
+## Update resource
+
+`PUT /resources/{resource_id}` will update existing resource with id `{resource_id}`.
+
+## Delete resource
+
+`DELETE /resources/{resource_id}` will delete existing resource with id `{resource_id}`. Deleting a resource will set it to active=false and will not returned in any listings.
+
 # Providers
 
 Resources provides services. This link is called a provider.
@@ -590,6 +626,18 @@ Response
 ]
 ```
 
+## Add new provider
+
+`POST /providers` will create a new provider.
+
+## Update person
+
+`PUT /providers/{provider_id}` will update existing provider with id `{provider_id}`.
+
+## Delete person
+
+`DELETE /providers/{provider_id}` will delete existing provider with id `{provider_id}`.
+
 # Client
 
 Information and settings for your account.
@@ -603,3 +651,7 @@ Information and settings for your account.
 <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
 <tr><td>name</td><td>String</td><td>Required</td></tr>
 </table>
+
+## Update client
+
+`PUT /client` will update the account.
