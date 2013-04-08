@@ -358,7 +358,7 @@ Response
 
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>public_booking</td><td>Boolean</td><td>Public bookings follow normal public rules such as opening hours, not able to book in the past or past specified allowed date in the future. Default: false.</td></tr>
+<tr><td>public_booking</td><td>Boolean</td><td>Restrict to normal public booking rules such as within opening hours, not able to book in the past or past specified allowed date in the future. Recommended for all customer facing booking applications (i.e. integration on website). Not recommended for syncronisation with other calendar programs. Default: false.</td></tr>
 <tr><td>confirmation_send_email</td><td>Boolean</td><td>Send out confirmation email. Default: false.</td></tr>
 <tr><td>confirmation_send_sms</td><td>Boolean</td><td>Send out confirmation SMS. Default: false.</td></tr>
 </table>
