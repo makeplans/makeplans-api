@@ -649,9 +649,40 @@ Information and settings for your account.
 <tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
 <tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
 <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>subdomain</td><td>String</td><td>Required</td></tr>
+<tr><td>email</td><td>String</td><td>Required</td></tr>
 <tr><td>name</td><td>String</td><td>Required</td></tr>
+<tr><td>mail_verification</td><td>Text</td><td></td></tr>
+<tr><td>mail_confirmation</td><td>Text</td><td></td></tr>
+<tr><td>google_analytics</td><td>String</td><td></td></tr>
+<tr><td>css_url</td><td>String</td><td></td></tr>
+<tr><td>time_zone</td><td>String</td><td>Required</td></tr>
+<tr><td>verification_method</td><td>Integer</td><td></td></tr>
+<tr><td>new_user_text</td><td>Text</td><td></td></tr>
+<tr><td>address</td><td>String</td><td></td></tr>
+<tr><td>country_code</td><td>String</td><td>Required</td></tr>
+<tr><td>google_merchant_id</td><td>String</td><td></td></tr>
+<tr><td>google_merchant_key</td><td>String</td><td></td></tr>
+<tr><td>booking_form</td><td>Text</td><td></td></tr>
+<tr><td>logo</td><td>File</td><td></td></tr>
+<tr><td>template</td><td>Integer</td><td>Required</td></tr>
+<tr><td>locale</td><td>String</td><td>Required</td></tr>
+<tr><td>email_notification</td><td>Boolean</td><td></td></tr>
+<tr><td>sms_notification</td><td>Boolean</td><td></td></tr>
+<tr><td>phone_number</td><td>String</td><td></td></tr>
+<tr><td>confirm_manually</td><td>Boolean</td><td></td></tr>
+<tr><td>settings</td><td>Array</td><td></td></tr>
+</table>
+
+### Additional paramaters
+
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>remove_logo</td><td>Boolean</td><td></td></tr>
 </table>
 
 ## Update client
+
+*Currently not recommended as we have not yet documented all the attributes. Please contact us for clarification*
 
 `PUT /client` will update the account.
