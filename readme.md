@@ -440,18 +440,6 @@ Response
 ]
 ```
 
-## Add new person
-
-`POST /people` will create a new person.
-
-## Update person
-
-`PUT /people/{person_id}` will update existing person with id `{person_id}`.
-
-## Delete person
-
-*Not yet implemented*
-
 ### Query Parameters
 
 <table>
@@ -463,6 +451,18 @@ Response
 <tr><td>date_of_birth</td><td>Date</td><td></td></tr>
 <tr><td>national_id_no</td><td>String</td><td></td></tr>
 </table>
+
+## Add new person
+
+`POST /people` will create a new person.
+
+## Update person
+
+`PUT /people/{person_id}` will update existing person with id `{person_id}`.
+
+## Delete person
+
+*Not yet implemented*
 
 # Services
 
@@ -630,11 +630,11 @@ Response
 
 `POST /providers` will create a new provider.
 
-## Update person
+## Update provider
 
 `PUT /providers/{provider_id}` will update existing provider with id `{provider_id}`.
 
-## Delete person
+## Delete provider
 
 `DELETE /providers/{provider_id}` will delete existing provider with id `{provider_id}`.
 
