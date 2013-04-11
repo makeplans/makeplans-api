@@ -402,14 +402,19 @@ The primary key for a person is `id`. However the following fields are unique: `
 <tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
 <tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
 <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>name</td><td>String</td><td>Not required*</td></tr>
-<tr><td>email</td><td>String</td><td>Not required*</td></tr>
-<tr><td>phone_number</td><td>String</td><td>Not required*. Phone number as stored.</td></tr>
+<tr><td>name</td><td>String</td><td>Not required.</td></tr>
+<tr><td>email</td><td>String</td><td>Not required.</td></tr>
+<tr><td>phone_number</td><td>String</td><td>Not required. Phone number as stored.</td></tr>
 <tr><td>phone_number_formatted</td><td>String</td><td>Not required. Phone number with international code and no spaces.</td></tr>
 <tr><td>external_id</td><td>String</td><td>Not required</td></tr>
 <tr><td>custom_data</td><td>Array</td><td>Not required. Key/value. Stored as strings.</td></tr>
 <tr><td>date_of_birth</td><td>Date</td><td>Not required</td></tr>
-<tr><td>National_id_no</td><td>String</td><td>Not required.</td></tr>
+<tr><td>national_id_no</td><td>String</td><td>Not required.</td></tr>
+<tr><td>street</td><td>String</td><td>Not required.</td></tr>
+<tr><td>city</td><td>String</td><td>Not required.</td></tr>
+<tr><td>postal_code</td><td>String</td><td>Not required.</td></tr>
+<tr><td>state</td><td>String</td><td>Not required.</td></tr>
+<tr><td>country_code</td><td>String</td><td>Not required. ISO 3166-1 alpha-2.</td></tr>
 </table>
 
 ## Listing
@@ -658,13 +663,13 @@ Information and settings for your account.
 <tr><td>verification_method</td><td>Integer</td><td></td></tr>
 <tr><td>new_user_text</td><td>Text</td><td></td></tr>
 <tr><td>address</td><td>String</td><td></td></tr>
-<tr><td>country_code</td><td>String</td><td>Required</td></tr>
+<tr><td>country_code</td><td>String</td><td>Required. ISO 3166-1 alpha-2.</td></tr>
 <tr><td>google_merchant_id</td><td>String</td><td></td></tr>
 <tr><td>google_merchant_key</td><td>String</td><td></td></tr>
 <tr><td>booking_form</td><td>Text</td><td></td></tr>
 <tr><td>logo</td><td>File</td><td></td></tr>
 <tr><td>template</td><td>Integer</td><td>Required</td></tr>
-<tr><td>locale</td><td>String</td><td>Required</td></tr>
+<tr><td>locale</td><td>String</td><td>Required. Supported locales: 'en' and 'no-NB'. Default 'en'.</td></tr>
 <tr><td>email_notification</td><td>Boolean</td><td></td></tr>
 <tr><td>sms_notification</td><td>Boolean</td><td></td></tr>
 <tr><td>phone_number</td><td>String</td><td></td></tr>
