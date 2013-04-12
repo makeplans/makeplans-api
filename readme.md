@@ -359,9 +359,9 @@ Response
 <tr><td>public_booking</td><td>Boolean</td><td>Restrict to normal public booking rules such as within opening hours, not able to book in the past or past specified allowed date in the future. Recommended for all customer facing booking applications (e.g. integration on website). Not recommended when syncronising with other calendar programs. Default: false.</td></tr>
 <tr><td>confirmation_send_email</td><td>Boolean</td><td>Send out confirmation email. Default: false.</td></tr>
 <tr><td>confirmation_send_sms</td><td>Boolean</td><td>Send out confirmation SMS. Default: false.</td></tr>
-<tr><td>notification_send_email</td><td>Boolean</td><td>Send out notification email to admin. Default: false.</td
-<tr><td>notification_send_sms</td><td>Boolean</td><td>Send out notification SMS to admin. Default: false.</td
-<tr><td>reminder_send_sms</td><td>Boolean</td><td>Send out reminder SMS to person. Default: false.</td
+<tr><td>notification_send_email</td><td>Boolean</td><td>Send out notification email to admin. Default: false.</td></tr>
+<tr><td>notification_send_sms</td><td>Boolean</td><td>Send out notification SMS to admin. Default: false.</td></tr>
+<tr><td>reminder_send_sms</td><td>Boolean</td><td>Send out reminder SMS to person. Default: false.</td></tr>
 </table>
 
 ### Add new booking with new person
