@@ -26,7 +26,7 @@ The API supports JSON and XML for input and output.
 
 We recommend JSON for output and normal form-data for input.
 
-The format of the output data is provided as is and the referenece is this document. We do not use XML Schema. Any additional attributes such as 'type' in XML must be considered only as hints.
+The format of the output data is provided as is and the reference is this document. We do not use XML Schema. Any additional attributes such as 'type' in XML must be considered only as hints.
 
 All data is UTF-8.
 
@@ -136,9 +136,7 @@ Obviously incorrect paths (`/cats`) returns 404. However, even though cool URIs 
 
 ### 429 - Too Many Requests
 
-*Not yet implemented - limits might change*
-
-You can perform up to 50 requests per 10 second period from the same IP address for the same account. If you exceed this limit, you'll get a 429 Too Many Requests response for subsequent requests. Check the `Retry-After` HTTP-header to see how many seconds to wait before retrying the request.
+You can perform up to 120 requests per 60 second period from the same IP address. If you exceed this limit, you'll get a 429 Too Many Requests response for subsequent requests. Check the `Retry-After` HTTP-header to see how many seconds to wait before retrying the request.
 
 ### 5xx - Server error
 
