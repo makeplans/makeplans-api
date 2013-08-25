@@ -271,6 +271,7 @@ Response
 <tr><td>state</td><td>Text</td><td>Automatically set</td></tr>
 <tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
 <tr><td>person_attributes</td><td>Object</td><td>See person</td></tr>
+<tr><td>count</td><td>Integer</td><td>Default: 1</td></tr>
 </table>
 
 ## States
