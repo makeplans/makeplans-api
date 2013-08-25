@@ -321,6 +321,7 @@ Response
             "booked_to": "2012-09-29T08:00:00+02:00",
             "created_at": "2012-09-20T15:34:16+02:00",
             "custom_data": {},
+            "count": 1,
             "expires_at": null,
             "external_id": null,
             "id": 1,
