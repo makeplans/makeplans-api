@@ -486,6 +486,7 @@ Response
 <tr><td>max_slots</td><td>Integer</td><td>Not required (default 1)</td></tr>
 <tr><td>price</td><td>Decimal</td><td>Not required. Uses currency on client.</td></tr>
 <tr><td>same_day</td><td>Boolean</td><td>Not required (default false)</td></tr>
+<tr><td>template</td><td>String</td><td>Component template (calendar view)</td></tr>
 </table>
 
 ## Listing
@@ -506,6 +507,7 @@ Response
             "max_slots": null,
             "price": "115.0",
             "same_day": false,
+            "template": null,
             "title": "Chiropractor",
             "updated_at": "2012-09-20T15:34:16+02:00"
         }
