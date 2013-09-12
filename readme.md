@@ -674,6 +674,7 @@ Information and settings for your account.
 <tr><td>template</td><td>Integer</td><td>Required</td></tr>
 <tr><td>locale</td><td>String</td><td>Required. Supported locales: 'en' and 'no-NB'. Default 'en'.</td></tr>
 <tr><td>email_notification</td><td>Boolean</td><td></td></tr>
+<tr><td>mail_notification_recipient</td><td>Email</td><td></td></tr>
 <tr><td>sms_notification</td><td>Boolean</td><td></td></tr>
 <tr><td>phone_number</td><td>String</td><td></td></tr>
 <tr><td>confirm_manually</td><td>Boolean</td><td></td></tr>
