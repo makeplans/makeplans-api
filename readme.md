@@ -487,6 +487,7 @@ Response
 <tr><td>price</td><td>Decimal</td><td>Not required. Uses currency on client.</td></tr>
 <tr><td>same_day</td><td>Boolean</td><td>Not required (default false)</td></tr>
 <tr><td>template</td><td>String</td><td>Component template (calendar view)</td></tr>
+<tr><td>interval_rounding</td><td>Integer</td><td>Overrides client default (see info on client object)</td></tr>
 </table>
 
 ## Listing
@@ -679,6 +680,8 @@ Information and settings for your account.
 <tr><td>phone_number</td><td>String</td><td></td></tr>
 <tr><td>confirm_manually</td><td>Boolean</td><td></td></tr>
 <tr><td>settings</td><td>Array</td><td></td></tr>
+<tr><td>interval_rounding</td><td>Integer</td><td>Default setting for all services for rounding to next available time. '15' will round 10:07 to become 10:15 as next available slot time.</td></tr>
+<tr><td>slot_generation_type</td><td>Integer</td><td>Default: 2. 1=fixed. 2=next available.</td></tr>
 </table>
 
 ### Additional paramaters
