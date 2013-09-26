@@ -1,6 +1,6 @@
 # MakePlans API - Version 1.0
 
-# Get started
+## Get started
 
 1) Sign up for a trial account in our test-environment: http://app.test.makeplans.net/client/new
 
@@ -14,13 +14,13 @@ When your integration is ready to be released then you can sign up for a real ac
 
 MakePlans provides a fairly standard REST API. The base URL is `https://youraccount.makeplans.no/api/` for production apps and `http://youraccount.test.makeplans.net/api/` for test apps. All requests in the production environment are done over HTTPS. Currently requests for the test environment and on the international site is done using normal HTTP (we plan to change this soon). The Norwegian version uses .no and the International version uses .net as TLD.
 
-## Versioning
+### Versioning
 
 The current version of the API is version 1. The versioning scheme is as follows: `/api/v{version_number}/`. All paths in the rest of the document uses `/api/v1/` as base path.
 
 Please keep up to date with the API as older versions may be deprecated.
 
-## Data formats
+### Data formats
 
 The API supports JSON and XML for input and output.
 
@@ -32,35 +32,35 @@ All data is UTF-8.
 
 All examples and object attributes in this documentation are JSON. They are lowercase and use underscore as seperator. XML element names uses hypen instead of underscore (`created-at` instead of `created_at`).
 
-### Output
+#### Output
 
 To specify JSON as output use HTTP-header `Accept: application/json`. Output can also be defined by using extension in the path: `/resources.json` but it is recommended to use `/resources` and specify output format in the HTTP-header. Multiple items is returned as an array.
 
-### Input
+#### Input
 
 To specify JSON as input use HTTP-header `Content-Type: application/json`. The body must be JSON-formatted and include the object with required attributes. Alternatively you can use normal form data as input, in that case do not specify the Content-type HTTP-header. Form values are specified like this: `resource[title]=Unicorn`. Normal form input is preferred over JSON/XML to avoid parser issues.
 
 All parameters that are not input for creating or updating objects should be sent as normal URL parameters. Example: `/bookings?page=2&resources_id=1`.
 
-## Date handling
+### Date handling
 
 All dates are specified in the ISO 8601 format. Timezone is included in the output and specified by the account. It is not necessary to specify timezone in the input as the account timezone will be used as default. The output will give a full ISO 8601 date format with time zone: `YYYY-MM-DDThh:mm:ssTZD`. For input we recommend that you do not specify time zone unless needed and ommit seconds: `YYYY-MM-DD hh:mm`.
 
-## Custom data
+### Custom data
 
 Custom data are stored as key/value. All values are stored as strings. Custom data can be added to booking and person.
 
-## Authentication
+### Authentication
 
 MakePlans uses HTTP Basic Auth. The client has to enable the API first and you will find the API-Key in the account settings. The API-Key is the username and there is no password. MakePlans uses SSL and all requests over http will be redirected to https.
 
 If your app is installable by end-users you should use oAuth. However we do not yet support oAuth so please contact us.
 
-## Identification
+### Identification
 
 You must include a User-Agent HTTP-header with the name of your application and a link to it or your email address so we can get in touch in case you're doing something wrong (so we may warn you before you're blacklisted) or something awesome (so we may congratulate you). Example: `User-Agent: YourAppName (http://example.com)`.
 
-## Example request and response
+### Example request and response
 
 ```shell
 curl -u APIKEY: \
@@ -80,7 +80,7 @@ curl -u APIKEY: \
   https://youraccount.makeplans.no/api/v1/services
 ```
 
-## Syncronisation
+### Syncronisation
 
 Syncronising data is hard. Please ensure you test before releasing to production. First pick either MakePlans or the other system as a master. If the other system is chosen as a master then we recommend enabling the 'confirmation by administrator' setting for bookings. The synchronisation should then retrieve unprocessed bookings and process them (confirm/decline). This will ensure you can handle any changes occured in the other system since the last syncronisation with MakePlans. New unprocessed bookings must be processed often (every 1-5 minutes) to ensure confirmations are sent out quickly to the end-user after requesting a new reservation.
 
@@ -90,33 +90,33 @@ Expect all booking and person data to be changed at any time. All changes for an
 
 We recommened storing a timestamp for when the syncronisation was last performed. When the syncronisation is performed again this timestamp can be used to fetch any changes on the `updated_at` attribute for the object you want to retrieve (e.g. the parameter `since` for bookings).
 
-## Client libraries
+### Client libraries
 
 MakePlans does not officially support client libraries but they might be useful for you.
 
 * CakePHP: https://github.com/makeplans/CakePHP-MakePlans-Plugin
 
-## Errors
+### Errors
 
 4xx errors means you made a mistake and you need to adjust your request.
 
-### 400 - Bad request
+#### 400 - Bad request
 
 *Not yet implemented*
 
 Please supply identification for your application.
 
-### 401 - Unauthorized
+#### 401 - Unauthorized
 
 Authentication error. Body will give explanation if there is authorisation issue or if the API is not enabled.
 
-### 402 - Payment Required
+#### 402 - Payment Required
 
 *Not yet implemented*
 
 Please pay your bill.
 
-### 403 - Forbidden
+#### 403 - Forbidden
 
 API usage error. This means you did something wrong and there should be a message in the body that explains it. Error message is related to specified resource. Fix it and try again.
 
@@ -130,15 +130,15 @@ Example response:
 }
 ```
 
-### 404 - Not Found
+#### 404 - Not Found
 
 Obviously incorrect paths (`/cats`) returns 404. However, even though cool URIs should not change, previously available objects, lets say `/resources/666`, might have been deleted and thus return a 404 when requested. In most cases deleted resources will be returned and have a booking state or a flag that indicate that the resource is inactive or deleted.
 
-### 429 - Too Many Requests
+#### 429 - Too Many Requests
 
 You can perform up to 120 requests per 60 second period from the same IP address. If you exceed this limit, you'll get a 429 Too Many Requests response for subsequent requests. Check the `Retry-After` HTTP-header to see how many seconds to wait before retrying the request.
 
-### 5xx - Server error
+#### 5xx - Server error
 
 System errors (aka we screwed up) returns 5xx errors without any detailed information. We log all system errors, but please contact us if you get this response.
 
@@ -148,11 +148,11 @@ System errors (aka we screwed up) returns 5xx errors without any detailed inform
 }
 ```
 
-## Pagination
+### Pagination
 
 Maximum 100 results are returned per page. Specify page with parameter `page`. Pagination is used for: bookings and people. All other objects return all available items.
 
-## Web hooks
+### Web hooks
 
 *Not yet implemented*
 
@@ -169,13 +169,13 @@ So whenever a new booking is created in MakePlans we can send a POST request to 
 * [Providers](#providers)
 * [Client](#client)
 
-# Slots
+## Slots
 
 Slots are not physical objects in MakePlans. It is a virtual representation of available times based on attributes from resources and services. So if a resource is open 8am to 16pm and selected service has interval of 60 minutes, slots will return an array of all time intervals (8am-9am, 9am-10am etc.) and indicate which recoures are available.
 
 Slots are meant for listing available times on the MakePlans booking page. You can however make bookings at any time and with any length - as long as the resource is available off course.
 
-## Attributes
+### Attributes
 
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
@@ -188,7 +188,7 @@ Slots are meant for listing available times on the MakePlans booking page. You c
 <tr><td>available_resources</td><td>Array</td><td>Ids of resources with availability</td></tr>
 </table>
 
-## Listing
+### Listing
 
 `GET /services/{id}/slots` will return slots for specified service.
 
@@ -214,7 +214,7 @@ Response
 ]
 ```
 
-### Query Parameters
+#### Query Parameters
 
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
@@ -224,7 +224,7 @@ Response
 <tr><td>only_free</td><td>Boolean</td><td>Only return timeslots with availability</td></tr>
 </table>
 
-## Next available date
+### Next available date
 
 `GET /services/{id}/next_available_date` will return the next available date within 30 days with a free slot.
 
@@ -238,7 +238,7 @@ Response
 ]
 ```
 
-### Query Parameters
+#### Query Parameters
 
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
@@ -246,9 +246,9 @@ Response
 <tr><td>selected_resources</td><td>Array</td><td>Default: all active providers.</td></tr>
 </table>
 
-# Bookings
+## Bookings
 
-## Attributes
+### Attributes
 
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
@@ -274,7 +274,7 @@ Response
 <tr><td>count</td><td>Integer</td><td>Default: 1</td></tr>
 </table>
 
-## States
+### States
 
 * awaiting_verification
 * verification_expired
@@ -285,7 +285,7 @@ Response
 * cancelled
 * deleted
 
-### Normal state flow
+#### Normal state flow
 
 The normal booking flow when a customer initiates a new booking starts with `awaiting_verification`. If verification is required MakePlans sends out email or SMS for the customer to verify. When successfully verified the state is updated to `confirmed` or `awaiting_confirmation` if reservations requires confirmation by administrator. For confirmation it is then updated to `confirmed` as normally if confirmed, and to `declined` if it is not confirmed.
 
@@ -293,11 +293,11 @@ Bookings that have been confirmed and then cancelled, either by customer or admi
 
 Bookings that are deleted are set to `deleted`.
 
-## Active bookings
+### Active bookings
 
 Bookings with states `awaiting_verification`, `awaiting_confirmation` or `confirmed` are considered to be active. Bookings with state `awaiting_verification` will be updated with state `verification_expired` after the current time passes `expires_at`. However updating states rely on automatic tasks so you must use the `active` attribute to check whether a booking is active or not. Only active bookings will be returned unless you specify: a booking by id, a specific state such as bookings that are awaiting confirmation, to return all bookings for a resource or dates, or for a person.
 
-## Listing
+### Listing
 
 `GET /bookings` will return all active bookings. See query parameters for options.
 
@@ -336,7 +336,7 @@ Response
 ]
 ```
 
-### Query Parameters
+#### Query Parameters
 
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
@@ -348,11 +348,11 @@ Response
 <tr><td>since</td><td>DateTime</td><td>updated_at after param</td></tr>
 </table>
 
-## Add new booking
+### Add new booking
 
 `POST /bookings` will create a new booking.
 
-### Additional parameters
+#### Additional parameters
 
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
@@ -364,25 +364,25 @@ Response
 <tr><td>reminder_send_sms</td><td>Boolean</td><td>Send out reminder SMS to person. Default: false.</td></tr>
 </table>
 
-### Add new booking with new person
+#### Add new booking with new person
 
 To add a new person along with a booking you must use populate `person_attributes`. MakePlans will match to an existing person based on email or phone number (in that order).
 
-## Process bookings awaiting confirmation
+### Process bookings awaiting confirmation
 
 `PUT /bookings/{booking_id}/confirm` will confirm a booking.
 
 `PUT /bookings/{booking_id}/decline` will decline a booking.
 
-## Cancel a booking
+### Cancel a booking
 
 `PUT /bookings/{booking_id}/cancel` will cancel a booking.
 
-## Update booking
+### Update booking
 
 `PUT /bookings/{booking_id}` will update existing booking with id `{booking_id}`.
 
-## Delete booking
+### Delete booking
 
 `DELETE /bookings/{booking_id}` will delete existing booking with id `{booking_id}`.
 
@@ -390,13 +390,13 @@ Deleting a booking will set it to state=deleted and active=false. It will not be
 
 Do not use this method if the booking is rescheduled or cancelled.
 
-# People
+## People
 
 The primary key for a person is `id`. However the following fields are unique: `email`, `phone number` and `provider`+`uid`. There are no specific requirements for input but a person needs to have either name, email or phone number.
 
 `National Id No` is currently not unique or used as identificator for a person. This will change.
 
-## Attributes
+### Attributes
 
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
@@ -418,7 +418,7 @@ The primary key for a person is `id`. However the following fields are unique: `
 <tr><td>country_code</td><td>String</td><td>Not required. ISO 3166-1 alpha-2.</td></tr>
 </table>
 
-## Listing
+### Listing
 
 Searching unique fields (`email`, `phonenumber`, `external_id`, `uid`+`provider`) will return only one result if found.
 
@@ -444,7 +444,7 @@ Response
 ]
 ```
 
-### Query Parameters
+#### Query Parameters
 
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
@@ -456,21 +456,21 @@ Response
 <tr><td>national_id_no</td><td>String</td><td></td></tr>
 </table>
 
-## Add new person
+### Add new person
 
 `POST /people` will create a new person.
 
-## Update person
+### Update person
 
 `PUT /people/{person_id}` will update existing person with id `{person_id}`.
 
-## Delete person
+### Delete person
 
 *Not yet implemented*
 
-# Services
+## Services
 
-## Attributes
+### Attributes
 
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
@@ -490,7 +490,7 @@ Response
 <tr><td>interval_rounding</td><td>Integer</td><td>Overrides client default (see info on client object)</td></tr>
 </table>
 
-## Listing
+### Listing
 
 Response
 
@@ -516,21 +516,21 @@ Response
 ]
 ```
 
-## Add new service
+### Add new service
 
 `POST /services` will create a new service.
 
-## Update service
+### Update service
 
 `PUT /services/{service_id}` will update existing service with id `{service_id}`.
 
-## Delete service
+### Delete service
 
 `DELETE /services/{service_id}` will delete existing service with id `{service_id}`. Deleting a service will set it to active=false and will not be returned in any listings.
 
-# Resources
+## Resources
 
-## Attributes
+### Attributes
 
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
@@ -555,7 +555,7 @@ Response
 <tr><td>close_6</td><td>Time</td><td>Closing time for Sunday</td></tr>
 </table>
 
-## Listing
+### Listing
 
 Response
 
@@ -587,23 +587,23 @@ Response
 ]
 ```
 
-## Add new resource
+### Add new resource
 
 `POST /resources` will create a new resource.
 
-## Update resource
+### Update resource
 
 `PUT /resources/{resource_id}` will update existing resource with id `{resource_id}`.
 
-## Delete resource
+### Delete resource
 
 `DELETE /resources/{resource_id}` will delete existing resource with id `{resource_id}`. Deleting a resource will set it to active=false and will not returned in any listings.
 
-# Providers
+## Providers
 
 Resources provides services. This link is called a provider.
 
-## Attributes
+### Attributes
 
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
@@ -615,7 +615,7 @@ Resources provides services. This link is called a provider.
 <tr><td>service_id</td><td>Integer</td><td>Required</td></tr>
 </table>
 
-## Listing
+### Listing
 
 Response
 
@@ -633,23 +633,23 @@ Response
 ]
 ```
 
-## Add new provider
+### Add new provider
 
 `POST /providers` will create a new provider.
 
-## Update provider
+### Update provider
 
 `PUT /providers/{provider_id}` will update existing provider with id `{provider_id}`.
 
-## Delete provider
+### Delete provider
 
 `DELETE /providers/{provider_id}` will delete existing provider with id `{provider_id}`.
 
-# Client
+## Client
 
 Information and settings for your account.
 
-## Attributes
+### Attributes
 
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
@@ -684,14 +684,14 @@ Information and settings for your account.
 <tr><td>slot_generation_type</td><td>Integer</td><td>Default: 2. 1=fixed. 2=next available.</td></tr>
 </table>
 
-### Additional paramaters
+#### Additional paramaters
 
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
 <tr><td>remove_logo</td><td>Boolean</td><td></td></tr>
 </table>
 
-## Update client
+### Update client
 
 *Currently not recommended as we have not yet documented all the attributes. Please contact us for clarification*
 
