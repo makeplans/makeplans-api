@@ -392,9 +392,9 @@ Do not use this method if the booking is rescheduled or cancelled.
 
 ## People
 
-The primary key for a person is `id`. However the following fields are unique: `email`, `phone number` and `provider`+`uid`. There are no specific requirements for input but a person needs to have either name, email or phone number.
+The primary key for a person is `id`. However the following fields are unique: `email`, `phone_number` and `provider`+`uid`. There are no specific requirements for input but a person needs to have either name, email or phone number.
 
-`National Id No` is currently not unique or used as identificator for a person. This will change.
+`national_id_no` is currently not unique or used as identificator for a person. This will change.
 
 ### Attributes
 
