@@ -2,7 +2,7 @@
 
 ## Get started
 
-1) Sign up for a trial account in our test-environment: http://app.test.makeplans.net/client/new
+1) Sign up for a trial account in our test-environment: https://app.test.makeplans.net/client/new
 
 2) Enable the API and get the API-key from the account page.
 
@@ -10,9 +10,9 @@
 
 4) Profit.
 
-When your integration is ready to be released then you can sign up for a real account at http://app.makeplans.net/client/new
+When your integration is ready to be released then you can sign up for a real account at https://app.makeplans.net/client/new
 
-MakePlans provides a fairly standard REST API. The base URL is `https://youraccount.makeplans.no/api/` for production apps and `http://youraccount.test.makeplans.net/api/` for test apps. All requests in the production environment are done over HTTPS. Currently requests for the test environment and on the international site is done using normal HTTP (we plan to change this soon). The Norwegian version uses .no and the International version uses .net as TLD.
+MakePlans provides a fairly standard REST API. The base URL is `https://youraccount.makeplans.net/api/` for production apps and `http://youraccount.test.makeplans.net/api/` for test apps. All requests in the production environment are done over HTTPS. Please note that the staging environment is not encrypted (HTTP only). The Norwegian version uses .no and the International version uses .net as TLD. This is only visual as there is a setting for the language.
 
 ### Versioning
 
@@ -539,6 +539,23 @@ Response
 <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
 <tr><td>title</td><td>String</td><td>Required</td></tr>
 <tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
+<tr><td>opening_hours_mon</td><td>Array</td><td>Default opening hours for Monday.</td></tr>
+<tr><td>opening_hours_tue</td><td>Array</td><td>Default opening hours for Tuesday.</td></tr>
+<tr><td>opening_hours_wed</td><td>Array</td><td>Default opening hours for Wednesday.</td></tr>
+<tr><td>opening_hours_thu</td><td>Array</td><td>Default opening hours for Thursday.</td></tr>
+<tr><td>opening_hours_fri</td><td>Array</td><td>Default opening hours for Friday.</td></tr>
+<tr><td>opening_hours_sat</td><td>Array</td><td>Default opening hours for Saturday.</td></tr>
+<tr><td>opening_hours_sun</td><td>Array</td><td>Default opening hours for Sunday.</td></tr>
+</table>
+
+#### Openings hours
+
+Values for the opening hours attributes is of type time in the array. Values are in the form of two's. This results in adding breaks within a day. To define opening hours from 8AM to 4PM with lunch at 12PM to 12.30PM the following array will be the result: `['08:00', '12:00', '12:30', '16:00']`. Having opening hours without a lunch break will yield this result: `['08:00', '16:00']`. To define a weekday as closed the value should be `NULL`.
+
+
+#### Deprecated Attributes
+
+<table>
 <tr><td>open_0</td><td>Time</td><td>Opening time for Monday</td></tr>
 <tr><td>open_1</td><td>Time</td><td>Opening time for Tuesday</td></tr>
 <tr><td>open_2</td><td>Time</td><td>Opening time for Wednesday</td></tr>
@@ -554,6 +571,8 @@ Response
 <tr><td>close_5</td><td>Time</td><td>Closing time for Saturday</td></tr>
 <tr><td>close_6</td><td>Time</td><td>Closing time for Sunday</td></tr>
 </table>
+
+These deprecated attributes define opening hours without breaks. Given `opening_hours_tue` with a break defined as this: `['08:00', '12:00', '12:30', '16:00']` it would yield `open_1` to be `08:00` and `close_'` to be `16:00`. These attributes are deprecated and will be removed in a future API version.
 
 ### Listing
 
@@ -598,6 +617,49 @@ Response
 ### Delete resource
 
 `DELETE /resources/{resource_id}` will delete existing resource with id `{resource_id}`. Deleting a resource will set it to active=false and will not returned in any listings.
+
+## Resource exception date
+
+### Attributes
+
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>resource_id</td><td>Integer</td><td>Required</td></tr>
+<tr><td>exception_date</td><td>Date</td><td>Required</td></tr>
+<tr><td>hours</td><td>Array</td><td>Same format as resource opening hours</td></tr>
+</table>
+
+### Listing
+
+Response
+
+```json
+[
+    {
+        "resource_exception_date": {
+            "created_at": "2012-09-20T15:34:16+02:00",
+            "resource_id": 1,
+            "exception_date": "2014-01-08",
+            "hours": ["08:00", "12:00", "12:30", "17:30"],
+            "updated_at": "2012-09-20T15:34:16+02:00"
+        }
+    }
+]
+```
+
+### Add new exception date
+
+`POST /resources/{resource_id}/exception_dates` will create a new provider.
+
+### Update exception date
+
+`PUT /resources/{resource_id}/exception_dates/{exception_date}` will update existing resource date `{exception_date}` for resource {resource_id}.
+
+### Delete exception date
+
+`DELETE /resources/{resource_id}/exception_dates/{exception_date}` will delete existing resource date `{exception_date}` for resource {resource_id}.
 
 ## Providers
 
