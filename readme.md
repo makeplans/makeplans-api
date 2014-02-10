@@ -572,7 +572,7 @@ Values for the opening hours attributes is of type time in the array. Values are
 <tr><td>close_6</td><td>Time</td><td>Closing time for Sunday</td></tr>
 </table>
 
-These deprecated attributes define opening hours without breaks. Given `opening_hours_tue` with a break defined as this: `['08:00', '12:00', '12:30', '16:00']` it would yield `open_1` to be `08:00` and `close_'` to be `16:00`. These attributes are deprecated and will be removed in a future API version.
+These deprecated attributes define opening hours without breaks. Given `opening_hours_tue` with a break defined as this: `['08:00', '12:00', '12:30', '16:00']` it would yield `open_1` to be `08:00` and `close_1'` to be `16:00`. These attributes are deprecated and will be removed in a future API version.
 
 ### Listing
 
