@@ -256,6 +256,7 @@ Response
 <tr><td>created_by</td><td>DateTime</td><td>Automatically set</td></tr>
 <tr><td>updated_by</td><td>DateTime</td><td>Automatically set</td></tr>
 <tr><td>service_id</td><td>Integer</td><td>Not required</td></tr>
+<tr><td>event_id</td><td>Integer</td><td>Not required</td></tr>
 <tr><td>resource_id</td><td>Integer</td><td>Required</td></tr>
 <tr><td>person_id</td><td>Integer</td><td>Not required</td></tr>
 <tr><td>booked_from</td><td>Datetime</td><td>Required</td></tr>
@@ -341,6 +342,7 @@ Response
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
 <tr><td>service_id</td><td>Integer</td><td></td></tr>
+<tr><td>event_id</td><td>Integer</td><td></td></tr>
 <tr><td>resource_id</td><td>Integer</td><td></td></tr>
 <tr><td>external_id</td><td>String</td><td></td></tr>
 <tr><td>start</td><td>DateTime</td><td>booked_from after param</td></tr>
@@ -470,6 +472,15 @@ Response
 
 ## Services
 
+There are two types of services:
+
+* Appointment.
+* Attendance.
+
+Appointments can be booked within fixed opening hours as specified on the Resource and with exceptions specified in ResourceExceptionDate.
+
+Attendance at an event is also a booking but the individual booking datetime or resource cannot be modified. Attendance is linked to an event which occurs at a specific time. One service can be linked to one or multiple events.
+
 ### Attributes
 
 <table>
@@ -488,6 +499,7 @@ Response
 <tr><td>same_day</td><td>Boolean</td><td>Not required (default false)</td></tr>
 <tr><td>template</td><td>String</td><td>Component template (calendar view)</td></tr>
 <tr><td>interval_rounding</td><td>Integer</td><td>Overrides client default (see info on client object)</td></tr>
+<tr><td>booking_type_id</td><td>Integer</td><td>1: appointment. 2: attendance.</td></tr>
 </table>
 
 ### Listing
@@ -528,6 +540,27 @@ Response
 
 `DELETE /services/{service_id}` will delete existing service with id `{service_id}`. Deleting a service will set it to active=false and will not be returned in any listings.
 
+## Events
+
+Unlike appointments made through a normal service events starts and ends at a specific time. An event is connected to a resource and a service. It could be either a one-off event (e.q. a concert) or something that occurs multiple times (e.q. spinning class). Event bookings have a strong relation to the event. That means that it is not possible to modify details such as `{booked_from}`, `{booked_to}`, `{resource_id}` and `{service_id}` for the `{booking}`. To make such changes it must be done to the event. All bookings connected to the event will then automatically me modified.
+
+While events are connected to a resource bookings or capacity of an event are not restricted by the opening hours or availability of a resource.
+
+### Attributes
+
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
+<tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>resource_id</td><td>Integer</td><td>Required</td></tr>
+<tr><td>service_id</td><td>Integer</td><td>Required</td></tr>
+<tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
+<tr><td>capacity</td><td>Integer</td><td>Required</td></tr>
+<tr><td>start</td><td>Datetime</td><td>Required</td></tr>
+<tr><td>end</td><td>Datetime</td><td>Required</td></tr>
+</table>
+
 ## Resources
 
 ### Attributes
@@ -552,10 +585,10 @@ Response
 
 Values for the opening hours attributes is of type time in the array. Values are in the form of two's. This results in adding breaks within a day. To define opening hours from 8AM to 4PM with lunch at 12PM to 12.30PM the following array will be the result: `['08:00', '12:00', '12:30', '16:00']`. Having opening hours without a lunch break will yield this result: `['08:00', '16:00']`. To define a weekday as closed the value should be `NULL`.
 
-
 #### Deprecated Attributes
 
 <table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
 <tr><td>open_0</td><td>Time</td><td>Opening time for Monday</td></tr>
 <tr><td>open_1</td><td>Time</td><td>Opening time for Tuesday</td></tr>
 <tr><td>open_2</td><td>Time</td><td>Opening time for Wednesday</td></tr>
