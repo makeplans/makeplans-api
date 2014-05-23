@@ -688,11 +688,11 @@ Response
 
 ### Update exception date
 
-`PUT /resources/{resource_id}/exception_dates/{exception_date}` will update existing resource date `{exception_date}` for resource {resource_id}.
+`PUT /resources/{resource_id}/exception_dates/{exception_date}` will update existing resource date `{exception_date}` for resource `{resource_id}`.
 
 ### Delete exception date
 
-`DELETE /resources/{resource_id}/exception_dates/{exception_date}` will delete existing resource date `{exception_date}` for resource {resource_id}.
+`DELETE /resources/{resource_id}/exception_dates/{exception_date}` will delete existing resource date `{exception_date}` for resource `{resource_id}`.
 
 ## Providers
 
