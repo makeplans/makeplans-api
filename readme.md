@@ -190,7 +190,7 @@ Slots are meant for listing available times on the MakePlans booking page. You c
 
 ### Listing
 
-`GET /services/{id}/slots` will return slots for specified service.
+`GET /services/{service_id}/slots` will return slots for specified service.
 
 Response
 
@@ -226,7 +226,7 @@ Response
 
 ### Next available date
 
-`GET /services/{id}/next_available_date` will return the next available date within 30 days with a free slot.
+`GET /services/{service_id}/next_available_date` will return the next available date within 30 days with a free slot.
 
 Response
 
