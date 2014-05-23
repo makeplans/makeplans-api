@@ -684,7 +684,7 @@ Response
 
 ### Add new exception date
 
-`POST /resources/{resource_id}/exception_dates` will create a new provider.
+`POST /resources/{resource_id}/exception_dates` will create a new exception date.
 
 ### Update exception date
 
