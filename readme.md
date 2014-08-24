@@ -579,7 +579,7 @@ Response
             "end": "2015-08-10T11:30:00+02:00",
             "id": 1,
             "resource_id": 1,
-            "start": "2015-08-10T10:00:00+02:00"
+            "start": "2015-08-10T10:00:00+02:00",
             "service_id": 1,
             "title": "Super fun event",
             "updated_at": "2012-09-20T15:34:16+02:00"
