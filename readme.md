@@ -48,13 +48,13 @@ All dates are specified in the ISO 8601 format. Timezone is included in the outp
 
 ### Custom data
 
-Custom data are stored as key/value. All values are stored as strings. Custom data can be added to booking and person.
+Custom data are stored as key/value. All values are stored as strings but we do convert boolean values and values from keys ending in `_at` to `datetime` at output. Custom data can be added to booking, person, service and event.
 
 ### Authentication
 
 MakePlans uses HTTP Basic Auth. The client has to enable the API first and you will find the API-Key in the account settings. The API-Key is the username and there is no password. MakePlans uses SSL and all requests over http will be redirected to https.
 
-If your app is installable by end-users you should use oAuth. However we do not yet support oAuth so please contact us.
+If your app is installable by end-users you should use oAuth. However we do not yet support oAuth so please contact us if this is something you require.
 
 ### Identification
 
@@ -108,7 +108,7 @@ Please supply identification for your application.
 
 #### 401 - Unauthorized
 
-Authentication error. Body will give explanation if there is authorisation issue or if the API is not enabled.
+Authentication error. Response body will give explanation if there is authorisation issue or if the API is not enabled.
 
 #### 402 - Payment Required
 
@@ -150,14 +150,14 @@ System errors (aka we screwed up) returns 5xx errors without any detailed inform
 
 ### Pagination
 
-Maximum 100 results are returned per page. Specify page with parameter `page`. Pagination is used for: bookings and people. All other objects return all available items.
+Maximum 100 results are returned per page. Specify page with parameter `page`. Pagination is used for: bookings and people. All other objects return all available items. Please note that currently there is no way to specify exact part of the dataset. Thus an item might appear in both page 2 and 3 if the complete dataset for the query has changed.
 
 ### Web hooks
 
 *Not yet implemented*
 
 A webhook is simply a user-defined callback in the form of an HTTP POST which is invoked when something happens.
-So whenever a new booking is created in MakePlans we can send a POST request to the URL you specify. The body will include the new booking.
+So whenever a new booking is created in MakePlans we can send a POST request to the URL you specify. The response will include data about the modified object.
 
 ## Available objects
 
