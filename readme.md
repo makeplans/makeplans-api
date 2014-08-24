@@ -564,6 +564,42 @@ While events are connected to a resource bookings or capacity of an event are no
 <tr><td>custom_data</td><td>Array</td><td>Not required.</td></tr>
 </table>
 
+### Listing
+
+Response
+
+```json
+[
+    {
+        "event": {
+            "active": true,
+            "capacity": 10,
+            "created_at": "2012-09-20T15:34:16+02:00",
+            "custom_data": {},
+            "end": "2015-08-10T11:30:00+02:00"
+            "id": 1,
+            "resource_id": 1,
+            "start": "2015-08-10T10:00:00+02:00"
+            "service_id": 1,
+            "title": "Super fun event",
+            "updated_at": "2012-09-20T15:34:16+02:00"
+        }
+    }
+]
+```
+
+### Add new event
+
+`POST /events` will create a new event.
+
+### Update event
+
+`PUT /events/{event_id}` will update existing service with id `{event_id}`.
+
+### Delete event
+
+`DELETE /events/{event_id}` will delete existing event with id `{event_id}`. Deleting a event will set it to active=false and will not be returned in any listings.
+
 ## Resources
 
 ### Attributes
