@@ -514,6 +514,7 @@ Response
             "active": true,
             "booking_capacity": 1,
             "created_at": "2012-09-20T15:34:16+02:00",
+            "custom_data": {},
             "day_booking_specify_time": false,
             "has_day_booking": false,
             "id": 1,
@@ -560,6 +561,7 @@ While events are connected to a resource bookings or capacity of an event are no
 <tr><td>capacity</td><td>Integer</td><td>Required</td></tr>
 <tr><td>start</td><td>Datetime</td><td>Required</td></tr>
 <tr><td>end</td><td>Datetime</td><td>Required</td></tr>
+<tr><td>custom_data</td><td>Array</td><td>Not required.</td></tr>
 </table>
 
 ## Resources
