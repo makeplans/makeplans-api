@@ -100,12 +100,6 @@ MakePlans does not officially support client libraries but they might be useful 
 
 4xx errors means you made a mistake and you need to adjust your request.
 
-#### 400 - Bad request
-
-*Not yet implemented*
-
-Please supply identification for your application.
-
 #### 401 - Unauthorized
 
 Authentication error. Response body will give explanation if there is authorisation issue or if the API is not enabled.
