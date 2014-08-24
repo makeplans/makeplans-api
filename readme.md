@@ -465,6 +465,10 @@ Response
 
 *Not yet implemented*
 
+### Authenticate
+
+`POST /people/authenticate` will authenticate a person with a unique field: `{email}`, `{phone_number}`, `{provider}`+`{uid}`, and `{password}`. This will return a person if authentication is succesful. You are still using your API-key so while the method is called `authenticate` it is just a way to verify the credentials of the person.
+
 ## Services
 
 There are two types of services:
