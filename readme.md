@@ -268,6 +268,7 @@ Response
 <tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
 <tr><td>person_attributes</td><td>Object</td><td>See person</td></tr>
 <tr><td>count</td><td>Integer</td><td>Default: 1</td></tr>
+<tr><td>collection_id</td><td>UUID</td><td>Automatically set for recurring bookings.</td></tr>
 </table>
 
 ### States
@@ -343,6 +344,7 @@ Response
 <tr><td>start</td><td>DateTime</td><td>booked_from after param</td></tr>
 <tr><td>end</td><td>DateTime</td><td>booked_to before param</td></tr>
 <tr><td>since</td><td>DateTime</td><td>updated_at after param</td></tr>
+<tr><td>collection_id</td><td>UUID</td><td></td></tr>
 </table>
 
 ### Add new booking
@@ -364,6 +366,32 @@ Response
 #### Add new booking with new person
 
 To add a new person along with a booking you must use populate `person_attributes`. MakePlans will match to an existing person based on email or phone number (in that order).
+
+### Add recurring/multiple bookings
+
+`POST /bookings/recurring` will create a multiple bookings.
+
+The recurrence format follows the [iCalendar specification](https://www.ietf.org/rfc/rfc2445.txt). The attributes for reccurence are: `RRULE`, `RDATE`, `EXRULE`, `EXDATE`. For an introduction and examples of these parameters see http://www.kanzaki.com/docs/ical/rrule.html.
+
+In the iCalendar specification the recurrence is based on values in `DTSTART` and `DTEND`. This is set by `booked_from` and `booked_to` from `booking`.
+
+All recurring bookings will except for `booked_from` and `booked_to` have the same attributes based on the specified parameters in `booking`.
+
+All bookings created by the recurring pattern gets the same UUID in `collection_id`. As the collection name implies, and as is possible with the iCalendar specification, this is not necessarirly only for recurrence (i.e. 9am-10am each Friday until December 1st) but also for multiple specific times (as can be specified with `RDATE`).
+
+Only the `collection_id` is returned. No bookings are created at the time of request as they will be processed by the server in the background due to the volume of bookings that it is possible to create at one time. A succesful response with a `collection_id` does in no way indicate that any bookings will be created. The first booking as defined in `booking` is however validated. If it is not valid errors details are returned in the same way as creating a single booking. In such a case recurring rules are not applied and you must adjust the request until validation is succesful.
+
+#### Parameters for reccurrence
+
+The parameters for reccurence are not set in `booking` but in `recurrence`.
+
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>rrule</td><td>String</td><td>Repeating pattern. Example: `FREQ=DAILY;UNTIL=19971224T000000Z`.</td></tr>
+<tr><td>rdate</td><td>String</td><td>List of recurring dates. Example: `VALUE=DATE:19970101,19970120,19970217,19970421`.</td></tr>
+<tr><td>exrule</td><td>String</td><td>Repeating exception pattern. Example: `FREQ=WEEKLY;COUNT=4;INTERVAL=2;BYDAY=TU,TH`.</td></tr>
+<tr><td>exdate</td><td>String</td><td>List of dates that should be excluded from the recurring rule. Example: `VALUE=DATE:19970102`.</td></tr>
+</table>
 
 ### Process bookings awaiting confirmation
 
