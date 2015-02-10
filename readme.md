@@ -1,4 +1,17 @@
-# MakePlans API - Version 1.0
+# MakePlans API - Version 1.1
+
+* [Get started](#get_started)
+* [API Conventions](#api_conventions)
+* [Slots](#slots)
+* [Bookings](#bookings)
+* [People](#people)
+* [Services](#services)
+* [Events](#events)
+* [Resources](#resources)
+* [Resource exception dates](#resource_exception_dates)
+* [Providers](#providers)
+* [Users](#users)
+* [Client](#client)
 
 ## Get started
 
@@ -13,6 +26,8 @@
 When your integration is ready to be released then you can sign up for a real account at https://app.makeplans.net/client/new
 
 MakePlans provides a fairly standard REST API. The base URL is `https://youraccount.makeplans.net/api/` for production apps and `http://youraccount.test.makeplans.net/api/` for test apps. All requests in the production environment are done over HTTPS. Please note that the staging environment is not encrypted (HTTP only). The Norwegian version uses .no and the International version uses .net as TLD. This is only visual as there is a setting for the language.
+
+## API conventions
 
 ### Versioning
 
@@ -152,19 +167,6 @@ Maximum 100 results are returned per page. Specify page with parameter `page`. P
 
 A webhook is simply a user-defined callback in the form of an HTTP POST which is invoked when something happens.
 So whenever a new booking is created in MakePlans we can send a POST request to the URL you specify. The response will include data about the modified object.
-
-## Available objects
-
-* [Slots](#slots)
-* [Bookings](#bookings)
-* [People](#people)
-* [Services](#services)
-* [Events](#events)
-* [Resources](#resources)
-* [Resource exception dates](#resource_exception_dates)
-* [Providers](#providers)
-* [Users](#users)
-* [Client](#client)
 
 ## Slots
 
