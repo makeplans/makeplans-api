@@ -1,14 +1,14 @@
 # MakePlans API - Version 1.1
 
-* [Get started](#get_started)
-* [API Conventions](#api_conventions)
+* [Get started](#get-started)
+* [API Conventions](#api-conventions)
 * [Slots](#slots)
 * [Bookings](#bookings)
 * [People](#people)
 * [Services](#services)
 * [Events](#events)
 * [Resources](#resources)
-* [Resource exception dates](#resource_exception_dates)
+* [Resource exception dates](#resource-exception-dates)
 * [Providers](#providers)
 * [Users](#users)
 * [Client](#client)
