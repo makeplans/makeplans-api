@@ -393,9 +393,25 @@ The parameters for reccurence are not set in `booking` but in `recurrence`.
 <tr><td>exdate</td><td>String</td><td>List of dates that should be excluded from the recurring rule. Example: `VALUE=DATE:19970102`.</td></tr>
 </table>
 
+#### List occurences
+
+`GET /bookings/{occurence_id}` will return all occurrences for a collection.
+
 ### Process bookings awaiting confirmation
 
 `PUT /bookings/{booking_id}/confirm` will confirm a booking.
+
+`PUT /bookings/{booking_id}/decline` will decline a booking.
+
+### Verify a booking
+
+`PUT /bookings/{booking_id}/verify` will verify a booking.
+
+### Confirm a booking
+
+`PUT /bookings/{booking_id}/confirm` will confirm a booking.
+
+### Decline a booking
 
 `PUT /bookings/{booking_id}/decline` will decline a booking.
 
@@ -405,7 +421,7 @@ The parameters for reccurence are not set in `booking` but in `recurrence`.
 
 ### Update booking
 
-`PUT /bookings/{booking_id}` will update existing booking with id `{booking_id}`.
+`PUT /bookings/{booking_id}` will update a booking.
 
 ### Delete booking
 
