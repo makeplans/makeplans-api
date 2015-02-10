@@ -161,7 +161,9 @@ So whenever a new booking is created in MakePlans we can send a POST request to 
 * [Services](#services)
 * [Events](#events)
 * [Resources](#resources)
+* [Resource exception dates](#resource_exception_dates)
 * [Providers](#providers)
+* [Users](#users)
 * [Client](#client)
 
 ## Slots
@@ -727,7 +729,9 @@ Response
 
 `DELETE /resources/{resource_id}` will delete existing resource with id `{resource_id}`. Deleting a resource will set it to active=false and will not returned in any listings.
 
-## Resource exception date
+## Resource exception dates
+
+*Not yet implemented*
 
 ### Attributes
 
@@ -815,6 +819,22 @@ Response
 ### Delete provider
 
 `DELETE /providers/{provider_id}` will delete existing provider with id `{provider_id}`.
+
+## Users
+
+Users who can login into the account.
+
+### Attributes
+
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
+<tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>name</td><td>String</td><td>Required</td></tr>
+<tr><td>email</td><td>String</td><td>Required</td></tr>
+<tr><td>phonenumber</td><td>String</td><td></td></tr>
+</table>
 
 ## Client
 
