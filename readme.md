@@ -160,7 +160,7 @@ System errors (aka we screwed up) returns 5xx errors without any detailed inform
 
 ### Pagination
 
-Maximum 100 results are returned per page. Specify page with parameter `page`. Pagination is used for: bookings, events and people. All other objects return all available items. Please note that currently there is no way to specify exact part of the dataset. Thus an item might appear in both page 2 and 3 if the complete dataset for the query has changed.
+Maximum 100 results are returned per page. Specify page with parameter `page`. Pagination is used for: bookings, events, people and resource exception dates. All other objects return all available items. Please note that currently there is no way to specify exact part of the dataset. Thus an item might appear in both page 2 and 3 if the complete dataset for the query has changed.
 
 ### Web hooks
 
