@@ -29,9 +29,13 @@ API Methods:
 
 When your integration is ready to be released then you can sign up for a real account at https://app.makeplans.net/client/new
 
-MakePlans provides a fairly standard REST API. The base URL is `https://youraccount.makeplans.net/api/` for production apps and `http://youraccount.test.makeplans.net/api/` for test apps. All requests in the production environment are done over HTTPS. Please note that the staging environment is not encrypted (HTTP only). The Norwegian version uses .no and the International version uses .net as TLD. This is only visual as there is a setting for the language.
-
 ## API conventions
+
+MakePlans provides a fairly standard REST API.
+
+### Endpoint
+
+The base URL is `https://youraccount.makeplans.net/api/` for production apps and `http://youraccount.test.makeplans.net/api/` for test apps. All requests in the production environment are done over HTTPS. Please note that the staging environment is not encrypted (HTTP only).
 
 ### Versioning
 
