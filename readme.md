@@ -89,7 +89,7 @@ You must include a User-Agent HTTP-header with the name of your application and 
 curl -u APIKEY: \
   -H 'User-Agent: YourAppName (http://example.org)' \
   -H 'Accept: application/json' \
-  https://youraccount.makeplans.no/api/v1/services
+  https://youraccount.makeplans.net/api/v1/services
 ```
 
 To create something you have to make a POST:
@@ -100,7 +100,7 @@ curl -u APIKEY: \
   -H 'Accept: application/json' \
   -d 'service[title]=My new service!&service[interval]=40' \
   -X POST \
-  https://youraccount.makeplans.no/api/v1/services
+  https://youraccount.makeplans.net/api/v1/services
 ```
 
 ### Syncronisation
