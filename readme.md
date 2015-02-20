@@ -1,7 +1,10 @@
 # MakePlans API - Version 1.1
 
+API Information:
 * [Get started](#get-started)
-* [API Conventions](#api-conventions)
+* [Conventions](#api-conventions)
+
+API Methods:
 * [Slots](#slots)
 * [Bookings](#bookings)
 * [People](#people)
