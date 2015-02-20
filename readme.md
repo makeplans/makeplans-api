@@ -747,7 +747,7 @@ Response
 
 ## Resource exception dates
 
-*Not yet implemented*
+Exception dates are related to a resource: `GET /resources/{resource_id}/exception_dates`
 
 ### Attributes
 
@@ -777,6 +777,14 @@ Response
     }
 ]
 ```
+
+#### Query Parameters
+
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>from</td><td>Date</td><td></td></tr>
+<tr><td>to</td><td>Date</td><td></td></tr>
+</table>
 
 ### Add new exception date
 
