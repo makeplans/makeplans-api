@@ -402,25 +402,27 @@ The parameters for reccurence are not set in `booking` but in `recurrence`.
 
 `GET /bookings/{occurence_id}` will return all occurrences for a collection.
 
-### Process bookings awaiting confirmation
+### Change booking state
+
+#### Process bookings awaiting confirmation
 
 `PUT /bookings/{booking_id}/confirm` will confirm a booking.
 
 `PUT /bookings/{booking_id}/decline` will decline a booking.
 
-### Verify a booking
+#### Verify a booking
 
 `PUT /bookings/{booking_id}/verify` will verify a booking.
 
-### Confirm a booking
+#### Confirm a booking
 
 `PUT /bookings/{booking_id}/confirm` will confirm a booking.
 
-### Decline a booking
+#### Decline a booking
 
 `PUT /bookings/{booking_id}/decline` will decline a booking.
 
-### Cancel a booking
+#### Cancel a booking
 
 `PUT /bookings/{booking_id}/cancel` will cancel a booking.
 
