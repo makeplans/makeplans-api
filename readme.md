@@ -404,12 +404,6 @@ The parameters for reccurence are not set in `booking` but in `recurrence`.
 
 ### Change booking state
 
-#### Process bookings awaiting confirmation
-
-`PUT /bookings/{booking_id}/confirm` will confirm a booking.
-
-`PUT /bookings/{booking_id}/decline` will decline a booking.
-
 #### Verify a booking
 
 `PUT /bookings/{booking_id}/verify` will verify a booking.
