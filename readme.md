@@ -10,6 +10,7 @@
 * [Resources](#resources)
 * [Resource exception dates](#resource-exception-dates)
 * [Providers](#providers)
+* [Categories](#categories)
 * [Users](#users)
 * [Client](#client)
 
@@ -832,6 +833,51 @@ Response
 ### Delete provider
 
 `DELETE /providers/{provider_id}` will delete existing provider with id `{provider_id}`.
+
+## Categories
+
+Services can be listed in a category. Categories can be presented like a tree. Root categories are defined with empty `{parent_id}`.
+
+### Attributes
+
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
+<tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+<tr><td>title</td><td>String</td><td>Required</td></tr>
+<tr><td>parent_id</td><td>Integer</td><td></td></tr>
+</table>
+
+### Listing
+
+Response
+
+```json
+[
+    {
+        "category": {
+            "created_at": "2012-09-20T15:34:16+02:00",
+            "id": 1,
+            "parent_id": null,
+            "title": "My first little category",
+            "updated_at": "2012-09-20T15:34:16+02:00"
+        }
+    }
+]
+```
+
+### Add new category
+
+`POST /categories` will create a new category. To add connected services specify array of `{service_id}` in parameter `{service_id_list}`.
+
+### Update category
+
+`PUT /categories/{category_id}` will update existing category with id `{category_id}`. To add connected services specify array of `{service_id}` in parameter `{service_id_list}`.
+
+### Delete category
+
+`DELETE /categories/{category_id}` will delete existing category with id `{category_id}`.
 
 ## Users
 
