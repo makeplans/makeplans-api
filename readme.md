@@ -636,6 +636,17 @@ Response
 ]
 ```
 
+#### Query Parameters
+
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>service_id</td><td>Integer</td><td></td></tr>
+<tr><td>resource_id</td><td>Integer</td><td></td></tr>
+<tr><td>start</td><td>DateTime</td><td>start after param</td></tr>
+<tr><td>end</td><td>DateTime</td><td>end before param</td></tr>
+<tr><td>since</td><td>DateTime</td><td>updated_at after param</td></tr>
+</table>
+
 ### Add new event
 
 `POST /events` will create a new event.
@@ -743,7 +754,7 @@ Response
 <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
 <tr><td>resource_id</td><td>Integer</td><td>Required</td></tr>
 <tr><td>exception_date</td><td>Date</td><td>Required</td></tr>
-<tr><td>hours</td><td>Array</td><td>Same format as resource opening hours</td></tr>
+<tr><td>opening_hours</td><td>Array</td><td>Same format as resource opening hours</td></tr>
 </table>
 
 ### Listing
@@ -757,7 +768,7 @@ Response
             "created_at": "2012-09-20T15:34:16+02:00",
             "resource_id": 1,
             "exception_date": "2014-01-08",
-            "hours": ["08:00", "12:00", "12:30", "17:30"],
+            "opening_hours": ["08:00", "12:00", "12:30", "17:30"],
             "updated_at": "2012-09-20T15:34:16+02:00"
         }
     }
