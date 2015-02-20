@@ -269,7 +269,7 @@ Response
 <tr><td>external_id</td><td>String</td><td>Not required</td></tr>
 <tr><td>google_order_number</td><td>String</td><td>Not required</td></tr>
 <tr><td>custom_data</td><td>Array</td><td>Not required.</td></tr>
-<tr><td>state</td><td>Text</td><td>Automatically set</td></tr>
+<tr><td>state</td><td>String</td><td>Automatically set</td></tr>
 <tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
 <tr><td>person_attributes</td><td>Object</td><td>See person</td></tr>
 <tr><td>count</td><td>Integer</td><td>Default: 1</td></tr>
