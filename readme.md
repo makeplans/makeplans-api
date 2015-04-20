@@ -785,8 +785,8 @@ Exception dates are related to a resource: `GET /resources/{resource_id}/excepti
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
 <tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
 <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>resource_id</td><td>Integer</td><td>Required</td></tr>
-<tr><td>exception_date</td><td>Date</td><td>Required</td></tr>
+<tr><td>resource_id</td><td>Integer</td><td>Required (specified in URL)</td></tr>
+<tr><td>exception_date</td><td>Date</td><td>Required (specified in URL)</td></tr>
 <tr><td>opening_hours</td><td>Array</td><td>Same format as resource opening hours</td></tr>
 </table>
 
@@ -816,17 +816,17 @@ Response
 <tr><td>to</td><td>Date</td><td></td></tr>
 </table>
 
-### Add new exception date
+### Get exception date
 
-`POST /resources/{resource_id}/exception_dates` will create a new exception date.
+`GET /resources/{resource_id}/exception_dates/{exception_date}` will get the exception date `{exception_date}` for resource `{resource_id}`. If no existing entry is found a 404 HTTP status code is returned. In that case standard opening hours apply.
 
-### Update exception date
+### Add new or update exception date
 
-`PUT /resources/{resource_id}/exception_dates/{exception_date}` will update existing resource date `{exception_date}` for resource `{resource_id}`.
+`POST /resources/{resource_id}/exception_dates/{exception_date}` will create a new or existing exception date `{exception_date}` for resource `{resource_id}`. You can also use `PUT`, both methods works the same way regardless if it is a new entry or an update to an existing one.
 
 ### Delete exception date
 
-`DELETE /resources/{resource_id}/exception_dates/{exception_date}` will delete existing resource date `{exception_date}` for resource `{resource_id}`.
+`DELETE /resources/{resource_id}/exception_dates/{exception_date}` will delete existing exception date `{exception_date}` for resource `{resource_id}`.
 
 ## Providers
 
