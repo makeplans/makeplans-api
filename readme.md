@@ -745,6 +745,24 @@ Response
 ]
 ```
 
+### Get resource
+
+`GET /resources/{resource_id}` will get a resource with id `{resource_id}`.
+
+### Get opening hours for specific dates
+
+The standard opening hours that are specified on the resource can be overridden with entries in [resource exception dates](#resource-exception-dates).
+
+#### Query Parameters
+
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>from</td><td>Date</td><td></td></tr>
+<tr><td>to</td><td>Date</td><td></td></tr>
+</table>
+
+`GET /resources/{resource_id}/opening_hours` will get opening hours on specific dates for resource with id `{resource_id}`.
+
 ### Add new resource
 
 `POST /resources` will create a new resource.
