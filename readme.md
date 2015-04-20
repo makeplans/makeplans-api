@@ -121,7 +121,7 @@ MakePlans does not officially support client libraries but they might be useful 
 
 ### Errors
 
-4xx errors means you made a mistake and you need to adjust your request.
+4xx HTTP status codes means you made a mistake and you need to adjust your request.
 
 #### 401 - Unauthorized
 
@@ -157,7 +157,7 @@ You can perform up to 120 requests per 60 second period from the same IP address
 
 #### 5xx - Server error
 
-System errors (aka we screwed up) returns 5xx errors without any detailed information. We log all system errors, but please contact us if you get this response.
+System errors (aka we screwed up) returns 5xx HTTP status codes without any detailed information. We log all system errors, but please contact us if you get this response.
 
 ```json
 {
