@@ -363,7 +363,9 @@ Response
 
 `POST /bookings` will create a new booking.
 
-#### Additional parameters
+#### Non-returning booking parameters
+
+These parameters are part of booking eq.: `booking[confirmation_send_email]`
 
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
@@ -373,6 +375,15 @@ Response
 <tr><td>notification_send_email</td><td>Boolean</td><td>Send out notification email to admin. Default: false.</td></tr>
 <tr><td>notification_send_sms</td><td>Boolean</td><td>Send out notification SMS to admin. Default: false.</td></tr>
 <tr><td>reminder_send_sms</td><td>Boolean</td><td>Send out reminder SMS to person. Default: false.</td></tr>
+</table>
+
+#### Additional parameters
+
+These parameters are part not of booking eq.: `confirm`
+
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><th>confirm</th><th>Boolean</th><th>If set to false then the 'initiate verifiaction' event is executed. If a verification is required the state will be set to 'awaiting_verification'. If no verification is required then the state will be set to 'awaiting_confirmation' or 'confirmed'.</th></tr>
 </table>
 
 #### Add new booking with new person
