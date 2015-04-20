@@ -777,6 +777,8 @@ The standard opening hours that are specified on the resource can be overridden 
 
 ## Resource exception dates
 
+*Currently in beta. Please report any issues.*
+
 Exception dates are related to a resource: `GET /resources/{resource_id}/exception_dates`
 
 ### Attributes
