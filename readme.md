@@ -365,7 +365,7 @@ Response
 
 #### Non-returning booking parameters
 
-These parameters are part of booking eq.: `booking[confirmation_send_email]`
+These parameters are part of booking eq.: `booking[confirmation_send_email]`.
 
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
@@ -379,7 +379,7 @@ These parameters are part of booking eq.: `booking[confirmation_send_email]`
 
 #### Additional parameters
 
-These parameters are part not of booking eq.: `confirm`
+These parameters are part not of `booking` eq.: `confirm`
 
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
