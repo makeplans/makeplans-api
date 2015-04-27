@@ -528,9 +528,21 @@ Response
 
 *Not yet implemented*
 
-### Authenticate
+### Person authentication
 
-`POST /people/authenticate` will authenticate a person with a unique field: `{email}`, `{phone_number}`, `{provider}`+`{uid}`, and `{password}`. This will return a person if authentication is succesful. You are still using your API-key so while the method is called `authenticate` it is just a way to verify the credentials of the person.
+*Currently you have to save a person before the person can be authenticated. We will introduce a generic verification function which will allow you to verify a phone number or email without saving anything to MakePlans.*
+
+The purpose of this feature is to authenticate a person in MakePlans on your website such as "login to see your bookings".
+
+Authentication of person is done using a unique field: `{email}`, `{phone_number}`, `{provider}`+`{uid}`, and a secret such as `{password}` or `{perishable_token}`. MakePlans will handle the outgoing communication to verify the person.
+
+#### Send authentication token
+
+`POST send_perishable_token` will send a SMS with a pin-code or email with a link. Specify `field_type` with either `{email}` or `{phone_number}`.
+
+#### Authenticate token
+
+`POST /people/authenticate`. This will return a person if authentication is succesful. You are still using your API-key so while the method is called `authenticate` it is just a way to verify the credentials of the person. To verify a authentication_token specify the token `person[perishable_token]` and the identifier in `person[email]` or `person[phone_number]`. To verify a password specify `person[password]` instead along with the identifier.
 
 ## Services
 
