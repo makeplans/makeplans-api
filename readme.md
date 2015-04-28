@@ -365,25 +365,43 @@ Response
 
 #### Non-returning booking parameters
 
-These parameters are part of booking eq.: `booking[confirmation_send_email]`.
+These parameters are part of booking eq.: `booking[public_booking]`.
 
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
 <tr><td>public_booking</td><td>Boolean</td><td>Restrict to normal public booking rules such as within opening hours, not able to book in the past or past specified allowed date in the future. Recommended for all customer facing booking applications (e.g. integration on website). Not recommended when syncronising with other calendar programs. Default: false.</td></tr>
-<tr><td>confirmation_send_email</td><td>Boolean</td><td>Send out confirmation email. Default: false.</td></tr>
-<tr><td>confirmation_send_sms</td><td>Boolean</td><td>Send out confirmation SMS. Default: false.</td></tr>
-<tr><td>notification_send_email</td><td>Boolean</td><td>Send out notification email to admin. Default: false.</td></tr>
-<tr><td>notification_send_sms</td><td>Boolean</td><td>Send out notification SMS to admin. Default: false.</td></tr>
-<tr><td>reminder_send_sms</td><td>Boolean</td><td>Send out reminder SMS to person. Default: false.</td></tr>
 </table>
 
 #### Additional parameters
 
-These parameters are part not of `booking` eq.: `confirm`
+These parameters are part not of `booking` eq.: `confirm`. When saving a new booking all of the next three sections applies:
+
+##### When creating a new booking
 
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><th>confirm</th><th>Boolean</th><th>If set to false then the 'initiate verifiaction' event is executed. If a verification is required the state will be set to 'awaiting_verification'. If no verification is required then the state will be set to 'awaiting_confirmation' or 'confirmed'.</th></tr>
+<tr><th>confirm</th><th>Boolean</th><th>If set to false then the 'initiate verification' event is executed. If verification is required the state will be set to `awaiting_verification`. If no verification is required then the state will be set to `awaiting_confirmation` or `confirmed`.</th></tr>
+<tr><td>verification_send_email</td><td>Boolean</td><td>Send out verification email. Only applicable when `confirm` is set to false. Default: false.</td></tr>
+<tr><td>verification_send_sms</td><td>Boolean</td><td>Send out verification SMS. Only applicable when `confirm` is set to false. Default: false.</td></tr>
+</table>
+
+##### When creating a new or updating an existing booking
+
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>add_reminder_sms</td><td>Boolean</td><td>Automatically adds `reminder_at` based on setting from client atribute `sms_reminder_time`. Default: at 12PM the day before the appointment.</td></tr>
+</table>
+
+##### When confirming a booking
+
+Either saving a new booking and confirming it, or using the events `confirm` or `verify` (might not always result in a confirmed booking though - can be set to `awaiting_confirmation` based on client settings).
+
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>confirmation_send_email</td><td>Boolean</td><td>Send out confirmation email. Default: false.</td></tr>
+<tr><td>confirmation_send_sms</td><td>Boolean</td><td>Send out confirmation SMS. Default: false.</td></tr>
+<tr><td>notification_send_email</td><td>Boolean</td><td>Send out notification email to admin. Default: based on client setting.</td></tr>
+<tr><td>notification_send_sms</td><td>Boolean</td><td>Send out notification SMS to admin. Default: based on client setting.</td></tr>
 </table>
 
 #### Add new booking with new person
