@@ -71,7 +71,7 @@ All dates are specified in the ISO 8601 format. Timezone is included in the outp
 
 ### Custom data
 
-Custom data is stored as key/value. All values are stored as strings but we do convert boolean values and values from keys ending in `_at` to `datetime` at output. Custom data can be added to booking, person, service, resource and event. If you are using our standard booking site and would like to store custom data to a new booking please see https://github.com/makeplans/makeplans-custom-forms for details on how to customise the booking form.
+Custom data is stored as key/value. All values are stored as strings but we do convert boolean values and values from keys ending in '_at' to datetime at output. Custom data can be added to booking, person, service, resource and event. If you are using our standard booking site and would like to store custom data to a new booking please see https://github.com/makeplans/makeplans-custom-forms for details on how to customise the booking form.
 
 ### Authentication
 
