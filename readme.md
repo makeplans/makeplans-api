@@ -382,7 +382,7 @@ These parameters are part not of `booking` eq.: `confirm`. When saving a new boo
 
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><th>confirm</th><th>Boolean</th><th>If set to false then the 'initiate verification' event is executed. If verification is required the state will be set to `awaiting_verification`. If no verification is required then the state will be set to `awaiting_confirmation` or `confirmed`.</th></tr>
+<tr><td>confirm</td><td>Boolean</td><td>If set to false then the 'initiate verification' event is executed. If verification is required the state will be set to `awaiting_verification`. If no verification is required then the state will be set to `awaiting_confirmation` or `confirmed`.</td></tr>
 <tr><td>verification_send_email</td><td>Boolean</td><td>Send out verification email. Only applicable when `confirm` is set to false. Default: false.</td></tr>
 <tr><td>verification_send_sms</td><td>Boolean</td><td>Send out verification SMS. Only applicable when `confirm` is set to false. Default: false.</td></tr>
 </table>
