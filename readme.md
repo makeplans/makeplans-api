@@ -1,4 +1,4 @@
-# MakePlans API - Version 1.1
+# MakePlans API - Version 1.2
 
 API Information:
 * [Get started](#get-started)
