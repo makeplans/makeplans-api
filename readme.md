@@ -921,6 +921,7 @@ Services can be listed in a category. Categories can be presented like a tree. R
 <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
 <tr><td>title</td><td>String</td><td>Required</td></tr>
 <tr><td>parent_id</td><td>Integer</td><td></td></tr>
+<tr><td>custom_data</td><td>Array</td><td>Not required.</td></tr>
 </table>
 
 ### Listing
@@ -932,6 +933,7 @@ Response
     {
         "category": {
             "created_at": "2012-09-20T15:34:16+02:00",
+            "custom_data": {},
             "id": 1,
             "parent_id": null,
             "title": "My first little category",
