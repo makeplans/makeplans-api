@@ -652,11 +652,12 @@ While events are connected to a resource bookings or capacity of an event are no
 <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
 <tr><td>resource_id</td><td>Integer</td><td>Required</td></tr>
 <tr><td>service_id</td><td>Integer</td><td>Required</td></tr>
-<tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
+<tr><td>published</td><td>Boolean</td><td>Default: true</td></tr>
 <tr><td>capacity</td><td>Integer</td><td>Required</td></tr>
 <tr><td>start</td><td>Datetime</td><td>Required</td></tr>
 <tr><td>end</td><td>Datetime</td><td>Required</td></tr>
-<tr><td>custom_data</td><td>Array</td><td>Not required.</td></tr>
+<tr><td>custom_data</td><td>Array</td><td>Not required</td></tr>
+<tr><td>description</td><td>Text</td><td></td></tr>
 </table>
 
 ### Listing
@@ -667,13 +668,14 @@ Response
 [
     {
         "event": {
-            "active": true,
             "capacity": 10,
             "created_at": "2012-09-20T15:34:16+02:00",
             "custom_data": {},
+            "description": null,
             "end": "2015-08-10T11:30:00+02:00",
             "id": 1,
             "resource_id": 1,
+            "published": true,
             "start": "2015-08-10T10:00:00+02:00",
             "service_id": 1,
             "title": "Super fun event",
