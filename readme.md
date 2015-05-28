@@ -496,6 +496,7 @@ The primary key for a person is `id`. However the following fields are unique: `
 <tr><td>postal_code</td><td>String</td><td>Not required.</td></tr>
 <tr><td>state</td><td>String</td><td>Not required.</td></tr>
 <tr><td>country_code</td><td>String</td><td>Not required. ISO 3166-1 alpha-2.</td></tr>
+<tr><td>notes</td><td>Text</td><td>Not required.</td></tr>
 </table>
 
 ### Listing
@@ -516,6 +517,7 @@ Response
             "id": 1,
             "name": "Espen Antonsen",
             "national_id_no": null,
+            "notes": null,
             "phonenumber": "",
             "updated_at": "2012-09-20T15:34:16+02:00",
             "phone_number_formatted": null
