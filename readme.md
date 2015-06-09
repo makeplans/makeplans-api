@@ -376,7 +376,9 @@ These parameters are part of booking eq.: `booking[public_booking]`.
 
 #### Additional parameters
 
-These parameters are part not of `booking` eq.: `confirm`. When saving a new booking all of the next three sections applies:
+These parameters are part not of `booking` eq.: `confirm`. When saving a new booking all of the next three sections applies.
+
+Outgoing messages requires person_id and service_id.
 
 ##### When creating a new booking
 
