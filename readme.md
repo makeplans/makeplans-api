@@ -394,6 +394,7 @@ Outgoing messages requires person_id and service_id.
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
 <tr><td>add_reminder_sms</td><td>Boolean</td><td>Automatically adds `reminder_at` based on setting from client atribute `sms_reminder_time`. Default: at 12PM the day before the appointment.</td></tr>
+<tr><td>ignore_capacity</td><td>Boolean</td><td>Will force save the booking even though other bookings exists within the same time on the specified resource_id. Default: false.</td></tr>
 </table>
 
 ##### When confirming a booking
