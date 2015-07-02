@@ -365,9 +365,18 @@ Response
 
 `POST /bookings` will create a new booking.
 
+#### Non-returning booking parameters
+
+These parameters are part of booking eq.: `booking[public_booking]`.
+
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>public_booking</td><td>Boolean</td><td>Restrict to normal public booking rules such as within opening hours, not able to book in the past or past specified allowed date in the future. Recommended for all customer facing booking applications (e.g. integration on website). Not recommended when syncronising with other calendar programs. Default: false.</td></tr>
+</table>
+
 #### Additional parameters
 
-These parameters are part not of `booking` eq.: `confirm`. When saving a new booking all of the next three sections applies. These parameters are not returned.
+These parameters are part not of `booking` eq.: `confirm`. When saving a new booking all of the next three sections applies.
 
 Outgoing messages requires person_id and service_id.
 
@@ -385,7 +394,6 @@ Outgoing messages requires person_id and service_id.
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
 <tr><td>add_reminder_sms</td><td>Boolean</td><td>Automatically adds `reminder_at` based on setting from client atribute `sms_reminder_time`. Default: at 12PM the day before the appointment.</td></tr>
-<tr><td>public_booking</td><td>Boolean</td><td>Restrict to normal public booking rules such as within opening hours, not able to book in the past or past specified allowed date in the future. Recommended for all customer facing booking applications (e.g. integration on website). Not recommended when syncronising with other calendar programs. Default: false.</td></tr>
 <tr><td>ignore_capacity</td><td>Boolean</td><td>Will force save the booking even though other bookings exists within the same time on the specified resource_id. Default: false.</td></tr>
 </table>
 
