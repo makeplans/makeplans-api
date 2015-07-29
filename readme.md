@@ -117,9 +117,10 @@ We recommened storing a timestamp for when the syncronisation was last performed
 
 ### Client libraries
 
-MakePlans does not officially support client libraries but they might be useful for you.
+MakePlans does not officially support client libraries but they might be useful for you. Please note that these projects are **not** made by MakePlans but made publically available by other developers who have used the MakePlans API. Any questions should be made directly to the responsible developers. If you find any errors or areas of improvement please make a pull request to improve the project.
 
-* CakePHP: https://github.com/makeplans/CakePHP-MakePlans-Plugin
+* NodeJS: https://github.com/mableteam/makeplans
+* CakePHP: https://github.com/Pollenizer/CakePHP-MakePlans-Plugin
 
 ### Errors
 
