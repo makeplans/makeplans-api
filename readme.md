@@ -492,8 +492,8 @@ The primary key for a person is `id`. However the following fields are unique: `
 <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
 <tr><td>name</td><td>String</td><td>Not required.</td></tr>
 <tr><td>email</td><td>String</td><td>Not required.</td></tr>
-<tr><td>phonenumber</td><td>String</td><td>Not required. Phone number as stored.</td></tr>
-<tr><td>phone_number_formatted</td><td>String</td><td>Not required. Phone number with international code and no spaces.</td></tr>
+<tr><td>phone_number</td><td>String</td><td>Not required. Phone number as stored. Also available as phonenumber (deprecated).</td></tr>
+<tr><td>phone_number_formatted</td><td>String</td><td>Only returnable. E.164 formatted phone number with plus sign, international code, and no spaces or parentheses.</td></tr>
 <tr><td>external_id</td><td>String</td><td>Not required</td></tr>
 <tr><td>custom_data</td><td>Array</td><td>Not required. Key/value. Stored as strings.</td></tr>
 <tr><td>date_of_birth</td><td>Date</td><td>Not required</td></tr>
