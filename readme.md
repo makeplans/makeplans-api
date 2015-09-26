@@ -443,7 +443,7 @@ The parameters for reccurence are not set in `booking` but in `recurrence`.
 
 #### List occurences
 
-`GET /bookings/{occurence_id}` will return all occurrences for a collection.
+`GET /bookings/recurring/{collection_id}` will return all occurrences for a collection.
 
 ### Change booking state
 
