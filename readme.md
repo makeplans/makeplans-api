@@ -355,6 +355,7 @@ Response
 <tr><td>service_id</td><td>Integer</td><td></td></tr>
 <tr><td>event_id</td><td>Integer</td><td></td></tr>
 <tr><td>resource_id</td><td>Integer</td><td></td></tr>
+<tr><td>person_id</td><td>Integer</td><td></td></tr>
 <tr><td>external_id</td><td>String</td><td></td></tr>
 <tr><td>start</td><td>DateTime</td><td>booked_from after param</td></tr>
 <tr><td>end</td><td>DateTime</td><td>booked_to before param</td></tr>
