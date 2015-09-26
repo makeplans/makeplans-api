@@ -441,6 +441,8 @@ The parameters for reccurence are not set in `booking` but in `recurrence`.
 <tr><td>exdate</td><td>String</td><td>List of dates that should be excluded from the recurring rule. Example: `VALUE=DATE:19970102`.</td></tr>
 </table>
 
+You should always specify COUNT or UNTIL with RRULE. The max number of occurrences is 366, regardless if a limit is set or not.
+
 #### List occurences
 
 `GET /bookings/recurring/{collection_id}` will return all occurrences for a collection.
