@@ -673,8 +673,8 @@ While events are connected to a resource bookings or capacity of an event are no
 <tr><td>service_id</td><td>Integer</td><td>Required</td></tr>
 <tr><td>published</td><td>Boolean</td><td>Default: true</td></tr>
 <tr><td>capacity</td><td>Integer</td><td>Required</td></tr>
-<tr><td>start</td><td>Datetime</td><td>Required</td></tr>
-<tr><td>end</td><td>Datetime</td><td>Required</td></tr>
+<tr><td>starts_at</td><td>Datetime</td><td>Required</td></tr>
+<tr><td>ends_at</td><td>Datetime</td><td>Required</td></tr>
 <tr><td>custom_data</td><td>Array</td><td>Not required</td></tr>
 <tr><td>description</td><td>Text</td><td></td></tr>
 </table>
@@ -691,11 +691,11 @@ Response
             "created_at": "2012-09-20T15:34:16+02:00",
             "custom_data": {},
             "description": null,
-            "end": "2015-08-10T11:30:00+02:00",
+            "ends_at": "2015-08-10T11:30:00+02:00",
             "id": 1,
             "resource_id": 1,
             "published": true,
-            "start": "2015-08-10T10:00:00+02:00",
+            "starts_at": "2015-08-10T10:00:00+02:00",
             "service_id": 1,
             "title": "Super fun event",
             "updated_at": "2012-09-20T15:34:16+02:00"
@@ -710,8 +710,8 @@ Response
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
 <tr><td>service_id</td><td>Integer</td><td></td></tr>
 <tr><td>resource_id</td><td>Integer</td><td></td></tr>
-<tr><td>start</td><td>DateTime</td><td>start after param</td></tr>
-<tr><td>end</td><td>DateTime</td><td>end before param</td></tr>
+<tr><td>start</td><td>DateTime</td><td>starts_at after param</td></tr>
+<tr><td>end</td><td>DateTime</td><td>ends_at before param</td></tr>
 <tr><td>since</td><td>DateTime</td><td>updated_at after param</td></tr>
 </table>
 
