@@ -557,21 +557,28 @@ Response
 
 *Not yet implemented*
 
-### Person authentication
+### Person verification with a perishable token
 
-*Currently you have to save a person before the person can be authenticated. We will introduce a generic verification function which will allow you to verify a phone number or email without saving anything to MakePlans.*
+The purpose of this feature is to verify a new or existing person in MakePlans on your website such as "login to see your bookings". The verification can be done either using email or SMS. When successful you will have verified either an email or a phone number. Thus you can either create a new person or retrieve an existing person knowing that the person has been verified.
 
-The purpose of this feature is to authenticate a person in MakePlans on your website such as "login to see your bookings".
+Please note that this token is perishable, meaning that it will be removed from and unavailable for verification after 10 minutes.
 
-Authentication of person is done using a unique field: `{email}`, `{phone_number}`, `{provider}`+`{uid}`, and a secret such as `{password}` or `{perishable_token}`. MakePlans will handle the outgoing communication to verify the person.
+#### Send perishable token
 
-#### Send authentication token
+`POST /people/perishable_token/send` will send a SMS with a five digit code (the token) or an email with a link which includes the token in the URL. Specify either `person[email]` or `person[phone_number]`.
 
-`POST send_perishable_token` will send a SMS with a pin-code or email with a link. Specify `field_type` with either `{email}` or `{phone_number}`.
+#### Verify perishable token
 
-#### Authenticate token
+`POST /people/perishable_token/verify`. This will return a person if authentication is successful. If the email or phone_number is already registered to a person then that person will be returned. If no person exists with the specified email/phone_number then a empty person object will be returned. You then have to make another call to create the person. If the token and the identifier do not match an error is returned.
 
-`POST /people/authenticate`. This will return a person if authentication is succesful. You are still using your API-key so while the method is called `authenticate` it is just a way to verify the credentials of the person. To verify a authentication_token specify the token `person[perishable_token]` and the identifier in `person[email]` or `person[phone_number]`. To verify a password specify `person[password]` instead along with the identifier.
+Specify the token as `perishable_token` and the identifier in `person[email]` or `person[phone_number]`.
+
+### Authenticate existing person with a password
+
+Authentication of person is done using a unique field: `{email}` or `{phone_number}` and `{password}`.
+
+`POST /people/authenticate`. This will return a person if authentication is successful. You are still using your API-key so while the method is called `authenticate` it is just a way to verify the credentials of a person.
+
 
 ## Services
 
