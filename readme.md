@@ -121,6 +121,7 @@ MakePlans does not officially support client libraries but they might be useful 
 
 * NodeJS: https://github.com/mableteam/makeplans
 * CakePHP: https://github.com/Pollenizer/CakePHP-MakePlans-Plugin
+* Go: https://github.com/drewwells/makeplans
 
 ### Errors
 
@@ -830,8 +831,6 @@ The standard opening hours that are specified on the resource can be overridden 
 
 ## Resource exception dates
 
-*Currently in beta. Please report any issues.*
-
 Exception dates are related to a resource: `GET /resources/{resource_id}/exception_dates`
 
 ### Attributes
@@ -877,7 +876,11 @@ Response
 
 ### Add new or update exception date
 
-`POST /resources/{resource_id}/exception_dates/{exception_date}` will create a new or existing exception date `{exception_date}` for resource `{resource_id}`. You can also use `PUT`, both methods works the same way regardless if it is a new entry or an update to an existing one.
+`POST /resources/{resource_id}/exception_dates/{exception_date}` will create a new or update an existing exception date `{exception_date}` for resource `{resource_id}`. You can also use `PUT`, both methods works the same way regardless if it is a new entry or an update to an existing one.
+
+### Add new or update multiple exception dates
+
+`POST /resources/{resource_id}/exception_dates/` will create new or update existing exception dates for resource `{resource_id}`. You can also use `PUT`, both methods works the same way regardless if it is a new entry or an update to an existing one.
 
 ### Delete exception date
 
