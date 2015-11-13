@@ -924,10 +924,6 @@ Response
 
 `POST /providers` will create a new provider.
 
-### Update provider
-
-`PUT /providers/{provider_id}` will update existing provider with id `{provider_id}`.
-
 ### Delete provider
 
 `DELETE /providers/{provider_id}` will delete existing provider with id `{provider_id}`.
