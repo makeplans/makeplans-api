@@ -2,9 +2,23 @@
 
 This is the API documentation for MakePlans. MakePlans is an online booking application with support for appointments, classes and events. For more information about the application and its features see http://makeplans.net.
 
-API Information:
+MakePlans provides a fairly standard REST API. All features in MakePlans are available via the API.
+
+General Information:
 * [Get started](#get-started)
-* [General information](#general-information)
+* [Base API URL](#base-api-url)
+* [Versioning](#versioning)
+* [Data formats](#data-formats)
+* [Date handling](#date-handling)
+* [Custom data](#custom-data)
+* [Authentication](#authenticationt)
+* [Identification](#identification)
+* [Errors](#errors)
+* [Pagination](#pagination)
+* [Examples](#example-request-and-response)
+* [Syncronisation](#synchronisation)
+* [Client libraries](#client-libraries)
+* [Web hooks](#web-hooks)
 
 API Endpoints:
 * [Slots](#slots)
@@ -31,21 +45,17 @@ API Endpoints:
 
 When your integration is ready to be released then you can sign up for a real account at https://app.makeplans.net/client/new
 
-## General information
-
-MakePlans provides a fairly standard REST API.
-
-### Base API URL
+## Base API URL
 
 The base URL is `https://youraccount.makeplans.net/api/` for production apps and `http://youraccount.test.makeplans.net/api/` for test apps. All requests in the production environment are done over HTTPS. Please note that the staging environment is not encrypted (HTTP only). Each object in MakePlans has its own endpoints.
 
-### Versioning
+## Versioning
 
 The current version of the API is version 1. The versioning scheme is as follows: `/api/v{version_number}/`. All paths in the rest of the document uses `/api/v1/` as base path.
 
 Please keep up to date with the API as older versions may be deprecated.
 
-### Data formats
+## Data formats
 
 The API supports JSON and XML for input and output. In addition you can specify input using form data.
 
@@ -55,37 +65,87 @@ All data is UTF-8.
 
 All examples and object attributes in this documentation are JSON. They are lowercase and use underscore as seperator. XML element names uses hypen instead of underscore (`created-at` instead of `created_at`).
 
-#### Output
+### Output
 
 To specify JSON as output use HTTP-header `Accept: application/json`. Output can also be defined by using extension in the path: `/resources.json` but it is recommended to use `/resources` and specify output format in the HTTP-header. Multiple items is returned as an array.
 
-#### Input
+### Input
 
 To specify JSON as input use HTTP-header `Content-Type: application/json`. The body must be JSON-formatted and include the object with required attributes.
 
 To use normal form data specify HTTP-header `application/x-www-form-urlencoded`. Form values should be sent like this: `resource[title]=Unicorn`.
 
-### Date handling
+## Date handling
 
 All dates are specified in the ISO 8601 format. Timezone is included in the output and specified by the account. It is not necessary to specify timezone in the input as the account timezone will be used as default. The output will give a full ISO 8601 date format with time zone: `YYYY-MM-DDThh:mm:ssTZD`. For input we recommend that you do not specify time zone unless needed and ommit seconds: `YYYY-MM-DD hh:mm`.
 
-### Custom data
+## Custom data
 
 Custom data is stored as key/value. All values are stored as strings but we do convert boolean values and values from keys ending in '_at' to datetime at output. Custom data can be added to booking, person, service, resource and event. If you are using our standard booking site and would like to store custom data to a new booking please see https://github.com/makeplans/makeplans-custom-forms for details on how to customise the booking form.
 
 Custom data is stored as one attribute. **All** keys and values must be present when updating. If a booking has stored `custom_data` as 'makeplans_is=awesome' and you want to add 'signup=now' then you need to include both 'makeplans_is' and 'signup' with their values.
 
-### Authentication
+## Authentication
 
 MakePlans uses HTTP Basic Auth. The client has to enable the API first and you will find the API-Key in the account settings. The API-Key is the username and there is no password. MakePlans uses SSL and all requests over http will be redirected to https.
 
 If your app is installable by end-users you should use oAuth. However we do not yet support oAuth so please contact us if this is something you require.
 
-### Identification
+## Identification
 
 You must include a User-Agent HTTP-header with the name of your application and a link to it or your email address so we can get in touch in case you're doing something wrong (so we may warn you before you're blacklisted) or something awesome (so we may congratulate you). Example: `User-Agent: YourAppName (http://example.com)`.
 
-### Example request and response
+## Errors
+
+4xx HTTP status codes means you made a mistake and you need to adjust your request.
+
+### 401 - Unauthorized
+
+Authentication error. Response body will give explanation if there is authorisation issue or if the API is not enabled.
+
+### 402 - Payment Required
+
+*Not yet implemented*
+
+Please pay your bill.
+
+### 403 - Forbidden
+
+API usage error. This means you did something wrong and there should be a message in the body that explains it. Error message is related to specified resource. Fix it and try again.
+
+Example response:
+
+```json
+{
+    "title": [
+        "is a required field. Cannot be empty"
+    ]
+}
+```
+
+### 404 - Not Found
+
+Obviously incorrect paths (`/cats`) returns 404. However, even though cool URIs should not change, previously available objects, lets say `/resources/666`, might have been deleted and thus return a 404 when requested. In most cases deleted resources will be returned and have a booking state or a flag that indicate that the resource is inactive or deleted.
+
+### 429 - Too Many Requests
+
+You can perform up to 120 requests per 60 second period from the same IP address. If you exceed this limit, you'll get a 429 Too Many Requests response for subsequent requests. Check the `Retry-After` HTTP-header to see how many seconds to wait before retrying the request.
+
+### 5xx - Server error
+
+System errors (aka we screwed up) returns 5xx HTTP status codes without any detailed information. We log all system errors, but please contact us if you get this response.
+
+```json
+{
+    "error": "system error"
+}
+```
+
+## Pagination
+
+Maximum 100 results are returned per page. Specify page with parameter `page`. Pagination is used for: bookings, events, people and resource exception dates. All other objects return all available items. Please note that currently there is no way to specify exact part of the dataset. Thus an item might appear in both page 2 and 3 if the complete dataset for the query has changed.
+
+## Example request and response
 
 ```shell
 curl -u APIKEY: \
@@ -105,7 +165,7 @@ curl -u APIKEY: \
   https://youraccount.makeplans.net/api/v1/services
 ```
 
-### Syncronisation
+## Syncronisation
 
 Syncronising data is hard. Please ensure you test before releasing to production. First pick either MakePlans or the other system as a master. If the other system is chosen as a master then we recommend enabling the 'confirmation by administrator' setting for bookings. The synchronisation should then retrieve unprocessed bookings and process them (confirm/decline). This will ensure you can handle any changes occured in the other system since the last syncronisation with MakePlans. New unprocessed bookings must be processed often (every 1-5 minutes) to ensure confirmations are sent out quickly to the end-user after requesting a new reservation.
 
@@ -115,7 +175,7 @@ Expect all booking and person data to be changed at any time. All changes for an
 
 We recommened storing a timestamp for when the syncronisation was last performed. When the syncronisation is performed again this timestamp can be used to fetch any changes on the `updated_at` attribute for the object you want to retrieve (e.g. the parameter `since` for bookings).
 
-### Client libraries
+## Client libraries
 
 MakePlans does not officially support client libraries but they might be useful for you. Please note that these projects are **not** made by MakePlans but made publically available by other developers who have used the MakePlans API. Any questions should be made directly to the responsible developers. If you find any errors or areas of improvement please make a pull request to improve the project.
 
@@ -123,57 +183,7 @@ MakePlans does not officially support client libraries but they might be useful 
 * CakePHP: https://github.com/Pollenizer/CakePHP-MakePlans-Plugin
 * Go: https://github.com/drewwells/makeplans
 
-### Errors
-
-4xx HTTP status codes means you made a mistake and you need to adjust your request.
-
-#### 401 - Unauthorized
-
-Authentication error. Response body will give explanation if there is authorisation issue or if the API is not enabled.
-
-#### 402 - Payment Required
-
-*Not yet implemented*
-
-Please pay your bill.
-
-#### 403 - Forbidden
-
-API usage error. This means you did something wrong and there should be a message in the body that explains it. Error message is related to specified resource. Fix it and try again.
-
-Example response:
-
-```json
-{
-    "title": [
-        "is a required field. Cannot be empty"
-    ]
-}
-```
-
-#### 404 - Not Found
-
-Obviously incorrect paths (`/cats`) returns 404. However, even though cool URIs should not change, previously available objects, lets say `/resources/666`, might have been deleted and thus return a 404 when requested. In most cases deleted resources will be returned and have a booking state or a flag that indicate that the resource is inactive or deleted.
-
-#### 429 - Too Many Requests
-
-You can perform up to 120 requests per 60 second period from the same IP address. If you exceed this limit, you'll get a 429 Too Many Requests response for subsequent requests. Check the `Retry-After` HTTP-header to see how many seconds to wait before retrying the request.
-
-#### 5xx - Server error
-
-System errors (aka we screwed up) returns 5xx HTTP status codes without any detailed information. We log all system errors, but please contact us if you get this response.
-
-```json
-{
-    "error": "system error"
-}
-```
-
-### Pagination
-
-Maximum 100 results are returned per page. Specify page with parameter `page`. Pagination is used for: bookings, events, people and resource exception dates. All other objects return all available items. Please note that currently there is no way to specify exact part of the dataset. Thus an item might appear in both page 2 and 3 if the complete dataset for the query has changed.
-
-### Web hooks
+## Web hooks
 
 *Not yet implemented*
 
