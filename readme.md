@@ -1,10 +1,12 @@
 # MakePlans API - Version 1.2
 
+This is the API documentation for MakePlans. MakePlans is an online booking application with support for appointments, classes and events. For more information about the application and its features see http://makeplans.net.
+
 API Information:
 * [Get started](#get-started)
-* [Conventions](#api-conventions)
+* [General information](#general-information)
 
-API Methods:
+API Endpoints:
 * [Slots](#slots)
 * [Bookings](#bookings)
 * [People](#people)
@@ -29,13 +31,13 @@ API Methods:
 
 When your integration is ready to be released then you can sign up for a real account at https://app.makeplans.net/client/new
 
-## API conventions
+## General information
 
 MakePlans provides a fairly standard REST API.
 
-### Endpoint
+### Base API URL
 
-The base URL is `https://youraccount.makeplans.net/api/` for production apps and `http://youraccount.test.makeplans.net/api/` for test apps. All requests in the production environment are done over HTTPS. Please note that the staging environment is not encrypted (HTTP only).
+The base URL is `https://youraccount.makeplans.net/api/` for production apps and `http://youraccount.test.makeplans.net/api/` for test apps. All requests in the production environment are done over HTTPS. Please note that the staging environment is not encrypted (HTTP only). Each object in MakePlans has its own endpoints.
 
 ### Versioning
 
