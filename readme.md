@@ -878,6 +878,10 @@ Response
 
 `POST /resources/{resource_id}/exception_dates/{exception_date}` will create a new or update an existing exception date `{exception_date}` for resource `{resource_id}`. You can also use `PUT`, both methods works the same way regardless if it is a new entry or an update to an existing one.
 
+### Add new or update multiple exception dates
+
+`POST /resources/{resource_id}/exception_dates/` will create new or update existing exception dates for resource `{resource_id}`. You can also use `PUT`, both methods works the same way regardless if it is a new entry or an update to an existing one.
+
 To delete an existing exception date set `{_destroy}` to be true.
 
 ```json
@@ -918,9 +922,6 @@ To delete an existing exception date set `{_destroy}` to be true.
 }
 ```
 
-### Add new or update multiple exception dates
-
-`POST /resources/{resource_id}/exception_dates/` will create new or update existing exception dates for resource `{resource_id}`. You can also use `PUT`, both methods works the same way regardless if it is a new entry or an update to an existing one.
 
 ### Delete exception date
 
