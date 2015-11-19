@@ -45,9 +45,7 @@ Please keep up to date with the API as older versions may be deprecated.
 
 ### Data formats
 
-The API supports JSON and XML for input and output.
-
-We recommend JSON for output and normal form-data for input.
+The API supports JSON and XML for input and output. In addition you can specify input using form data.
 
 The format of the output data is provided as is and the reference is this document. We do not use XML Schema. Any additional attributes such as 'type' in XML must be considered only as hints.
 
@@ -61,9 +59,9 @@ To specify JSON as output use HTTP-header `Accept: application/json`. Output can
 
 #### Input
 
-To specify JSON as input use HTTP-header `Content-Type: application/json`. The body must be JSON-formatted and include the object with required attributes. Alternatively you can use normal form data as input, in that case do not specify the Content-type HTTP-header. Form values are specified like this: `resource[title]=Unicorn`. Normal form input is preferred over JSON/XML to avoid parser issues.
+To specify JSON as input use HTTP-header `Content-Type: application/json`. The body must be JSON-formatted and include the object with required attributes.
 
-All parameters that are not input for creating or updating objects should be sent as normal URL parameters. Example: `/bookings?page=2&resources_id=1`.
+To use normal form data specify HTTP-header `application/x-www-form-urlencoded`. Form values should be sent like this: `resource[title]=Unicorn`.
 
 ### Date handling
 
