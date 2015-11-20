@@ -758,7 +758,7 @@ Response
 <tr><td>opening_hours_sun</td><td>Array</td><td>Default opening hours for Sunday.</td></tr>
 </table>
 
-#### Default openings hours
+#### Default opening hours
 
 Values for the opening hours attributes is of type time in the array. Values are in the form of two's. This results in adding breaks within a day. To define opening hours from 8AM to 4PM with lunch at 12PM to 12.30PM the following array will be the result: `['08:00', '12:00', '12:30', '16:00']`. Having opening hours without a lunch break will yield this result: `['08:00', '16:00']`. To define a weekday as closed the value should be `NULL`.
 
