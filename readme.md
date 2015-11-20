@@ -839,7 +839,7 @@ The standard opening hours that are specified on the resource can be overridden 
 
 `DELETE /resources/{resource_id}` will delete existing resource with id `{resource_id}`. Deleting a resource will set it to active=false and will not returned in any listings.
 
-## Resource exception dates (Opening hours on specific dates)
+## Resource exception dates
 
 Opening hours for a resource is what is used to generate available slots for a service. It is based on the default opening hours on the resource unless anything else is specified by a resource exception date. So ignore the poorly naming of the feature and treat it as opening hours on dates. If a resource should be closed for a week then you would add resource exception dates. If a resource should have opening hours 08:00 to 14:00 on January 5th 2016 instead of the default opening hours for that weekday which could be 09:00 to 15:00, then add it as a resource exception date. See [resource opening hours](#default-opening-hours) for how to specify.
 
