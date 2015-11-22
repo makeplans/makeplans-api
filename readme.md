@@ -239,10 +239,9 @@ Response
 
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>from</td><td>Date</td><td>Default: today 00:00.</td></tr>
-<tr><td>to</td><td>Date</td><td>Default: tomorrow 00:00.</td></tr>
+<tr><td>from</td><td>Date</td><td>Default: today</td></tr>
+<tr><td>to</td><td>Date</td><td>Default: today</td></tr>
 <tr><td>selected_resources</td><td>Array</td><td>Default: all active providers.</td></tr>
-<tr><td>only_free</td><td>Boolean</td><td>Only return timeslots with availability</td></tr>
 </table>
 
 ### Next available date
@@ -263,7 +262,7 @@ Response
 
 <table>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>from</td><td>Date</td><td>Default: today 00:00.</td></tr>
+<tr><td>from</td><td>Date</td><td>Default: today.</td></tr>
 <tr><td>selected_resources</td><td>Array</td><td>Default: all active providers.</td></tr>
 </table>
 
