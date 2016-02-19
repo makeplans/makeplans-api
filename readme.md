@@ -447,7 +447,6 @@ The parameters for reccurence are not set in `booking` but in `recurrence`.
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
   <tr><td>rrule</td><td>String</td><td>Repeating pattern. Example: `FREQ=DAILY;UNTIL=19971224T000000Z`.</td></tr>
   <tr><td>rdate</td><td>String</td><td>List of recurring dates. Example: `VALUE=DATE:19970101,19970120,19970217,19970421`.</td></tr>
-  <tr><td>exrule</td><td>String</td><td>Repeating exception pattern. Example: `FREQ=WEEKLY;COUNT=4;INTERVAL=2;BYDAY=TU,TH`.</td></tr>
   <tr><td>exdate</td><td>String</td><td>List of dates that should be excluded from the recurring rule. Example: `VALUE=DATE:19970102`.</td></tr>
 </table>
 
