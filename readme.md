@@ -117,9 +117,9 @@ Example response:
 
 ```json
 {
-    "title": [
-        "is a required field. Cannot be empty"
-    ]
+  "title": [
+  "is a required field. Cannot be empty"
+  ]
 }
 ```
 
@@ -137,7 +137,7 @@ System errors (aka we screwed up) returns 5xx HTTP status codes without any deta
 
 ```json
 {
-    "error": "system error"
+  "error": "system error"
 }
 ```
 
@@ -149,20 +149,20 @@ Maximum 100 results are returned per page. Specify page with parameter `page`. P
 
 ```shell
 curl -u APIKEY: \
-  -H 'User-Agent: YourAppName (http://example.org)' \
-  -H 'Accept: application/json' \
-  https://youraccount.makeplans.net/api/v1/services
+-H 'User-Agent: YourAppName (http://example.org)' \
+-H 'Accept: application/json' \
+https://youraccount.makeplans.net/api/v1/services
 ```
 
 To create something you have to make a POST:
 
 ```shell
 curl -u APIKEY: \
-  -H 'User-Agent: YourAppName (http://example.org)' \
-  -H 'Accept: application/json' \
-  -d 'service[title]=My new service!&service[interval]=40' \
-  -X POST \
-  https://youraccount.makeplans.net/api/v1/services
+-H 'User-Agent: YourAppName (http://example.org)' \
+-H 'Accept: application/json' \
+-d 'service[title]=My new service!&service[interval]=40' \
+-X POST \
+https://youraccount.makeplans.net/api/v1/services
 ```
 
 ## Syncronisation
@@ -199,14 +199,14 @@ Slots are meant for listing available times on the MakePlans booking page. You c
 ### Attributes
 
 <table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>timestamp</td><td>DateTime</td><td>Start</td></tr>
-<tr><td>timestamp_end</td><td>DateTime</td><td>End</td></tr>
-<tr><td>formatted_timestamp</td><td>String</td><td>Localised human readable format</td></tr>
-<tr><td>formattet_timestamp_end</td><td>String</td><td>Localised human readable format</td></tr>
-<tr><td>free</td><td>Integer</td><td>Free capacity</td></tr>
-<tr><td>open_resources</td><td>Array</td><td>Ids of open resources</td></tr>
-<tr><td>available_resources</td><td>Array</td><td>Ids of resources with availability</td></tr>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>timestamp</td><td>DateTime</td><td>Start</td></tr>
+  <tr><td>timestamp_end</td><td>DateTime</td><td>End</td></tr>
+  <tr><td>formatted_timestamp</td><td>String</td><td>Localised human readable format</td></tr>
+  <tr><td>formattet_timestamp_end</td><td>String</td><td>Localised human readable format</td></tr>
+  <tr><td>free</td><td>Integer</td><td>Free capacity</td></tr>
+  <tr><td>open_resources</td><td>Array</td><td>Ids of open resources</td></tr>
+  <tr><td>available_resources</td><td>Array</td><td>Ids of resources with availability</td></tr>
 </table>
 
 ### Listing
@@ -217,31 +217,31 @@ Response
 
 ```json
 [
-    {
-        "slot": {
-            "timestamp": "2013-03-08T10:00:00+00:00",
-            "timestamp_end": "2013-03-08T10:15:00+00:00",
-            "formatted_timestamp": "Friday, March  8, 2013, 10:00 AM",
-            "formatted_timestamp_end": "Friday, March  8, 2013, 10:15 AM",
-            "free": 1,
-            "open_resources": [
-                1
-            ],
-            "available_resources": [
-                1,2
-            ]
-        }
+  {
+    "slot": {
+      "timestamp": "2013-03-08T10:00:00+00:00",
+      "timestamp_end": "2013-03-08T10:15:00+00:00",
+      "formatted_timestamp": "Friday, March  8, 2013, 10:00 AM",
+      "formatted_timestamp_end": "Friday, March  8, 2013, 10:15 AM",
+      "free": 1,
+      "open_resources": [
+      1
+      ],
+      "available_resources": [
+      1,2
+      ]
     }
+  }
 ]
 ```
 
 #### Query Parameters
 
 <table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>from</td><td>Date</td><td>Default: today</td></tr>
-<tr><td>to</td><td>Date</td><td>Default: today</td></tr>
-<tr><td>selected_resources</td><td>Array</td><td>Default: all active providers.</td></tr>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>from</td><td>Date</td><td>Default: today</td></tr>
+  <tr><td>to</td><td>Date</td><td>Default: today</td></tr>
+  <tr><td>selected_resources</td><td>Array</td><td>Default: all active providers.</td></tr>
 </table>
 
 ### Next available date
@@ -252,18 +252,18 @@ Response
 
 ```json
 [
-    {
-        "available_date": "2013-04-03"
-    }
+  {
+    "available_date": "2016-02-20"
+  }
 ]
 ```
 
 #### Query Parameters
 
 <table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>from</td><td>Date</td><td>Default: today.</td></tr>
-<tr><td>selected_resources</td><td>Array</td><td>Default: all active providers.</td></tr>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>from</td><td>Date</td><td>Default: today.</td></tr>
+  <tr><td>selected_resources</td><td>Array</td><td>Default: all active providers.</td></tr>
 </table>
 
 ## Bookings
@@ -271,29 +271,29 @@ Response
 ### Attributes
 
 <table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
-<tr><td>created_by</td><td>DateTime</td><td>Automatically set</td></tr>
-<tr><td>updated_by</td><td>DateTime</td><td>Automatically set</td></tr>
-<tr><td>service_id</td><td>Integer</td><td>Not required</td></tr>
-<tr><td>event_id</td><td>Integer</td><td>Not required</td></tr>
-<tr><td>resource_id</td><td>Integer</td><td>Required</td></tr>
-<tr><td>person_id</td><td>Integer</td><td>Not required</td></tr>
-<tr><td>booked_from</td><td>Datetime</td><td>Required</td></tr>
-<tr><td>booked_to</td><td>Datetime</td><td>Required</td></tr>
-<tr><td>expires_at</td><td>Datetime</td><td>Not required</td></tr>
-<tr><td>notes</td><td>Text</td><td>Not required</td></tr>
-<tr><td>reminder_at</td><td>DateTime</td><td>Not required</td></tr>
-<tr><td>reminded_at</td><td>DateTime</td><td>Not required</td></tr>
-<tr><td>paid_at</td><td>DateTime</td><td>Not required</td></tr>
-<tr><td>external_id</td><td>String</td><td>Not required</td></tr>
-<tr><td>google_order_number</td><td>String</td><td>Not required</td></tr>
-<tr><td>custom_data</td><td>Array</td><td>Not required.</td></tr>
-<tr><td>state</td><td>String</td><td>Automatically set</td></tr>
-<tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
-<tr><td>person_attributes</td><td>Object</td><td>See person</td></tr>
-<tr><td>count</td><td>Integer</td><td>Default: 1</td></tr>
-<tr><td>collection_id</td><td>UUID</td><td>Automatically set for recurring bookings.</td></tr>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
+  <tr><td>created_by</td><td>DateTime</td><td>Automatically set</td></tr>
+  <tr><td>updated_by</td><td>DateTime</td><td>Automatically set</td></tr>
+  <tr><td>service_id</td><td>Integer</td><td>Not required</td></tr>
+  <tr><td>event_id</td><td>Integer</td><td>Not required</td></tr>
+  <tr><td>resource_id</td><td>Integer</td><td>Required</td></tr>
+  <tr><td>person_id</td><td>Integer</td><td>Not required</td></tr>
+  <tr><td>booked_from</td><td>Datetime</td><td>Required</td></tr>
+  <tr><td>booked_to</td><td>Datetime</td><td>Required</td></tr>
+  <tr><td>expires_at</td><td>Datetime</td><td>Not required</td></tr>
+  <tr><td>notes</td><td>Text</td><td>Not required</td></tr>
+  <tr><td>reminder_at</td><td>DateTime</td><td>Not required</td></tr>
+  <tr><td>reminded_at</td><td>DateTime</td><td>Not required</td></tr>
+  <tr><td>paid_at</td><td>DateTime</td><td>Not required</td></tr>
+  <tr><td>external_id</td><td>String</td><td>Not required</td></tr>
+  <tr><td>google_order_number</td><td>String</td><td>Not required</td></tr>
+  <tr><td>custom_data</td><td>Array</td><td>Not required.</td></tr>
+  <tr><td>state</td><td>String</td><td>Automatically set</td></tr>
+  <tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
+  <tr><td>person_attributes</td><td>Object</td><td>See person</td></tr>
+  <tr><td>count</td><td>Integer</td><td>Default: 1</td></tr>
+  <tr><td>collection_id</td><td>UUID</td><td>Automatically set for recurring bookings.</td></tr>
 </table>
 
 ### States
@@ -337,40 +337,40 @@ Response
 
 ```json
 [
-    {
-        "booking": {
-            "booked_from": "2012-09-29T07:00:00+02:00",
-            "booked_to": "2012-09-29T08:00:00+02:00",
-            "created_at": "2012-09-20T15:34:16+02:00",
-            "custom_data": {},
-            "count": 1,
-            "expires_at": null,
-            "external_id": null,
-            "id": 1,
-            "notes": "Very handsome client",
-            "person_id": 1,
-            "resource_id": 1,
-            "service_id": 1,
-            "state": "confirmed",
-            "updated_at": "2012-09-20T15:34:16+02:00"
-        }
+  {
+    "booking": {
+      "booked_from": "2012-09-29T07:00:00+02:00",
+      "booked_to": "2012-09-29T08:00:00+02:00",
+      "created_at": "2012-09-20T15:34:16+02:00",
+      "custom_data": {},
+      "count": 1,
+      "expires_at": null,
+      "external_id": null,
+      "id": 1,
+      "notes": "Very handsome client",
+      "person_id": 1,
+      "resource_id": 1,
+      "service_id": 1,
+      "state": "confirmed",
+      "updated_at": "2012-09-20T15:34:16+02:00"
     }
+  }
 ]
 ```
 
 #### Query Parameters
 
 <table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>service_id</td><td>Integer</td><td></td></tr>
-<tr><td>event_id</td><td>Integer</td><td></td></tr>
-<tr><td>resource_id</td><td>Integer</td><td></td></tr>
-<tr><td>person_id</td><td>Integer</td><td></td></tr>
-<tr><td>external_id</td><td>String</td><td></td></tr>
-<tr><td>start</td><td>DateTime</td><td>booked_from after param</td></tr>
-<tr><td>end</td><td>DateTime</td><td>booked_to before param</td></tr>
-<tr><td>since</td><td>DateTime</td><td>updated_at after param</td></tr>
-<tr><td>collection_id</td><td>UUID</td><td></td></tr>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>service_id</td><td>Integer</td><td></td></tr>
+  <tr><td>event_id</td><td>Integer</td><td></td></tr>
+  <tr><td>resource_id</td><td>Integer</td><td></td></tr>
+  <tr><td>person_id</td><td>Integer</td><td></td></tr>
+  <tr><td>external_id</td><td>String</td><td></td></tr>
+  <tr><td>start</td><td>DateTime</td><td>booked_from after param</td></tr>
+  <tr><td>end</td><td>DateTime</td><td>booked_to before param</td></tr>
+  <tr><td>since</td><td>DateTime</td><td>updated_at after param</td></tr>
+  <tr><td>collection_id</td><td>UUID</td><td></td></tr>
 </table>
 
 ### Add new booking
@@ -382,8 +382,8 @@ Response
 These parameters are part of booking eq.: `booking[public_booking]`.
 
 <table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>public_booking</td><td>Boolean</td><td>Restrict to normal public booking rules such as within opening hours, not able to book in the past or past specified allowed date in the future. Recommended for all customer facing booking applications (e.g. integration on website). Not recommended when syncronising with other calendar programs. Default: false.</td></tr>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>public_booking</td><td>Boolean</td><td>Restrict to normal public booking rules such as within opening hours, not able to book in the past or past specified allowed date in the future. Recommended for all customer facing booking applications (e.g. integration on website). Not recommended when syncronising with other calendar programs. Default: false.</td></tr>
 </table>
 
 #### Additional parameters
@@ -395,18 +395,18 @@ Outgoing messages requires person_id and service_id.
 ##### When creating a new booking
 
 <table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>confirm</td><td>Boolean</td><td>If set to false then the 'initiate verification' event is executed. If verification is required the state will be set to `awaiting_verification`. If no verification is required then the state will be set to `awaiting_confirmation` or `confirmed`.</td></tr>
-<tr><td>verification_send_email</td><td>Boolean</td><td>Send out verification email. Only applicable when `confirm` is set to false. Default: false.</td></tr>
-<tr><td>verification_send_sms</td><td>Boolean</td><td>Send out verification SMS. Only applicable when `confirm` is set to false. Default: false.</td></tr>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>confirm</td><td>Boolean</td><td>If set to false then the 'initiate verification' event is executed. If verification is required the state will be set to `awaiting_verification`. If no verification is required then the state will be set to `awaiting_confirmation` or `confirmed`.</td></tr>
+  <tr><td>verification_send_email</td><td>Boolean</td><td>Send out verification email. Only applicable when `confirm` is set to false. Default: false.</td></tr>
+  <tr><td>verification_send_sms</td><td>Boolean</td><td>Send out verification SMS. Only applicable when `confirm` is set to false. Default: false.</td></tr>
 </table>
 
 ##### When creating a new or updating an existing booking
 
 <table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>add_reminder_sms</td><td>Boolean</td><td>Automatically adds `reminder_at` based on setting from client atribute `sms_reminder_time`. Default: at 12PM the day before the appointment.</td></tr>
-<tr><td>ignore_capacity</td><td>Boolean</td><td>Will force save the booking even though other bookings exists within the same time on the specified resource_id. Default: false.</td></tr>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>add_reminder_sms</td><td>Boolean</td><td>Automatically adds `reminder_at` based on setting from client atribute `sms_reminder_time`. Default: at 12PM the day before the appointment.</td></tr>
+  <tr><td>ignore_capacity</td><td>Boolean</td><td>Will force save the booking even though other bookings exists within the same time on the specified resource_id. Default: false.</td></tr>
 </table>
 
 ##### When confirming a booking
@@ -414,11 +414,11 @@ Outgoing messages requires person_id and service_id.
 Either saving a new booking and confirming it, or using the events `confirm` or `verify` (might not always result in a confirmed booking though - can be set to `awaiting_confirmation` based on client settings).
 
 <table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>confirmation_send_email</td><td>Boolean</td><td>Send out confirmation email. Default: false.</td></tr>
-<tr><td>confirmation_send_sms</td><td>Boolean</td><td>Send out confirmation SMS. Default: false.</td></tr>
-<tr><td>notification_send_email</td><td>Boolean</td><td>Send out notification email to admin. Default: based on client setting.</td></tr>
-<tr><td>notification_send_sms</td><td>Boolean</td><td>Send out notification SMS to admin. Default: based on client setting.</td></tr>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>confirmation_send_email</td><td>Boolean</td><td>Send out confirmation email. Default: false.</td></tr>
+  <tr><td>confirmation_send_sms</td><td>Boolean</td><td>Send out confirmation SMS. Default: false.</td></tr>
+  <tr><td>notification_send_email</td><td>Boolean</td><td>Send out notification email to admin. Default: based on client setting.</td></tr>
+  <tr><td>notification_send_sms</td><td>Boolean</td><td>Send out notification SMS to admin. Default: based on client setting.</td></tr>
 </table>
 
 #### Add new booking with new person
@@ -429,7 +429,7 @@ To add a new person along with a booking you must use populate `person_attribute
 
 `POST /bookings/recurring` will create a multiple bookings.
 
-The recurrence format follows the [iCalendar specification](https://www.ietf.org/rfc/rfc2445.txt). The attributes for reccurence are: `RRULE`, `RDATE`, `EXRULE`, `EXDATE`. For an introduction and examples of these parameters see http://www.kanzaki.com/docs/ical/rrule.html.
+The recurrence format follows the [iCalendar specification](https://tools.ietf.org/html/rfc5545). The attributes for reccurence are: `RRULE`, `RDATE`, `EXDATE`. For an introduction and examples of these parameters see http://www.kanzaki.com/docs/ical/rrule.html.
 
 In the iCalendar specification the recurrence is based on values in `DTSTART` and `DTEND`. This is set by `booked_from` and `booked_to` from `booking`.
 
@@ -444,11 +444,11 @@ Only the `collection_id` is returned. No bookings are created at the time of req
 The parameters for reccurence are not set in `booking` but in `recurrence`.
 
 <table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>rrule</td><td>String</td><td>Repeating pattern. Example: `FREQ=DAILY;UNTIL=19971224T000000Z`.</td></tr>
-<tr><td>rdate</td><td>String</td><td>List of recurring dates. Example: `VALUE=DATE:19970101,19970120,19970217,19970421`.</td></tr>
-<tr><td>exrule</td><td>String</td><td>Repeating exception pattern. Example: `FREQ=WEEKLY;COUNT=4;INTERVAL=2;BYDAY=TU,TH`.</td></tr>
-<tr><td>exdate</td><td>String</td><td>List of dates that should be excluded from the recurring rule. Example: `VALUE=DATE:19970102`.</td></tr>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>rrule</td><td>String</td><td>Repeating pattern. Example: `FREQ=DAILY;UNTIL=19971224T000000Z`.</td></tr>
+  <tr><td>rdate</td><td>String</td><td>List of recurring dates. Example: `VALUE=DATE:19970101,19970120,19970217,19970421`.</td></tr>
+  <tr><td>exrule</td><td>String</td><td>Repeating exception pattern. Example: `FREQ=WEEKLY;COUNT=4;INTERVAL=2;BYDAY=TU,TH`.</td></tr>
+  <tr><td>exdate</td><td>String</td><td>List of dates that should be excluded from the recurring rule. Example: `VALUE=DATE:19970102`.</td></tr>
 </table>
 
 You should always specify COUNT or UNTIL with RRULE. The max number of occurrences is 366, regardless if a limit is set or not.
@@ -496,24 +496,24 @@ The primary key for a person is `id`. However the following fields are unique: `
 ### Attributes
 
 <table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
-<tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>name</td><td>String</td><td>Not required.</td></tr>
-<tr><td>email</td><td>String</td><td>Not required.</td></tr>
-<tr><td>phone_number</td><td>String</td><td>Not required. Phone number as stored. Also available as phonenumber (deprecated).</td></tr>
-<tr><td>phone_number_formatted</td><td>String</td><td>Only returnable. E.164 formatted phone number with plus sign, international code, and no spaces or parentheses.</td></tr>
-<tr><td>external_id</td><td>String</td><td>Not required</td></tr>
-<tr><td>custom_data</td><td>Array</td><td>Not required. Key/value. Stored as strings.</td></tr>
-<tr><td>date_of_birth</td><td>Date</td><td>Not required</td></tr>
-<tr><td>national_id_no</td><td>String</td><td>Not required.</td></tr>
-<tr><td>street</td><td>String</td><td>Not required.</td></tr>
-<tr><td>city</td><td>String</td><td>Not required.</td></tr>
-<tr><td>postal_code</td><td>String</td><td>Not required.</td></tr>
-<tr><td>state</td><td>String</td><td>Not required.</td></tr>
-<tr><td>country_code</td><td>String</td><td>Not required. ISO 3166-1 alpha-2.</td></tr>
-<tr><td>notes</td><td>Text</td><td>Not required.</td></tr>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
+  <tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+  <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+  <tr><td>name</td><td>String</td><td>Not required.</td></tr>
+  <tr><td>email</td><td>String</td><td>Not required.</td></tr>
+  <tr><td>phone_number</td><td>String</td><td>Not required. Phone number as stored. Also available as phonenumber (deprecated).</td></tr>
+  <tr><td>phone_number_formatted</td><td>String</td><td>Only returnable. E.164 formatted phone number with plus sign, international code, and no spaces or parentheses.</td></tr>
+  <tr><td>external_id</td><td>String</td><td>Not required</td></tr>
+  <tr><td>custom_data</td><td>Array</td><td>Not required. Key/value. Stored as strings.</td></tr>
+  <tr><td>date_of_birth</td><td>Date</td><td>Not required</td></tr>
+  <tr><td>national_id_no</td><td>String</td><td>Not required.</td></tr>
+  <tr><td>street</td><td>String</td><td>Not required.</td></tr>
+  <tr><td>city</td><td>String</td><td>Not required.</td></tr>
+  <tr><td>postal_code</td><td>String</td><td>Not required.</td></tr>
+  <tr><td>state</td><td>String</td><td>Not required.</td></tr>
+  <tr><td>country_code</td><td>String</td><td>Not required. ISO 3166-1 alpha-2.</td></tr>
+  <tr><td>notes</td><td>Text</td><td>Not required.</td></tr>
 </table>
 
 ### Listing
@@ -524,35 +524,35 @@ Response
 
 ```json
 [
-    {
-        "person": {
-            "created_at": "2012-09-20T15:34:16+02:00",
-            "custom_data": {},
-            "date_of_birth": null,
-            "email": "espen@makeplans.no",
-            "external_id": null,
-            "id": 1,
-            "name": "Espen Antonsen",
-            "national_id_no": null,
-            "notes": null,
-            "phonenumber": "",
-            "updated_at": "2012-09-20T15:34:16+02:00",
-            "phone_number_formatted": null
-        }
+  {
+    "person": {
+      "created_at": "2012-09-20T15:34:16+02:00",
+      "custom_data": {},
+      "date_of_birth": null,
+      "email": "espen@makeplans.no",
+      "external_id": null,
+      "id": 1,
+      "name": "Espen Antonsen",
+      "national_id_no": null,
+      "notes": null,
+      "phonenumber": "",
+      "updated_at": "2012-09-20T15:34:16+02:00",
+      "phone_number_formatted": null
     }
+  }
 ]
 ```
 
 #### Query Parameters
 
 <table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>email</td><td>String</td><td></td></tr>
-<tr><td>phonenumber</td><td>String</td><td></td></tr>
-<tr><td>external_id</td><td>String</td><td></td></tr>
-<tr><td>name</td><td>String</td><td></td></tr>
-<tr><td>date_of_birth</td><td>Date</td><td></td></tr>
-<tr><td>national_id_no</td><td>String</td><td></td></tr>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>email</td><td>String</td><td></td></tr>
+  <tr><td>phonenumber</td><td>String</td><td></td></tr>
+  <tr><td>external_id</td><td>String</td><td></td></tr>
+  <tr><td>name</td><td>String</td><td></td></tr>
+  <tr><td>date_of_birth</td><td>Date</td><td></td></tr>
+  <tr><td>national_id_no</td><td>String</td><td></td></tr>
 </table>
 
 ### Add new person
@@ -607,24 +607,24 @@ Attendance at an event is also a booking but the individual booking datetime or 
 ### Attributes
 
 <table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
-<tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>title</td><td>String</td><td>Required</td></tr>
-<tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
-<tr><td>booking_capacity</td><td>Integer</td><td>Not required</td></tr>
-<tr><td>day_booking_specify_time</td><td>Boolean</td><td>Not Required (default false)</td></tr>
-<tr><td>has_day_booking</td><td>Boolean</td><td>Not required (default false)</td></tr>
-<tr><td>interval</td><td>Integer</td><td>Not required (default 60)</td></tr>
-<tr><td>max_slots</td><td>Integer</td><td>Not required (default 1)</td></tr>
-<tr><td>price</td><td>Decimal</td><td>Not required. Uses currency on client.</td></tr>
-<tr><td>same_day</td><td>Boolean</td><td>Not required (default false)</td></tr>
-<tr><td>template</td><td>String</td><td>Component template (calendar view)</td></tr>
-<tr><td>interval_rounding</td><td>Integer</td><td>Overrides client default (see info on client object)</td></tr>
-<tr><td>booking_type_id</td><td>Integer</td><td>1: appointment. 2: attendance.
-<tr><td>custom_data</td><td>Array</td><td>Not required.</td></tr>
-</td></tr>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
+  <tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+  <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+  <tr><td>title</td><td>String</td><td>Required</td></tr>
+  <tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
+  <tr><td>booking_capacity</td><td>Integer</td><td>Not required</td></tr>
+  <tr><td>day_booking_specify_time</td><td>Boolean</td><td>Not Required (default false)</td></tr>
+  <tr><td>has_day_booking</td><td>Boolean</td><td>Not required (default false)</td></tr>
+  <tr><td>interval</td><td>Integer</td><td>Not required (default 60)</td></tr>
+  <tr><td>max_slots</td><td>Integer</td><td>Not required (default 1)</td></tr>
+  <tr><td>price</td><td>Decimal</td><td>Not required. Uses currency on client.</td></tr>
+  <tr><td>same_day</td><td>Boolean</td><td>Not required (default false)</td></tr>
+  <tr><td>template</td><td>String</td><td>Component template (calendar view)</td></tr>
+  <tr><td>interval_rounding</td><td>Integer</td><td>Overrides client default (see info on client object)</td></tr>
+  <tr><td>booking_type_id</td><td>Integer</td><td>1: appointment. 2: attendance.
+    <tr><td>custom_data</td><td>Array</td><td>Not required.</td></tr>
+  </td></tr>
 </table>
 
 ### Listing
@@ -633,24 +633,24 @@ Response
 
 ```json
 [
-    {
-        "service": {
-            "active": true,
-            "booking_capacity": 1,
-            "created_at": "2012-09-20T15:34:16+02:00",
-            "custom_data": {},
-            "day_booking_specify_time": false,
-            "has_day_booking": false,
-            "id": 1,
-            "interval": 20,
-            "max_slots": null,
-            "price": "115.0",
-            "same_day": false,
-            "template": null,
-            "title": "Chiropractor",
-            "updated_at": "2012-09-20T15:34:16+02:00"
-        }
+  {
+    "service": {
+      "active": true,
+      "booking_capacity": 1,
+      "created_at": "2012-09-20T15:34:16+02:00",
+      "custom_data": {},
+      "day_booking_specify_time": false,
+      "has_day_booking": false,
+      "id": 1,
+      "interval": 20,
+      "max_slots": null,
+      "price": "115.0",
+      "same_day": false,
+      "template": null,
+      "title": "Chiropractor",
+      "updated_at": "2012-09-20T15:34:16+02:00"
     }
+  }
 ]
 ```
 
@@ -675,18 +675,18 @@ While events are connected to a resource bookings or capacity of an event are no
 ### Attributes
 
 <table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
-<tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>resource_id</td><td>Integer</td><td>Required</td></tr>
-<tr><td>service_id</td><td>Integer</td><td>Required</td></tr>
-<tr><td>published</td><td>Boolean</td><td>Default: true</td></tr>
-<tr><td>capacity</td><td>Integer</td><td>Required</td></tr>
-<tr><td>starts_at</td><td>Datetime</td><td>Required</td></tr>
-<tr><td>ends_at</td><td>Datetime</td><td>Required</td></tr>
-<tr><td>custom_data</td><td>Array</td><td>Not required</td></tr>
-<tr><td>description</td><td>Text</td><td></td></tr>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
+  <tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+  <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+  <tr><td>resource_id</td><td>Integer</td><td>Required</td></tr>
+  <tr><td>service_id</td><td>Integer</td><td>Required</td></tr>
+  <tr><td>published</td><td>Boolean</td><td>Default: true</td></tr>
+  <tr><td>capacity</td><td>Integer</td><td>Required</td></tr>
+  <tr><td>starts_at</td><td>Datetime</td><td>Required</td></tr>
+  <tr><td>ends_at</td><td>Datetime</td><td>Required</td></tr>
+  <tr><td>custom_data</td><td>Array</td><td>Not required</td></tr>
+  <tr><td>description</td><td>Text</td><td></td></tr>
 </table>
 
 ### Listing
@@ -695,34 +695,34 @@ Response
 
 ```json
 [
-    {
-        "event": {
-            "capacity": 10,
-            "created_at": "2012-09-20T15:34:16+02:00",
-            "custom_data": {},
-            "description": null,
-            "ends_at": "2015-08-10T11:30:00+02:00",
-            "id": 1,
-            "resource_id": 1,
-            "published": true,
-            "starts_at": "2015-08-10T10:00:00+02:00",
-            "service_id": 1,
-            "title": "Super fun event",
-            "updated_at": "2012-09-20T15:34:16+02:00"
-        }
+  {
+    "event": {
+      "capacity": 10,
+      "created_at": "2012-09-20T15:34:16+02:00",
+      "custom_data": {},
+      "description": null,
+      "ends_at": "2015-08-10T11:30:00+02:00",
+      "id": 1,
+      "resource_id": 1,
+      "published": true,
+      "starts_at": "2015-08-10T10:00:00+02:00",
+      "service_id": 1,
+      "title": "Super fun event",
+      "updated_at": "2012-09-20T15:34:16+02:00"
     }
+  }
 ]
 ```
 
 #### Query Parameters
 
 <table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>service_id</td><td>Integer</td><td></td></tr>
-<tr><td>resource_id</td><td>Integer</td><td></td></tr>
-<tr><td>start</td><td>DateTime</td><td>starts_at after param</td></tr>
-<tr><td>end</td><td>DateTime</td><td>ends_at before param</td></tr>
-<tr><td>since</td><td>DateTime</td><td>updated_at after param</td></tr>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>service_id</td><td>Integer</td><td></td></tr>
+  <tr><td>resource_id</td><td>Integer</td><td></td></tr>
+  <tr><td>start</td><td>DateTime</td><td>starts_at after param</td></tr>
+  <tr><td>end</td><td>DateTime</td><td>ends_at before param</td></tr>
+  <tr><td>since</td><td>DateTime</td><td>updated_at after param</td></tr>
 </table>
 
 ### Add new event
@@ -742,19 +742,19 @@ Response
 ### Attributes
 
 <table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
-<tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>title</td><td>String</td><td>Required</td></tr>
-<tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
-<tr><td>opening_hours_mon</td><td>Array</td><td>Default opening hours for Monday.</td></tr>
-<tr><td>opening_hours_tue</td><td>Array</td><td>Default opening hours for Tuesday.</td></tr>
-<tr><td>opening_hours_wed</td><td>Array</td><td>Default opening hours for Wednesday.</td></tr>
-<tr><td>opening_hours_thu</td><td>Array</td><td>Default opening hours for Thursday.</td></tr>
-<tr><td>opening_hours_fri</td><td>Array</td><td>Default opening hours for Friday.</td></tr>
-<tr><td>opening_hours_sat</td><td>Array</td><td>Default opening hours for Saturday.</td></tr>
-<tr><td>opening_hours_sun</td><td>Array</td><td>Default opening hours for Sunday.</td></tr>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
+  <tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+  <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+  <tr><td>title</td><td>String</td><td>Required</td></tr>
+  <tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
+  <tr><td>opening_hours_mon</td><td>Array</td><td>Default opening hours for Monday.</td></tr>
+  <tr><td>opening_hours_tue</td><td>Array</td><td>Default opening hours for Tuesday.</td></tr>
+  <tr><td>opening_hours_wed</td><td>Array</td><td>Default opening hours for Wednesday.</td></tr>
+  <tr><td>opening_hours_thu</td><td>Array</td><td>Default opening hours for Thursday.</td></tr>
+  <tr><td>opening_hours_fri</td><td>Array</td><td>Default opening hours for Friday.</td></tr>
+  <tr><td>opening_hours_sat</td><td>Array</td><td>Default opening hours for Saturday.</td></tr>
+  <tr><td>opening_hours_sun</td><td>Array</td><td>Default opening hours for Sunday.</td></tr>
 </table>
 
 #### Default opening hours
@@ -764,21 +764,21 @@ Values for the opening hours attributes is of type time in the array. Values are
 #### Deprecated Attributes
 
 <table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>open_0</td><td>Time</td><td>Opening time for Monday</td></tr>
-<tr><td>open_1</td><td>Time</td><td>Opening time for Tuesday</td></tr>
-<tr><td>open_2</td><td>Time</td><td>Opening time for Wednesday</td></tr>
-<tr><td>open_3</td><td>Time</td><td>Opening time for Thursday</td></tr>
-<tr><td>open_4</td><td>Time</td><td>Opening time for Friday</td></tr>
-<tr><td>open_5</td><td>Time</td><td>Opening time for Saturday</td></tr>
-<tr><td>open_6</td><td>Time</td><td>Opening time for Sunday</td></tr>
-<tr><td>close_0</td><td>Time</td><td>Closing time for Monday</td></tr>
-<tr><td>close_1</td><td>Time</td><td>Closing time for Tuesday</td></tr>
-<tr><td>close_2</td><td>Time</td><td>Closing time for Wednesday</td></tr>
-<tr><td>close_3</td><td>Time</td><td>Closing time for Thursday</td></tr>
-<tr><td>close_4</td><td>Time</td><td>Closing time for Friday</td></tr>
-<tr><td>close_5</td><td>Time</td><td>Closing time for Saturday</td></tr>
-<tr><td>close_6</td><td>Time</td><td>Closing time for Sunday</td></tr>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>open_0</td><td>Time</td><td>Opening time for Monday</td></tr>
+  <tr><td>open_1</td><td>Time</td><td>Opening time for Tuesday</td></tr>
+  <tr><td>open_2</td><td>Time</td><td>Opening time for Wednesday</td></tr>
+  <tr><td>open_3</td><td>Time</td><td>Opening time for Thursday</td></tr>
+  <tr><td>open_4</td><td>Time</td><td>Opening time for Friday</td></tr>
+  <tr><td>open_5</td><td>Time</td><td>Opening time for Saturday</td></tr>
+  <tr><td>open_6</td><td>Time</td><td>Opening time for Sunday</td></tr>
+  <tr><td>close_0</td><td>Time</td><td>Closing time for Monday</td></tr>
+  <tr><td>close_1</td><td>Time</td><td>Closing time for Tuesday</td></tr>
+  <tr><td>close_2</td><td>Time</td><td>Closing time for Wednesday</td></tr>
+  <tr><td>close_3</td><td>Time</td><td>Closing time for Thursday</td></tr>
+  <tr><td>close_4</td><td>Time</td><td>Closing time for Friday</td></tr>
+  <tr><td>close_5</td><td>Time</td><td>Closing time for Saturday</td></tr>
+  <tr><td>close_6</td><td>Time</td><td>Closing time for Sunday</td></tr>
 </table>
 
 These deprecated attributes define opening hours without breaks. Given `opening_hours_tue` with a break defined as this: `['08:00', '12:00', '12:30', '16:00']` it would yield `open_1` to be `08:00` and `close_1'` to be `16:00`. These attributes are deprecated and will be removed in a future API version.
@@ -789,22 +789,22 @@ Response
 
 ```json
 [
-    {
-        "resource": {
-            "capacity": 1,
-            "created_at": "2012-09-20T15:34:16+02:00",
-            "id": 1,
-            "opening_hours_mon": ["08:00", "16:00"],
-            "opening_hours_tue": ["08:00", "11:00", "13:00", "17:30"],
-            "opening_hours_wed": ["08:00", "16:00"],
-            "opening_hours_thu": ["08:00", "12:00", "14:00", "20:00"],
-            "opening_hours_fri": ["08:00", "12:00", "12:30", "17:30"],
-            "opening_hours_sat": null,
-            "opening_hours_sun": null,
-            "title": "Mr. Spine Twister",
-            "updated_at": "2012-09-20T15:34:16+02:00"
-        }
+  {
+    "resource": {
+      "capacity": 1,
+      "created_at": "2012-09-20T15:34:16+02:00",
+      "id": 1,
+      "opening_hours_mon": ["08:00", "16:00"],
+      "opening_hours_tue": ["08:00", "11:00", "13:00", "17:30"],
+      "opening_hours_wed": ["08:00", "16:00"],
+      "opening_hours_thu": ["08:00", "12:00", "14:00", "20:00"],
+      "opening_hours_fri": ["08:00", "12:00", "12:30", "17:30"],
+      "opening_hours_sat": null,
+      "opening_hours_sun": null,
+      "title": "Mr. Spine Twister",
+      "updated_at": "2012-09-20T15:34:16+02:00"
     }
+  }
 ]
 ```
 
@@ -814,14 +814,34 @@ Response
 
 ### Get opening hours for specific dates
 
-The standard opening hours that are specified on the resource can be overridden with entries in [resource exception dates](#resource-exception-dates).
+Opening hours for specific dates is based on the standard opening hours that are specified on the resource but can be overridden with entries in [resource exception dates](#resource-exception-dates).
+
+Response
+
+```json
+[
+  {
+    "resource_opening_hours": {
+      "date": "2015-12-03",
+      "opening_hours": ["10:00", "12:00"]
+    }
+  },
+  {
+    "resource_opening_hours": {
+      "date": "2015-12-04",
+      "opening_hours": null
+    }
+  }
+]
+```
+
 
 #### Query Parameters
 
 <table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>from</td><td>Date</td><td></td></tr>
-<tr><td>to</td><td>Date</td><td></td></tr>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>from</td><td>Date</td><td></td></tr>
+  <tr><td>to</td><td>Date</td><td></td></tr>
 </table>
 
 `GET /resources/{resource_id}/opening_hours` will get opening hours on specific dates for resource with id `{resource_id}`.
@@ -847,12 +867,12 @@ Exception dates are related to a resource: `GET /resources/{resource_id}/excepti
 ### Attributes
 
 <table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>resource_id</td><td>Integer</td><td>Required (specified in URL)</td></tr>
-<tr><td>exception_date</td><td>Date</td><td>Required (specified in URL)</td></tr>
-<tr><td>opening_hours</td><td>Array</td><td>Same format as resource opening hours</td></tr>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+  <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+  <tr><td>resource_id</td><td>Integer</td><td>Required (specified in URL)</td></tr>
+  <tr><td>exception_date</td><td>Date</td><td>Required (specified in URL)</td></tr>
+  <tr><td>opening_hours</td><td>Array</td><td>Same format as resource opening hours</td></tr>
 </table>
 
 ### Listing
@@ -861,24 +881,24 @@ Response
 
 ```json
 [
-    {
-        "resource_exception_date": {
-            "created_at": "2012-09-20T15:34:16+02:00",
-            "resource_id": 1,
-            "exception_date": "2014-01-08",
-            "opening_hours": ["08:00", "12:00", "12:30", "17:30"],
-            "updated_at": "2012-09-20T15:34:16+02:00"
-        }
+  {
+    "resource_exception_date": {
+      "created_at": "2012-09-20T15:34:16+02:00",
+      "resource_id": 1,
+      "exception_date": "2014-01-08",
+      "opening_hours": ["08:00", "12:00", "12:30", "17:30"],
+      "updated_at": "2012-09-20T15:34:16+02:00"
     }
+  }
 ]
 ```
 
 #### Query Parameters
 
 <table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>from</td><td>Date</td><td></td></tr>
-<tr><td>to</td><td>Date</td><td></td></tr>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>from</td><td>Date</td><td></td></tr>
+  <tr><td>to</td><td>Date</td><td></td></tr>
 </table>
 
 ### Get exception date
@@ -901,24 +921,24 @@ To delete an existing exception date set `{_destroy}` to be true.
     {
       "exception_date": "2015-10-22",
       "opening_hours": [
-        "12:00",
-        "14:30"
+      "12:00",
+      "14:30"
       ]
     },
     {
       "exception_date": "2015-10-25",
       "opening_hours": [
-        "08:30",
-        "12:30",
-        "15:00",
-        "18:30"
+      "08:30",
+      "12:30",
+      "15:00",
+      "18:30"
       ]
     },
     {
       "exception_date": "2015-10-26",
       "opening_hours": [
-        "10:30",
-        "15:00"
+      "10:30",
+      "15:00"
       ]
     },
     {
@@ -945,13 +965,13 @@ Resources provides services. This link is called a provider.
 ### Attributes
 
 <table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
-<tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
-<tr><td>resource_id</td><td>Integer</td><td>Required</td></tr>
-<tr><td>service_id</td><td>Integer</td><td>Required</td></tr>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
+  <tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+  <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+  <tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
+  <tr><td>resource_id</td><td>Integer</td><td>Required</td></tr>
+  <tr><td>service_id</td><td>Integer</td><td>Required</td></tr>
 </table>
 
 ### Listing
@@ -960,15 +980,15 @@ Response
 
 ```json
 [
-    {
-        "provider": {
-            "created_at": "2012-09-20T15:34:16+02:00",
-            "id": 1,
-            "resource_id": 1,
-            "service_id": 1,
-            "updated_at": "2012-09-20T15:34:16+02:00"
-        }
+  {
+    "provider": {
+      "created_at": "2012-09-20T15:34:16+02:00",
+      "id": 1,
+      "resource_id": 1,
+      "service_id": 1,
+      "updated_at": "2012-09-20T15:34:16+02:00"
     }
+  }
 ]
 ```
 
@@ -987,13 +1007,13 @@ Services can be listed in a category. Categories can be presented like a tree. R
 ### Attributes
 
 <table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
-<tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>title</td><td>String</td><td>Required</td></tr>
-<tr><td>parent_id</td><td>Integer</td><td></td></tr>
-<tr><td>custom_data</td><td>Array</td><td>Not required.</td></tr>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
+  <tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+  <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+  <tr><td>title</td><td>String</td><td>Required</td></tr>
+  <tr><td>parent_id</td><td>Integer</td><td></td></tr>
+  <tr><td>custom_data</td><td>Array</td><td>Not required.</td></tr>
 </table>
 
 ### Listing
@@ -1002,16 +1022,16 @@ Response
 
 ```json
 [
-    {
-        "category": {
-            "created_at": "2012-09-20T15:34:16+02:00",
-            "custom_data": {},
-            "id": 1,
-            "parent_id": null,
-            "title": "My first little category",
-            "updated_at": "2012-09-20T15:34:16+02:00"
-        }
+  {
+    "category": {
+      "created_at": "2012-09-20T15:34:16+02:00",
+      "custom_data": {},
+      "id": 1,
+      "parent_id": null,
+      "title": "My first little category",
+      "updated_at": "2012-09-20T15:34:16+02:00"
     }
+  }
 ]
 ```
 
@@ -1034,13 +1054,13 @@ Users who can login into the account.
 ### Attributes
 
 <table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
-<tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>name</td><td>String</td><td>Required</td></tr>
-<tr><td>email</td><td>String</td><td>Required</td></tr>
-<tr><td>phonenumber</td><td>String</td><td></td></tr>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
+  <tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+  <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+  <tr><td>name</td><td>String</td><td>Required</td></tr>
+  <tr><td>email</td><td>String</td><td>Required</td></tr>
+  <tr><td>phonenumber</td><td>String</td><td></td></tr>
 </table>
 
 ## Client
@@ -1050,43 +1070,43 @@ Information and settings for your account.
 ### Attributes
 
 <table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
-<tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
-<tr><td>subdomain</td><td>String</td><td>Required</td></tr>
-<tr><td>email</td><td>String</td><td>Required</td></tr>
-<tr><td>name</td><td>String</td><td>Required</td></tr>
-<tr><td>mail_verification</td><td>Text</td><td></td></tr>
-<tr><td>mail_confirmation</td><td>Text</td><td></td></tr>
-<tr><td>google_analytics</td><td>String</td><td></td></tr>
-<tr><td>css_url</td><td>String</td><td></td></tr>
-<tr><td>time_zone</td><td>String</td><td>Required</td></tr>
-<tr><td>verification_method</td><td>Integer</td><td></td></tr>
-<tr><td>new_user_text</td><td>Text</td><td></td></tr>
-<tr><td>address</td><td>String</td><td></td></tr>
-<tr><td>country_code</td><td>String</td><td>Required. ISO 3166-1 alpha-2.</td></tr>
-<tr><td>google_merchant_id</td><td>String</td><td></td></tr>
-<tr><td>google_merchant_key</td><td>String</td><td></td></tr>
-<tr><td>booking_form</td><td>Text</td><td></td></tr>
-<tr><td>logo</td><td>File</td><td></td></tr>
-<tr><td>template</td><td>Integer</td><td>Required</td></tr>
-<tr><td>locale</td><td>String</td><td>Required. Supported locales: 'en' and 'no-NB'. Default 'en'.</td></tr>
-<tr><td>email_notification</td><td>Boolean</td><td></td></tr>
-<tr><td>mail_notification_recipient</td><td>Email</td><td></td></tr>
-<tr><td>sms_notification</td><td>Boolean</td><td></td></tr>
-<tr><td>phone_number</td><td>String</td><td></td></tr>
-<tr><td>confirm_manually</td><td>Boolean</td><td></td></tr>
-<tr><td>settings</td><td>Array</td><td></td></tr>
-<tr><td>interval_rounding</td><td>Integer</td><td>Default setting for all services for rounding to next available time. '15' will round 10:07 to become 10:15 as next available slot time.</td></tr>
-<tr><td>slot_generation_type</td><td>Integer</td><td>Default: 2. 1=fixed. 2=next available.</td></tr>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
+  <tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+  <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+  <tr><td>subdomain</td><td>String</td><td>Required</td></tr>
+  <tr><td>email</td><td>String</td><td>Required</td></tr>
+  <tr><td>name</td><td>String</td><td>Required</td></tr>
+  <tr><td>mail_verification</td><td>Text</td><td></td></tr>
+  <tr><td>mail_confirmation</td><td>Text</td><td></td></tr>
+  <tr><td>google_analytics</td><td>String</td><td></td></tr>
+  <tr><td>css_url</td><td>String</td><td></td></tr>
+  <tr><td>time_zone</td><td>String</td><td>Required</td></tr>
+  <tr><td>verification_method</td><td>Integer</td><td></td></tr>
+  <tr><td>new_user_text</td><td>Text</td><td></td></tr>
+  <tr><td>address</td><td>String</td><td></td></tr>
+  <tr><td>country_code</td><td>String</td><td>Required. ISO 3166-1 alpha-2.</td></tr>
+  <tr><td>google_merchant_id</td><td>String</td><td></td></tr>
+  <tr><td>google_merchant_key</td><td>String</td><td></td></tr>
+  <tr><td>booking_form</td><td>Text</td><td></td></tr>
+  <tr><td>logo</td><td>File</td><td></td></tr>
+  <tr><td>template</td><td>Integer</td><td>Required</td></tr>
+  <tr><td>locale</td><td>String</td><td>Required. Supported locales: 'en' and 'no-NB'. Default 'en'.</td></tr>
+  <tr><td>email_notification</td><td>Boolean</td><td></td></tr>
+  <tr><td>mail_notification_recipient</td><td>Email</td><td></td></tr>
+  <tr><td>sms_notification</td><td>Boolean</td><td></td></tr>
+  <tr><td>phone_number</td><td>String</td><td></td></tr>
+  <tr><td>confirm_manually</td><td>Boolean</td><td></td></tr>
+  <tr><td>settings</td><td>Array</td><td></td></tr>
+  <tr><td>interval_rounding</td><td>Integer</td><td>Default setting for all services for rounding to next available time. '15' will round 10:07 to become 10:15 as next available slot time.</td></tr>
+  <tr><td>slot_generation_type</td><td>Integer</td><td>Default: 2. 1=fixed. 2=next available.</td></tr>
 </table>
 
 #### Additional paramaters
 
 <table>
-<tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td>remove_logo</td><td>Boolean</td><td></td></tr>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>remove_logo</td><td>Boolean</td><td></td></tr>
 </table>
 
 ### Update client
@@ -1094,3 +1114,37 @@ Information and settings for your account.
 *Currently not recommended as we have not yet documented all the attributes. Please contact us for clarification*
 
 `PUT /client` will update the account.
+
+### Holidays
+
+Who doesn't like a holiday?
+
+Response
+
+```json
+[
+  {
+    "holiday": {
+      "date": "2016-01-01",
+      "name": "New Year's Day"
+    }
+  },
+  {
+    "holiday": {
+      "date": "2016-05-01",
+      "name": "International Workers' Day"
+    }
+  }
+]
+```
+
+
+#### Query Parameters
+
+<table>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>from</td><td>Date</td><td></td></tr>
+  <tr><td>to</td><td>Date</td><td></td></tr>
+</table>
+
+`GET /client/holidays` will get holidays for client country.
