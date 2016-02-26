@@ -392,16 +392,9 @@ These parameters are part not of `booking` eq.: `confirm`. When saving a new boo
 
 Outgoing messages requires person_id and service_id.
 
-##### When creating a new booking
+Messages (email/SMS) will be sent as according to the settings for booking verification. To override please see parameters for each action below.
 
-<table>
-  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-  <tr><td>confirm</td><td>Boolean</td><td>If set to false then the 'initiate verification' event is executed. If verification is required the state will be set to `awaiting_verification`. If no verification is required then the state will be set to `awaiting_confirmation` or `confirmed`.</td></tr>
-  <tr><td>verification_send_email</td><td>Boolean</td><td>Send out verification email. Only applicable when `confirm` is set to false. Default: false.</td></tr>
-  <tr><td>verification_send_sms</td><td>Boolean</td><td>Send out verification SMS. Only applicable when `confirm` is set to false. Default: false.</td></tr>
-</table>
-
-##### When creating a new or updating an existing booking
+##### Generic: When creating a new or updating an existing booking
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
@@ -409,21 +402,54 @@ Outgoing messages requires person_id and service_id.
   <tr><td>ignore_capacity</td><td>Boolean</td><td>Will force save the booking even though other bookings exists within the same time on the specified resource_id. Default: false.</td></tr>
 </table>
 
-##### When confirming a booking
+##### When creating a new booking
 
 Either saving a new booking and confirming it, or using the events `confirm` or `verify` (might not always result in a confirmed booking though - can be set to `awaiting_confirmation` based on client settings).
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-  <tr><td>confirmation_send_email</td><td>Boolean</td><td>Send out confirmation email. Default: false.</td></tr>
-  <tr><td>confirmation_send_sms</td><td>Boolean</td><td>Send out confirmation SMS. Default: false.</td></tr>
+  <tr><td>confirm</td><td>Boolean</td><td>If set to false then the 'initiate verification' event is executed. If verification is required the state will be set to `awaiting_verification`. If no verification is required then the state will be set to `awaiting_confirmation` or `confirmed`.</td></tr>
+  <tr><td>verification_send_email</td><td>Boolean</td><td>Send out verification email. Only applicable when `confirm` is set to false. Default: true if booking verification is set to email.</td></tr>
+  <tr><td>verification_send_sms</td><td>Boolean</td><td>Send out verification SMS. Only applicable when `confirm` is set to false. Default: true if booking verification is set to SMS.</td></tr>
+</table>
+
+##### When confirming a booking
+
+<table>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>confirmation_send_email</td><td>Boolean</td><td>Send out confirmation email. Default: true if booking verification is set to email.</td></tr>
+  <tr><td>confirmation_send_sms</td><td>Boolean</td><td>Send out confirmation SMS. Default: true if booking verification is set to SMS.</td></tr>
   <tr><td>notification_send_email</td><td>Boolean</td><td>Send out notification email to admin. Default: based on client setting.</td></tr>
   <tr><td>notification_send_sms</td><td>Boolean</td><td>Send out notification SMS to admin. Default: based on client setting.</td></tr>
 </table>
 
+##### When declining a booking
+
+<table>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>decline_send_email</td><td>Boolean</td><td>Send out decline email. Default: true if booking verification is set to email.</td></tr>
+  <tr><td>decline_send_sms</td><td>Boolean</td><td>Send out decline SMS. Default: true if booking verification is set to SMS.</td></tr>
+</table>
+
+##### When updating an existing booking
+
+<table>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>modification_send_email</td><td>Boolean</td><td>Send out modification email. Default: true if booking verification is set to email.</td></tr>
+  <tr><td>modification_send_sms</td><td>Boolean</td><td>Send out modification SMS. Default: true if booking verification is set to SMS.</td></tr>
+</table>
+
+##### When removing or cancelling an existing booking
+
+<table>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>cancellation_send_email</td><td>Boolean</td><td>Send out cancellation email. Default: true if booking verification is set to email.</td></tr>
+  <tr><td>cancellation_send_sms</td><td>Boolean</td><td>Send out cancellation SMS. Default: true if booking verification is set to SMS.</td></tr>
+</table>
+
 #### Add new booking with new person
 
-To add a new person along with a booking you must use populate `person_attributes`. MakePlans will match to an existing person based on email or phone number (in that order).
+To add a new person along with a booking you must populate `person_attributes` with [person](#people) attributes. Values will be matched to an existing person based on email or phone number (in that order).
 
 ### Add recurring/multiple bookings
 
@@ -596,8 +622,8 @@ Authentication of person is done using a unique field: `{email}` or `{phone_numb
 
 There are two types of services:
 
-* Appointment.
-* Attendance.
+* Appointment
+* Attendance
 
 Appointments can be booked within fixed opening hours as specified on the Resource and with exceptions specified in ResourceExceptionDate.
 
