@@ -401,7 +401,7 @@ Default action for outgoing messages is according to the settings for booking ve
   <tr><td>add_reminder_sms</td><td>Boolean</td><td>Automatically adds `reminder_at` based on setting from client atribute `sms_reminder_time`. Default: at 12PM the day before the appointment.</td></tr>
   <tr><td>verification_send_email</td><td>Boolean</td><td>Send out verification email. Only applicable when `confirm` is set to false.</td></tr>
   <tr><td>verification_send_sms</td><td>Boolean</td><td>Send out verification SMS. Only applicable when `confirm` is set to false.</td></tr>
-  <tr><td>confirmation_send_email</td><td>Boolean</td><td>Send out confirmation email. Default: true if booking verification is set to email.</td></tr>
+  <tr><td>confirmation_send_email</td><td>Boolean</td><td>Send out confirmation email.</td></tr>
   <tr><td>confirmation_send_sms</td><td>Boolean</td><td>Send out confirmation SMS.</td></tr>
   <tr><td>notification_send_email</td><td>Boolean</td><td>Send out notification email to admin.</td></tr>
   <tr><td>notification_send_sms</td><td>Boolean</td><td>Send out notification SMS to admin.</td></tr>
