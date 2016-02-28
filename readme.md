@@ -388,63 +388,23 @@ These parameters are part of booking eq.: `booking[public_booking]`.
 
 #### Additional parameters
 
-These parameters are part not of `booking` eq.: `confirm`. When saving a new booking all of the next three sections applies.
+These parameters are part not of `booking[]` eq.: `confirm`.
 
 Outgoing messages requires person_id and service_id.
 
-Messages (email/SMS) will be sent as according to the settings for booking verification. To override please see parameters for each action below.
-
-##### Generic: When creating a new or updating an existing booking
-
-<table>
-  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-  <tr><td>add_reminder_sms</td><td>Boolean</td><td>Automatically adds `reminder_at` based on setting from client atribute `sms_reminder_time`. Default: at 12PM the day before the appointment.</td></tr>
-  <tr><td>ignore_capacity</td><td>Boolean</td><td>Will force save the booking even though other bookings exists within the same time on the specified resource_id. Default: false.</td></tr>
-</table>
-
-##### When creating a new booking
-
-Either saving a new booking and confirming it, or using the events `confirm` or `verify` (might not always result in a confirmed booking though - can be set to `awaiting_confirmation` based on client settings).
+Default action for outgoing messages is according to the settings for booking verification. If email verification is enabled then all `*_email` messages will be triggered by default to the customer. To override please see parameters for each action below. For admin notification messages the default is based on the client settings. SMS reminders is based on client settings and uses a default value for the time unless specified.
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
   <tr><td>confirm</td><td>Boolean</td><td>If set to false then the 'initiate verification' event is executed. If verification is required the state will be set to `awaiting_verification`. If no verification is required then the state will be set to `awaiting_confirmation` or `confirmed`.</td></tr>
-  <tr><td>verification_send_email</td><td>Boolean</td><td>Send out verification email. Only applicable when `confirm` is set to false. Default: true if booking verification is set to email.</td></tr>
-  <tr><td>verification_send_sms</td><td>Boolean</td><td>Send out verification SMS. Only applicable when `confirm` is set to false. Default: true if booking verification is set to SMS.</td></tr>
-</table>
-
-##### When confirming a booking
-
-<table>
-  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>ignore_capacity</td><td>Boolean</td><td>Will force save the booking even though other bookings exists within the same time on the specified resource_id. Default: false.</td></tr>
+  <tr><td>add_reminder_sms</td><td>Boolean</td><td>Automatically adds `reminder_at` based on setting from client atribute `sms_reminder_time`. Default: at 12PM the day before the appointment.</td></tr>
+  <tr><td>verification_send_email</td><td>Boolean</td><td>Send out verification email. Only applicable when `confirm` is set to false.</td></tr>
+  <tr><td>verification_send_sms</td><td>Boolean</td><td>Send out verification SMS. Only applicable when `confirm` is set to false.</td></tr>
   <tr><td>confirmation_send_email</td><td>Boolean</td><td>Send out confirmation email. Default: true if booking verification is set to email.</td></tr>
-  <tr><td>confirmation_send_sms</td><td>Boolean</td><td>Send out confirmation SMS. Default: true if booking verification is set to SMS.</td></tr>
-  <tr><td>notification_send_email</td><td>Boolean</td><td>Send out notification email to admin. Default: based on client setting.</td></tr>
-  <tr><td>notification_send_sms</td><td>Boolean</td><td>Send out notification SMS to admin. Default: based on client setting.</td></tr>
-</table>
-
-##### When declining a booking
-
-<table>
-  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-  <tr><td>decline_send_email</td><td>Boolean</td><td>Send out decline email. Default: true if booking verification is set to email.</td></tr>
-  <tr><td>decline_send_sms</td><td>Boolean</td><td>Send out decline SMS. Default: true if booking verification is set to SMS.</td></tr>
-</table>
-
-##### When updating an existing booking
-
-<table>
-  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-  <tr><td>modification_send_email</td><td>Boolean</td><td>Send out modification email. Default: true if booking verification is set to email.</td></tr>
-  <tr><td>modification_send_sms</td><td>Boolean</td><td>Send out modification SMS. Default: true if booking verification is set to SMS.</td></tr>
-</table>
-
-##### When removing or cancelling an existing booking
-
-<table>
-  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-  <tr><td>cancellation_send_email</td><td>Boolean</td><td>Send out cancellation email. Default: true if booking verification is set to email.</td></tr>
-  <tr><td>cancellation_send_sms</td><td>Boolean</td><td>Send out cancellation SMS. Default: true if booking verification is set to SMS.</td></tr>
+  <tr><td>confirmation_send_sms</td><td>Boolean</td><td>Send out confirmation SMS.</td></tr>
+  <tr><td>notification_send_email</td><td>Boolean</td><td>Send out notification email to admin.</td></tr>
+  <tr><td>notification_send_sms</td><td>Boolean</td><td>Send out notification SMS to admin.</td></tr>
 </table>
 
 #### Add new booking with new person
@@ -488,21 +448,77 @@ You should always specify COUNT or UNTIL with RRULE. The max number of occurrenc
 
 `PUT /bookings/{booking_id}/verify` will verify a booking.
 
+##### Additional parameters
+
+See [information about additional parameters](#additional-parameters).
+
+<table>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>confirmation_send_email</td><td>Boolean</td><td>Send out confirmation email.</td></tr>
+  <tr><td>confirmation_send_sms</td><td>Boolean</td><td>Send out confirmation SMS.</td></tr>
+  <tr><td>notification_send_email</td><td>Boolean</td><td>Send out notification email to admin. Default: based on client setting.</td></tr>
+  <tr><td>notification_send_sms</td><td>Boolean</td><td>Send out notification SMS to admin.</td></tr>
+</table>
+
 #### Confirm a booking
 
 `PUT /bookings/{booking_id}/confirm` will confirm a booking.
+
+##### Additional parameters
+
+See [information about additional parameters](#additional-parameters).
+
+<table>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>confirmation_send_email</td><td>Boolean</td><td>Send out confirmation email.</td></tr>
+  <tr><td>confirmation_send_sms</td><td>Boolean</td><td>Send out confirmation SMS.</td></tr>
+  <tr><td>notification_send_email</td><td>Boolean</td><td>Send out notification email to admin.</td></tr>
+  <tr><td>notification_send_sms</td><td>Boolean</td><td>Send out notification SMS to admin.</td></tr>
+</table>
 
 #### Decline a booking
 
 `PUT /bookings/{booking_id}/decline` will decline a booking.
 
+##### Additional parameters
+
+See [information about additional parameters](#additional-parameters).
+
+<table>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>decline_send_email</td><td>Boolean</td><td>Send out decline email.</td></tr>
+  <tr><td>decline_send_sms</td><td>Boolean</td><td>Send out decline SMS.</td></tr>
+</table>
+
 #### Cancel a booking
 
 `PUT /bookings/{booking_id}/cancel` will cancel a booking.
 
+##### Additional parameters
+
+See [information about additional parameters](#additional-parameters).
+
+<table>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>cancellation_send_email</td><td>Boolean</td><td>Send out cancellation email.</td></tr>
+  <tr><td>cancellation_send_sms</td><td>Boolean</td><td>Send out cancellation SMS..</td></tr>
+</table>
+
 ### Update booking
 
 `PUT /bookings/{booking_id}` will update a booking.
+
+#### Additional parameters
+
+See [information about additional parameters](#additional-parameters).
+
+<table>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>ignore_capacity</td><td>Boolean</td><td>Will force save the booking even though other bookings exists within the same time on the specified resource_id. Default: false.</td></tr>
+  <tr><td>add_reminder_sms</td><td>Boolean</td><td>Automatically adds `reminder_at`.</td></tr>
+  <tr><td>modification_send_email</td><td>Boolean</td><td>Send out modification email.</td></tr>
+  <tr><td>modification_send_sms</td><td>Boolean</td><td>Send out modification SMS.</td></tr>
+</table>
 
 ### Delete booking
 
@@ -511,6 +527,16 @@ You should always specify COUNT or UNTIL with RRULE. The max number of occurrenc
 Deleting a booking will set it to state=deleted and active=false. It will not be visible in listing, only when requesting `GET /bookings/all` or by requesting the booking directly `GET /bookings/{booking_id}`.
 
 Do not use this method if the booking is rescheduled or cancelled.
+
+#### Additional parameters
+
+See [information about additional parameters](#additional-parameters).
+
+<table>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>cancellation_send_email</td><td>Boolean</td><td>Send out cancellation email.</td></tr>
+  <tr><td>cancellation_send_sms</td><td>Boolean</td><td>Send out cancellation SMS.</td></tr>
+</table>
 
 ## People
 
