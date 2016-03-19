@@ -540,9 +540,7 @@ See [information about additional parameters](#additional-parameters).
 
 ## People
 
-The primary key for a person is `id`. However the following fields are unique: `email`, `phonenumber` and `provider`+`uid`. There are no specific requirements for input but a person needs to have either name, email or phone number.
-
-`national_id_no` is currently not unique or used as identificator for a person. This will change.
+The primary key for a person is `id`. However the following fields are unique: `email`, `phonenumber`, `national_id_no` and `provider`+`uid`. There are no specific requirements for input but a person needs to have either name, email, national id number or phone number.
 
 ### Attributes
 
