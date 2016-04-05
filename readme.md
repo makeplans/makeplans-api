@@ -1137,7 +1137,6 @@ Information and settings for your account.
   <tr><td>country_code</td><td>String</td><td>Required. ISO 3166-1 alpha-2.</td></tr>
   <tr><td>google_merchant_id</td><td>String</td><td></td></tr>
   <tr><td>google_merchant_key</td><td>String</td><td></td></tr>
-  <tr><td>booking_form</td><td>Text</td><td></td></tr>
   <tr><td>logo</td><td>File</td><td></td></tr>
   <tr><td>template</td><td>Integer</td><td>Required</td></tr>
   <tr><td>service_template</td><td>String</td><td></td></tr>
@@ -1161,6 +1160,7 @@ Information and settings for your account.
   <tr><td>closed_for_holidays</td><td>Boolean</td><td></td></tr>
   <tr><td>new_user_text</td><td>Text (Supports Liquid)</td><td></td></tr>
   <tr><td>new_booking_text</td><td>Text (Supports Liquid)</td><td></td></tr>
+  <tr><td>booking_form</td><td>Text</td><td></td></tr>
   <tr><td>person_form</td><td>Text (Supports Liquid)</td><td></td></tr>
   <tr><td>resource_form</td><td>Text (Supports Liquid)</td><td></td></tr>
   <tr><td>service_form</td><td>Text (Supports Liquid)</td><td></td></tr>
