@@ -1140,7 +1140,9 @@ Information and settings for your account.
   <tr><td>booking_form</td><td>Text</td><td></td></tr>
   <tr><td>logo</td><td>File</td><td></td></tr>
   <tr><td>template</td><td>Integer</td><td>Required</td></tr>
+  <tr><td>service_template</td><td>String</td><td></td></tr>
   <tr><td>locale</td><td>String</td><td>Required. Supported locales: 'en' and 'no-NB'. Default 'en'.</td></tr>
+  <tr><td>currency</td><td>ISO4217 currency code</td><td></td></tr>
   <tr><td>email_notification</td><td>Boolean</td><td></td></tr>
   <tr><td>mail_notification_recipient</td><td>Email</td><td></td></tr>
   <tr><td>sms_notification</td><td>Boolean</td><td></td></tr>
@@ -1149,6 +1151,35 @@ Information and settings for your account.
   <tr><td>settings</td><td>Array</td><td></td></tr>
   <tr><td>interval_rounding</td><td>Integer</td><td>Default setting for all services for rounding to next available time. '15' will round 10:07 to become 10:15 as next available slot time.</td></tr>
   <tr><td>slot_generation_type</td><td>Integer</td><td>Default: 2. 1=fixed. 2=next available.</td></tr>
+  <tr><td>future_bookable_period</td><td>String</td><td></td></tr>
+  <tr><td>public_access</td><td>Boolean</td><td></td></tr>
+  <tr><td>first_bookable_period</td><td>String</td><td></td></tr>
+  <tr><td>payment_provider</td><td>String</td><td></td></tr>
+  <tr><td>footer</td><td>Text</td><td></td></tr>
+  <tr><td>verification_methods</td><td>String</td><td></td></tr>
+  <tr><td>reminder_sms</td><td>Boolean</td><td></td></tr>
+  <tr><td>closed_for_holidays</td><td>Boolean</td><td></td></tr>
+  <tr><td>new_user_text</td><td>Text (Supports Liquid)</td><td></td></tr>
+  <tr><td>new_booking_text</td><td>Text (Supports Liquid)</td><td></td></tr>
+  <tr><td>person_form</td><td>Text (Supports Liquid)</td><td></td></tr>
+  <tr><td>resource_form</td><td>Text (Supports Liquid)</td><td></td></tr>
+  <tr><td>service_form</td><td>Text (Supports Liquid)</td><td></td></tr>
+  <tr><td>event_form</td><td>Text (Supports Liquid)</td><td></td></tr>
+  <tr><td>appointment_form</td><td>Text (Supports Liquid)</td><td></td></tr>
+  <tr><td>category_form</td><td>Text (Supports Liquid)</td><td></td></tr>
+  <tr><td>sms_confirmation</td><td>Text (Supports Liquid)</td><td></td></tr>
+  <tr><td>sms_verification</td><td>Text (Supports Liquid)</td><td></td></tr>
+  <tr><td>sms_reminder</td><td>Text (Supports Liquid)</td><td></td></tr>
+  <tr><td>sms_modification</td><td>Text (Supports Liquid)</td><td></td></tr>
+  <tr><td>sms_cancellation</td><td>Text (Supports Liquid)</td><td></td></tr>
+  <tr><td>mail_verification</td><td>Text (Supports Liquid)</td><td></td></tr>
+  <tr><td>mail_confirmation</td><td>Text (Supports Liquid)</td><td></td></tr>
+  <tr><td>mail_modification</td><td>Text (Supports Liquid)</td><td></td></tr>
+  <tr><td>mail_cancellation</td><td>Text (Supports Liquid)</td><td></td></tr>
+  <tr><td>mail_verification_subject</td><td>String</td><td></td></tr>
+  <tr><td>mail_confirmation_subject</td><td>String</td><td></td></tr>
+  <tr><td>mail_modification_subject</td><td>String</td><td></td></tr>
+  <tr><td>mail_cancellation_subject</td><td>String</td><td></td></tr>
 </table>
 
 #### Additional paramaters
@@ -1159,8 +1190,6 @@ Information and settings for your account.
 </table>
 
 ### Update client
-
-*Currently not recommended as we have not yet documented all the attributes. Please contact us for clarification*
 
 `PUT /client` will update the account.
 
