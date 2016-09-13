@@ -190,7 +190,7 @@ So whenever a new booking is created in MakePlans we can send a POST request to 
 
 ## Slots
 
-Slots are not physical objects in MakePlans. It is a virtual representation of available times based on attributes from resources and services. So if a resource is open 8am to 16pm and selected service has interval of 60 minutes, slots will return an array of all time intervals (8am-9am, 9am-10am etc.) and indicate which recoures are available.
+Slots are not physical objects in MakePlans. It is a virtual representation of available times based on attributes from resources and services. So if a resource is open 8am to 4pm and selected service has interval of 60 minutes, slots will return an array of all time intervals (8am-9am, 9am-10am etc.) and indicate which recoures are available.
 
 Slots are meant for listing available times on the MakePlans booking page. You can however make bookings at any time and with any length - as long as the resource is available off course.
 
