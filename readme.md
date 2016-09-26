@@ -149,7 +149,7 @@ Maximum 100 results are returned per page. Specify page with parameter `page`. P
 curl -u APIKEY: \
 -H 'User-Agent: YourAppName (http://example.org)' \
 -H 'Accept: application/json' \
-https://youraccount.makeplans.net/api/v1/services
+https://youraccount.test.makeplans.net/api/v1/services
 ```
 
 To create something you have to make a POST:
@@ -160,7 +160,7 @@ curl -u APIKEY: \
 -H 'Accept: application/json' \
 -d 'service[title]=My new service!&service[interval]=40' \
 -X POST \
-https://youraccount.makeplans.net/api/v1/services
+https://youraccount.test.makeplans.net/api/v1/services
 ```
 
 ## Syncronisation
