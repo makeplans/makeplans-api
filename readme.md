@@ -91,7 +91,7 @@ If your app is installable by end-users you should use oAuth. However we do not 
 
 ## Identification
 
-You must include a User-Agent HTTP-header with the name of your application and a link to it or your email address so we can get in touch in case you're doing something wrong (so we may warn you before you're blacklisted) or something awesome (so we may congratulate you). Example: `User-Agent: YourAppName (http://example.com)`.
+You must include a User-Agent HTTP-header with the name of your application and a link to it or your email address so we can get in touch in case you're doing something wrong (so we may warn you before you're blacklisted) or something awesome (so we may congratulate you). Example: `User-Agent: YourAppName (http://example.org)`.
 
 ## Errors
 
