@@ -33,7 +33,7 @@ API Endpoints:
 
 ## Get started
 
-1) Sign up for a trial account in our test-environment: http://app.test.makeplans.net/client/new
+1) Sign up for a trial account in our test-environment: https://app.test.makeplans.net/client/new
 
 2) Enable the API and get the API-key from the account page.
 
@@ -45,7 +45,7 @@ When your integration is ready to be released then you can sign up for a real ac
 
 ## Base API URL
 
-The base URL is `https://youraccount.makeplans.net/api/` for production apps and `http://youraccount.test.makeplans.net/api/` for test apps. All requests in the production environment are done over HTTPS. Please note that the staging environment is not encrypted (HTTP only). Each object in MakePlans has its own endpoints.
+The base URL is `https://youraccount.makeplans.net/api/` for production apps and `https://youraccount.test.makeplans.net/api/` for test apps. All requests are done over HTTPS. Each object in MakePlans has its own endpoints.
 
 ## Versioning
 
