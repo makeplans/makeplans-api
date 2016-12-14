@@ -43,15 +43,31 @@ API Endpoints:
 
 When your integration is ready to be released then you can sign up for a real account at https://app.makeplans.net/client/new
 
-## Base API URL
+## Public and private API
 
-The base URL is `https://youraccount.makeplans.net/api/` for production apps and `https://youraccount.test.makeplans.net/api/` for test apps. All requests are done over HTTPS. Each object in MakePlans has its own endpoints.
+If you are planning to integrate directly from your application to MakePlans or need to modify information in MakePlans then you must use the private API. This API requires authentication with an API-key and should not be done publically (on a website).
 
-## Versioning
+The public API is available for simple read-only operations. This is useful if you want to present information from MakePlans on your website using JavaScript. Because these operations are done on a public website you can not authenticate using your API-key. With the public API you can fetch a list of services, available timeslots and initialize the booking process.
+
+All requests are done over HTTPS. Each object in MakePlans has its own endpoints.
+
+### Base API URL
+
+#### Private API
+
+The base URL is `https://youraccount.makeplans.net/api/` for production apps and `https://youraccount.test.makeplans.net/api/` for test apps.
+
+##### Versioning
 
 The current version of the API is version 1. The versioning scheme is as follows: `/api/v{version_number}/`. All paths in the rest of the document uses `/api/v1/` as base path.
 
 Please keep up to date with the API as older versions may be deprecated.
+
+#### Public API
+
+The base URL is your account booking site such as `https://youraccount.makeplans.net/`. There is no versioning. Only the latest version of the API is available.
+
+Only read-only operations such as list and show are available with the public API. If you need to modify any data please use the private API.
 
 ## Data formats
 
