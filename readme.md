@@ -629,6 +629,8 @@ Please note that this token is perishable, meaning that it will be removed from 
 
 `POST /people/perishable_token/send` will send a SMS with a five digit code (the token) or an email with a link which includes the token in the URL. Specify either `person[email]` or `person[phone_number]`.
 
+*Sending via email is not yet implemented. Only SMS token is possible.*
+
 #### Verify perishable token
 
 `POST /people/perishable_token/verify`. This will return a person if authentication is successful. If the email or phone_number is already registered to a person then that person will be returned. If no person exists with the specified email/phone_number then a empty person object will be returned. You then have to make another call to create the person. If the token and the identifier do not match an error is returned.
