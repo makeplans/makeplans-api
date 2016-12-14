@@ -444,7 +444,11 @@ You should always specify COUNT or UNTIL with RRULE. The max number of occurrenc
 
 #### Verify a booking
 
-`PUT /bookings/{booking_id}/verify` will verify a booking.
+`PUT /bookings/{booking_id}/verify` will verify a booking. The verification code is not checked. Use this when you handle verification in your application.
+
+#### Verify a booking with verification code
+
+`PUT /bookings/{booking_id}/verify_code` will verify a booking using `{verification_code}`. Use this when MakePlans is used to send out verification email or SMS.
 
 ##### Additional parameters
 
@@ -456,6 +460,7 @@ See [information about additional parameters](#additional-parameters).
   <tr><td>confirmation_send_sms</td><td>Boolean</td><td>Send out confirmation SMS.</td></tr>
   <tr><td>notification_send_email</td><td>Boolean</td><td>Send out notification email to admin. Default: based on client setting.</td></tr>
   <tr><td>notification_send_sms</td><td>Boolean</td><td>Send out notification SMS to admin.</td></tr>
+  <tr><td>verification_code</td><td>String</td><td>Verification code send using SMS or email. Only applicable for the `verify_code` action.</td></tr>
 </table>
 
 #### Confirm a booking
