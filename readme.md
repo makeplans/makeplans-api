@@ -653,12 +653,6 @@ Please note that this token is perishable, meaning that it will be removed from 
 
 Specify the token as `perishable_token` and the identifier in `person[email]` or `person[phone_number]`.
 
-### Authenticate existing person with a password
-
-Authentication of person is done using a unique field: `{email}` or `{phone_number}` and `{password}`.
-
-`POST /people/authenticate`. This will return a person if authentication is successful. You are still using your API-key so while the method is called `authenticate` it is just a way to verify the credentials of a person.
-
 ### List bookings for person
 
 `GET /people/{person_id}/bookings` will retrieve all bookings for person with id `{person_id}`.
