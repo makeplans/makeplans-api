@@ -119,8 +119,6 @@ Authentication error. Response body will give explanation if there is authorisat
 
 ### 402 - Payment Required
 
-*Not yet implemented*
-
 Please pay your bill.
 
 ### 403 - Forbidden
