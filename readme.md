@@ -141,7 +141,7 @@ Obviously incorrect paths (`/cats`) returns 404. However, even though cool URIs 
 
 ### 429 - Too Many Requests
 
-You can perform up to 120 requests per 60 second period from the same IP address. If you exceed this limit, you'll get a 429 Too Many Requests response for subsequent requests. Check the `Retry-After` HTTP-header to see how many seconds to wait before retrying the request.
+You can perform up to 80 requests per 20 second period from the same IP address. If you exceed this limit, you'll get a 429 Too Many Requests response for subsequent requests. Check the `Retry-After` HTTP-header to see how many seconds to wait before retrying the request.
 
 ### 5xx - Server error
 
