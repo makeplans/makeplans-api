@@ -374,16 +374,18 @@ Response
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-  <tr><td>service_id</td><td>Integer</td><td></td></tr>
-  <tr><td>event_id</td><td>Integer</td><td></td></tr>
-  <tr><td>resource_id</td><td>Integer</td><td></td></tr>
-  <tr><td>person_id</td><td>Integer</td><td></td></tr>
+  <tr><td>service_id</td><td>Integer or array of integers</td><td></td></tr>
+  <tr><td>event_id</td><td>Integer or array of integers</td><td></td></tr>
+  <tr><td>resource_id</td><td>Integer or array of integers</td><td></td></tr>
+  <tr><td>person_id</td><td>Integer or array of integers</td><td></td></tr>
   <tr><td>external_id</td><td>String</td><td></td></tr>
   <tr><td>start</td><td>DateTime</td><td>booked_from after param</td></tr>
   <tr><td>end</td><td>DateTime</td><td>booked_to before param</td></tr>
   <tr><td>since</td><td>DateTime</td><td>updated_at after param</td></tr>
   <tr><td>collection_id</td><td>UUID</td><td></td></tr>
 </table>
+
+You can return bookings of multiple resources/services/events/people with an array.
 
 ### Add new booking
 
