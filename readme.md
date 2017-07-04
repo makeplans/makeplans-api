@@ -239,8 +239,7 @@ Response
       "formatted_timestamp_end": "Friday, March  8, 2013, 10:15 AM",
       "free": 1,
       "available_resources": [
-      1,2
-      ]
+        1,2
       ],
       "maximum_capacity": 2
     }
