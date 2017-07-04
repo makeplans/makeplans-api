@@ -195,6 +195,7 @@ MakePlans does not officially support client libraries but they might be useful 
 * [CakePHP by Pollenizer](https://github.com/Pollenizer/CakePHP-MakePlans-Plugin).
 * [Go by drewwells](https://github.com/drewwells/makeplans).
 
+A big thanks to everyone who has contributed to these libraries!
 
 ## Web hooks
 
