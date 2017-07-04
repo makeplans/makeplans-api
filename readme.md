@@ -1177,24 +1177,24 @@ Information and settings for your account.
   <tr><td>verification_methods</td><td>String</td><td></td></tr>
   <tr><td>reminder_sms</td><td>Boolean</td><td></td></tr>
   <tr><td>closed_for_holidays</td><td>Boolean</td><td></td></tr>
-  <tr><td>new_user_text</td><td>Text (Supports Liquid)</td><td></td></tr>
-  <tr><td>new_booking_text</td><td>Text (Supports Liquid)</td><td></td></tr>
-  <tr><td>booking_form</td><td>Text</td><td></td></tr>
-  <tr><td>person_form</td><td>Text (Supports Liquid)</td><td></td></tr>
-  <tr><td>resource_form</td><td>Text (Supports Liquid)</td><td></td></tr>
-  <tr><td>service_form</td><td>Text (Supports Liquid)</td><td></td></tr>
-  <tr><td>event_form</td><td>Text (Supports Liquid)</td><td></td></tr>
-  <tr><td>appointment_form</td><td>Text (Supports Liquid)</td><td></td></tr>
-  <tr><td>category_form</td><td>Text (Supports Liquid)</td><td></td></tr>
-  <tr><td>sms_confirmation</td><td>Text (Supports Liquid)</td><td></td></tr>
-  <tr><td>sms_verification</td><td>Text (Supports Liquid)</td><td></td></tr>
-  <tr><td>sms_reminder</td><td>Text (Supports Liquid)</td><td></td></tr>
-  <tr><td>sms_modification</td><td>Text (Supports Liquid)</td><td></td></tr>
-  <tr><td>sms_cancellation</td><td>Text (Supports Liquid)</td><td></td></tr>
-  <tr><td>mail_verification</td><td>Text (Supports Liquid)</td><td></td></tr>
-  <tr><td>mail_confirmation</td><td>Text (Supports Liquid)</td><td></td></tr>
-  <tr><td>mail_modification</td><td>Text (Supports Liquid)</td><td></td></tr>
-  <tr><td>mail_cancellation</td><td>Text (Supports Liquid)</td><td></td></tr>
+  <tr><td>new_user_text</td><td>Text</td><td>Supports Liquid</td></tr>
+  <tr><td>new_booking_text</td><td>Text</td><td>Supports Liquid</td></tr>
+  <tr><td>booking_form</td><td>Text</td><td>Supports Liquid</td></tr>
+  <tr><td>person_form</td><td>Text</td><td>Supports Liquid</td></tr>
+  <tr><td>resource_form</td><td>Text</td><td>Supports Liquid</td></tr>
+  <tr><td>service_form</td><td>Text</td><td>Supports Liquid</td></tr>
+  <tr><td>event_form</td><td>Text</td><td>Supports Liquid</td></tr>
+  <tr><td>appointment_form</td><td>Text</td><td>Supports Liquid</td></tr>
+  <tr><td>category_form</td><td>Text</td><td>Supports Liquid</td></tr>
+  <tr><td>sms_confirmation</td><td>Text</td><td>Supports Liquid</td></tr>
+  <tr><td>sms_verification</td><td>Text</td><td>Supports Liquid</td></tr>
+  <tr><td>sms_reminder</td><td>Text</td><td>Supports Liquid</td></tr>
+  <tr><td>sms_modification</td><td>Text</td><td>Supports Liquid</td></tr>
+  <tr><td>sms_cancellation</td><td>Text</td><td>Supports Liquid</td></tr>
+  <tr><td>mail_verification</td><td>Text</td><td>Supports Liquid</td></tr>
+  <tr><td>mail_confirmation</td><td>Text</td><td>Supports Liquid</td></tr>
+  <tr><td>mail_modification</td><td>Text</td><td>Supports Liquid</td></tr>
+  <tr><td>mail_cancellation</td><td>Text</td><td>Supports Liquid</td></tr>
   <tr><td>mail_verification_subject</td><td>String</td><td></td></tr>
   <tr><td>mail_confirmation_subject</td><td>String</td><td></td></tr>
   <tr><td>mail_modification_subject</td><td>String</td><td></td></tr>
