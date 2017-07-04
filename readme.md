@@ -1216,6 +1216,10 @@ Information and settings for your account.
 
 Who doesn't like a holiday?
 
+### Listing
+
+`GET /client/holidays` will get holidays for client country.
+
 Response
 
 ```json
@@ -1243,5 +1247,3 @@ Response
   <tr><td>from</td><td>Date</td><td></td></tr>
   <tr><td>to</td><td>Date</td><td></td></tr>
 </table>
-
-`GET /client/holidays` will get holidays for client country.
