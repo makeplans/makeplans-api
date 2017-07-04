@@ -354,7 +354,7 @@ Response
       "booked_from": "2012-09-29T07:00:00+02:00",
       "booked_to": "2012-09-29T08:00:00+02:00",
       "created_at": "2012-09-20T15:34:16+02:00",
-      "custom_data": {},
+      "custom_data": null,
       "count": 1,
       "expires_at": null,
       "external_id": null,
@@ -595,7 +595,7 @@ Response
   {
     "person": {
       "created_at": "2012-09-20T15:34:16+02:00",
-      "custom_data": {},
+      "custom_data": null,
       "date_of_birth": null,
       "email": "espen@makeplans.no",
       "external_id": null,
@@ -702,7 +702,7 @@ Response
       "active": true,
       "booking_capacity": 1,
       "created_at": "2012-09-20T15:34:16+02:00",
-      "custom_data": {},
+      "custom_data": null,
       "day_booking_specify_time": false,
       "has_day_booking": false,
       "id": 1,
@@ -763,7 +763,7 @@ Response
     "event": {
       "capacity": 10,
       "created_at": "2012-09-20T15:34:16+02:00",
-      "custom_data": {},
+      "custom_data": null,
       "description": null,
       "ends_at": "2015-08-10T11:30:00+02:00",
       "id": 1,
@@ -1089,7 +1089,7 @@ Response
   {
     "category": {
       "created_at": "2012-09-20T15:34:16+02:00",
-      "custom_data": {},
+      "custom_data": null,
       "id": 1,
       "parent_id": null,
       "title": "My first little category",
