@@ -1,4 +1,4 @@
-# MakePlans API - Version 1.2
+# MakePlans API Documentation
 
 This is the API documentation for MakePlans. MakePlans is an online booking application with support for appointments, classes and events. For more information about the application and its features see [https://makeplans.net](https://makeplans.net). All features in MakePlans are available via the API.
 
