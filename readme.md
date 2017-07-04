@@ -219,7 +219,6 @@ Slots are meant for listing available times on the MakePlans booking page. You c
   <tr><td>formatted_timestamp</td><td>String</td><td>Localised human readable format</td></tr>
   <tr><td>formatted_timestamp_end</td><td>String</td><td>Localised human readable format</td></tr>
   <tr><td>free</td><td>Integer</td><td>Free capacity</td></tr>
-  <tr><td>open_resources</td><td>Array</td><td>Ids of open resources</td></tr>
   <tr><td>available_resources</td><td>Array</td><td>Ids of resources with availability</td></tr>
 </table>
 
@@ -238,9 +237,6 @@ Response
       "formatted_timestamp": "Friday, March  8, 2013, 10:00 AM",
       "formatted_timestamp_end": "Friday, March  8, 2013, 10:15 AM",
       "free": 1,
-      "open_resources": [
-      1
-      ],
       "available_resources": [
       1,2
       ]
