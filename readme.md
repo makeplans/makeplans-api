@@ -303,9 +303,13 @@ Response
   <tr><td>custom_data</td><td>Array</td><td>Not required.</td></tr>
   <tr><td>state</td><td>String</td><td>Automatically set</td></tr>
   <tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
-  <tr><td>person_attributes</td><td>Object</td><td>See person</td></tr>
+  <tr><td>person_attributes</td><td>Object</td><td>See person. Only for input.</td></tr>
   <tr><td>count</td><td>Integer</td><td>Default: 1</td></tr>
   <tr><td>collection_id</td><td>UUID</td><td>Automatically set for recurring bookings.</td></tr>
+  <tr><td>person</td><td>Object</td><td>See person. Only for output.</td></tr>
+  <tr><td>resource</td><td>Object</td><td>See resource. Only for output.</td></tr>
+  <tr><td>service</td><td>Object</td><td>See service. Only for output.</td></tr>
+  <tr><td>event</td><td>Object</td><td>See event. Only for output.</td></tr>
 </table>
 
 ### States
