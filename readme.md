@@ -220,6 +220,7 @@ Slots are meant for listing available times on the MakePlans booking page. You c
   <tr><td>formatted_timestamp_end</td><td>String</td><td>Localised human readable format</td></tr>
   <tr><td>free</td><td>Integer</td><td>Free capacity</td></tr>
   <tr><td>available_resources</td><td>Array</td><td>Ids of resources with availability</td></tr>
+  <tr><td>maximum_capacity</td><td>Integer</td><td>The maximum capacity of the available resources</td></tr>
 </table>
 
 ### Listing
@@ -240,6 +241,8 @@ Response
       "available_resources": [
       1,2
       ]
+      ],
+      "maximum_capacity": 2
     }
   }
 ]
