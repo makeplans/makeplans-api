@@ -1,6 +1,6 @@
 # MakePlans API - Version 1.2
 
-This is the API documentation for MakePlans. MakePlans is an online booking application with support for appointments, classes and events. For more information about the application and its features see https://makeplans.net. All features in MakePlans are available via the API.
+This is the API documentation for MakePlans. MakePlans is an online booking application with support for appointments, classes and events. For more information about the application and its features see [https://makeplans.net](https://makeplans.net). All features in MakePlans are available via the API.
 
 General Information:
 * [Get started](#get-started)
@@ -33,7 +33,7 @@ API Endpoints:
 
 ## Get started
 
-1) Sign up for a trial account in our test-environment: https://app.test.makeplans.net/client/new
+1) [Sign up for a trial account in our test-environment](https://app.test.makeplans.net/client/new)
 
 2) Enable the API and get the API-key from the account page.
 
@@ -41,7 +41,7 @@ API Endpoints:
 
 4) Profit.
 
-When your integration is ready to be released then you can sign up for a real account at https://app.makeplans.net/client/new
+When your integration is ready to be released then you can sign up for a [real account](https://app.makeplans.net/client/new).
 
 ## Public and private API
 
@@ -95,7 +95,7 @@ All dates are specified in the ISO 8601 format. Timezone is included in the outp
 
 ## Custom data
 
-Custom data is stored as key/value. All values are stored as strings but we do convert boolean values and values from keys ending in '_at' to datetime at output. Custom data can be added to booking, person, service, resource and event. If you are using our standard booking site and would like to store custom data to a new booking please see https://github.com/makeplans/makeplans-custom-forms for details on how to customise the booking form.
+Custom data is stored as key/value. All values are stored as strings but we do convert boolean values and values from keys ending in '_at' to datetime at output. Custom data can be added to booking, person, service, resource and event. If you are using our standard booking site and would like to store custom data to a new booking please see [the custom forms documentation](https://github.com/makeplans/makeplans-custom-forms) for details on how to customise the booking form.
 
 Custom data is stored as one attribute. **All** keys and values must be present when updating. If a booking has stored `custom_data` as 'makeplans_is=awesome' and you want to add 'signup=now' then you need to include both 'makeplans_is' and 'signup' with their values.
 
@@ -191,9 +191,10 @@ We recommened storing a timestamp for when the syncronisation was last performed
 
 MakePlans does not officially support client libraries but they might be useful for you. Please note that these projects are **not** made by MakePlans but made publically available by other developers who have used the MakePlans API. Any questions should be made directly to the responsible developers. If you find any errors or areas of improvement please make a pull request to improve the project.
 
-* NodeJS: https://github.com/mableteam/makeplans
-* CakePHP: https://github.com/Pollenizer/CakePHP-MakePlans-Plugin
-* Go: https://github.com/drewwells/makeplans
+* [NodeJS by Mable](https://github.com/mableteam/makeplans).
+* [CakePHP by Pollenizer](https://github.com/Pollenizer/CakePHP-MakePlans-Plugin).
+* [Go by drewwells](https://github.com/drewwells/makeplans).
+
 
 ## Web hooks
 
@@ -429,7 +430,7 @@ To add a new person along with a booking you must populate `person_attributes` w
 
 `POST /bookings/recurring` will create a multiple bookings.
 
-The recurrence format follows the [iCalendar specification](https://tools.ietf.org/html/rfc5545). The attributes for reccurence are: `RRULE`, `RDATE`, `EXDATE`. For an introduction and examples of these parameters see http://www.kanzaki.com/docs/ical/rrule.html.
+The recurrence format follows the [iCalendar specification](https://tools.ietf.org/html/rfc5545). The attributes for reccurence are: `RRULE`, `RDATE`, `EXDATE`. For an introduction and examples of these parameters see [this section from the iCalendar specification](http://www.kanzaki.com/docs/ical/rrule.html).
 
 In the iCalendar specification the recurrence is based on values in `DTSTART` and `DTEND`. This is set by `booked_from` and `booked_to` from `booking`.
 
