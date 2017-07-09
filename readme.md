@@ -61,7 +61,7 @@ The base URL is `https://youraccount.makeplans.net/api/` for production apps and
 
 The current version of the API is version 1. The versioning scheme is as follows: `/api/v{version_number}/`. All paths in the rest of the document uses `/api/v1/` as base path.
 
-See the [API changelog](changelog) for improvements and changes.
+See the [API changelog](changelog.md) for improvements and changes.
 
 #### Public API
 
