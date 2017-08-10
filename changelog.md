@@ -1,5 +1,11 @@
 # MakePlans API Changelog
 
+## 2017-08-10
+
+**Maximum limit for recurring occurrences**
+
+Previously there was a limit of 366 occurences when creating recurring bookings or events. When going above this limit no detailed error message was returned. We now return a detailed error message on the `collection_id` attribute. In addition we have increased the maximum limit of occurences to 731.
+
 ## 2017-07-05
 
 **Verification method attribute requirement for existing person**
