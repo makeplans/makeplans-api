@@ -683,11 +683,11 @@ Attendance at an event is also a booking but the individual booking datetime or 
   <tr><td>description</td><td>Text</td><td></td></tr>
   <tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
   <tr><td>booking_capacity</td><td>Integer</td><td>Not required</td></tr>
-  <tr><td>day_booking_specify_time</td><td>Boolean</td><td>Not Required (default false)</td></tr>
+  <tr><td>day_booking_specify_time</td><td>Boolean</td><td>Not required (default false)</td></tr>
   <tr><td>has_day_booking</td><td>Boolean</td><td>Not required (default false)</td></tr>
   <tr><td>interval</td><td>Integer</td><td>Not required (default 60)</td></tr>
   <tr><td>max_slots</td><td>Integer</td><td>Not required (default 1)</td></tr>
-  <tr><td>price</td><td>Decimal</td><td>Not required. Uses currency on client.</td></tr>
+  <tr><td>price</td><td>Decimal</td><td>Not required.</td></tr>
   <tr><td>same_day</td><td>Boolean</td><td>Not required (default false)</td></tr>
   <tr><td>template</td><td>String</td><td>Component template (calendar view)</td></tr>
   <tr><td>interval_rounding</td><td>Integer</td><td>Overrides client default (see info on client object)</td></tr>
