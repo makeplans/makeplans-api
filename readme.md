@@ -693,7 +693,6 @@ Attendance at an event is also a booking but the individual booking datetime or 
   <tr><td>interval_rounding</td><td>Integer</td><td>Overrides client default (see info on client object)</td></tr>
   <tr><td>booking_type_id</td><td>Integer</td><td>1: appointment. 2: attendance.</td></tr>
   <tr><td>custom_data</td><td>Array</td><td>Not required.</td></tr>
-  </td></tr>
 </table>
 
 ### Listing
