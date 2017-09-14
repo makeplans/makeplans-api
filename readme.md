@@ -680,6 +680,7 @@ Attendance at an event is also a booking but the individual booking datetime or 
   <tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
   <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
   <tr><td>title</td><td>String</td><td>Required</td></tr>
+  <tr><td>description</td><td>Text</td><td></td></tr>
   <tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
   <tr><td>booking_capacity</td><td>Integer</td><td>Not required</td></tr>
   <tr><td>day_booking_specify_time</td><td>Boolean</td><td>Not Required (default false)</td></tr>
@@ -690,8 +691,8 @@ Attendance at an event is also a booking but the individual booking datetime or 
   <tr><td>same_day</td><td>Boolean</td><td>Not required (default false)</td></tr>
   <tr><td>template</td><td>String</td><td>Component template (calendar view)</td></tr>
   <tr><td>interval_rounding</td><td>Integer</td><td>Overrides client default (see info on client object)</td></tr>
-  <tr><td>booking_type_id</td><td>Integer</td><td>1: appointment. 2: attendance.
-    <tr><td>custom_data</td><td>Array</td><td>Not required.</td></tr>
+  <tr><td>booking_type_id</td><td>Integer</td><td>1: appointment. 2: attendance.</td></tr>
+  <tr><td>custom_data</td><td>Array</td><td>Not required.</td></tr>
   </td></tr>
 </table>
 
@@ -705,6 +706,8 @@ Response
     "service": {
       "active": true,
       "booking_capacity": 1,
+      "booking_type_id": 1,
+      "description": "The best service",
       "created_at": "2012-09-20T15:34:16+02:00",
       "custom_data": null,
       "day_booking_specify_time": false,
