@@ -14,7 +14,7 @@ General Information:
 * [Errors](#errors)
 * [Pagination](#pagination)
 * [Examples](#example-request-and-response)
-* [Syncronisation](#syncronisation)
+* [Synchronisation](#synchronisation)
 * [Client libraries](#client-libraries)
 * [Web hooks](#web-hooks)
 
@@ -45,7 +45,7 @@ When your integration is ready to be released then you can sign up for a [real a
 
 ## Public and private API
 
-If you are planning to integrate directly from your application to MakePlans or need to modify information in MakePlans then you must use the private API. This API requires authentication with an API-key and should not be done publically (on a website).
+If you are planning to integrate directly from your application to MakePlans or need to modify information in MakePlans then you must use the private API. This API requires authentication with an API-key and should not be done publicly (on a website).
 
 The public API is available for simple read-only operations. This is useful if you want to present information from MakePlans on your website using JavaScript. Because these operations are done on a public website you can not authenticate using your API-key. With the public API you can fetch a list of services, available timeslots and initialize the booking process.
 
@@ -77,7 +77,7 @@ The format of the output data is provided as is and the reference is this docume
 
 All data is UTF-8.
 
-All examples and object attributes in this documentation are JSON. They are lowercase and use underscore as seperator. XML element names uses hypen instead of underscore (`created-at` instead of `created_at`).
+All examples and object attributes in this documentation are JSON. They are lowercase and use underscore as separator. XML element names uses hyphen instead of underscore (`created-at` instead of `created_at`).
 
 ### Output
 
@@ -103,7 +103,7 @@ Custom data is stored as key/value. All values are stored as strings but we do c
 
 MakePlans uses HTTP Basic Auth. The client has to enable the API first and you will find the API-Key in the account settings. The API-Key is the username and there is no password. MakePlans uses SSL and all requests over http will be redirected to https.
 
-If your app is installable by end-users you should use oAuth. However we do not yet support oAuth so please contact us if this is something you require.
+If your application is installable by end-users you should use oAuth. However we do not yet support oAuth so please contact us if this is something you require.
 
 ## Identification
 
@@ -177,19 +177,19 @@ curl -u APIKEY: \
 https://youraccount.test.makeplans.net/api/v1/services
 ```
 
-## Syncronisation
+## Synchronisation
 
-Syncronising data is hard. Please ensure you test before releasing to production. First pick either MakePlans or the other system as a master. If the other system is chosen as a master then we recommend enabling the 'confirmation by administrator' setting for bookings. The synchronisation should then retrieve unprocessed bookings and process them (confirm/decline). This will ensure you can handle any changes occured in the other system since the last syncronisation with MakePlans. New unprocessed bookings must be processed often (every 1-5 minutes) to ensure confirmations are sent out quickly to the end-user after requesting a new reservation.
+Synchronising data is hard. Please ensure you test before releasing to production. First pick either MakePlans or the other system as a master. If the other system is chosen as a master then we recommend enabling the 'confirmation by administrator' setting for bookings. The synchronisation should then retrieve unprocessed bookings and process them (confirm/decline). This will ensure you can handle any changes occurred in the other system since the last synchronisation with MakePlans. New unprocessed bookings must be processed often (every 1-5 minutes) to ensure confirmations are sent out quickly to the end-user after requesting a new reservation.
 
 **NEVER** delete any data in MakePlans to make it easier to adapt to the other system. MakePlans is a customer facing booking application. End-users (stored as people) can change and cancel bookings, thus any modifications or destruction of core data should not occur. Bookings are stored with a history (log) and there is a link between a person and bookings. MakePlans make use of this data and all this data must be kept to ensure the booking process in MakePlans works as expected for the end-user.
 
 Expect all booking and person data to be changed at any time. All changes for an object will result in a updated attribute `updated_at`.
 
-We recommened storing a timestamp for when the syncronisation was last performed. When the syncronisation is performed again this timestamp can be used to fetch any changes on the `updated_at` attribute for the object you want to retrieve (e.g. the parameter `since` for bookings).
+We recommend storing a timestamp for when the synchronisation was last performed. When the synchronisation is performed again this timestamp can be used to fetch any changes on the `updated_at` attribute for the object you want to retrieve (e.g. the parameter `since` for bookings).
 
 ## Client libraries
 
-MakePlans does not officially support client libraries but they might be useful for you. Please note that these projects are **not** made by MakePlans but made publically available by other developers who have used the MakePlans API. Any questions should be made directly to the responsible developers. If you find any errors or areas of improvement please make a pull request to improve the project.
+MakePlans does not officially support client libraries but they might be useful for you. Please note that these projects are **not** made by MakePlans but made publicly available by other developers who have used the MakePlans API. Any questions should be made directly to the responsible developers. If you find any errors or areas of improvement please make a pull request to improve the project.
 
 * [NodeJS by Mable](https://github.com/mableteam/makeplans).
 * [CakePHP by Pollenizer](https://github.com/Pollenizer/CakePHP-MakePlans-Plugin).
@@ -206,7 +206,7 @@ So whenever a new booking is created in MakePlans we can send a POST request to 
 
 ## Slots
 
-Slots are not physical objects in MakePlans. It is a virtual representation of available times based on attributes from resources and services. So if a resource is open 8am to 4pm and selected service has interval of 60 minutes, slots will return an array of all time intervals (8am-9am, 9am-10am etc.) and indicate which recoures are available.
+Slots are not physical objects in MakePlans. It is a virtual representation of available times based on attributes from resources and services. So if a resource is open 8am to 4pm and selected service has interval of 60 minutes, slots will return an array of all time intervals (8am-9am, 9am-10am etc.) and indicate which resources are available.
 
 Slots are meant for listing available times on the MakePlans booking page. You can however make bookings at any time and with any length - as long as the resource is available off course.
 
@@ -401,7 +401,7 @@ These parameters are part of booking eq.: `booking[public_booking]`.
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-  <tr><td>public_booking</td><td>Boolean</td><td>Restrict to normal public booking rules such as within opening hours, not able to book in the past or past specified allowed date in the future. Recommended for all customer facing booking applications (e.g. integration on website). Not recommended when syncronising with other calendar programs. Default: false.</td></tr>
+  <tr><td>public_booking</td><td>Boolean</td><td>Restrict to normal public booking rules such as within opening hours, not able to book in the past or past specified allowed date in the future. Recommended for all customer facing booking applications (e.g. integration on website). Not recommended when synchronising with other calendar programs. Default: false.</td></tr>
 </table>
 
 #### Additional parameters
@@ -416,7 +416,7 @@ Default action for outgoing messages is according to the settings for booking ve
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
   <tr><td>confirm</td><td>Boolean</td><td>If set to false then the 'initiate verification' event is executed. If verification is required the state will be set to `awaiting_verification`. If no verification is required then the state will be set to `awaiting_confirmation` or `confirmed`.</td></tr>
   <tr><td>ignore_capacity</td><td>Boolean</td><td>Will force save the booking even though other bookings exists within the same time on the specified resource_id (double booking). Not applicable when `public_booking` is set to false (no double bookings allowed). Default: false.</td></tr>
-  <tr><td>add_reminder_sms</td><td>Boolean</td><td>Automatically adds `reminder_at` based on setting from client atribute `sms_reminder_time`. Default: at 12PM the day before the appointment.</td></tr>
+  <tr><td>add_reminder_sms</td><td>Boolean</td><td>Automatically adds `reminder_at` based on setting from client attribute `sms_reminder_time`. Default: at 12PM the day before the appointment.</td></tr>
   <tr><td>verification_send_email</td><td>Boolean</td><td>Send out verification email. Only applicable when `confirm` is set to false.</td></tr>
   <tr><td>verification_send_sms</td><td>Boolean</td><td>Send out verification SMS. Only applicable when `confirm` is set to false.</td></tr>
   <tr><td>confirmation_send_email</td><td>Boolean</td><td>Send out confirmation email.</td></tr>
@@ -433,19 +433,19 @@ To add a new person along with a booking you must populate `person_attributes` w
 
 `POST /bookings/recurring` will create a multiple bookings.
 
-The recurrence format follows the [iCalendar specification](https://tools.ietf.org/html/rfc5545). The attributes for reccurence are: `RRULE`, `RDATE`, `EXDATE`. For an introduction and examples of these parameters see [this section from the iCalendar specification](http://www.kanzaki.com/docs/ical/rrule.html).
+The recurrence format follows the [iCalendar specification](https://tools.ietf.org/html/rfc5545). The attributes for recurrence are: `RRULE`, `RDATE`, `EXDATE`. For an introduction and examples of these parameters see [this section from the iCalendar specification](http://www.kanzaki.com/docs/ical/rrule.html).
 
 In the iCalendar specification the recurrence is based on values in `DTSTART` and `DTEND`. This is set by `booked_from` and `booked_to` from `booking`.
 
 All recurring bookings will except for `booked_from` and `booked_to` have the same attributes based on the specified parameters in `booking`.
 
-All bookings created by the recurring pattern gets the same UUID in `collection_id`. As the collection name implies, and as is possible with the iCalendar specification, this is not necessarirly only for recurrence (i.e. 9am-10am each Friday until December 1st) but also for multiple specific times (as can be specified with `RDATE`).
+All bookings created by the recurring pattern gets the same UUID in `collection_id`. As the collection name implies, and as is possible with the iCalendar specification, this is not necessarily only for recurrence (i.e. 9am-10am each Friday until December 1st) but also for multiple specific times (as can be specified with `RDATE`).
 
-Only the `collection_id` is returned. No bookings are created at the time of request as they will be processed by the server in the background due to the volume of bookings that it is possible to create at one time. A succesful response with a `collection_id` does in no way indicate that any bookings will be created. The first booking as defined in `booking` is however validated. If it is not valid errors details are returned in the same way as creating a single booking. In such a case recurring rules are not applied and you must adjust the request until validation is succesful.
+Only the `collection_id` is returned. No bookings are created at the time of request as they will be processed by the server in the background due to the volume of bookings that it is possible to create at one time. A successful response with a `collection_id` does in no way indicate that any bookings will be created. The first booking as defined in `booking` is however validated. If it is not valid errors details are returned in the same way as creating a single booking. In such a case recurring rules are not applied and you must adjust the request until validation is successful.
 
-#### Parameters for reccurrence
+#### Parameters for recurrence
 
-The parameters for reccurence are not set in `booking` but in `recurrence`.
+The parameters for recurrence are not set in `booking` but in `recurrence`.
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
@@ -456,7 +456,7 @@ The parameters for reccurence are not set in `booking` but in `recurrence`.
 
 You should always specify COUNT or UNTIL with RRULE. The max number of occurrences is 731, regardless if a limit is set or not.
 
-#### List occurences
+#### List occurrences
 
 `GET /bookings/recurring/{collection_id}` will return all occurrences for a collection.
 
@@ -803,19 +803,19 @@ Response
 
 `POST /events/recurring` will create a multiple events.
 
-The recurrence format follows the [iCalendar specification](https://tools.ietf.org/html/rfc5545). The attributes for reccurence are: `RRULE`, `RDATE`, `EXDATE`. For an introduction and examples of these parameters see [this section from the iCalendar specification](http://www.kanzaki.com/docs/ical/rrule.html).
+The recurrence format follows the [iCalendar specification](https://tools.ietf.org/html/rfc5545). The attributes for recurrence are: `RRULE`, `RDATE`, `EXDATE`. For an introduction and examples of these parameters see [this section from the iCalendar specification](http://www.kanzaki.com/docs/ical/rrule.html).
 
 In the iCalendar specification the recurrence is based on values in `DTSTART` and `DTEND`. This is set by `starts_at` and `ends_at` from `event`.
 
 All recurring events will except for `starts_at` and `ends_at` have the same attributes based on the specified parameters in `event`.
 
-All events created by the recurring pattern gets the same UUID in `collection_id`. As the collection name implies, and as is possible with the iCalendar specification, this is not necessarirly only for recurrence (i.e. 9am-10am each Friday until December 1st) but also for multiple specific times (as can be specified with `RDATE`).
+All events created by the recurring pattern gets the same UUID in `collection_id`. As the collection name implies, and as is possible with the iCalendar specification, this is not necessarily only for recurrence (i.e. 9am-10am each Friday until December 1st) but also for multiple specific times (as can be specified with `RDATE`).
 
-Only the `collection_id` is returned. No events are created at the time of request as they will be processed by the server in the background due to the volume of events that it is possible to create at one time. A succesful response with a `collection_id` does in no way indicate that any events will be created. The first event as defined in `event` is however validated. If it is not valid errors details are returned in the same way as creating a single event. In such a case recurring rules are not applied and you must adjust the request until validation is succesful.
+Only the `collection_id` is returned. No events are created at the time of request as they will be processed by the server in the background due to the volume of events that it is possible to create at one time. A successful response with a `collection_id` does in no way indicate that any events will be created. The first event as defined in `event` is however validated. If it is not valid errors details are returned in the same way as creating a single event. In such a case recurring rules are not applied and you must adjust the request until validation is successful.
 
-#### Parameters for reccurrence
+#### Parameters for recurrence
 
-The parameters for reccurence are not set in `event` but in `recurrence`.
+The parameters for recurrence are not set in `event` but in `recurrence`.
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
@@ -826,7 +826,7 @@ The parameters for reccurence are not set in `event` but in `recurrence`.
 
 You should always specify COUNT or UNTIL with RRULE. The max number of occurrences is 731, regardless if a limit is set or not.
 
-#### List occurences
+#### List occurrences
 
 `GET /events/recurring/{collection_id}` will return all occurrences for a collection.
 
@@ -1234,7 +1234,7 @@ Information and settings for your account.
   <tr><td>mail_cancellation_subject</td><td>String</td><td></td></tr>
 </table>
 
-#### Additional paramaters
+#### Additional parameters
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
