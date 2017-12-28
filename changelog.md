@@ -17,7 +17,7 @@ GET `/events/` and other similar listing endpoints for bookings and events.
 
 **Maximum limit for recurring occurrences**
 
-Previously there was a limit of 366 occurences when creating recurring bookings or events. When going above this limit no detailed error message was returned. We now return a detailed error message on the `collection_id` attribute. In addition we have increased the maximum limit of occurences to 731.
+Previously there was a limit of 366 occurrences when creating recurring bookings or events. When going above this limit no detailed error message was returned. We now return a detailed error message on the `collection_id` attribute. In addition we have increased the maximum limit of occurrences to 731.
 
 ## 2017-07-05
 
@@ -25,13 +25,13 @@ Previously there was a limit of 366 occurences when creating recurring bookings 
 
 *BREAKING CHANGE*
 
-When verification is required the attribute of the verification method is required to complete a booking with `confirm=false`. So if SMS verification is used then `phone_number` is a required field for `person_attributes`. This now also applies when specifying a `person_id`, so a person without a phone number will not be able to intiate the verification process.
+When verification is required the attribute of the verification method is required to complete a booking with `confirm=false`. So if SMS verification is used then `phone_number` is a required field for `person_attributes`. This now also applies when specifying a `person_id`, so a person without a phone number will not be able to initiate the verification process.
 
 In general it is advisable to only specify `person_id` when you have authenticated this person. In all other cases you should supply `person_attributes` so MakePlans can match and verify the person using the supplied values.
 
 Endpoint affected: POST `/bookings/?confirm=false`
 
-**Valid phone number required when veryifing a booking**
+**Valid phone number required when verifying a booking**
 
 *BREAKING CHANGE*
 
@@ -43,7 +43,7 @@ Endpoint affected: POST `/bookings/?confirm=false`
 
 *BREAKING CHANGE*
 
-Previously specifying `public_booking=true` would validate required verification method attribute (such as `phone_number`). From now on this validation is only performed when verification is requested by specyfing `confirm=false`.
+Previously specifying `public_booking=true` would validate required verification method attribute (such as `phone_number`). From now on this validation is only performed when verification is requested by specifying `confirm=false`.
 
 Endpoint affected: POST `/bookings/?public_booking=true`
 
