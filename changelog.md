@@ -1,5 +1,18 @@
 # MakePlans API Changelog
 
+## 2017-12-28
+
+**Default order of returned bookings and events**
+
+The default order used to be reverse chronological, this have not changed to chronological. So the oldest entry will now be the first item returned.
+
+To use the old default please specify order using `order=booked_from_desc` for bookings and `order=starts_at_desc` for events.
+
+Endpoints affected: 
+GET `/bookings/`
+GET `/events/` and other similar listing endpoints for bookings and events.
+
+
 ## 2017-08-10
 
 **Maximum limit for recurring occurrences**
