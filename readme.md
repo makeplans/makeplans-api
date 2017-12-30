@@ -639,6 +639,10 @@ Response
 
 *Not yet implemented*
 
+### Merge person with another person
+
+`POST /people/{person_id}/merge?merge_person_id={merge_person_id}` will merge existing person with id `{person_id}` and `{merge_person_id}`. All bookings for `{merge_person_id}` will be transferred to `{person_id}`. `{merge_person_id}` will be deleted. You can also specify attributes to update with `{person}` just like when creating/updating a person.
+
 ### Person verification with a perishable token
 
 The purpose of this feature is to verify a new or existing person in MakePlans on your website such as "login to see your bookings". The verification can be done either using email or SMS. When successful you will have verified either an email or a phone number. Thus you can either create a new person or retrieve an existing person knowing that the person has been verified.
