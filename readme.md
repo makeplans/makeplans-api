@@ -49,7 +49,7 @@ If you are planning to integrate directly from your application to MakePlans or 
 
 The public API is available for simple read-only operations. This is useful if you want to present information from MakePlans on your website using JavaScript. Because these operations are done on a public website you can not authenticate using your API-key. With the public API you can fetch a list of services, available timeslots and initialize the booking process.
 
-All requests are done over HTTPS. Each object in MakePlans has its own endpoints.
+All requests are done over HTTPS. Each object in MakePlans has its own [endpoints](#api-endpoints).
 
 ### Base API URL
 
@@ -203,6 +203,8 @@ A big thanks to everyone who has contributed to these libraries!
 
 A webhook is simply a user-defined callback in the form of an HTTP POST which is invoked when something happens.
 So whenever a new booking is created in MakePlans we can send a POST request to the URL you specify. The response will include data about the modified object.
+
+## API Endpoints
 
 ## Slots
 
