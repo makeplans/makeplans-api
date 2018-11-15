@@ -639,7 +639,7 @@ Response
 
 ### Delete person
 
-*Not yet implemented*
+`DELETE /people/{person_id}` will delete existing person with id `{person_id}`.
 
 ### Merge person with another person
 
