@@ -931,6 +931,10 @@ Response
 
 Opening hours for specific dates is based on the standard opening hours that are specified on the resource but can be overridden with entries in [resource exception dates](#resource-exception-dates).
 
+#### Listing
+
+`GET /resources/{resource_id}/opening_hours` will get opening hours on specific dates for resource with id `{resource_id}`.
+
 Response
 
 ```json
@@ -958,8 +962,6 @@ Response
   <tr><td>from</td><td>Date</td><td></td></tr>
   <tr><td>to</td><td>Date</td><td></td></tr>
 </table>
-
-`GET /resources/{resource_id}/opening_hours` will get opening hours on specific dates for resource with id `{resource_id}`.
 
 ### Add new resource
 
