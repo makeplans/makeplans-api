@@ -592,7 +592,7 @@ The primary key for a person is `id`. However the following fields are unique: `
 
 ### Listing
 
-Searching unique fields (`email`, `phonenumber`, `external_id`, `uid`+`provider`) will return only one result if found.
+`GET /people/` will return all people.
 
 Response
 
@@ -618,6 +618,8 @@ Response
 ```
 
 #### Query Parameters
+
+Searching unique fields (`email`, `phonenumber`, `external_id`, `uid`+`provider`) will return only one result if found.
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
@@ -703,6 +705,8 @@ Attendance at an event is also a booking but the individual booking datetime or 
 
 ### Listing
 
+`GET /services/` will return all services.
+
 Response
 
 ```json
@@ -766,6 +770,8 @@ While events are connected to a resource bookings or capacity of an event are no
 </table>
 
 ### Listing
+
+`GET /events/` will return all events.
 
 Response
 
@@ -892,6 +898,8 @@ These deprecated attributes define opening hours without breaks. Given `opening_
 
 ### Listing
 
+`GET /resources/` will return all resources.
+
 Response
 
 ```json
@@ -983,6 +991,8 @@ Exception dates are related to a resource: `GET /resources/{resource_id}/excepti
 </table>
 
 ### Listing
+
+`GET /resources/{resource_id}/exeption_dates` will return all exception dates for resource with id `{resource_id}`.
 
 Response
 
@@ -1083,6 +1093,8 @@ Resources provides services. This link is called a provider.
 
 ### Listing
 
+`GET /providers/` will return all providers.
+
 Response
 
 ```json
@@ -1124,6 +1136,8 @@ Services can be listed in a category. Categories can be presented like a tree. R
 </table>
 
 ### Listing
+
+`GET /categories/` will return all categories.
 
 Response
 
