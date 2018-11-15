@@ -91,7 +91,7 @@ To use normal form data specify HTTP-header `application/x-www-form-urlencoded`.
 
 ## Date handling
 
-All dates are specified in the ISO 8601 format. Timezone is included in the output and specified by the account. It is not necessary to specify timezone in the input as the account timezone will be used as default. The output will give a full ISO 8601 date format with time zone: `YYYY-MM-DDThh:mm:ssTZD`. For input we recommend that you do not specify time zone unless needed and ommit seconds: `YYYY-MM-DD hh:mm`.
+All dates are specified in the ISO 8601 format. Time zone is included in the output and specified by the account. It is not necessary to specify time zone in the input as the account time zone will be used as default. The output will give a full ISO 8601 date format with time zone: `YYYY-MM-DDThh:mm:ssTZD`. For input we recommend that you do not specify time zone unless needed and ommit seconds: `YYYY-MM-DD hh:mm`.
 
 ## Custom data
 
@@ -101,7 +101,7 @@ Custom data is stored as key/value. All values are stored as strings but we do c
 
 ## Authentication
 
-MakePlans uses HTTP Basic Auth. The client has to enable the API first and you will find the API-Key in the account settings. The API-Key is the username and there is no password. MakePlans uses SSL and all requests over http will be redirected to https.
+MakePlans uses HTTP Basic Auth. The client has to enable the API first and you will find the API-Key in the account settings. The API-Key is the username and there is no password. MakePlans uses SSL and all requests over HTTP will be redirected to HTTPS.
 
 If your application is installable by end-users you should use oAuth. However we do not yet support oAuth so please contact us if this is something you require.
 
