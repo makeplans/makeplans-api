@@ -1,5 +1,11 @@
 # MakePlans API Changelog
 
+## 2017-12-30
+
+**Added merge people endpoint**
+
+Added endpoint for merging two people.
+
 ## 2017-12-28
 
 **Default order of returned bookings and events**
