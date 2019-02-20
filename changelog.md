@@ -1,5 +1,11 @@
 # MakePlans API Changelog
 
+## 2018-11-15
+
+**Added delete person endpoint**
+
+Added endpoint for deleting a person.
+
 ## 2017-12-30
 
 **Added merge people endpoint**
