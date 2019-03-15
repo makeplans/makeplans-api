@@ -399,7 +399,7 @@ You can return bookings of multiple resources/services/events/people with an arr
 
 #### Non-returning booking parameters
 
-These parameters are part of booking eq.: `booking[public_booking]`.
+These parameters are part of booking: `booking[public_booking]`.
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
@@ -408,7 +408,7 @@ These parameters are part of booking eq.: `booking[public_booking]`.
 
 #### Additional parameters
 
-These parameters are part not of `booking[]` eq.: `confirm`.
+These parameters are part not of `booking[]`: `confirm`.
 
 Outgoing messages requires person_id and service_id.
 
