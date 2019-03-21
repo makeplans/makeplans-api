@@ -1,5 +1,11 @@
 # MakePlans API Changelog
 
+## 2019-03-21
+
+**Added list users endpoint**
+
+Added endpoint for listing users with access to client.
+
 ## 2018-11-15
 
 **Added delete person endpoint**

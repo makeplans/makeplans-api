@@ -1271,7 +1271,7 @@ Information and settings for your account.
 
 Who doesn't like a holiday?
 
-### Listing
+#### Listing
 
 `GET /client/holidays` will get holidays for client country.
 
@@ -1295,10 +1295,33 @@ Response
 ```
 
 
-#### Query Parameters
+##### Query Parameters
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
   <tr><td>from</td><td>Date</td><td></td></tr>
   <tr><td>to</td><td>Date</td><td></td></tr>
 </table>
+
+### Users
+
+#### Listing
+
+`GET /client/users` will list all users with access to the client.
+
+Response
+
+```json
+[
+  {
+    "user": {
+        "id": 1,
+        "email": "espen@makeplans.net",
+        "phonenumber": "180",
+        "name": "Espen Antonsen",
+        "created_at": "2016-11-07T07:26:32+01:00",
+        "updated_at": "2016-11-07T07:27:42+01:00"
+    }
+  }
+]
+```
