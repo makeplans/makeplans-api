@@ -6,9 +6,11 @@
 
 Added endpoint for listing users with access to client.
 
-**BETA: Added add_messages to create booking**
+**Added add_messages to create booking**
 
-Can specify whether messages are generated from message templates. Invite-only beta functionality.
+*INVITE-ONLY BETA FUNCTIONALITY*
+
+Can specify whether messages are generated from message templates.
 
 ## 2018-11-15
 
