@@ -419,6 +419,7 @@ Default action for outgoing messages is according to the settings for booking ve
   <tr><td>confirm</td><td>Boolean</td><td>If set to false then the 'initiate verification' event is executed. If verification is required the state will be set to `awaiting_verification`. If no verification is required then the state will be set to `awaiting_confirmation` or `confirmed`.</td></tr>
   <tr><td>ignore_capacity</td><td>Boolean</td><td>Will force save the booking even though other bookings exists within the same time on the specified resource_id (double booking). Not applicable when `public_booking` is set to false (no double bookings allowed). Default: false.</td></tr>
   <tr><td>add_reminder_sms</td><td>Boolean</td><td>Automatically adds `reminder_at` based on setting from client attribute `sms_reminder_time`. Default: at 12PM the day before the appointment.</td></tr>
+  <tr><td>add_messages</td><td>Boolean</td><td>Automatically generate messages based on message templates. (NOTE: Beta functionality available by invitation.)</td></tr>
   <tr><td>verification_send_email</td><td>Boolean</td><td>Send out verification email. Only applicable when `confirm` is set to false.</td></tr>
   <tr><td>verification_send_sms</td><td>Boolean</td><td>Send out verification SMS. Only applicable when `confirm` is set to false.</td></tr>
   <tr><td>confirmation_send_email</td><td>Boolean</td><td>Send out confirmation email.</td></tr>

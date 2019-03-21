@@ -6,6 +6,10 @@
 
 Added endpoint for listing users with access to client.
 
+**BETA: Added add_messages to create booking**
+
+Can specify whether messages are generated from message templates. Invite-only beta functionality.
+
 ## 2018-11-15
 
 **Added delete person endpoint**
