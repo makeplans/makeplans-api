@@ -1306,6 +1306,18 @@ Response
 
 ### Users
 
+#### Attributes
+
+<table>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
+  <tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+  <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+  <tr><td>name</td><td>String</td><td>Required</td></tr>
+  <tr><td>email</td><td>String</td><td>Required</td></tr>
+  <tr><td>phone_number</td><td>String</td><td>Also available as phonenumber (deprecated).</td></tr>
+</table>
+
 #### Listing
 
 `GET /client/users` will list all users with access to the client.
@@ -1318,7 +1330,7 @@ Response
     "user": {
         "id": 1,
         "email": "espen@makeplans.net",
-        "phonenumber": "180",
+        "phone_number": "180",
         "name": "Espen Antonsen",
         "created_at": "2016-11-07T07:26:32+01:00",
         "updated_at": "2016-11-07T07:27:42+01:00"
@@ -1326,3 +1338,8 @@ Response
   }
 ]
 ```
+
+#### Add new user
+
+`GET /client/users` will create a new user.
+
