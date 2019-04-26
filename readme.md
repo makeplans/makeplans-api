@@ -15,7 +15,7 @@ General Information:
 * [Pagination](#pagination)
 * [Examples](#example-request-and-response)
 * [Synchronisation](#synchronisation)
-* [Client libraries](#client-libraries)
+* [API libraries](#api-libraries)
 * [Web hooks](#web-hooks)
 
 API Endpoints:
@@ -29,7 +29,7 @@ API Endpoints:
 * [Providers](#providers)
 * [Categories](#categories)
 * [Users](#users)
-* [Client](#client)
+* [Account](#account)
 
 ## Get started
 
@@ -101,7 +101,7 @@ Custom data is stored as key/value. All values are stored as strings but we do c
 
 ## Authentication
 
-MakePlans uses HTTP Basic Auth. The client has to enable the API first and you will find the API-Key in the account settings. The API-Key is the username and there is no password. MakePlans uses SSL and all requests over HTTP will be redirected to HTTPS.
+MakePlans uses HTTP Basic Auth. The account has to enable the API first and you will find the API-Key in the account settings. The API-Key is the username and there is no password. MakePlans uses SSL and all requests over HTTP will be redirected to HTTPS.
 
 If your application is installable by end-users you should use oAuth. However we do not yet support oAuth so please contact us if this is something you require.
 
@@ -187,9 +187,9 @@ Expect all booking and person data to be changed at any time. All changes for an
 
 We recommend storing a timestamp for when the synchronisation was last performed. When the synchronisation is performed again this timestamp can be used to fetch any changes on the `updated_at` attribute for the object you want to retrieve (e.g. the parameter `since` for bookings).
 
-## Client libraries
+## API libraries
 
-MakePlans does not officially support client libraries but they might be useful for you. Please note that these projects are **not** made by MakePlans but made publicly available by other developers who have used the MakePlans API. Any questions should be made directly to the responsible developers. If you find any errors or areas of improvement please make a pull request to improve the project.
+MakePlans does not officially support API libraries but they might be useful for you. Please note that these projects are **not** made by MakePlans but made publicly available by other developers who have used the MakePlans API. Any questions should be made directly to the responsible developers. If you find any errors or areas of improvement please make a pull request to improve the project.
 
 * [NodeJS by Mable](https://github.com/mableteam/makeplans).
 * [CakePHP by Pollenizer](https://github.com/Pollenizer/CakePHP-MakePlans-Plugin).
@@ -365,7 +365,7 @@ Response
       "expires_at": null,
       "external_id": null,
       "id": 1,
-      "notes": "Very handsome client",
+      "notes": "Very handsome customer",
       "person_id": 1,
       "resource_id": 1,
       "service_id": 1,
@@ -412,13 +412,13 @@ These parameters are part not of `booking[]`: `confirm`.
 
 Outgoing messages requires person_id and service_id.
 
-Default action for outgoing messages is according to the settings for booking verification. If email verification is enabled then all `*_email` messages will be triggered by default to the customer. To override please see parameters for each action below. For admin notification messages the default is based on the client settings. SMS reminders is based on client settings and uses a default value for the time unless specified.
+Default action for outgoing messages is according to the settings for booking verification. If email verification is enabled then all `*_email` messages will be triggered by default to the customer. To override please see parameters for each action below. For admin notification messages the default is based on the account settings. SMS reminders is based on account settings and uses a default value for the time unless specified.
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
   <tr><td>confirm</td><td>Boolean</td><td>If set to false then the 'initiate verification' event is executed. If verification is required the state will be set to `awaiting_verification`. If no verification is required then the state will be set to `awaiting_confirmation` or `confirmed`.</td></tr>
   <tr><td>ignore_capacity</td><td>Boolean</td><td>Will force save the booking even though other bookings exists within the same time on the specified resource_id (double booking). Not applicable when `public_booking` is set to false (no double bookings allowed). Default: false.</td></tr>
-  <tr><td>add_reminder_sms</td><td>Boolean</td><td>Automatically adds `reminder_at` based on setting from client attribute `sms_reminder_time`. Default: at 12PM the day before the appointment.</td></tr>
+  <tr><td>add_reminder_sms</td><td>Boolean</td><td>Automatically adds `reminder_at` based on setting from account attribute `sms_reminder_time`. Default: at 12PM the day before the appointment.</td></tr>
   <tr><td>add_messages</td><td>Boolean</td><td>Automatically generate messages based on message templates. (NOTE: Beta functionality available by invitation.)</td></tr>
   <tr><td>verification_send_email</td><td>Boolean</td><td>Send out verification email. Only applicable when `confirm` is set to false.</td></tr>
   <tr><td>verification_send_sms</td><td>Boolean</td><td>Send out verification SMS. Only applicable when `confirm` is set to false.</td></tr>
@@ -481,7 +481,7 @@ See [information about additional parameters](#additional-parameters).
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
   <tr><td>confirmation_send_email</td><td>Boolean</td><td>Send out confirmation email.</td></tr>
   <tr><td>confirmation_send_sms</td><td>Boolean</td><td>Send out confirmation SMS.</td></tr>
-  <tr><td>notification_send_email</td><td>Boolean</td><td>Send out notification email to admin. Default: based on client setting.</td></tr>
+  <tr><td>notification_send_email</td><td>Boolean</td><td>Send out notification email to admin. Default: based on account setting.</td></tr>
   <tr><td>notification_send_sms</td><td>Boolean</td><td>Send out notification SMS to admin.</td></tr>
   <tr><td>verification_code</td><td>String</td><td>Verification code send using SMS or email. Only applicable for the `verify_code` action.</td></tr>
 </table>
@@ -699,7 +699,7 @@ Attendance at an event is also a booking but the individual booking datetime or 
   <tr><td>price</td><td>Decimal</td><td>Not required.</td></tr>
   <tr><td>same_day</td><td>Boolean</td><td>Not required (default false)</td></tr>
   <tr><td>template</td><td>String</td><td>Component template (calendar view)</td></tr>
-  <tr><td>interval_rounding</td><td>Integer</td><td>Overrides client default (see info on client object)</td></tr>
+  <tr><td>interval_rounding</td><td>Integer</td><td>Overrides account default (see info on account object)</td></tr>
   <tr><td>booking_type_id</td><td>Integer</td><td>1: appointment. 2: attendance.</td></tr>
   <tr><td>custom_data</td><td>Array</td><td>Not required.</td></tr>
 </table>
@@ -1187,7 +1187,7 @@ Users who can login into the account.
   <tr><td>phonenumber</td><td>String</td><td></td></tr>
 </table>
 
-## Client
+## Account
 
 Information and settings for your account.
 
@@ -1264,7 +1264,7 @@ Information and settings for your account.
   <tr><td>remove_logo</td><td>Boolean</td><td></td></tr>
 </table>
 
-### Update client
+### Update account
 
 `PUT /client` will update the account.
 
@@ -1274,7 +1274,7 @@ Who doesn't like a holiday?
 
 #### Listing
 
-`GET /client/holidays` will get holidays for client country.
+`GET /client/holidays` will get holidays for account country.
 
 Response
 
@@ -1320,7 +1320,7 @@ Response
 
 #### Listing
 
-`GET /client/users` will list all users with access to the client.
+`GET /client/users` will list all users with access to the account.
 
 Response
 
