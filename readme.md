@@ -199,7 +199,7 @@ A big thanks to everyone who has contributed to these libraries!
 
 ## Web hooks
 
-*Not yet implemented*
+*Currently in beta: please contact us for more information*
 
 A webhook is simply a user-defined callback in the form of an HTTP POST which is invoked when something happens.
 So whenever a new booking is created in MakePlans we can send a POST request to the URL you specify. The response will include data about the modified object.
