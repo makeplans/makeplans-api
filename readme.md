@@ -202,7 +202,30 @@ A big thanks to everyone who has contributed to these libraries!
 *Currently in beta: please contact us for more information*
 
 A webhook is simply a user-defined callback in the form of an HTTP POST which is invoked when something happens.
-So whenever a new booking is created in MakePlans we can send a POST request to the URL you specify. The response will include data about the modified object.
+So for example whenever a new booking is created in MakePlans we can send a POST request to the URL you specify. The response will include data about the modified object.
+
+### Payload
+
+<table>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>object</td><td>String</td><td>Type of object</td></tr>
+  <tr><td>event</td><td>String</td><td>Type of event</td></tr>
+  <tr><td>id</td><td>Integer</td><td>Id of the object</td></tr>
+  <tr><td>*object_type*</td><td>Object</td><td>Payload of the object</td></tr>
+  <tr><td>idempotency_id</td><td>String</td><td>Unique id for this web-hook</td></tr>
+  <tr><td>generated_at</td><td>String</td><td>When the event was initialized</td></tr>
+  <tr><td>performed_by</td><td>Object</td><td>Info of the user who performed the event</td></tr>
+</table>
+
+### Supported events
+
+* booking.confirmed
+* booking.created
+* person.created
+
+### Security
+
+During the beta of this functionality there is no added security to ensure the request is from MakePlans. We recommend adding a secret key to the web-hook URL to validate the request being from MakePlans and not a untrusted third party.
 
 ## API Endpoints
 
