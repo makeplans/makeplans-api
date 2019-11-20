@@ -372,7 +372,7 @@ Bookings with states `awaiting_verification`, `awaiting_payment`, `awaiting_conf
 
 `GET /bookings/unconfirmed` will return all unconfirmed bookings.
 
-`GET /bookings/all` will return all bookings of all states (including `declined`, `cancelled`, `expired` and `deleted`).
+`GET /bookings/all` will return all bookings of all states (including `declined`, `cancelled`, `deleted`, and `verification_expired`).
 
 Response
 
