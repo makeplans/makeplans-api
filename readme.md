@@ -219,8 +219,12 @@ So for example whenever a new booking is created in MakePlans we can send a POST
 
 ### Supported events
 
+* booking.cancelled
 * booking.confirmed
 * booking.created
+* booking.declined
+* booking.deleted
+* booking.modified
 * person.created
 
 ### Security

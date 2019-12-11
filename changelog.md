@@ -1,5 +1,24 @@
 # MakePlans API Changelog
 
+## 2019-12-11
+
+**New web-hook events**
+
+Added the following web-hook events:
+
+* booking.declined
+* booking.modified
+
+## 2019-11-26
+
+**Modified booking cancellation web-hook event**
+
+*BREAKING CHANGE*
+
+Removing a booking would previously trigger `booking.cancelled` web-hook event. This has now been changed to `booking.deleted`.
+
+A cancellation would still trigger `booking.cancelled`. This means that to monitor deleted bookings you should subscribe to both `booking.cancelled` and `booking.deleted`. In most cases a booking will be cancelled, but in some cases it will be removed.
+
 ## 2019-03-21
 
 **Added list users endpoint**
