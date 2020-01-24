@@ -177,6 +177,8 @@ curl -u APIKEY: \
 https://youraccount.test.makeplans.net/api/v1/services
 ```
 
+[More examples.](examples.md)
+
 ## Synchronisation
 
 Synchronising data is hard. Please ensure you test before releasing to production. First pick either MakePlans or the other system as a master. If the other system is chosen as a master then we recommend enabling the 'confirmation by administrator' setting for bookings. The synchronisation should then retrieve unprocessed bookings and process them (confirm/decline). This will ensure you can handle any changes occurred in the other system since the last synchronisation with MakePlans. New unprocessed bookings must be processed often (every 1-5 minutes) to ensure confirmations are sent out quickly to the end-user after requesting a new reservation.
