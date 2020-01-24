@@ -9,12 +9,22 @@ Please familiarise yourself with the key concept of the MakePlans API first.
 First we want to show a list of available services on the booking site.
 
 <details><summary>Request</summary>
-curl "https://YOURACCOUNT/api/v1/services" \
+```bash
+curl "https://youraccount.test.makeplans.net/api/v1/services" \
+     -H 'User-Agent: YourAppName (http://example.org)' \
      -H 'Accept: application/json' \
      -u 'YOURAPIKEY:'
+```
 </details>
 
 <details><summary>Response</summary>
+```curlrc
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+```
+
+
+```json
 [
   {
     "service": {
@@ -71,6 +81,7 @@ curl "https://YOURACCOUNT/api/v1/services" \
     }
   }
 ]
+```
 </details>
 
 ### Find available timeslots for a service
@@ -80,12 +91,21 @@ The user select 'Massage' so lets get all available timeslots for 'Massage' (ser
 By default this will return timeslots for today, but you can specify the timeframe using from/to parameters.
 
 <details><summary>Request</summary>
-curl "https://YOURACCOUNT/api/v1/services/15/slots" \
+```bash
+curl "https://youraccount.test.makeplans.net/api/v1/services/15/slots" \
+     -H 'User-Agent: YourAppName (http://example.org)' \
      -H 'Accept: application/json' \
      -u 'YOURAPIKEY:'
+```
 </details>
 
 <details><summary>Response</summary>
+```curlrc
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+```
+
+```json
 [
   {
     "slot": {
@@ -119,6 +139,7 @@ curl "https://YOURACCOUNT/api/v1/services/15/slots" \
   },
   # More items not shown
 ]
+```
 </details>
 
 ### Initiate new booking for new customer
@@ -131,7 +152,9 @@ But back to the API. When you make a request to create a new booking in the priv
 Please note: MakePlans will automatically match email and phone number to existing customer profile.
 
 <details><summary>Request</summary>
-curl -X "POST" "https://YOURACCOUNT/api/v1/bookings" \
+```bash
+curl -X "POST" "https://youraccount.test.makeplans.net/api/v1/bookings" \
+     -H 'User-Agent: YourAppName (http://example.org)' \
      -H 'Accept: application/json' \
      -H 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' \
      -u 'YOURAPIKEY:' \
@@ -142,12 +165,16 @@ curl -X "POST" "https://YOURACCOUNT/api/v1/bookings" \
      --data-urlencode "booking[person_attributes][phone_number]=+18338367888" \
      --data-urlencode "booking[public_booking]=true" \
      --data-urlencode "confirm=false"
- </details>
+```
+</details>
 
 <details><summary>Response</summary>
+```curlrc
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
+```
 
+```json
 {
   "booking": {
     "id": 208,
@@ -203,6 +230,7 @@ Content-Type: application/json; charset=utf-8
     }
   }
 }
+```
 </details>
 
 So we have a tentative booking! As you can see the booking state is set to `awaiting_verification`. This means we have to verify the booking. Make sure you save the `id` of the booking for the next step.
@@ -214,17 +242,23 @@ By now the customer should have received the SMS verification code.
 As you can see from the response in the previous request the verification code in this booking is 75455.
 
 <details><summary>Request</summary>
-curl -X "PUT" "https://YOURACCOUNT/api/v1/bookings/208/verify_code" \
+```bash
+curl -X "PUT" "https://youraccount.test.makeplans.net/api/v1/bookings/208/verify_code" \
+     -H 'User-Agent: YourAppName (http://example.org)' \
      -H 'Accept: application/json' \
      -H 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' \
      -u 'YOURAPIKEY:' \
      --data-urlencode "verification_code=75455"
+```
 </details>
 
 <details><summary>Response</summary>
+```curlrc
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
+```
 
+```json
 {
   "booking": {
     "id": 208,
@@ -280,6 +314,7 @@ Content-Type: application/json; charset=utf-8
     }
   }
 }
+```
 </details>
 
 The booking is now confirmed. MakePlans will now send an SMS confirmation to the customer (based on account settings, you can also set this per request).
@@ -287,20 +322,26 @@ The booking is now confirmed. MakePlans will now send an SMS confirmation to the
 If the customers enters an incorrect code we will return 403 status:
 
 <details><summary>Response</summary>
+```curlrc
 HTTP/1.1 403 Forbidden
 Content-Type: application/json; charset=utf-8
+```
 
+```json
 {
   "verification_code": [
     "is invalid"
   ]
 }
+```
 </details>
 
 ### Create new booking with custom data for new customer
 
 <details><summary>Request</summary>
-curl -X "POST" "https://YOURACCOUNT/api/v1/bookings" \
+```curlrc
+curl -X "POST" "https://youraccount.test.makeplans.net/api/v1/bookings" \
+     -H 'User-Agent: YourAppName (http://example.org)' \
      -H 'Accept: application/json' \
      -H 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' \
      -u 'YOURAPIKEY:' \
@@ -313,12 +354,16 @@ curl -X "POST" "https://YOURACCOUNT/api/v1/bookings" \
      --data-urlencode "confirm=false" \
      --data-urlencode "booking[custom_data][problems]=Right leg" \
      --data-urlencode "booking[person_attributes][custom_data][member_id]=83632"
+```
 </details>
 
 <details><summary>Response</summary>
+```curlrc
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
+```
 
+```json
 {
   "booking": {
     "id": 209,
@@ -379,6 +424,7 @@ Content-Type: application/json; charset=utf-8
     }
   }
 }
+```
 </details>
 
 ### Create new booking with a self pre-authenticated customer
