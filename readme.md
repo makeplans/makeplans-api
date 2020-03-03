@@ -33,15 +33,14 @@ API Endpoints:
 
 ## Get started
 
-1) [Sign up for a trial account in our test-environment](https://app.test.makeplans.net/client/new)
+1) Read this documentation.
 
-2) Enable the API and get the API-key from the account page.
+2) [Sign up for a trial account in our test environment](https://app.test.makeplans.net/client/new)
 
-3) Read this documentation.
+3) Enable the API and get the API-key from the account page.
 
 4) Profit.
 
-When your integration is ready to be released then you can sign up for a [real account](https://app.makeplans.net/client/new).
 
 ## Public and private API
 
