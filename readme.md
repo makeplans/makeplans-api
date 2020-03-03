@@ -41,6 +41,15 @@ API Endpoints:
 
 4) Profit.
 
+When your integration is ready to be released you can sign up for a [real account](https://app.makeplans.net/client/new).
+
+Limitations of the test environment:
+* SMS reminders are not triggered.
+* Very low SMS quota.
+* Requests may run slower.
+* Bugs may occur during roll out of new features to be tested.
+* Lower uptime.
+* All financial transactions such as Stripe are performed in their respective test/sandbox environment. Other integrations are performed against real production accounts unless the integration offers a test environment.
 
 ## Public and private API
 
