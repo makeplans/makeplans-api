@@ -1269,24 +1269,24 @@ Information and settings for your account.
   <tr><td>verification_methods</td><td>String</td><td></td></tr>
   <tr><td>reminder_sms</td><td>Boolean</td><td></td></tr>
   <tr><td>closed_for_holidays</td><td>Boolean</td><td></td></tr>
-  <tr><td>new_user_text</td><td>Text (Liquid)</td><td>Above booking form.</td></tr>
-  <tr><td>new_booking_text</td><td>Text (Liquid)</td><td>Booking confirmation page.</td></tr>
-  <tr><td>booking_form</td><td>Text (Liquid)</td><td>Custom booking form.</td></tr>
-  <tr><td>person_form</td><td>Text (Liquid)</td><td>For custom data in administration system.</td></tr>
-  <tr><td>resource_form</td><td>Text (Liquid)</td><td>For custom data in administration system.</td></tr>
-  <tr><td>service_form</td><td>Text (Liquid)</td><td>For custom data in administration system.</td></tr>
-  <tr><td>event_form</td><td>Text (Liquid)</td><td>For custom data in administration system.</td></tr>
-  <tr><td>appointment_form</td><td>Text (Liquid)</td><td>For custom data in administration system.</td></tr>
-  <tr><td>category_form</td><td>Text (Liquid)</td><td>For custom data in administration system.</td></tr>
-  <tr><td>sms_verification</td><td>Text (Liquid)</td><td></td></tr>
-  <tr><td>sms_confirmation</td><td>Text (Liquid)</td><td></td></tr>
-  <tr><td>sms_modification</td><td>Text (Liquid)</td><td></td></tr>
-  <tr><td>sms_cancellation</td><td>Text (Liquid)</td><td></td></tr>
-  <tr><td>sms_reminder</td><td>Text (Liquid)</td><td></td></tr>
-  <tr><td>mail_verification</td><td>Text (Liquid)</td><td></td></tr>
-  <tr><td>mail_confirmation</td><td>Text (Liquid)</td><td></td></tr>
-  <tr><td>mail_modification</td><td>Text (Liquid)</td><td></td></tr>
-  <tr><td>mail_cancellation</td><td>Text (Liquid)</td><td></td></tr>
+  <tr><td>new_user_text</td><td>Liquid-Text</td><td>Above booking form.</td></tr>
+  <tr><td>new_booking_text</td><td>Liquid-Text</td><td>Booking confirmation page.</td></tr>
+  <tr><td>booking_form</td><td>Liquid-Text</td><td>Custom booking form.</td></tr>
+  <tr><td>person_form</td><td>Liquid-Text</td><td>For custom data in administration system.</td></tr>
+  <tr><td>resource_form</td><td>Liquid-Text</td><td>For custom data in administration system.</td></tr>
+  <tr><td>service_form</td><td>Liquid-Text</td><td>For custom data in administration system.</td></tr>
+  <tr><td>event_form</td><td>Liquid-Text</td><td>For custom data in administration system.</td></tr>
+  <tr><td>appointment_form</td><td>Liquid-Text</td><td>For custom data in administration system.</td></tr>
+  <tr><td>category_form</td><td>Liquid-Text</td><td>For custom data in administration system.</td></tr>
+  <tr><td>sms_verification</td><td>Liquid-Text</td><td></td></tr>
+  <tr><td>sms_confirmation</td><td>Liquid-Text</td><td></td></tr>
+  <tr><td>sms_modification</td><td>Liquid-Text</td><td></td></tr>
+  <tr><td>sms_cancellation</td><td>Liquid-Text</td><td></td></tr>
+  <tr><td>sms_reminder</td><td>Liquid-Text</td><td></td></tr>
+  <tr><td>mail_verification</td><td>Liquid-Text</td><td></td></tr>
+  <tr><td>mail_confirmation</td><td>Liquid-Text</td><td></td></tr>
+  <tr><td>mail_modification</td><td>Liquid-Text</td><td></td></tr>
+  <tr><td>mail_cancellation</td><td>Liquid-Text</td><td></td></tr>
   <tr><td>mail_verification_subject</td><td>String</td><td></td></tr>
   <tr><td>mail_confirmation_subject</td><td>String</td><td></td></tr>
   <tr><td>mail_modification_subject</td><td>String</td><td></td></tr>
