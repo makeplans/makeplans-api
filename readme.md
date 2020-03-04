@@ -1244,7 +1244,6 @@ Information and settings for your account.
   <tr><td>css_url</td><td>String</td><td></td></tr>
   <tr><td>time_zone</td><td>String</td><td>Required</td></tr>
   <tr><td>verification_method</td><td>Integer</td><td></td></tr>
-  <tr><td>new_user_text</td><td>Text</td><td></td></tr>
   <tr><td>address</td><td>String</td><td></td></tr>
   <tr><td>country_code</td><td>String</td><td>Required. ISO 3166-1 alpha-2.</td></tr>
   <tr><td>google_merchant_id</td><td>String</td><td></td></tr>
