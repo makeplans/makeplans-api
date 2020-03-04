@@ -1261,9 +1261,9 @@ Information and settings for your account.
   <tr><td>settings</td><td>Array</td><td></td></tr>
   <tr><td>interval_rounding</td><td>Integer</td><td>Default setting for all services for rounding to next available time. '15' will round 10:07 to become 10:15 as next available slot time.</td></tr>
   <tr><td>slot_generation_type</td><td>Integer</td><td>Default: 2. 1=fixed. 2=next available.</td></tr>
-  <tr><td>future_bookable_period</td><td>String</td><td></td></tr>
-  <tr><td>public_access</td><td>Boolean</td><td></td></tr>
   <tr><td>first_bookable_period</td><td>String</td><td></td></tr>
+  <tr><td>future_bookable_period</td><td>String</td><td>Natural language date/time relative to current time.</td></tr>
+  <tr><td>first_bookable_period</td><td>String</td><td>Natural language date/time relative to current time.</td></tr>
   <tr><td>payment_provider</td><td>String</td><td></td></tr>
   <tr><td>footer</td><td>Text</td><td></td></tr>
   <tr><td>verification_methods</td><td>String</td><td></td></tr>
