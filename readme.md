@@ -1252,7 +1252,7 @@ Information and settings for your account.
   <tr><td>template</td><td>Integer</td><td>Required</td></tr>
   <tr><td>service_template</td><td>String</td><td></td></tr>
   <tr><td>locale</td><td>String</td><td>Required. Supported locales: 'en', 'sv' and 'nb'. Default: 'en'.</td></tr>
-  <tr><td>currency</td><td>ISO4217 currency code</td><td></td></tr>
+  <tr><td>currency</td><td>String</td><td>ISO4217 currency code</td></tr>
   <tr><td>email_notification</td><td>Boolean</td><td></td></tr>
   <tr><td>mail_notification_recipient</td><td>Email</td><td></td></tr>
   <tr><td>sms_notification</td><td>Boolean</td><td></td></tr>
