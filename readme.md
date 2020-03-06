@@ -1295,6 +1295,8 @@ Information and settings for your account.
   <tr><td>mail_confirmation_subject</td><td>String</td><td></td></tr>
   <tr><td>mail_modification_subject</td><td>String</td><td></td></tr>
   <tr><td>mail_cancellation_subject</td><td>String</td><td></td></tr>
+  <tr><td>allow_cancellation</td><td>Boolean</td><td></td></tr>
+  <tr><td>cancellation_period</td><td>String</td><td>Natural language date/time relative to start of booking.</td></tr>
 </table>
 
 #### Additional parameters
