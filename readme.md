@@ -1238,8 +1238,6 @@ Information and settings for your account.
   <tr><td>subdomain</td><td>String</td><td>Required</td></tr>
   <tr><td>email</td><td>String</td><td>Required</td></tr>
   <tr><td>name</td><td>String</td><td>Required</td></tr>
-  <tr><td>mail_verification</td><td>Text</td><td></td></tr>
-  <tr><td>mail_confirmation</td><td>Text</td><td></td></tr>
   <tr><td>google_analytics</td><td>String</td><td></td></tr>
   <tr><td>css_url</td><td>String</td><td></td></tr>
   <tr><td>time_zone</td><td>String</td><td>Required</td></tr>
