@@ -1,5 +1,11 @@
 # MakePlans API Changelog
 
+## 2020-03-13
+
+Added the following web-hooks events:
+
+* booking.verified
+
 ## 2019-12-11
 
 **New web-hook events**

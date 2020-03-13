@@ -235,6 +235,7 @@ So for example whenever a new booking is created in MakePlans we can send a POST
 * booking.declined
 * booking.deleted
 * booking.modified
+* booking.verified
 * person.created
 
 ### Security
