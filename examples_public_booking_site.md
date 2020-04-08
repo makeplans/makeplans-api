@@ -24,8 +24,6 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ```
 
-:id, :title, :booking_type_id, :settings, :price, :client_id, :interval, :has_day_booking
-
 ```json
 [
   {
