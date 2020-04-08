@@ -6,7 +6,7 @@ There are two ways of using the MakePlans API:
 
 If you are implementing a custom booking experience on your website using JavaScript we have a public API available. It requires no authentication and allows you to replicate functionality from our standard booking site. So you can list services, find available timeslots and initiate the booking process.
 
-[See public API examples.](examples_public_booking.site.md)
+[See public API examples.](examples_public_booking_site.md)
 
 ## Private API (For backend integration)
 

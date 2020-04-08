@@ -6,6 +6,15 @@ Added the following web-hooks events:
 
 * booking.verified
 
+*BREAKING CHANGE*
+
+Fixed a parsing bug which caused certain boolean json values to be ignored when set to false. This applied to parameters for specifying message sending when creating a booking, such as `notification_send_email`. Using a string value of 'false' worked but not the boolean value false. This will be a breaking change if you sent these parameters as boolean false using JSON.
+
+Endpoints affected: 
+POST `/bookings/*`
+PUT `/bookings/*`
+DELETE `/bookings/*`
+
 ## 2019-12-11
 
 **New web-hook events**
