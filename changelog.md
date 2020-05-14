@@ -2,9 +2,13 @@
 
 ## 2020-03-13
 
+**New web-hook events**
+
 Added the following web-hooks events:
 
 * booking.verified
+
+**Fixed message sending bug**
 
 *BREAKING CHANGE*
 
