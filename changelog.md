@@ -15,6 +15,13 @@ POST `/bookings/*`
 PUT `/bookings/*`
 DELETE `/bookings/*`
 
+## 2020-03-12
+
+**Added phone_number to booking person**
+
+`phone_number` is now included with person in a booking listing.
+
+
 ## 2019-12-11
 
 **New web-hook events**
