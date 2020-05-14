@@ -501,6 +501,10 @@ You should always specify COUNT or UNTIL with RRULE. The max number of occurrenc
 
 `GET /bookings/recurring/{collection_id}` will return all occurrences for a collection.
 
+#### Delete all occurrences
+
+`DELETE /bookings/recurring/{collection_id}` will delete *all* occurrences for a collection.
+
 ### Change booking state
 
 #### Verify a booking

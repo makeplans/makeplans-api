@@ -1,5 +1,11 @@
 # MakePlans API Changelog
 
+## 2020-05-14
+
+**Added delete all occurrences endpoint**
+
+Added endpoint for deleting all occurrences of recurring bookings.
+
 ## 2020-03-13
 
 **New web-hook events**
