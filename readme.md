@@ -16,7 +16,7 @@ General Information:
 * [Examples](#example-request-and-response)
 * [Synchronisation](#synchronisation)
 * [API libraries](#api-libraries)
-* [Webhooks](#web-hooks)
+* [Webhooks](#webhooks)
 
 API Endpoints:
 * [Slots](#slots)
@@ -213,7 +213,7 @@ MakePlans does not officially support API libraries but they might be useful for
 
 A big thanks to everyone who has contributed to these libraries!
 
-## Web hooks
+## Webhooks
 
 *Currently in beta: please contact us for more information*
 
