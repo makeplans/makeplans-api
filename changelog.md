@@ -1,5 +1,15 @@
 # MakePlans API Changelog
 
+## 2020-06-03
+
+**Added HTTP Bearer token authentication**
+
+The default authentication method is now using API-key as a token with Authorization Bearer header.
+
+**Added signature for verifying webhook payload**
+
+Webhooks now include a `X-MakePlans-Signature` header which you can use to verify the request body with.
+
 ## 2020-05-14
 
 **Added delete all occurrences endpoint**
@@ -8,9 +18,9 @@ Added endpoint for deleting all occurrences of recurring bookings.
 
 ## 2020-03-13
 
-**New web-hook events**
+**New webhook events**
 
-Added the following web-hooks events:
+Added the following webhooks events:
 
 * booking.verified
 
@@ -34,20 +44,20 @@ DELETE `/bookings/*`
 
 ## 2019-12-11
 
-**New web-hook events**
+**New webhook events**
 
-Added the following web-hook events:
+Added the following webhook events:
 
 * booking.declined
 * booking.modified
 
 ## 2019-11-26
 
-**Modified booking cancellation web-hook event**
+**Modified booking cancellation webhook event**
 
 *BREAKING CHANGE*
 
-Removing a booking would previously trigger `booking.cancelled` web-hook event. This has now been changed to `booking.deleted`.
+Removing a booking would previously trigger `booking.cancelled` webhook event. This has now been changed to `booking.deleted`.
 
 A cancellation would still trigger `booking.cancelled`. This means that to monitor deleted bookings you should subscribe to both `booking.cancelled` and `booking.deleted`. In most cases a booking will be cancelled, but in some cases it will be removed.
 

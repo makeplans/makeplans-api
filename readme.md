@@ -16,7 +16,7 @@ General Information:
 * [Examples](#example-request-and-response)
 * [Synchronisation](#synchronisation)
 * [API libraries](#api-libraries)
-* [Web hooks](#web-hooks)
+* [Webhooks](#web-hooks)
 
 API Endpoints:
 * [Slots](#slots)
@@ -109,7 +109,13 @@ Custom data is stored as key/value. All values are stored as strings but we do c
 
 ## Authentication
 
-MakePlans uses HTTP Basic Auth. The account has to enable the API first and you will find the API-Key in the account settings. The API-Key is the username and there is no password. MakePlans uses SSL and all requests over HTTP will be redirected to HTTPS.
+Use your account API-Key to authenticate with the MakePlans API. First enable the API on the account and you will find the API-Key in the account settings.
+
+Send the API-Key as a Bearer token using the HTTP Authorization header.
+
+Example: `Authorization: Bearer APIKEY`
+
+Deprecated: For Basic Auth use the API-Key as username and empty password.
 
 If your application is installable by end-users you should use oAuth. However we do not yet support oAuth so please contact us if this is something you require.
 
@@ -222,7 +228,7 @@ So for example whenever a new booking is created in MakePlans we can send a POST
   <tr><td>event</td><td>String</td><td>Type of event</td></tr>
   <tr><td>id</td><td>Integer</td><td>Id of the object</td></tr>
   <tr><td>*object_type*</td><td>Object</td><td>Payload of the object</td></tr>
-  <tr><td>idempotency_id</td><td>String</td><td>Unique id for this web-hook</td></tr>
+  <tr><td>idempotency_id</td><td>String</td><td>Unique id for this webhook</td></tr>
   <tr><td>generated_at</td><td>String</td><td>When the event was initialized</td></tr>
   <tr><td>performed_by</td><td>Object</td><td>Info of the user who performed the event</td></tr>
 </table>
@@ -240,7 +246,15 @@ So for example whenever a new booking is created in MakePlans we can send a POST
 
 ### Security
 
-During the beta of this functionality there is no added security to ensure the request is from MakePlans. We recommend adding a secret key to the web-hook URL to validate the request being from MakePlans and not a untrusted third party.
+#### Verify payload signature
+
+We send a `X-MakePlans-Signature` header in the webhook request. Use this to verify the request body to ensure the request is from MakePlans and signed with your API-Key. The header includes details about the signature and the signature itself. We use HMAC SHA-256 to compute this signature. The secret is your API-Key.
+
+Example: `X-MakePlans-Signature:sha256=5257a869e7ecebeda32affa62cdca3fa51cad7e77a0e56ff536d0ce8e108d8bd`.
+
+#### Authentication
+
+You can add HTTP Basic Auth credentials to the webhook URL.
 
 ## API Endpoints
 
