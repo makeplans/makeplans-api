@@ -248,7 +248,7 @@ So for example whenever a new booking is created in MakePlans we can send a POST
 
 #### Verify payload signature
 
-We send a `X-MakePlans-Signature` header in the webhook request. Use this to verify the request body to ensure the request is from MakePlans and signed with your API-Key. The header includes details about the signature and the signature itself. We use HMAC SHA-256 to compute this signature. The secret is your API-Key.
+We include a `X-MakePlans-Signature` header in the webhook request. Use this to verify the request body to ensure the request is from MakePlans and signed with your account secret. The header includes details about the signature and the signature itself. We use HMAC SHA-256 to compute this signature.
 
 Example: `X-MakePlans-Signature:sha256=5257a869e7ecebeda32affa62cdca3fa51cad7e77a0e56ff536d0ce8e108d8bd`.
 
