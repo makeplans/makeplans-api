@@ -348,6 +348,7 @@ Response
   <tr><td>booked_from</td><td>Datetime</td><td>Required</td></tr>
   <tr><td>booked_to</td><td>Datetime</td><td>Required</td></tr>
   <tr><td>expires_at</td><td>Datetime</td><td>Not required</td></tr>
+  <tr><td>title</td><td>String</td><td>Not required</td></tr>
   <tr><td>notes</td><td>Text</td><td>Not required</td></tr>
   <tr><td>reminder_at</td><td>DateTime</td><td>Not required</td></tr>
   <tr><td>reminded_at</td><td>DateTime</td><td>Not required</td></tr>
@@ -396,8 +397,6 @@ Bookings with states `awaiting_verification`, `awaiting_payment`, `awaiting_conf
 `GET /bookings/recent` will return all active bookings updated today.
 
 `GET /bookings/upcoming` will return all active bookings from and including `{date}`.
-
-`GET /bookings/agenda` will return all active bookings within `{date}`.
 
 `GET /bookings/unconfirmed` will return all unconfirmed bookings.
 

@@ -1,5 +1,20 @@
 # MakePlans API Changelog
 
+## 2020-11-23
+
+**Removed booking agenda listing from documentation**
+
+By mistake this was included in the documentation, it was never implemented.
+
+Endpoints affected: 
+GET `/bookings/agenda/`
+
+## 2020-09-09
+
+**Added title to booking**
+
+You can now set a title for a booking. In the GUI it is only displayed for bookings saved as occupied (without person_id).
+
 ## 2020-06-03
 
 **Added HTTP Bearer token authentication**
