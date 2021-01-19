@@ -1,5 +1,11 @@
 # MakePlans API Changelog
 
+## 2021-01-18
+
+**Added RFC-8288 pagination**
+
+Paginated responses now uses RFC-8288 `Link` HTTP header. There is also metadata in HTTP headers: `Current-Page`, `Page-Items`, `Total-Count`, `Total-Pages`.
+
 ## 2020-11-23
 
 **Removed booking agenda listing from documentation**

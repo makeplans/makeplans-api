@@ -169,7 +169,9 @@ System errors (aka we screwed up) returns 5xx HTTP status codes without any deta
 
 ## Pagination
 
-Maximum 100 results are returned per page. Specify page with parameter `page`. Pagination is used for: bookings, events, people and resource exception dates. All other objects return all available items. Please note that currently there is no way to specify exact part of the dataset. Thus an item might appear in both page 2 and 3 if the complete dataset for the query has changed.
+Maximum 50 items are returned per response for all endpoints except `bookings` which returns 750. Specify page with parameter `page`. Pagination is used for: bookings, events, people and resource exception dates. All other objects return all available items. Please note that currently there is no way to specify exact part of the dataset. Thus an item might appear in both page 2 and 3 if the complete dataset for the query has changed.
+
+RFC-8288 is used for pagination linking. You will find URLs for first, prev, next and last pages in the `Link` HTTP Header. In addition metadata is added in the following HTTP Headers: `Current-Page`, `Page-Items`, `Total-Count`, `Total-Pages`.
 
 ## Example request and response
 
