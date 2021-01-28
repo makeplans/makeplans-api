@@ -1,4 +1,4 @@
-# MakePlans API Changelog
+# Changelog
 
 ## 2021-01-18
 
@@ -12,7 +12,7 @@ Paginated responses now uses RFC-8288 `Link` HTTP header. There is also metadata
 
 By mistake this was included in the documentation, it was never implemented.
 
-Endpoints affected: 
+Endpoints affected:
 GET `/bookings/agenda/`
 
 ## 2020-09-09
@@ -51,7 +51,7 @@ Added the following webhooks events:
 
 Fixed a parsing bug which caused certain boolean json values to be ignored when set to false. This applied to parameters for specifying message sending when creating a booking, such as `notification_send_email`. Using a string value of 'false' worked but not the boolean value false. This will be a breaking change if you sent these parameters as boolean false using JSON.
 
-Endpoints affected: 
+Endpoints affected:
 POST `/bookings/*`
 PUT `/bookings/*`
 DELETE `/bookings/*`
@@ -114,7 +114,7 @@ The default order used to be reverse chronological, this have not changed to chr
 
 To use the old default please specify order using `order=booked_from_desc` for bookings and `order=starts_at_desc` for events.
 
-Endpoints affected: 
+Endpoints affected:
 GET `/bookings/`
 GET `/events/` and other similar listing endpoints for bookings and events.
 

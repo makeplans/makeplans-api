@@ -1,4 +1,4 @@
-# MakePlans Private API Examples.
+# Private API Examples.
 
 Please familiarise yourself with the key concept of the MakePlans API first.
 

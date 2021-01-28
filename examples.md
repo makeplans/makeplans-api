@@ -1,4 +1,4 @@
-# MakePlans API Examples
+# Examples
 
 There are two ways of using the MakePlans API:
 
