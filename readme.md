@@ -127,15 +127,7 @@ You must include a User-Agent HTTP-header with the name of your application and 
 
 4xx HTTP status codes means you made a mistake and you need to adjust your request.
 
-### 401 - Unauthorized
-
-Authentication error. Response body will give explanation if there is authorisation issue or if the API is not enabled.
-
-### 402 - Payment Required
-
-Please pay your bill.
-
-### 403 - Forbidden
+### 400 - Bad Request
 
 API usage error. This means you did something wrong and there should be a message in the body that explains it. Error message is related to specified resource. Fix it and try again.
 
@@ -148,6 +140,18 @@ Example response:
   ]
 }
 ```
+
+### 401 - Unauthorized
+
+Authentication error. Response body will give explanation if there is authorisation issue or if the API is not enabled.
+
+### 402 - Payment Required
+
+Please pay your bill.
+
+### 403 - Forbidden
+
+Authorization error. If you are authenticated but lack permissions.
 
 ### 404 - Not Found
 

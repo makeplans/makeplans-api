@@ -1,5 +1,23 @@
 # Changelog
 
+## 2021-02-03
+
+**Deprecate XML support**
+
+*BREAKING CHANGE*
+
+JSON is our only God now.
+
+**Change client error response from 403 to 400**
+
+*BREAKING CHANGE*
+
+All errors based on client request input will not return a 400 Bad Request status code instead of 403 Forbidden.
+
+**Lack of authorization now returns 403**
+
+Currently you have full access with the API-key but if we support permission levels for API usage as we do with normal users you will receive a 403 status code when you are authenticated but lack permissions.
+
 ## 2021-01-18
 
 **Added RFC-8288 pagination**
