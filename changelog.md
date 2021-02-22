@@ -1,5 +1,11 @@
 # Changelog
 
+## 2021-02-21
+
+**Added wildcard triggers for webhooks**
+
+You can now add wildcard entries when events are trigged. Example: `*` or `booking.*`.
+
 ## 2021-02-03
 
 **Deprecate XML support**

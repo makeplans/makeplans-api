@@ -103,7 +103,7 @@ All dates are specified in the ISO 8601 format. Time zone is included in the out
 
 ## Custom data
 
-Custom data is stored as key/value. All values are stored as strings but we do convert boolean values and values from keys ending in '_at' to datetime at output. Custom data can be added to booking, person, service, resource and event. If you are using our standard booking site and would like to store custom data to a new booking please see [the custom forms documentation](https://github.com/makeplans/makeplans-custom-forms) for details on how to customise the booking form.
+Custom data is stored as key/value. All values are stored as strings but we do convert boolean values and values from keys ending in `_at` to datetime at output. Custom data can be added to booking, person, service, resource and event. If you are using our standard booking site and would like to store custom data to a new booking please see [the custom forms documentation](https://github.com/makeplans/makeplans-custom-forms) for details on how to customise the booking form.
 
 *Warning*: Custom data is stored as one attribute. **All** keys and values must be present when updating. If a booking has stored `custom_data` as `makeplans_is=awesome` and you want to add `signup=now` then you need to include both `makeplans_is` and `signup` with their values.
 
@@ -221,8 +221,6 @@ A big thanks to everyone who has contributed to these libraries!
 
 ## Webhooks
 
-*Currently in beta: please contact us for more information*
-
 A webhook is simply a user-defined callback in the form of an HTTP POST which is invoked when something happens.
 So for example whenever a new booking is created in MakePlans we can send a POST request to the URL you specify. The response will include data about the modified object.
 
@@ -249,6 +247,10 @@ So for example whenever a new booking is created in MakePlans we can send a POST
 * booking.modified
 * booking.verified
 * person.created
+
+### Wildcard usage
+
+You can use wildcard to trigger all or grouped events: `*` or `booking.*`
 
 ### Security
 
