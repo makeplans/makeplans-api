@@ -11,6 +11,7 @@ General Information:
 * [Custom data](#custom-data)
 * [Authentication](#authentication)
 * [Identification](#identification)
+* [Rate limiting](#rate-limiting)
 * [Errors](#errors)
 * [Pagination](#pagination)
 * [Examples](#example-request-and-response)
@@ -122,6 +123,10 @@ If your application is installable by end-users you should use oAuth. However we
 ## Identification
 
 You must include a User-Agent HTTP-header with the name of your application and a link to it or your email address so we can get in touch in case you're doing something wrong (so we may warn you before you're blocked) or something awesome (so we may congratulate you). Example: `User-Agent: YourAppName (http://example.org)`.
+
+## Rate limiting
+
+We do various forms of rate limiting. See details for [HTTP status code 429](#too-many-requests).
 
 ## Errors
 
