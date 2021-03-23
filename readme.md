@@ -80,13 +80,13 @@ Only read-only operations such as list and show are available with the public AP
 
 ## Data formats
 
-The API supports JSON and XML for input and output. In addition you can specify input using form data.
+The API supports JSON for input and output. In addition you can specify input using form data.
 
-The format of the output data is provided as is and the reference is this document. We do not use XML Schema. Any additional attributes such as 'type' in XML must be considered only as hints.
+The format of the output data is provided as is and the reference is this document.
 
 All data is UTF-8.
 
-All examples and object attributes in this documentation are JSON. They are lowercase and use underscore as separator. XML element names uses hyphen instead of underscore (`created-at` instead of `created_at`).
+All examples and object attributes in this documentation are JSON. They are lowercase and use underscore as separator.
 
 ### Output
 
