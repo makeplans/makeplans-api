@@ -1,5 +1,11 @@
 # Changelog
 
+## 2021-03-23
+
+**Added available dates endpoint**
+
+List dates with available slots for a service.
+
 ## 2021-02-21
 
 **Added wildcard triggers for webhooks**
