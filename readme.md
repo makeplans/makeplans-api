@@ -345,6 +345,36 @@ Response
   <tr><td>selected_resources</td><td>Array</td><td>Default: all active providers.</td></tr>
 </table>
 
+### Available dates
+
+`GET /services/{service_id}/available_dates` will return the available dates for the next 90 days.
+
+Response
+
+```json
+[
+  {
+    "available_date": {
+      "date": "2021-03-24"
+    }
+  },
+  {
+    "available_date": {
+      "date": "2021-04-01"
+    }
+  }
+]
+```
+
+#### Query Parameters
+
+<table>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>from</td><td>Date</td><td>Default: today.</td></tr>
+  <tr><td>to</td><td>Date</td><td>90 days ahead.</td></tr>
+  <tr><td>selected_resources</td><td>Array</td><td>Default: all active providers.</td></tr>
+</table>
+
 ## Bookings
 
 ### Attributes
