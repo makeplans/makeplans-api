@@ -347,7 +347,7 @@ Response
 
 ### Available dates
 
-`GET /services/{service_id}/available_dates` will return the available dates for the next 90 days.
+`GET /services/{service_id}/available_dates` will return the available dates for the rest of the current month.
 
 Response
 
@@ -371,7 +371,7 @@ Response
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
   <tr><td>from</td><td>Date</td><td>Default: today.</td></tr>
-  <tr><td>to</td><td>Date</td><td>90 days ahead.</td></tr>
+  <tr><td>to</td><td>Date</td><td>Default: rest of the month.</td></tr>
   <tr><td>selected_resources</td><td>Array</td><td>Default: all active providers.</td></tr>
 </table>
 
