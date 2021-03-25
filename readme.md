@@ -355,12 +355,12 @@ Response
 [
   {
     "available_date": {
-      "date": "2021-03-24"
+      "date": "2021-04-01"
     }
   },
   {
     "available_date": {
-      "date": "2021-04-01"
+      "date": "2021-04-04"
     }
   }
 ]
