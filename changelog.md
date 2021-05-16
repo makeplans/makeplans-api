@@ -6,6 +6,10 @@
 
 Search can now be done on multiple columns by specyfing for example both email and phone number.
 
+## 2021-03-29
+
+JSON is now the default returned content type in the API. No need to specify it in http-header or in URL.
+
 ## 2021-03-23
 
 **Added available dates endpoint**
