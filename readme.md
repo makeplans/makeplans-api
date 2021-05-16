@@ -718,12 +718,13 @@ Response
 
 #### Query Parameters
 
-Searching unique fields (`email`, `phonenumber`, `external_id`, `uid`+`provider`) will return only one result if found.
+You can search multiple columns at once, for example `email` and `phone_number`, or you can use the shorthand `search` to search email, phone number, national id no or name.
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>search</td><td>String</td><td></td></tr>
   <tr><td>email</td><td>String</td><td></td></tr>
-  <tr><td>phonenumber</td><td>String</td><td></td></tr>
+  <tr><td>phone_number</td><td>String</td><td></td></tr>
   <tr><td>external_id</td><td>String</td><td></td></tr>
   <tr><td>name</td><td>String</td><td></td></tr>
   <tr><td>date_of_birth</td><td>Date</td><td></td></tr>
