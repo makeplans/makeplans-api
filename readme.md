@@ -702,7 +702,7 @@ Response
       "created_at": "2012-09-20T15:34:16+02:00",
       "custom_data": null,
       "date_of_birth": null,
-      "email": "espen@makeplans.no",
+      "email": "bookingbot@makeplans.net",
       "external_id": null,
       "id": 1,
       "name": "Espen Antonsen",
@@ -1433,7 +1433,7 @@ Response
   {
     "user": {
         "id": 1,
-        "email": "espen@makeplans.net",
+        "email": "bookingbot@makeplans.net",
         "phone_number": "180",
         "name": "Espen Antonsen",
         "created_at": "2016-11-07T07:26:32+01:00",
