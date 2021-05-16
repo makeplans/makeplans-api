@@ -1,5 +1,11 @@
 # Changelog
 
+## 2021-05-16
+
+**Added national_id_no and multiple column search for people**
+
+Search can now be done on multiple columns by specyfing for example both email and phone number.
+
 ## 2021-03-23
 
 **Added available dates endpoint**
