@@ -269,6 +269,10 @@ Example: `X-MakePlans-Signature:sha256=5257a869e7ecebeda32affa62cdca3fa51cad7e77
 
 You can add HTTP Basic Auth credentials to the webhook URL.
 
+### Retries
+
+We will retry after any 4xx or 5xx http status response. Maximum retries are 5. The timeout is set to 10 seconds.
+
 ## API Endpoints
 
 ## Slots

@@ -1,5 +1,15 @@
 # Changelog
 
+## 2021-05-31
+
+**Decreased timeout for webhooks**
+
+Previously the timeout for webhook requests was 60 seconds. This is now decreased to 10 seconds.
+
+**Decreased retries for webhooks**
+
+Previously we retried 20 times for failed webhooks. This is now changed to 5 retries.
+
 ## 2021-05-16
 
 **Added national_id_no and multiple column search for people**
