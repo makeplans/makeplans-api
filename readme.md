@@ -267,7 +267,7 @@ Example: `X-MakePlans-Signature:sha256=5257a869e7ecebeda32affa62cdca3fa51cad7e77
 
 #### Authentication
 
-You can add HTTP Basic Auth credentials to the webhook URL.
+You can add HTTP Basic Auth credentials or a parameter secret to the webhook URL.
 
 ### Retries
 
