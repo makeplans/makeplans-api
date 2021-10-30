@@ -1,6 +1,6 @@
 # Documentation
 
-This is the API documentation for MakePlans. MakePlans is an online booking application with support for appointments, classes and events. For more information about the application and its features see [https://makeplans.net](https://makeplans.net). All features in MakePlans are available via the API.
+This is the API documentation for MakePlans. MakePlans is an online booking application with support for appointments, classes and events. For more information about the application and its features see [makeplans.com](https://makeplans.com). All features in MakePlans are available via the API.
 
 General Information:
 * [Get started](#get-started)
@@ -706,7 +706,7 @@ Response
       "created_at": "2012-09-20T15:34:16+02:00",
       "custom_data": null,
       "date_of_birth": null,
-      "email": "bookingbot@makeplans.net",
+      "email": "robot@booking.makeplans.com",
       "external_id": null,
       "id": 1,
       "name": "Espen Antonsen",
@@ -1437,7 +1437,7 @@ Response
   {
     "user": {
         "id": 1,
-        "email": "bookingbot@makeplans.net",
+        "email": "robot@booking.makeplans.com",
         "phone_number": "180",
         "name": "Espen Antonsen",
         "created_at": "2016-11-07T07:26:32+01:00",
