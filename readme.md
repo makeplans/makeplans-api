@@ -251,6 +251,9 @@ So for example whenever a new booking is created in MakePlans we can send a POST
 * booking.deleted
 * booking.modified
 * booking.verified
+* event.created
+* event.deleted
+* event.modified
 * person.created
 
 ### Wildcard usage
