@@ -442,15 +442,19 @@ Bookings with states `awaiting_verification`, `awaiting_payment`, `awaiting_conf
 
 ### Listing
 
-`GET /bookings` will return all active bookings. See query parameters for options.
+See query parameters for filtering the output beyond the default outputs.
 
-`GET /bookings/recent` will return all active bookings updated today.
+`GET /bookings` will return all active bookings.
+
+`GET /bookings/recent` will return all active bookings ordered based on updated_at.
 
 `GET /bookings/upcoming` will return all active bookings from and including `{date}`.
 
-`GET /bookings/unconfirmed` will return all unconfirmed bookings.
+`GET /bookings/unconfirmed` will return only unconfirmed bookings.
 
-`GET /bookings/all` will return all bookings of all states (including `declined`, `cancelled`, `deleted`, and `verification_expired`).
+`GET /bookings/all` will return all bookings of all states (including `declined`, `cancelled`, `deleted`, and `verification_expired`). This is a useful output for syncronisation when you need to keep a track of deleted bookings.
+
+`GET /bookings/visible` will return all active bookings as well as those declined or cancelled. This is the preferred output if you want to provide a list of all bookings for visual presentation.
 
 Response
 
@@ -774,7 +778,7 @@ Specify the token as `perishable_token` and the identifier in `person[email]` or
 
 ### List bookings for person
 
-`GET /people/{person_id}/bookings` will retrieve all bookings for person with id `{person_id}`.
+`GET /people/{person_id}/bookings` will retrieve all bookings for person with id `{person_id}`. You can also use other listings as described in the [bookings listing](#listing-1) such as `GET /people/{person_id}/bookings/visible` to include cancelled bookings.
 
 ## Services
 
