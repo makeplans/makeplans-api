@@ -1112,7 +1112,7 @@ Exception dates are related to a resource: `GET /resources/{resource_id}/excepti
 
 ### Listing
 
-`GET /resources/{resource_id}/exeption_dates` will return all exception dates for resource with id `{resource_id}`.
+`GET /resources/{resource_id}/exception_dates` will return all exception dates for resource with id `{resource_id}`.
 
 Response
 
