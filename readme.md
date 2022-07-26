@@ -42,7 +42,7 @@ API Endpoints:
 
 4) Profit.
 
-When your integration is ready to be released you can sign up for a [real account](https://app.makeplans.net/client/new).
+When your integration is ready to be released you can sign up for a [real account](https://app.makeplans.com/client/new).
 
 Limitations of the test environment:
 * SMS reminders are not triggered.
@@ -64,7 +64,7 @@ All requests are done over HTTPS. Each object in MakePlans has its own [endpoint
 
 #### Private API
 
-The base URL is `https://youraccount.makeplans.net/api/` for production apps and `https://youraccount.test.makeplans.net/api/` for test apps.
+The base URL is `https://youraccount.makeplans.com/api/` for production apps and `https://youraccount.test.makeplans.net/api/` for test apps.
 
 ##### Versioning
 
@@ -74,7 +74,7 @@ See the [API changelog](changelog.md) for improvements and changes.
 
 #### Public API
 
-The base URL is your account booking site such as `https://youraccount.makeplans.net/`. There is no versioning. Only the latest version of the API is available.
+The base URL is your account booking site such as `https://youraccount.makeplans.com/`. There is no versioning. Only the latest version of the API is available.
 
 Only read-only operations such as list and show are available with the public API. If you need to modify any data please use the private API.
 
