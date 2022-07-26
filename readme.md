@@ -110,6 +110,8 @@ Custom data is stored as key/value. All values are stored as strings but we do c
 
 ## Authentication
 
+Only the private API requires authentication. If you intent to use the API on a website please use the [public API]((#public-and-private-api) which does not require authenticaiton.
+
 Use your account API-Key to authenticate with the MakePlans API. First enable the API on the account and you will find the API-Key in the account settings.
 
 Send the API-Key as a Bearer token using the HTTP Authorization header.
