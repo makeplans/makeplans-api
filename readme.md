@@ -1046,6 +1046,18 @@ Response
 
 `GET /resources/{resource_id}` will get a resource with id `{resource_id}`.
 
+### Add new resource
+
+`POST /resources` will create a new resource.
+
+### Update resource
+
+`PUT /resources/{resource_id}` will update existing resource with id `{resource_id}`.
+
+### Delete resource
+
+`DELETE /resources/{resource_id}` will delete existing resource with id `{resource_id}`. Deleting a resource will set it to active=false and will not returned in any listings.
+
 ### Get opening hours for specific dates
 
 Opening hours for specific dates is based on the standard opening hours that are specified on the resource but can be overridden with entries in [resource exception dates](#resource-exception-dates).
@@ -1080,18 +1092,6 @@ Response
   <tr><td>from</td><td>Date</td><td>Default: today</td></tr>
   <tr><td>to</td><td>Date</td><td>Default: today</td></tr>
 </table>
-
-### Add new resource
-
-`POST /resources` will create a new resource.
-
-### Update resource
-
-`PUT /resources/{resource_id}` will update existing resource with id `{resource_id}`.
-
-### Delete resource
-
-`DELETE /resources/{resource_id}` will delete existing resource with id `{resource_id}`. Deleting a resource will set it to active=false and will not returned in any listings.
 
 ## Resource exception dates
 
@@ -1189,7 +1189,6 @@ To delete an existing exception date set `{_destroy}` to be true.
   ]
 }
 ```
-
 
 ### Delete exception date
 
