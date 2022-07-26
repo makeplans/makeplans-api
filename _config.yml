@@ -1,2 +1,5 @@
 markdown: CommonMarkGhPages
 title: MakePlans API
+commonmark:
+  options: ["UNSAFE"]
+  extensions: ["table"]
