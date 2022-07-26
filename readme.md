@@ -1073,13 +1073,12 @@ Response
 ]
 ```
 
-
 #### Query Parameters
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-  <tr><td>from</td><td>Date</td><td></td></tr>
-  <tr><td>to</td><td>Date</td><td></td></tr>
+  <tr><td>from</td><td>Date</td><td>Default: today</td></tr>
+  <tr><td>to</td><td>Date</td><td>Default: today</td></tr>
 </table>
 
 ### Add new resource
