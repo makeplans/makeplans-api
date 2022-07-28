@@ -1,5 +1,11 @@
 # Changelog
 
+## 2022-07-28
+
+**Deprecated service booking_type_id in favor for booking_type**
+
+Attribute `booking_type` can be `appointment` or `attendance`. Previously `booking_type_id` was an integer indicating the type.
+
 ## 2021-05-31
 
 **Decreased timeout for webhooks**

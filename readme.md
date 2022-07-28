@@ -812,14 +812,21 @@ Attendance at an event is also a booking but the individual booking datetime or 
   <tr><td>same_day</td><td>Boolean</td><td>Not required (default false)</td></tr>
   <tr><td>template</td><td>String</td><td>Component template (calendar view)</td></tr>
   <tr><td>interval_rounding</td><td>Integer</td><td>Overrides account default (see info on account object)</td></tr>
-  <tr><td>booking_type_id</td><td>Integer</td><td>1: appointment. 2: attendance.</td></tr>
-  <tr><td>custom_data</td><td>Array</td><td>Not required.</td></tr>
-  <tr><td>booking_form</td><td>Liquid-Text</td><td>Custom booking form.</td></tr>
+  <tr><td>booking_type</td><td>String</td><td>Required. Values: appointment (default) or attendance</td></tr>
+  <tr><td>custom_data</td><td>Array</td><td>Not required</td></tr>
+  <tr><td>booking_form</td><td>Liquid-Text</td><td>Custom booking form</td></tr>
   <tr><td>mail_verification</td><td>Liquid-Text</td><td></td></tr>
   <tr><td>mail_confirmation</td><td>Liquid-Text</td><td></td></tr>
   <tr><td>sms_verification</td><td>Liquid-Text</td><td></td></tr>
   <tr><td>sms_confirmation</td><td>Liquid-Text</td><td></td></tr>
   <tr><td>sms_reminder</td><td>Liquid-Text</td><td></td></tr>
+</table>
+
+#### Deprecated attributes
+
+<table>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>booking_type_id</td><td>Integer</td><td>1: appointment. 2: attendance.</td></tr>
 </table>
 
 ### Listing
