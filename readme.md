@@ -504,6 +504,8 @@ You can return bookings of multiple resources/services/events/people with an arr
 
 `POST /bookings` will create a new booking.
 
+Bookings without `person_id` are shown as busy in the calendar.
+
 #### Non-returning booking parameters
 
 These parameters are part of booking: `booking[public_booking]`.
