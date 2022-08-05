@@ -405,7 +405,7 @@ Response
   <tr><td>reminder_at</td><td>DateTime</td><td>Not required</td></tr>
   <tr><td>reminded_at</td><td>DateTime</td><td>Not required</td></tr>
   <tr><td>paid_at</td><td>DateTime</td><td>Not required</td></tr>
-  <tr><td>external_id</td><td>String</td><td>Not required</td></tr>
+  <tr><td>external_id</td><td>String</td><td>Not required. Unique.</td></tr>
   <tr><td>google_order_number</td><td>String</td><td>Not required</td></tr>
   <tr><td>custom_data</td><td>Array</td><td>Not required.</td></tr>
   <tr><td>state</td><td>String</td><td>Automatically set</td></tr>
@@ -680,6 +680,10 @@ See [information about additional parameters](#additional-parameters).
 ### Get booking
 
 `GET /bookings/{booking_id}` will get booking with id `{booking_id}`.
+
+You can also find a booking with `external_id` (unique):
+
+`GET /bookings/find_by/external_id/{external_id}` will get booking with external_id `{external_id}`.
 
 ## People
 
