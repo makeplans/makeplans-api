@@ -677,6 +677,10 @@ See [information about additional parameters](#additional-parameters).
   <tr><td>cancellation_send_sms</td><td>Boolean</td><td>Send out cancellation SMS.</td></tr>
 </table>
 
+### Get booking
+
+`GET /bookings/{booking_id}` will get booking with id `{booking_id}`.
+
 ## People
 
 The primary key for a person is `id`. However the following fields are unique: `email`, `phonenumber`, `national_id_no` and `provider`+`uid`. There are no specific requirements for input but a person needs to have either name, email, national id number or phone number.
