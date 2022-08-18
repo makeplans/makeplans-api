@@ -1304,21 +1304,11 @@ Response
 
 `DELETE /categories/{category_id}` will delete existing category with id `{category_id}`.
 
-## Users
+### List services
 
-Users who can login into the account.
+`GET /categories/{category_id}/services` will return all services for category with id `{category_id}`.
 
-### Attributes
-
-<table>
-  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-  <tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
-  <tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
-  <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
-  <tr><td>name</td><td>String</td><td>Required</td></tr>
-  <tr><td>email</td><td>String</td><td>Required</td></tr>
-  <tr><td>phonenumber</td><td>String</td><td></td></tr>
-</table>
+For any additional usage of a service please use the main [service endpoint](#services).
 
 ## Account
 
@@ -1427,7 +1417,6 @@ Response
 ]
 ```
 
-
 ##### Query Parameters
 
 <table>
@@ -1438,7 +1427,21 @@ Response
 
 ### Users
 
-#### Attributes
+Users who can login into the account.
+
+#### Attributes for user role on the account
+
+<table>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
+  <tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+  <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+  <tr><td>user_id</td><td>Integer</td><td>Automatically set</td></tr>
+  <tr><td>role</td><td>String</td><td>admin, manager or staff</td></tr>
+  <tr><td>user</td><td>Object</td><td>See attributes for a user</td></tr>
+</table>
+
+#### Attributes for user
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
@@ -1459,13 +1462,20 @@ Response
 ```json
 [
   {
-    "user": {
-        "id": 1,
-        "email": "robot@booking.makeplans.com",
-        "phone_number": "180",
-        "name": "Espen Antonsen",
-        "created_at": "2016-11-07T07:26:32+01:00",
-        "updated_at": "2016-11-07T07:27:42+01:00"
+    "client_user_link": {
+      "id": 1337,
+      "created_at": "2016-11-07T07:26:32+01:00",
+      "updated_at": "2016-11-07T07:27:42+01:00",
+      "role": "admin",
+      "user_id": 1,
+      "user": {
+          "id": 1,
+          "email": "maestro@example.org",
+          "phone_number": "180",
+          "name": "Espen Antonsen",
+          "created_at": "2016-11-07T07:26:32+01:00",
+          "updated_at": "2016-11-07T07:27:42+01:00"
+      }
     }
   }
 ]
@@ -1474,4 +1484,3 @@ Response
 #### Add new user
 
 `GET /client/users` will create a new user.
-
