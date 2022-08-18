@@ -557,7 +557,7 @@ Only the `collection_id` is returned. No bookings are created at the time of req
 
 #### Parameters for recurrence
 
-The parameters for recurrence are not set in `booking` but in `recurrence`.
+The parameters for recurrence are not set in `booking` but in `recurring`.
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
