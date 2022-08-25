@@ -496,6 +496,8 @@ Response
   <tr><td>end</td><td>DateTime</td><td>booked_to before param</td></tr>
   <tr><td>since</td><td>DateTime</td><td>updated_at after param</td></tr>
   <tr><td>collection_id</td><td>UUID</td><td></td></tr>
+  <tr><td>state</td><td>String or array of strings</td><td></td></tr>
+  <tr><td>status</td><td>String or array of strings</td><td></td></tr>
 </table>
 
 You can return bookings of multiple resources/services/events/people with an array.
