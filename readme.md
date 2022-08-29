@@ -96,7 +96,7 @@ To specify JSON as output use HTTP-header `Accept: application/json`. Output can
 
 To specify JSON as input use HTTP-header `Content-Type: application/json`. The body must be JSON-formatted and include the object with required attributes.
 
-To use normal form data specify HTTP-header `application/x-www-form-urlencoded`. Form values should be sent like this: `resource[title]=Unicorn`.
+To use normal form data specify HTTP-header `application/x-www-form-urlencoded`. Form values should be sent like this: `resource[title]=Unicorn`. To specify array values use: `selected_resources[]=1337&selected_resources[]=555`. The same applies when doing a GET request with URL parameters.
 
 ## Date handling
 
