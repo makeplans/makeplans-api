@@ -182,7 +182,7 @@ System errors (aka we screwed up) returns 5xx HTTP status codes without any deta
 
 Maximum 50 items are returned per response for all endpoints except `bookings` which returns 750. Specify page with parameter `page`. Pagination is used for: bookings, events, people and resource exception dates. All other objects return all available items. Please note that currently there is no way to specify exact part of the dataset. Thus an item might appear in both page 2 and 3 if the complete dataset for the query has changed.
 
-RFC-8288 is used for pagination linking. You will find URLs for first, prev, next and last pages in the `Link` HTTP Header. In addition metadata is added in the following HTTP Headers: `Current-Page`, `Page-Items`, `Total-Count`, `Total-Pages`.
+[RFC-8288](https://datatracker.ietf.org/doc/html/rfc8288) is used for pagination linking. You will find URLs for first, prev, next and last pages in the `Link` HTTP Header. In addition metadata is added in the following HTTP Headers: `Current-Page`, `Page-Items`, `Total-Count`, `Total-Pages`.
 
 ## Example request and response
 
@@ -238,10 +238,10 @@ So for example whenever a new booking is created in MakePlans we can send a POST
   <tr><td>object</td><td>String</td><td>Type of object</td></tr>
   <tr><td>event</td><td>String</td><td>Type of event</td></tr>
   <tr><td>id</td><td>Integer</td><td>Id of the object</td></tr>
-  <tr><td>*object_type*</td><td>Object</td><td>Payload of the object</td></tr>
   <tr><td>idempotency_id</td><td>String</td><td>Unique id for this webhook</td></tr>
   <tr><td>generated_at</td><td>String</td><td>When the event was initialized</td></tr>
   <tr><td>performed_by</td><td>Object</td><td>Info of the user who performed the event</td></tr>
+  <tr><td>*object_type*</td><td>Object</td><td>Payload of the object</td></tr>
 </table>
 
 ### Supported events
@@ -282,7 +282,7 @@ We will retry after any 4xx or 5xx http status response. Maximum retries are 5. 
 
 ## Slots
 
-Slots are not physical objects in MakePlans. It is a virtual representation of available times based on attributes from resources and services. So if a resource is open 8am to 4pm and selected service has interval of 60 minutes, slots will return an array of all time intervals (8am-9am, 9am-10am etc.) and indicate which resources are available.
+Slots are not physical objects in MakePlans. It is a virtual representation of available times based on attributes from resources and services as well as various settings. So if a resource is open 8am to 4pm and selected service has interval of 60 minutes, slots will return an array of all time intervals (8am-9am, 9am-10am etc.) and indicate which resources are available.
 
 Slots are meant for listing available times on the MakePlans booking page. You can however make bookings at any time and with any length - as long as the resource is available off course.
 
@@ -405,14 +405,15 @@ Response
   <tr><td>reminder_at</td><td>DateTime</td><td>Not required</td></tr>
   <tr><td>reminded_at</td><td>DateTime</td><td>Not required</td></tr>
   <tr><td>paid_at</td><td>DateTime</td><td>Not required</td></tr>
-  <tr><td>external_id</td><td>String</td><td>Not required. Unique.</td></tr>
+  <tr><td>external_id</td><td>String</td><td>Not required</td></tr>
   <tr><td>google_order_number</td><td>String</td><td>Not required</td></tr>
-  <tr><td>custom_data</td><td>Array</td><td>Not required.</td></tr>
-  <tr><td>state</td><td>String</td><td>Automatically set</td></tr>
+  <tr><td>custom_data</td><td>Array</td><td>Not required</td></tr>
+  <tr><td>state</td><td>String</td><td>Automatically set. See states</td></tr>
   <tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
-  <tr><td>person_attributes</td><td>Object</td><td>See person. Only for input.</td></tr>
   <tr><td>count</td><td>Integer</td><td>Default: 1</td></tr>
   <tr><td>collection_id</td><td>UUID</td><td>Automatically set for recurring bookings.</td></tr>
+  <tr><td>status</td><td>String</td><td>Default: null. See statuses.</td></tr>
+  <tr><td>person_attributes</td><td>Object</td><td>See person. Only for input.</td></tr>
   <tr><td>person</td><td>Object</td><td>See person. Only for output.</td></tr>
   <tr><td>resource</td><td>Object</td><td>See resource. Only for output.</td></tr>
   <tr><td>service</td><td>Object</td><td>See service. Only for output.</td></tr>
