@@ -683,7 +683,7 @@ See [information about additional parameters](#additional-parameters).
 
 `GET /bookings/{booking_id}` will get booking with id `{booking_id}`.
 
-You can also find a booking with `external_id` (unique):
+You can also find a booking with `external_id`:
 
 `GET /bookings/find_by/external_id/{external_id}` will get booking with external_id `{external_id}`.
 
