@@ -430,6 +430,13 @@ Response
 * cancelled
 * deleted
 
+### Statuses
+
+* checked_in
+* in_progress
+* completed
+* no_show
+
 #### Normal state flow
 
 The normal booking flow when a customer initiates a new booking starts with `awaiting_verification`. If verification is required MakePlans sends out email or SMS for the customer to verify. When successfully verified the state is updated to `confirmed` or `awaiting_confirmation` if reservations requires confirmation by administrator. For confirmation it is then updated to `confirmed` as normally if confirmed, and to `declined` if it is not confirmed.
@@ -477,6 +484,7 @@ Response
       "resource_id": 1,
       "service_id": 1,
       "state": "confirmed",
+      "status": null,
       "updated_at": "2012-09-20T15:34:16+02:00"
     }
   }
@@ -496,8 +504,8 @@ Response
   <tr><td>end</td><td>DateTime</td><td>booked_to before param</td></tr>
   <tr><td>since</td><td>DateTime</td><td>updated_at after param</td></tr>
   <tr><td>collection_id</td><td>UUID</td><td></td></tr>
-  <tr><td>state</td><td>String or array of strings</td><td></td></tr>
-  <tr><td>status</td><td>String or array of strings</td><td></td></tr>
+  <tr><td>state</td><td>String or array of strings</td><td>See states</td></tr>
+  <tr><td>status</td><td>String or array of strings</td><td>See statuses</td></tr>
 </table>
 
 You can return bookings of multiple resources/services/events/people with an array.
