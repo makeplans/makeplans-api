@@ -124,7 +124,7 @@ If your application is installable by end-users you should use oAuth. However we
 
 ## Identification
 
-You must include a User-Agent HTTP-header with the name of your application and a link to it or your email address so we can get in touch in case you're doing something wrong (so we may warn you before you're blocked) or something awesome (so we may congratulate you). Example: `User-Agent: YourAppName (http://example.org)`.
+You must include a User-Agent HTTP-header with the name of your application or your website so we can get in touch in case you're doing something wrong (so we may warn you before you're blocked) or something awesome (so we may congratulate you). Example: `User-Agent: YourAppName` or `User-Agent: example.org`.
 
 ## Rate limiting
 
@@ -188,7 +188,7 @@ RFC-8288 is used for pagination linking. You will find URLs for first, prev, nex
 
 ```shell
 curl -u APIKEY: \
--H 'User-Agent: YourAppName (http://example.org)' \
+-H 'User-Agent: YourAppName' \
 -H 'Accept: application/json' \
 https://youraccount.test.makeplans.net/api/v1/services
 ```
@@ -197,7 +197,7 @@ To create something you have to make a POST:
 
 ```shell
 curl -u APIKEY: \
--H 'User-Agent: YourAppName (http://example.org)' \
+-H 'User-Agent: YourAppName' \
 -H 'Accept: application/json' \
 -d 'service[title]=My new service!&service[interval]=40' \
 -X POST \
