@@ -214,7 +214,7 @@ Synchronising data is hard. Please ensure you test before releasing to productio
 
 Expect all booking and person data to be changed at any time. All changes for an object will result in a updated attribute `updated_at`.
 
-We recommend storing a timestamp for when the synchronisation was last performed. When the synchronisation is performed again this timestamp can be used to fetch any changes on the `updated_at` attribute for the object you want to retrieve (e.g. the parameter `since` for bookings).
+We recommend storing a timestamp retrieved from the more recently updated item from `updated_at`. When the synchronisation is performed again this timestamp can be used to fetch any changes on the `updated_at` attribute for the object you want to retrieve (e.g. the parameter `since` for bookings).
 
 ## API libraries
 
