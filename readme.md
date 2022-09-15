@@ -90,7 +90,7 @@ All examples and object attributes in this documentation are JSON. They are lowe
 
 ### Output
 
-To specify JSON as output use HTTP-header `Accept: application/json`. Output can also be defined by using extension in the path: `/resources.json` but it is recommended to use `/resources` and specify output format in the HTTP-header. Multiple items is returned as an array.
+To specify JSON as output use HTTP-header `Accept: application/json`. Output can also be defined by using extension in the path: `/resources.json` but it is recommended to use `/resources` and specify output format in the HTTP-header. Multiple items are returned as an array.
 
 ### Input
 
