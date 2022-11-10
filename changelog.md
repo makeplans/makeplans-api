@@ -1,5 +1,13 @@
 # Changelog
 
+## 2022-10-13
+
+New webhook event: `message.processed`.
+
+## 2022-08-25
+
+Bookings can now be filtered by status.
+
 ## 2022-07-28
 
 **Deprecated service booking_type_id in favor for booking_type**
