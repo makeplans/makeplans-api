@@ -553,9 +553,9 @@ Default action for outgoing messages is according to the settings for booking ve
 
 To add a new person along with a booking you must populate `person_attributes` with [person](#people) attributes. Values will be matched to an existing person based on national id number, phone number or email (in that order).
 
-### Add recurring/multiple bookings
+### Add recurring bookings
 
-`POST /bookings/recurring` will create a multiple bookings.
+`POST /bookings/recurring` will create recurring bookings based on a pattern.
 
 The recurrence format follows the [iCalendar specification](https://tools.ietf.org/html/rfc5545). The attributes for recurrence are: `RRULE`, `RDATE`, `EXDATE`. For an introduction and examples of these parameters see [this section from the iCalendar specification](http://www.kanzaki.com/docs/ical/rrule.html).
 
