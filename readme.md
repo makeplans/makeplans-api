@@ -701,6 +701,8 @@ You can also find a booking with `external_id`:
 
 The primary key for a person is `id`. However the following fields are unique: `email`, `phonenumber`, `national_id_no` and `provider`+`uid`. There are no specific requirements for input but a person needs to have either name, email, national id number or phone number.
 
+It is possible to give a person ability to book on behalf of other people. This is linked through the `parent_id` attribute.
+
 ### Attributes
 
 <table>
@@ -722,6 +724,7 @@ The primary key for a person is `id`. However the following fields are unique: `
   <tr><td>state</td><td>String</td><td>Not required.</td></tr>
   <tr><td>country_code</td><td>String</td><td>Not required. ISO 3166-1 alpha-2.</td></tr>
   <tr><td>notes</td><td>Text</td><td>Not required.</td></tr>
+  <tr><td>parent_id</td><td>Integer</td><td>Id of parent.</td></tr>
 </table>
 
 ### Listing
@@ -803,6 +806,10 @@ Specify the token as `perishable_token` and the identifier in `person[email]` or
 ### List bookings for person
 
 `GET /people/{person_id}/bookings` will retrieve all bookings for person with id `{person_id}`. You can also use other listings as described in the [bookings listing](#listing-1) such as `GET /people/{person_id}/bookings/visible` to include cancelled bookings.
+
+### List children for person
+
+`GET /people/{person_id}/children` will retrieve all children for person with id `{person_id}`.
 
 ## Services
 
