@@ -4,8 +4,8 @@
 
 **New webhook events**
 
-* person.deleted
-* person.modified.
+* `person.deleted`
+* `person.modified`
 
 **New query paramater for people**
 
@@ -23,9 +23,13 @@ It is now possible to specify bookings for children and to list children of a pe
 
 ## 2022-10-13
 
-New webhook event: `message.processed`.
+**New webhook events**
+
+* `message.processed`
 
 ## 2022-08-25
+
+**Filter bookings by status**
 
 Bookings can now be filtered by status.
 
