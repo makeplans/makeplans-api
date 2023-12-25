@@ -729,7 +729,9 @@ It is possible to give a person ability to book on behalf of other people. This 
 
 ### Listing
 
-`GET /people/` will return all people.
+`GET /people` will return all active people.
+
+`GET /people/all` will return all people including those who are deactivated.
 
 Response
 
@@ -780,6 +782,10 @@ You can search multiple columns at once, for example `email` and `phone_number`,
 ### Delete person
 
 `DELETE /people/{person_id}` will delete existing person with id `{person_id}`.
+
+### Undelete person
+
+`PUT /people/{person_id}/undelete` will undelete existing person with id `{person_id}`.
 
 ### Merge person with another person
 
