@@ -1,5 +1,26 @@
 # Changelog
 
+## 2023-12-25
+
+**New webhook events**
+
+* person.deleted
+* person.modified.
+
+**New query paramater for people**
+
+Added `since` param for people endpoint to get modified people after specified date.
+
+**Undelete person**
+
+Added endpoints for listing deleted people and to undelete a person.
+
+## 2023-10-27
+
+**Child/parent bookings**
+
+It is now possible to specify bookings for children and to list children of a person.
+
 ## 2022-10-13
 
 New webhook event: `message.processed`.
