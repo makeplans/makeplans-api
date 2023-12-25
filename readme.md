@@ -769,6 +769,7 @@ You can search multiple columns at once, for example `email` and `phone_number`,
   <tr><td>name</td><td>String</td><td></td></tr>
   <tr><td>date_of_birth</td><td>Date</td><td></td></tr>
   <tr><td>national_id_no</td><td>String</td><td></td></tr>
+  <tr><td>since</td><td>DateTime</td><td>updated_at after param</td></tr>
 </table>
 
 ### Add new person
