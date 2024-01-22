@@ -235,14 +235,24 @@ So for example whenever a new booking is created in MakePlans we can send a POST
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-  <tr><td>object</td><td>String</td><td>Type of object</td></tr>
   <tr><td>event</td><td>String</td><td>Type of event</td></tr>
-  <tr><td>id</td><td>Integer</td><td>Id of the object</td></tr>
   <tr><td>idempotency_id</td><td>String</td><td>Unique id for this webhook</td></tr>
   <tr><td>generated_at</td><td>String</td><td>When the event was initialized</td></tr>
   <tr><td>performed_by</td><td>Object</td><td>Info of the user who performed the event</td></tr>
+  <tr><td>data</td><td>Object</td><td>Related object for event type</td></tr>
+</table>
+
+### Data payload
+
+<table>
+  <tr><td>object</td><td>String</td><td>Type of object</td></tr>
+  <tr><td>id</td><td>Integer</td><td>Id of the object</td></tr>
   <tr><td>*object_type*</td><td>Object</td><td>Payload of the object</td></tr>
 </table>
+
+#### Deprecated attributes
+
+The attributes in the data payload, 'object', 'id', and '*object_type*', is also included in the root payload due to legacy reasons. Please use the `data` attribute. The legacy attributes will be removed in the future.
 
 ### Supported events
 
