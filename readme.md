@@ -514,6 +514,13 @@ Response
 
 You can return bookings of multiple resources/services/events/people with an array.
 
+#### Other Parameters
+
+<table>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>extented</td><td>Boolean</td><td>Extend output with full data from related objects.</td></tr>
+</table>
+
 ### Add new booking
 
 `POST /bookings` will create a new booking.
@@ -549,6 +556,7 @@ Default action for outgoing messages is according to the settings for booking ve
   <tr><td>confirmation_send_sms</td><td>Boolean</td><td>Send out confirmation SMS.</td></tr>
   <tr><td>notification_send_email</td><td>Boolean</td><td>Send out notification email to admin.</td></tr>
   <tr><td>notification_send_sms</td><td>Boolean</td><td>Send out notification SMS to admin.</td></tr>
+  <tr><td>extented</td><td>Boolean</td><td>Extend output with full data from related objects.</td></tr>
 </table>
 
 #### Add new booking with new person
@@ -671,6 +679,7 @@ See [information about additional parameters](#additional-parameters).
   <tr><td>add_reminder_sms</td><td>Boolean</td><td>Automatically adds `reminder_at`.</td></tr>
   <tr><td>modification_send_email</td><td>Boolean</td><td>Send out modification email.</td></tr>
   <tr><td>modification_send_sms</td><td>Boolean</td><td>Send out modification SMS.</td></tr>
+  <tr><td>extented</td><td>Boolean</td><td>Extend output with full data from related objects.</td></tr>
 </table>
 
 ### Delete booking
