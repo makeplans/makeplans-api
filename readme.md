@@ -718,9 +718,9 @@ See [information about additional parameters](#additional-parameters).
   <tr><td>cancellation_send_sms</td><td>Boolean</td><td>Send out cancellation SMS.</td></tr>
 </table>
 
-### Update booking state
+### Update booking status
 
-`PUT /bookings/{booking_id}/status` will update the booking state.
+`PUT /bookings/{booking_id}/status` will update the booking status.
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
