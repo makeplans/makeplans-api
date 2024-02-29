@@ -718,6 +718,17 @@ You can also find a booking with `external_id`:
 
 `GET /bookings/find_by/external_id/{external_id}` will get booking with external_id `{external_id}`.
 
+### Update booking state
+
+`PUT /bookings/{booking_id}/status` will update the booking state.
+
+<table>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>status</td><td>String</td><td>Booking status.</td></tr>
+</table>
+
+This parameter is specified in the same way as [additional parameters](#additional-parameters).
+
 ## People
 
 The primary key for a person is `id`. However the following fields are unique: `email`, `phonenumber`, `national_id_no` and `provider`+`uid`. There are no specific requirements for input but a person needs to have either name, email, national id number or phone number.
