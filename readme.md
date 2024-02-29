@@ -1056,6 +1056,10 @@ You should always specify COUNT or UNTIL with RRULE. The max number of occurrenc
 
 `DELETE /events/{event_id}` will delete existing event with id `{event_id}`. Deleting a event will set it to active=false and will not be returned in any listings.
 
+### List bookings
+
+`GET /events/{event_id}/bookings` will return all bookings for event with id `{event_id}`.
+
 ## Resources
 
 ### Attributes
