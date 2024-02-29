@@ -531,6 +531,14 @@ You can return bookings of multiple resources/services/events/people with an arr
   <tr><td>extended</td><td>Boolean</td><td>Extend output with full data from related objects.</td></tr>
 </table>
 
+### Get booking
+
+`GET /bookings/{booking_id}` will get booking with id `{booking_id}`.
+
+You can also find a booking with `external_id`:
+
+`GET /bookings/find_by/external_id/{external_id}` will get booking with external_id `{external_id}`.
+
 ### Add new booking
 
 `POST /bookings` will create a new booking.
@@ -710,14 +718,6 @@ See [information about additional parameters](#additional-parameters).
   <tr><td>cancellation_send_sms</td><td>Boolean</td><td>Send out cancellation SMS.</td></tr>
 </table>
 
-### Get booking
-
-`GET /bookings/{booking_id}` will get booking with id `{booking_id}`.
-
-You can also find a booking with `external_id`:
-
-`GET /bookings/find_by/external_id/{external_id}` will get booking with external_id `{external_id}`.
-
 ### Update booking state
 
 `PUT /bookings/{booking_id}/status` will update the booking state.
@@ -803,6 +803,10 @@ You can search multiple columns at once, for example `email` and `phone_number`,
   <tr><td>national_id_no</td><td>String</td><td></td></tr>
   <tr><td>since</td><td>DateTime</td><td>updated_at after param</td></tr>
 </table>
+
+### Get person
+
+`GET /people/{person_id}` will get a person with id `{person_id}`.
 
 ### Add new person
 
@@ -928,6 +932,10 @@ Response
 ]
 ```
 
+### Get service
+
+`GET /services/{service_id}` will get a service with id `{service_id}`.
+
 ### Add new service
 
 `POST /services` will create a new service.
@@ -1000,6 +1008,10 @@ Response
   <tr><td>end</td><td>DateTime</td><td>ends_at before param</td></tr>
   <tr><td>since</td><td>DateTime</td><td>updated_at after param</td></tr>
 </table>
+
+### Get event
+
+`GET /events/{event_id}` will get an event with id `{event_id}`.
 
 ### Add new event
 
@@ -1305,6 +1317,10 @@ Response
 ]
 ```
 
+### Get provider
+
+`GET /providers/{provider_id}` will get a provider with id `{provider_id}`.
+
 ### Add new provider
 
 `POST /providers` will create a new provider.
@@ -1349,6 +1365,10 @@ Response
   }
 ]
 ```
+
+### Get category
+
+`GET /categories/{category_id}` will get a category with id `{category_id}`.
 
 ### Add new category
 
@@ -1538,6 +1558,10 @@ Response
   }
 ]
 ```
+
+### Get user
+
+`GET /client/users/{user_link_id}` will get a user with id `{user_link_id}`.
 
 #### Add new user
 
