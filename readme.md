@@ -29,7 +29,7 @@ API Endpoints:
 * [Resource exception dates](#resource-exception-dates)
 * [Providers](#providers)
 * [Categories](#categories)
-* [Webhooks](#webhooks_endpoint)
+* [Webhooks](#webhooks-endpoint)
 * [Users](#users)
 * [Account](#account)
 
@@ -1404,10 +1404,10 @@ For any additional usage of a service please use the main [service endpoint](#se
   <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
   <tr><td>target_url</td><td>String</td><td>Required</td></tr>
   <tr><td>event</td><td>String</td><td>Required</td></tr>
-  <tr><td>active</td><td>Boolean</td><td></td></tr>
+  <tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
 </table>
 
-See webhook overview for a [list of events](#supported-events) and wildcard usage to trigger from multiple events.
+See webhook overview for a [list of events](#supported-events), wildcard usage to trigger from multiple events, and how to handle webhook events from MakePlans.
 
 ### Listing
 
