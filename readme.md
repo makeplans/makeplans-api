@@ -1627,4 +1627,4 @@ Response
 
 #### Add new user
 
-`GET /client/users` will create a new user.
+`GET /client/users` will create a new user. An email is sent to the user so the user can specify their password.
