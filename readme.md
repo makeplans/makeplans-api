@@ -1522,6 +1522,10 @@ Information and settings for your account.
   <tr><td>remove_logo</td><td>Boolean</td><td></td></tr>
 </table>
 
+### Get account
+
+`GET /client` will get the account.
+
 ### Update account
 
 `PUT /client` will update the account.
