@@ -1,6 +1,6 @@
 # Partner API Documentation
 
-The partner account creation URL is `https://app.makeplans.com/api/` for production apps and `https://app.test.makeplans.net/api/` for test apps.
+The partner account creation URL is `https://app.makeplans.com` for production apps and `https://app.test.makeplans.net` for test apps.
 
 Only account creation is done at this URL. All other requests are done on the URL for the API account subdomain.
 
