@@ -1,14 +1,22 @@
 # Partner API Documentation
 
-The partner account creation URL is `https://app.makeplans.com` for production apps and `https://app.test.makeplans.net` for test apps.
-
 Only account creation is done at this URL. All other requests are done on the URL for the API account subdomain.
+
+To become a partner please contact us.
+
+## Base API URL
+
+The partner API URL is `https://app.makeplans.com/partner/` for production apps and `https://app.test.makeplans.net/partner/` for test apps.
+
+## Authentication
+
+Use your partner API token. For more info see the main API documentation.
 
 ## Account
 
 ### Add new account
 
-`POST /client` will create a new client and user.
+`POST /clients` will create a new client and user.
 
 The initial user is set as admin on the account. The attributes for creation are limited. See API documentation for updating other attributes on the account or to add additional users.
 
