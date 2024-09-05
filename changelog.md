@@ -1,5 +1,38 @@
 # Changelog
 
+
+## 2024-07-14
+
+**Added client endpoint**
+
+Added client endpoint.
+
+**Added partner API**
+
+Added a basic partner API. Please contact us for credentials and info.
+
+## 2024-07-11
+
+**Added webhook endpoint**
+
+Added webhook endpoint.
+
+## 2024-02-29
+
+**Booking status**
+
+Added booking status endpoint.
+
+## 2024-01-22
+
+**Expandable objects**
+
+The booking endpoint can now expand related objects such as resource and service using the `extented` paramater.
+
+**Webhook version 2**
+
+The output of webhook payload has changed. Old attributes are still included but it is recommended to migrate.
+
 ## 2023-12-25
 
 **New webhook events**
