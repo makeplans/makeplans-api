@@ -1,5 +1,14 @@
 # Changelog
 
+## 2024-09-05
+
+**Date parsing changes**
+
+Previously date formats `DD.MM.YY HH:mm` and `YYYY-MM-DDTHH:mm` would be parsed in time zone UTC due to a bug in our parser. This is now parsed in local time.
+
+If you have specified ISO8601 without `T` seperator or with seconds it would have been parsed as local time.
+
+While these date formats are assumingly common we have not found any indication of usage among API clients. So while this is a breaking change we consider this to be a safe breaking change.
 
 ## 2024-07-14
 
