@@ -449,6 +449,44 @@ Content-Type: application/json; charset=utf-8
 ```
 </details>
 
+### Create a recurring booking
+
+<details>
+<summary>Request</summary>
+
+```http
+curl -X "POST" "https://youraccount.test.makeplans.net/api/v1/bookings/recurring" \
+     -H 'User-Agent: YourAppName (http://example.org)' \
+     -H 'Accept: application/json' \
+     -H 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' \
+     -u 'YOURAPIKEY:' \
+     --data-urlencode "booking[service_id]=15" \
+     --data-urlencode "booking[booked_from]=2020-01-27 14:00" \
+     --data-urlencode "booking[booked_to]=2020-01-27 15:00" \
+     --data-urlencode "booking[person_attributes][name]=Harald" \
+     --data-urlencode "booking[person_attributes][phone_number]=+18338367888" \
+     --data-urlencode "booking[public_booking]=true" \
+     --data-urlencode "confirm=false" \
+     --data-urlencode "confirmation_send_email=true" \
+     --data-urlencode "reccuring[rrule]=FREQ=DAILY;UNTIL=20241008T000000Z"
+```
+</details>
+
+<details>
+<summary>Response</summary>
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+```
+
+```json
+{
+  "collection_id": "1337"
+}
+```
+</details>
+
 ### Create new booking with a self pre-authenticated customer
 
 ### Authenticate customer
