@@ -468,7 +468,7 @@ curl -X "POST" "https://youraccount.test.makeplans.net/api/v1/bookings/recurring
      --data-urlencode "booking[public_booking]=true" \
      --data-urlencode "confirm=false" \
      --data-urlencode "confirmation_send_email=true" \
-     --data-urlencode "reccuring[rrule]=FREQ=DAILY;UNTIL=20241008T000000Z"
+     --data-urlencode "recurring[rrule]=FREQ=DAILY;UNTIL=20241008T000000Z"
 ```
 </details>
 
