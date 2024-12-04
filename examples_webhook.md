@@ -12,9 +12,13 @@ Triggers when a booking is confirmed.
 <summary>Request</summary>
 
 ```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+```
+
+```http
 POST https://example.org/makeplans-events
 Content-Type: application/json; charset=utf-8
-User-Agent: MakePlans API
 ```
 
 ```json
