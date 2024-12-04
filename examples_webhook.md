@@ -15,7 +15,6 @@ Triggers when a booking is confirmed.
 POST https://example.org/makeplans-events
 Content-Type: application/json; charset=utf-8
 User-Agent: MakePlans API
-X-MakePlans-Signature: sha256=foobar
 ```
 
 ```json
