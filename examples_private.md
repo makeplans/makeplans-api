@@ -1,6 +1,6 @@
-# Private API Examples.
+# Private API Examples
 
-Please familiarise yourself with the key concept of the MakePlans API first.
+Please familiarise yourself with the key concepts of the MakePlans API first.
 
 ## Public booking site examples
 
@@ -26,7 +26,6 @@ curl "https://youraccount.test.makeplans.net/api/v1/services" \
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ```
-
 
 ```json
 [
