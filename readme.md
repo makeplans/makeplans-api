@@ -246,6 +246,7 @@ So for example whenever a new booking is created in MakePlans we can send a POST
 ### Data payload
 
 <table>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
   <tr><td>object</td><td>String</td><td>Type of object</td></tr>
   <tr><td>id</td><td>Integer</td><td>Id of the object</td></tr>
   <tr><td>*object_type*</td><td>Object</td><td>Payload of the object</td></tr>
