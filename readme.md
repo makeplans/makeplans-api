@@ -433,6 +433,7 @@ Response
   <tr><td>resource</td><td>Object</td><td>See resource. Only for output.</td></tr>
   <tr><td>service</td><td>Object</td><td>See service. Only for output.</td></tr>
   <tr><td>event</td><td>Object</td><td>See event. Only for output.</td></tr>
+  <tr><td>booking_type</td><td>String</td><td>Values: appointment or attendance. See service.</td></tr>
 </table>
 
 ### States
