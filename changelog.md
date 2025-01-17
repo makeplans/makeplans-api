@@ -1,5 +1,15 @@
 # Changelog
 
+## 2025-01-17
+
+**Added coupons**
+
+Added coupon endpoint.
+
+**Added booking type to booking**
+
+Booking object now includes booking_type to indicate whether the booking is `appointment` or `attendance`.
+
 ## 2024-09-05
 
 **Date parsing changes**
