@@ -1211,6 +1211,7 @@ Exception dates are related to a resource: `GET /resources/{resource_id}/excepti
   <tr><td>resource_id</td><td>Integer</td><td>Required (specified in URL)</td></tr>
   <tr><td>exception_date</td><td>Date</td><td>Required (specified in URL)</td></tr>
   <tr><td>opening_hours</td><td>Array</td><td>Same format as resource opening hours</td></tr>
+  <tr><td>service_id</td><td>Integer</td><td></td></tr>
 </table>
 
 ### Listing
