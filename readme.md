@@ -1304,7 +1304,16 @@ Resources provides services. This link is called a provider.
   <tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
   <tr><td>resource_id</td><td>Integer</td><td>Required</td></tr>
   <tr><td>service_id</td><td>Integer</td><td>Required</td></tr>
+  <tr><td>opening_hours_mon</td><td>Array</td><td>Opening hours for Monday. Fallback to resource availability.</td></tr>
+  <tr><td>opening_hours_tue</td><td>Array</td><td>Opening hours for Monday. Fallback to resource availability..</td></tr>
+  <tr><td>opening_hours_wed</td><td>Array</td><td>Opening hours for Monday. Fallback to resource availability.</td></tr>
+  <tr><td>opening_hours_thu</td><td>Array</td><td>Opening hours for Monday. Fallback to resource availability.</td></tr>
+  <tr><td>opening_hours_fri</td><td>Array</td><td>Opening hours for Monday. Fallback to resource availability.</td></tr>
+  <tr><td>opening_hours_sat</td><td>Array</td><td>Opening hours for Monday. Fallback to resource availability.</td></tr>
+  <tr><td>opening_hours_sun</td><td>Array</td><td>Opening hours for Monday. Fallback to resource availability.</td></tr>
 </table>
+
+Opening hours for a provider works in the same way as availability is defined on [resource exception date](#resource-exception-date).
 
 ### Listing
 
