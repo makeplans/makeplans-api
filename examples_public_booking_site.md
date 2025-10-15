@@ -1,6 +1,6 @@
 # Public booking site API Examples
 
-Please familiarise yourself with the key concepts of the MakePlans API first.
+Please familiarise yourself with the key concepts of the Makeplans API first.
 
 ## List available services
 

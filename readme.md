@@ -1,6 +1,6 @@
 # Documentation
 
-This is the API documentation for MakePlans. MakePlans is an online booking application with support for appointments, classes and events. For more information about the application and its features see [makeplans.com](https://makeplans.com). All features in MakePlans are available via the API.
+This is the API documentation for Makeplans. Makeplans is an online booking application with support for appointments, classes and events. For more information about the application and its features see [makeplans.com](https://makeplans.com). All features in Makeplans are available via the API.
 
 General Information:
 * [Get started](#get-started)
@@ -56,11 +56,11 @@ Limitations of the test environment:
 
 ## Public and private API
 
-If you are planning to integrate directly from your application to MakePlans or need to modify information in MakePlans then you must use the private API. This API requires authentication with an API-key and should not be done publicly (on a website).
+If you are planning to integrate directly from your application to Makeplans or need to modify information in Makeplans then you must use the private API. This API requires authentication with an API-key and should not be done publicly (on a website).
 
-The public API is available for simple read-only operations. This is useful if you want to present information from MakePlans on your website using JavaScript. Because these operations are done on a public website you can not authenticate using your API-key. With the public API you can fetch a list of services, available timeslots and initialize the booking process.
+The public API is available for simple read-only operations. This is useful if you want to present information from Makeplans on your website using JavaScript. Because these operations are done on a public website you can not authenticate using your API-key. With the public API you can fetch a list of services, available timeslots and initialize the booking process.
 
-All requests are done over HTTPS. Each object in MakePlans has its own [endpoints](#api-endpoints).
+All requests are done over HTTPS. Each object in Makeplans has its own [endpoints](#api-endpoints).
 
 ### Base API URL
 
@@ -114,7 +114,7 @@ Custom data is stored as key/value. All values are stored as strings but we do c
 
 Only the private API requires authentication. If you intend to use the API on a website please use the [public API](#public-and-private-api) which does not require authenticaiton.
 
-Use your account API-Key to authenticate with the MakePlans API. First enable the API on the account and you will find the API-Key in the account settings.
+Use your account API-Key to authenticate with the Makeplans API. First enable the API on the account and you will find the API-Key in the account settings.
 
 Send the API-Key as a Bearer token using the HTTP Authorization header.
 
@@ -210,9 +210,9 @@ https://youraccount.test.makeplans.net/api/v1/services
 
 ## Synchronisation
 
-Synchronising data is hard. Please ensure you test before releasing to production. First pick either MakePlans or the other system as a master. If the other system is chosen as a master then we recommend enabling the 'confirmation by administrator' setting for bookings. The synchronisation should then retrieve unprocessed bookings and process them (confirm/decline). This will ensure you can handle any changes occurred in the other system since the last synchronisation with MakePlans. New unprocessed bookings must be processed often (every 1-5 minutes) to ensure confirmations are sent out quickly to the end-user after requesting a new reservation.
+Synchronising data is hard. Please ensure you test before releasing to production. First pick either Makeplans or the other system as a master. If the other system is chosen as a master then we recommend enabling the 'confirmation by administrator' setting for bookings. The synchronisation should then retrieve unprocessed bookings and process them (confirm/decline). This will ensure you can handle any changes occurred in the other system since the last synchronisation with Makeplans. New unprocessed bookings must be processed often (every 1-5 minutes) to ensure confirmations are sent out quickly to the end-user after requesting a new reservation.
 
-**NEVER** delete any data in MakePlans to make it easier to adapt to the other system. MakePlans is a customer facing booking application. End-users (stored as people) can change and cancel bookings, thus any modifications or destruction of core data should not occur. Bookings are stored with a history (log) and there is a link between a person and bookings. MakePlans make use of this data and all this data must be kept to ensure the booking process in MakePlans works as expected for the end-user.
+**NEVER** delete any data in Makeplans to make it easier to adapt to the other system. Makeplans is a customer facing booking application. End-users (stored as people) can change and cancel bookings, thus any modifications or destruction of core data should not occur. Bookings are stored with a history (log) and there is a link between a person and bookings. Makeplans make use of this data and all this data must be kept to ensure the booking process in Makeplans works as expected for the end-user.
 
 Expect all booking and person data to be changed at any time. All changes for an object will result in a updated attribute `updated_at`.
 
@@ -220,10 +220,10 @@ We recommend storing a timestamp retrieved from the more recently updated item f
 
 ## API libraries
 
-MakePlans does not officially support API libraries but they might be useful for you. Please note that these projects are **not** made by MakePlans but made publicly available by other developers who have used the MakePlans API. Any questions should be made directly to the responsible developers. If you find any errors or areas of improvement please make a pull request to improve the project.
+Makeplans does not officially support API libraries but they might be useful for you. Please note that these projects are **not** made by Makeplans but made publicly available by other developers who have used the Makeplans API. Any questions should be made directly to the responsible developers. If you find any errors or areas of improvement please make a pull request to improve the project.
 
 * [NodeJS by Mable](https://github.com/mableteam/makeplans).
-* [CakePHP by Pollenizer](https://github.com/Pollenizer/CakePHP-MakePlans-Plugin).
+* [CakePHP by Pollenizer](https://github.com/Pollenizer/CakePHP-Makeplans-Plugin).
 * [Go by drewwells](https://github.com/drewwells/makeplans).
 
 A big thanks to everyone who has contributed to these libraries!
@@ -231,7 +231,7 @@ A big thanks to everyone who has contributed to these libraries!
 ## Webhooks
 
 A webhook is simply a user-defined callback in the form of an HTTP POST which is invoked when something happens.
-So for example whenever a new booking is created in MakePlans we can send a POST request to the URL you specify. The response will include data about the modified object.
+So for example whenever a new booking is created in Makeplans we can send a POST request to the URL you specify. The response will include data about the modified object.
 
 ### Payload
 
@@ -282,7 +282,7 @@ You can use wildcard to trigger all or grouped events: `*` or `booking.*`
 
 #### Verify payload signature
 
-We include a `X-MakePlans-Signature` header in the webhook request. Use this to verify the request body to ensure the request is from MakePlans and signed with your account secret. The header includes details about the signature and the signature itself. We use HMAC SHA-256 to compute this signature.
+We include a `X-MakePlans-Signature` header in the webhook request. Use this to verify the request body to ensure the request is from Makeplans and signed with your account secret. The header includes details about the signature and the signature itself. We use HMAC SHA-256 to compute this signature.
 
 Example: `X-MakePlans-Signature:sha256=5257a869e7ecebeda32affa62cdca3fa51cad7e77a0e56ff536d0ce8e108d8bd`.
 
@@ -298,9 +298,9 @@ We will retry after any 4xx or 5xx http status response. Maximum retries are 5. 
 
 ## Slots
 
-Slots are not physical objects in MakePlans. It is a virtual representation of available times based on attributes from resources and services as well as various settings. So if a resource is open 8am to 4pm and selected service has interval of 60 minutes, slots will return an array of all time intervals (8am-9am, 9am-10am etc.) and indicate which resources are available.
+Slots are not physical objects in Makeplans. It is a virtual representation of available times based on attributes from resources and services as well as various settings. So if a resource is open 8am to 4pm and selected service has interval of 60 minutes, slots will return an array of all time intervals (8am-9am, 9am-10am etc.) and indicate which resources are available.
 
-Slots are meant for listing available times on the MakePlans booking page. You can however make bookings at any time and with any length - as long as the resource is available off course.
+Slots are meant for listing available times on the Makeplans booking page. You can however make bookings at any time and with any length - as long as the resource is available off course.
 
 ### Attributes
 
@@ -458,7 +458,7 @@ Response
 
 #### Normal state flow
 
-The normal booking flow when a customer initiates a new booking starts with `awaiting_verification`. If verification is required MakePlans sends out email or SMS for the customer to verify. When successfully verified the state is updated to `confirmed` or `awaiting_confirmation` if reservations requires confirmation by administrator. For confirmation it is then updated to `confirmed` as normally if confirmed, and to `declined` if it is not confirmed.
+The normal booking flow when a customer initiates a new booking starts with `awaiting_verification`. If verification is required Makeplans sends out email or SMS for the customer to verify. When successfully verified the state is updated to `confirmed` or `awaiting_confirmation` if reservations requires confirmation by administrator. For confirmation it is then updated to `confirmed` as normally if confirmed, and to `declined` if it is not confirmed.
 
 Bookings that have been confirmed and then cancelled, either by customer or administrator, are set to `cancelled`.
 
@@ -629,7 +629,7 @@ You should always specify COUNT or UNTIL with RRULE. The max number of occurrenc
 
 #### Verify a booking with verification code
 
-`PUT /bookings/{booking_id}/verify_code` will verify a booking using `{verification_code}`. Use this when MakePlans is used to send out verification email or SMS.
+`PUT /bookings/{booking_id}/verify_code` will verify a booking using `{verification_code}`. Use this when Makeplans is used to send out verification email or SMS.
 
 ##### Additional parameters
 
@@ -835,7 +835,7 @@ You can search multiple columns at once, for example `email` and `phone_number`,
 
 ### Person verification with a perishable token
 
-The purpose of this feature is to verify a new or existing person in MakePlans on your website such as "login to see your bookings". The verification can be done either using email or SMS. When successful you will have verified either an email or a phone number. Thus you can either create a new person or retrieve an existing person knowing that the person has been verified.
+The purpose of this feature is to verify a new or existing person in Makeplans on your website such as "login to see your bookings". The verification can be done either using email or SMS. When successful you will have verified either an email or a phone number. Thus you can either create a new person or retrieve an existing person knowing that the person has been verified.
 
 Please note that this token is perishable, meaning that it will be removed from and unavailable for verification after 10 minutes.
 
@@ -1505,7 +1505,7 @@ Response
   <tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
 </table>
 
-See webhook overview for a [list of events](#supported-events), wildcard usage to trigger from multiple events, and how to handle webhook events from MakePlans.
+See webhook overview for a [list of events](#supported-events), wildcard usage to trigger from multiple events, and how to handle webhook events from Makeplans.
 
 ### Listing
 

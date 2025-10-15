@@ -1,6 +1,6 @@
 # Webhook Examples
 
-Please familiarise yourself with the key concepts of the MakePlans API first.
+Please familiarise yourself with the key concepts of the Makeplans API first.
 
 ## Event examples
 
@@ -15,7 +15,7 @@ Triggers when a booking is confirmed.
 POST /makeplans-events HTTP/1.1
 Host: example.org
 Content-Type: application/json; charset=utf-8
-User-Agent: MakePlans API
+User-Agent: Makeplans API
 X-MakePlans-Signature: sha256=foobar
 ```
 
