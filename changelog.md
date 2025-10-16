@@ -46,7 +46,7 @@ Added booking status endpoint.
 
 **Expandable objects**
 
-The booking endpoint can now expand related objects such as resource and service using the `extented` paramater.
+The booking endpoint can now expand related objects such as resource and service using the `extended` parameter.
 
 **Webhook version 2**
 
@@ -105,7 +105,7 @@ Previously we retried 20 times for failed webhooks. This is now changed to 5 ret
 
 **Added national_id_no and multiple column search for people**
 
-Search can now be done on multiple columns by specyfing for example both email and phone number.
+Search can now be done on multiple columns by specifying for example both email and phone number.
 
 ## 2021-03-29
 
@@ -135,7 +135,7 @@ JSON is our only God now.
 
 *BREAKING CHANGE*
 
-All errors based on client request input will not return a 400 Bad Request status code instead of 403 Forbidden.
+All errors based on client request input will now return a 400 Bad Request status code instead of 403 Forbidden.
 
 **Lack of authorization now returns 403**
 

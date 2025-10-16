@@ -112,7 +112,7 @@ Custom data is stored as key/value. All values are stored as strings but we do c
 
 ## Authentication
 
-Only the private API requires authentication. If you intend to use the API on a website please use the [public API](#public-and-private-api) which does not require authenticaiton.
+Only the private API requires authentication. If you intend to use the API on a website please use the [public API](#public-and-private-api) which does not require authentication.
 
 Use your account API-Key to authenticate with the Makeplans API. First enable the API on the account and you will find the API-Key in the account settings.
 
@@ -407,8 +407,8 @@ Response
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
   <tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
-  <tr><td>created_by</td><td>DateTime</td><td>Automatically set</td></tr>
-  <tr><td>updated_by</td><td>DateTime</td><td>Automatically set</td></tr>
+  <tr><td>created_at</td><td>DateTime</td><td>Automatically set</td></tr>
+  <tr><td>updated_at</td><td>DateTime</td><td>Automatically set</td></tr>
   <tr><td>service_id</td><td>Integer</td><td>Not required</td></tr>
   <tr><td>event_id</td><td>Integer</td><td>Not required</td></tr>
   <tr><td>resource_id</td><td>Integer</td><td>Required</td></tr>
@@ -685,7 +685,7 @@ See [information about additional parameters](#additional-parameters).
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
   <tr><td>cancellation_send_email</td><td>Boolean</td><td>Send out cancellation email.</td></tr>
-  <tr><td>cancellation_send_sms</td><td>Boolean</td><td>Send out cancellation SMS..</td></tr>
+  <tr><td>cancellation_send_sms</td><td>Boolean</td><td>Send out cancellation SMS.</td></tr>
 </table>
 
 ### Update booking
@@ -1152,7 +1152,7 @@ Response
 
 ### Delete resource
 
-`DELETE /resources/{resource_id}` will delete existing resource with id `{resource_id}`. Deleting a resource will set it to active=false and will not returned in any listings.
+`DELETE /resources/{resource_id}` will delete existing resource with id `{resource_id}`. Deleting a resource will set it to active=false and will not be returned in any listings.
 
 ### Get opening hours for specific dates
 
@@ -1313,12 +1313,12 @@ Resources provides services. This link is called a provider.
   <tr><td>resource_id</td><td>Integer</td><td>Required</td></tr>
   <tr><td>service_id</td><td>Integer</td><td>Required</td></tr>
   <tr><td>opening_hours_mon</td><td>Array</td><td>Opening hours for Monday. Fallback to resource availability.</td></tr>
-  <tr><td>opening_hours_tue</td><td>Array</td><td>Opening hours for Monday. Fallback to resource availability..</td></tr>
-  <tr><td>opening_hours_wed</td><td>Array</td><td>Opening hours for Monday. Fallback to resource availability.</td></tr>
-  <tr><td>opening_hours_thu</td><td>Array</td><td>Opening hours for Monday. Fallback to resource availability.</td></tr>
-  <tr><td>opening_hours_fri</td><td>Array</td><td>Opening hours for Monday. Fallback to resource availability.</td></tr>
-  <tr><td>opening_hours_sat</td><td>Array</td><td>Opening hours for Monday. Fallback to resource availability.</td></tr>
-  <tr><td>opening_hours_sun</td><td>Array</td><td>Opening hours for Monday. Fallback to resource availability.</td></tr>
+  <tr><td>opening_hours_tue</td><td>Array</td><td>Opening hours for Tuesday. Fallback to resource availability.</td></tr>
+  <tr><td>opening_hours_wed</td><td>Array</td><td>Opening hours for Wednesday. Fallback to resource availability.</td></tr>
+  <tr><td>opening_hours_thu</td><td>Array</td><td>Opening hours for Thursday. Fallback to resource availability.</td></tr>
+  <tr><td>opening_hours_fri</td><td>Array</td><td>Opening hours for Friday. Fallback to resource availability.</td></tr>
+  <tr><td>opening_hours_sat</td><td>Array</td><td>Opening hours for Saturday. Fallback to resource availability.</td></tr>
+  <tr><td>opening_hours_sun</td><td>Array</td><td>Opening hours for Sunday. Fallback to resource availability.</td></tr>
 </table>
 
 Opening hours for a provider works in the same way as availability is defined on [resource exception date](#resource-exception-date).

@@ -151,7 +151,7 @@ Content-Type: application/json; charset=utf-8
 
 ### Initiate new booking for new customer
 
-Now the customer is ready to book. So existing!
+Now the customer is ready to book. So exciting!
 
 This is the first example where you will differentiate the request since the goal is to implement a custom booking site. The Makeplans booking site operates based on many settings and rules that define availability. Naturally existing bookings is taken into account so you do not get double bookings (it is possible to add double bookings, but not from the public booking site). And then there is the availability set for the resources; standard opening hours and opening hours set on specific dates. In addition you can set certain rules for when booking is allowed, for example only 2 months ahead or not the same day. You can also set the booking site to be closed during national holidays.
 But back to the API. When you make a request to create a new booking in the private API we will ignore most of these rules. These rules are only applicable on the public booking site. So it is very important that you add `public_booking=true` to the request to ensure booking are only allowed during the rules and availability you set on your account and resources. Unless you are authenticated your customers in your app it is also recommended that you let Makeplans handle verification. We will send an SMS that the customer needs to verify to confirm the booking.
