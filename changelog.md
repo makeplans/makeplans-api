@@ -4,6 +4,16 @@ layout: default
 permalink: /changelog/
 ---
 
+## 2026-03-27
+
+**Added orders endpoint**
+
+Added order endpoint.
+
+**Added gift cards endpoint**
+
+Added gift card endpoint.
+
 ## 2025-01-17
 
 **Added coupons**
