@@ -19,5 +19,6 @@ See the [guide](/guide/getting-started/) for general information about authentic
 - [Categories](/endpoints/categories/)
 - [Coupons](/endpoints/coupons/)
 - [Orders](/endpoints/orders/)
+- [Gift Cards](/endpoints/gift-cards/)
 - [Webhooks](/endpoints/webhooks/)
 - [Account](/endpoints/account/)
