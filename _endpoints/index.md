@@ -18,5 +18,6 @@ See the [guide](/guide/getting-started/) for general information about authentic
 - [Providers](/endpoints/providers/)
 - [Categories](/endpoints/categories/)
 - [Coupons](/endpoints/coupons/)
+- [Orders](/endpoints/orders/)
 - [Webhooks](/endpoints/webhooks/)
 - [Account](/endpoints/account/)
