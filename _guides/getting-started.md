@@ -5,13 +5,13 @@ nav_order: 1
 
 1) Read this documentation.
 
-2) [Sign up for a trial account in our test environment](https://app.test.makeplans.net/client/new)
+2) [Sign up for a trial account in our test environment](https://app.test.makeplans.net/client/new){:target="_blank"}
 
 3) Go to Setup -> Integrations -> API. Enable the API and get the API-key.
 
 4) Profit.
 
-When your integration is ready to be released you can sign up for a [real account](https://app.makeplans.com/client/new).
+When your integration is ready to be released you can sign up for a [real account](https://app.makeplans.com/client/new){:target="_blank"}.
 
 Limitations of the test environment:
 * SMS reminders are not triggered.

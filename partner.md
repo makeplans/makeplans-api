@@ -38,7 +38,7 @@ The initial user is set as admin on the account. The attributes for creation are
 
 ##### Time zone
 
-Currently a custom time zone naming is used. Please see [this list](https://github.com/rails/rails/blob/v7.1.3.4/activesupport/lib/active_support/values/time_zone.rb#L33) of used names and their mappings.
+Currently a custom time zone naming is used. Please see [this list](https://github.com/rails/rails/blob/v7.1.3.4/activesupport/lib/active_support/values/time_zone.rb#L33){:target="_blank"} of used names and their mappings.
 
 In the future this will become more standard compliant.
 

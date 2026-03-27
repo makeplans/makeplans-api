@@ -74,7 +74,7 @@ Response
 
 `POST /events/recurring` will create a multiple events.
 
-The recurrence format follows the [iCalendar specification](https://tools.ietf.org/html/rfc5545). The attributes for recurrence are: `RRULE`, `RDATE`, `EXDATE`. For an introduction and examples of these parameters see [this section from the iCalendar specification](http://www.kanzaki.com/docs/ical/rrule.html).
+The recurrence format follows the [iCalendar specification](https://tools.ietf.org/html/rfc5545){:target="_blank"}. The attributes for recurrence are: `RRULE`, `RDATE`, `EXDATE`. For an introduction and examples of these parameters see [this section from the iCalendar specification](http://www.kanzaki.com/docs/ical/rrule.html){:target="_blank"}.
 
 In the iCalendar specification the recurrence is based on values in `DTSTART` and `DTEND`. This is set by `starts_at` and `ends_at` from `event`.
 
