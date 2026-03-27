@@ -1,4 +1,8 @@
-# Partner API Documentation
+---
+title: "Partner API"
+layout: default
+permalink: /partner/
+---
 
 Only account creation is done at this URL. All other requests are done on the URL for the API account subdomain.
 

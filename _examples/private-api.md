@@ -1,4 +1,7 @@
-# Private API Examples
+---
+title: "Private API"
+nav_order: 3
+---
 
 Please familiarise yourself with the key concepts of the Makeplans API first.
 
@@ -8,10 +11,10 @@ Please familiarise yourself with the key concepts of the Makeplans API first.
 
 First we want to show a list of available services on the booking site.
 
-<details>
+<details markdown="1">
 <summary>Request</summary>
 
-```curlrc
+```shell
 curl "https://youraccount.test.makeplans.net/api/v1/services" \
      -H 'User-Agent: YourAppName (http://example.org)' \
      -H 'Accept: application/json' \
@@ -19,10 +22,10 @@ curl "https://youraccount.test.makeplans.net/api/v1/services" \
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary>Response</summary>
 
-```http
+```text
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ```
@@ -93,10 +96,10 @@ The user select 'Massage' so lets get all available timeslots for 'Massage' (ser
 
 By default this will return timeslots for today, but you can specify the timeframe using from/to parameters.
 
-<details>
+<details markdown="1">
 <summary>Request</summary>
 
-```curlrc
+```shell
 curl "https://youraccount.test.makeplans.net/api/v1/services/15/slots" \
      -H 'User-Agent: YourAppName (http://example.org)' \
      -H 'Accept: application/json' \
@@ -104,10 +107,10 @@ curl "https://youraccount.test.makeplans.net/api/v1/services/15/slots" \
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary>Response</summary>
 
-```http
+```text
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ```
@@ -158,10 +161,10 @@ But back to the API. When you make a request to create a new booking in the priv
 
 Please note: Makeplans will automatically match email and phone number to existing customer profile.
 
-<details>
+<details markdown="1">
 <summary>Request</summary>
 
-```curlrc
+```shell
 curl -X "POST" "https://youraccount.test.makeplans.net/api/v1/bookings" \
      -H 'User-Agent: YourAppName (http://example.org)' \
      -H 'Accept: application/json' \
@@ -177,10 +180,10 @@ curl -X "POST" "https://youraccount.test.makeplans.net/api/v1/bookings" \
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary>Response</summary>
 
-```http
+```text
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ```
@@ -252,10 +255,10 @@ By now the customer should have received the SMS verification code.
 
 As you can see from the response in the previous request the verification code in this booking is 75455.
 
-<details>
+<details markdown="1">
 <summary>Request</summary>
 
-```curlrc
+```shell
 curl -X "PUT" "https://youraccount.test.makeplans.net/api/v1/bookings/208/verify_code" \
      -H 'User-Agent: YourAppName (http://example.org)' \
      -H 'Accept: application/json' \
@@ -265,10 +268,10 @@ curl -X "PUT" "https://youraccount.test.makeplans.net/api/v1/bookings/208/verify
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary>Response</summary>
 
-```http
+```text
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ```
@@ -336,10 +339,10 @@ The booking is now confirmed. Makeplans will now send an SMS confirmation to the
 
 If the customers enters an incorrect code we will return 403 status:
 
-<details>
+<details markdown="1">
 <summary>Response</summary>
 
-```http
+```text
 HTTP/1.1 403 Forbidden
 Content-Type: application/json; charset=utf-8
 ```
@@ -355,10 +358,10 @@ Content-Type: application/json; charset=utf-8
 
 ### Create new booking with custom data for new customer
 
-<details>
+<details markdown="1">
 <summary>Request</summary>
 
-```http
+```text
 curl -X "POST" "https://youraccount.test.makeplans.net/api/v1/bookings" \
      -H 'User-Agent: YourAppName (http://example.org)' \
      -H 'Accept: application/json' \
@@ -376,10 +379,10 @@ curl -X "POST" "https://youraccount.test.makeplans.net/api/v1/bookings" \
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary>Response</summary>
 
-```http
+```text
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ```
@@ -450,10 +453,10 @@ Content-Type: application/json; charset=utf-8
 
 ### Create a recurring booking
 
-<details>
+<details markdown="1">
 <summary>Request</summary>
 
-```http
+```text
 curl -X "POST" "https://youraccount.test.makeplans.net/api/v1/bookings/recurring" \
      -H 'User-Agent: YourAppName (http://example.org)' \
      -H 'Accept: application/json' \
@@ -471,10 +474,10 @@ curl -X "POST" "https://youraccount.test.makeplans.net/api/v1/bookings/recurring
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary>Response</summary>
 
-```http
+```text
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ```
@@ -497,4 +500,3 @@ Content-Type: application/json; charset=utf-8
 ### Create new booking outside normal opening hours
 
 ### Delete booking
-

@@ -1,4 +1,7 @@
-# Public booking site API Examples
+---
+title: "Public Booking Site"
+nav_order: 2
+---
 
 Please familiarise yourself with the key concepts of the Makeplans API first.
 
@@ -6,20 +9,20 @@ Please familiarise yourself with the key concepts of the Makeplans API first.
 
 First we want to show a list of available services on the booking site.
 
-<details>
+<details markdown="1">
 <summary>Request</summary>
 
-```curlrc
+```shell
 curl "https://youraccount.test.makeplans.net/services" \
      -H 'User-Agent: YourAppName (http://example.org)' \
      -H 'Accept: application/json'
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary>Response</summary>
 
-```http
+```text
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ```
@@ -72,20 +75,20 @@ The user select 'Massage' so lets get all available timeslots for 'Massage' (ser
 
 By default this will return timeslots for today, but you can specify the timeframe using from/to parameters.
 
-<details>
+<details markdown="1">
 <summary>Request</summary>
 
-```curlrc
+```shell
 curl "https://youraccount.test.makeplans.net/services/15/slots" \
      -H 'User-Agent: YourAppName (http://example.org)' \
      -H 'Accept: application/json'
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary>Response</summary>
 
-```http
+```text
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ```

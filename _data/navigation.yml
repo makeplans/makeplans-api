@@ -1,0 +1,13 @@
+- title: Guide
+  url: /guide/getting-started/
+  collections: [guides]
+- title: API Endpoints
+  url: /endpoints/
+  collections: [endpoints]
+- title: Examples
+  url: /examples/overview/
+  collections: [examples]
+- title: Changelog
+  url: /changelog/
+- title: Partner API
+  url: /partner/

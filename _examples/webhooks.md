@@ -1,4 +1,7 @@
-# Webhook Examples
+---
+title: "Webhooks"
+nav_order: 4
+---
 
 Please familiarise yourself with the key concepts of the Makeplans API first.
 
@@ -8,10 +11,10 @@ Please familiarise yourself with the key concepts of the Makeplans API first.
 
 Triggers when a booking is confirmed.
 
-<details>
+<details markdown="1">
 <summary>Request</summary>
 
-```http
+```text
 POST /makeplans-events HTTP/1.1
 Host: example.org
 Content-Type: application/json; charset=utf-8

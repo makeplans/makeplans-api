@@ -1,5 +1,57 @@
-markdown: CommonMarkGhPages
 title: Makeplans API
-commonmark:
-  options: ["UNSAFE"]
-  extensions: ["table"]
+description: API documentation for Makeplans — online booking for appointments, classes and events.
+url: https://developer.makeplans.com
+
+theme: jekyll-vitepress-theme
+plugins:
+  - jekyll-vitepress-theme
+
+collections:
+  guides:
+    output: true
+    permalink: "/guide/:name/"
+  endpoints:
+    output: true
+    permalink: "/endpoints/:name/"
+  examples:
+    output: true
+    permalink: "/examples/:name/"
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: guides
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: endpoints
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: examples
+    values:
+      layout: default
+
+jekyll_vitepress:
+  branding:
+    site_title: Makeplans API
+  syntax:
+    light_theme: github
+    dark_theme: github.dark
+  edit_link:
+    enabled: true
+    pattern: "https://github.com/makeplans/makeplans-api/edit/master/docs/:path"
+    text: "Edit this page on GitHub"
+  last_updated:
+    enabled: true
+  doc_footer:
+    enabled: true
+  github_star:
+    enabled: true
+    repository: makeplans/makeplans-api

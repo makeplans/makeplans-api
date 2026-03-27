@@ -1,4 +1,8 @@
-# Changelog
+---
+title: "Changelog"
+layout: default
+permalink: /changelog/
+---
 
 ## 2025-01-17
 
