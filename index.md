@@ -4,6 +4,11 @@ hero:
   name: Makeplans
   text: API Documentation
   tagline: Build powerful booking integrations with the Makeplans API. Full support for appointments, classes, and events.
+  image:
+    src: /assets/images/logo.svg
+    alt: Makeplans
+    width: 200
+    height: 200
   actions:
     - theme: brand
       text: Get Started

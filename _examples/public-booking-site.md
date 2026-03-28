@@ -22,7 +22,7 @@ curl "https://youraccount.test.makeplans.net/services" \
 <details markdown="1">
 <summary>Response</summary>
 
-```text
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ```
@@ -42,6 +42,7 @@ Content-Type: application/json; charset=utf-8
       "max_slots": 1,
       "same_day": false,
       "price": null,
+      "booking_type": "appointment",
       "booking_type_id": 1,
       "description": null,
       "custom_data": null
@@ -60,6 +61,7 @@ Content-Type: application/json; charset=utf-8
       "max_slots": 1,
       "same_day": false,
       "price": null,
+      "booking_type": "appointment",
       "booking_type_id": 1,
       "description": null,
       "custom_data": null
@@ -88,7 +90,7 @@ curl "https://youraccount.test.makeplans.net/services/15/slots" \
 <details markdown="1">
 <summary>Response</summary>
 
-```text
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ```
@@ -125,7 +127,7 @@ Content-Type: application/json; charset=utf-8
       "maximum_capacity": 3
     }
   },
-  # More items not shown
+
 ]
 ```
 </details>

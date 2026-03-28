@@ -25,7 +25,7 @@ curl "https://youraccount.test.makeplans.net/api/v1/services" \
 <details markdown="1">
 <summary>Response</summary>
 
-```text
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ```
@@ -48,6 +48,7 @@ Content-Type: application/json; charset=utf-8
       "active": true,
       "interval_rounding": null,
       "template": null,
+      "booking_type": "appointment",
       "booking_type_id": 1,
       "description": null,
       "custom_data": null,
@@ -75,6 +76,7 @@ Content-Type: application/json; charset=utf-8
       "active": true,
       "interval_rounding": null,
       "template": null,
+      "booking_type": "appointment",
       "booking_type_id": 1,
       "description": null,
       "custom_data": null,
@@ -110,7 +112,7 @@ curl "https://youraccount.test.makeplans.net/api/v1/services/15/slots" \
 <details markdown="1">
 <summary>Response</summary>
 
-```text
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ```
@@ -146,8 +148,7 @@ Content-Type: application/json; charset=utf-8
       ],
       "maximum_capacity": 3
     }
-  },
-  # More items not shown
+  }
 ]
 ```
 </details>
@@ -183,7 +184,7 @@ curl -X "POST" "https://youraccount.test.makeplans.net/api/v1/bookings" \
 <details markdown="1">
 <summary>Response</summary>
 
-```text
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ```
@@ -219,7 +220,7 @@ Content-Type: application/json; charset=utf-8
     "person": {
       "id": 95,
       "email": null,
-      "phonenumber": "+18338367888",
+      "phone_number": "+18338367888",
       "created_at": "2020-01-24T06:48:42+01:00",
       "updated_at": "2020-01-24T06:48:42+01:00",
       "name": "Harald",
@@ -271,7 +272,7 @@ curl -X "PUT" "https://youraccount.test.makeplans.net/api/v1/bookings/208/verify
 <details markdown="1">
 <summary>Response</summary>
 
-```text
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ```
@@ -307,7 +308,7 @@ Content-Type: application/json; charset=utf-8
     "person": {
       "id": 95,
       "email": null,
-      "phonenumber": "+18338367888",
+      "phone_number": "+18338367888",
       "created_at": "2020-01-24T06:48:42+01:00",
       "updated_at": "2020-01-24T06:48:42+01:00",
       "name": "Harald",
@@ -342,7 +343,7 @@ If the customers enters an incorrect code we will return 403 status:
 <details markdown="1">
 <summary>Response</summary>
 
-```text
+```http
 HTTP/1.1 403 Forbidden
 Content-Type: application/json; charset=utf-8
 ```
@@ -361,7 +362,7 @@ Content-Type: application/json; charset=utf-8
 <details markdown="1">
 <summary>Request</summary>
 
-```text
+```shell
 curl -X "POST" "https://youraccount.test.makeplans.net/api/v1/bookings" \
      -H 'User-Agent: YourAppName (http://example.org)' \
      -H 'Accept: application/json' \
@@ -382,7 +383,7 @@ curl -X "POST" "https://youraccount.test.makeplans.net/api/v1/bookings" \
 <details markdown="1">
 <summary>Response</summary>
 
-```text
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ```
@@ -420,14 +421,13 @@ Content-Type: application/json; charset=utf-8
     "person": {
       "id": 95,
       "email": null,
-      "phonenumber": "+18338367888",
+      "phone_number": "+18338367888",
       "created_at": "2020-01-24T06:48:42+01:00",
       "updated_at": "2020-01-24T06:48:42+01:00",
       "name": "Harald",
       "custom_data": {
         "member_id": "83632"
       },
-      "custom_data": null,
       "date_of_birth": null,
       "external_id": null,
       "national_id_no": null,
@@ -456,7 +456,7 @@ Content-Type: application/json; charset=utf-8
 <details markdown="1">
 <summary>Request</summary>
 
-```text
+```shell
 curl -X "POST" "https://youraccount.test.makeplans.net/api/v1/bookings/recurring" \
      -H 'User-Agent: YourAppName (http://example.org)' \
      -H 'Accept: application/json' \
@@ -477,7 +477,7 @@ curl -X "POST" "https://youraccount.test.makeplans.net/api/v1/bookings/recurring
 <details markdown="1">
 <summary>Response</summary>
 
-```text
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ```
@@ -493,7 +493,7 @@ Content-Type: application/json; charset=utf-8
 
 ### Authenticate customer
 
-## Full integration examples (Setup and syncronization)
+## Full integration examples (Setup and synchronization)
 
 ### Create new service
 

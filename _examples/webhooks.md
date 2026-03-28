@@ -14,7 +14,7 @@ Triggers when a booking is confirmed.
 <details markdown="1">
 <summary>Request</summary>
 
-```text
+```http
 POST /makeplans-events HTTP/1.1
 Host: example.org
 Content-Type: application/json; charset=utf-8
