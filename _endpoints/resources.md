@@ -13,6 +13,7 @@ nav_order: 6
   <tr><td>title</td><td>String</td><td>Required</td></tr>
   <tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
   <tr><td>capacity</td><td>Integer</td><td></td></tr>
+  <tr><td>custom_data</td><td>Array</td><td>Not required</td></tr>
   <tr><td>opening_hours_mon</td><td>Array</td><td>Default opening hours for Monday.</td></tr>
   <tr><td>opening_hours_tue</td><td>Array</td><td>Default opening hours for Tuesday.</td></tr>
   <tr><td>opening_hours_wed</td><td>Array</td><td>Default opening hours for Wednesday.</td></tr>
@@ -90,6 +91,18 @@ Response
 ## Delete resource
 
 `DELETE /resources/{resource_id}` will delete existing resource with id `{resource_id}`. Deleting a resource will set it to active=false and will not be returned in any listings.
+
+## Get opening hours for all resources
+
+`GET /resources/opening_hours` will return opening hours for all resources on specific dates.
+
+### Query Parameters
+
+<table>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>from</td><td>Date</td><td>Default: today</td></tr>
+  <tr><td>to</td><td>Date</td><td>Default: today</td></tr>
+</table>
 
 ## Get opening hours for specific dates
 

@@ -29,6 +29,9 @@ It is possible to give a person ability to book on behalf of other people. This 
   <tr><td>country_code</td><td>String</td><td>Not required. ISO 3166-1 alpha-2.</td></tr>
   <tr><td>notes</td><td>Text</td><td>Not required.</td></tr>
   <tr><td>parent_id</td><td>Integer</td><td>Id of parent.</td></tr>
+  <tr><td>blocked</td><td>Boolean</td><td>Whether the person is blocked from booking.</td></tr>
+  <tr><td>locale</td><td>String</td><td>Person's preferred locale.</td></tr>
+  <tr><td>opt_in_marketing</td><td>Boolean</td><td>Only for output. Whether person has opted in to marketing.</td></tr>
 </table>
 
 ## Listing
@@ -98,6 +101,18 @@ You can search multiple columns at once, for example `email` and `phone_number`,
 ## Delete person
 
 `DELETE /people/{person_id}` will delete existing person with id `{person_id}`.
+
+## Block person
+
+`PUT /people/{person_id}/block` will block person with id `{person_id}` from making bookings.
+
+## Unblock person
+
+`PUT /people/{person_id}/unblock` will unblock person with id `{person_id}`.
+
+## Authenticate person
+
+`POST /people/authenticate` will authenticate a person. Specify credentials using `person[email]` or `person[phone_number]` and `person[password]`.
 
 ## Undelete person
 

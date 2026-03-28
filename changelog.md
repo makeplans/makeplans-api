@@ -4,6 +4,36 @@ layout: default
 permalink: /changelog/
 ---
 
+## 2026-03-28
+
+**Added message templates endpoint**
+
+Added full CRUD for message templates.
+
+**Added missing endpoints**
+
+- `GET /bookings/no_status` - list active bookings with no status set.
+- `PUT /bookings/recurring/{collection_id}/cancel` - cancel all occurrences in a recurring collection.
+- `GET /services/appointments`, `/services/attendances`, `/services/products`, `/services/gift_cards` - list services by booking type.
+- `GET /services/{id}/availability` - get resource availability for a service.
+- `GET /resources/opening_hours` - bulk opening hours for all resources.
+- `PUT /people/{id}/block` and `PUT /people/{id}/unblock` - block/unblock a person.
+- `POST /people/authenticate` - authenticate a person.
+
+**Added missing attributes**
+
+- Booking: `paid_amount`, `revision_count`, `created_by`, `updated_by`, `external_url`, `external_host_url`, `booked_by_person_id`, `verification_method`, `location_url`, `location_host_url`.
+- Service: `next_interval`, `mail_modification`, `mail_awaiting_confirmation`, `mail_cancellation`, `sms_modification`, `sms_awaiting_confirmation`, `sms_cancellation`, `payment_required`, `allow_invoice`, `booking_minimum`, `terms`, `priority_strategy`, `availability_type`, `priority_value`.
+- Event: `first_booking_at`, `last_booking_at`, `availability`, `nr_of_attendances`.
+- Person: `blocked`, `locale`, `opt_in_marketing`.
+- Resource: `custom_data`.
+- Provider: `priority_value`.
+- Category: `priority_value`.
+
+**Removed stale attribute**
+
+- Booking: removed `google_order_number` (not present in API output).
+
 ## 2026-03-27
 
 **Added orders endpoint**

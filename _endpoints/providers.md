@@ -22,6 +22,7 @@ Resources provides services. This link is called a provider.
   <tr><td>opening_hours_fri</td><td>Array</td><td>Opening hours for Friday. Fallback to resource availability.</td></tr>
   <tr><td>opening_hours_sat</td><td>Array</td><td>Opening hours for Saturday. Fallback to resource availability.</td></tr>
   <tr><td>opening_hours_sun</td><td>Array</td><td>Opening hours for Sunday. Fallback to resource availability.</td></tr>
+  <tr><td>priority_value</td><td>Integer</td><td>Not required. Priority value for ordering.</td></tr>
 </table>
 
 Opening hours for a provider works in the same way as availability is defined on [resource exception date](/endpoints/resource-exception-dates/).

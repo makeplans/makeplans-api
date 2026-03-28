@@ -23,7 +23,16 @@ nav_order: 2
   <tr><td>reminded_at</td><td>Datetime</td><td>Not required</td></tr>
   <tr><td>paid_at</td><td>Datetime</td><td>Not required</td></tr>
   <tr><td>external_id</td><td>String</td><td>Not required</td></tr>
-  <tr><td>google_order_number</td><td>String</td><td>Not required</td></tr>
+  <tr><td>paid_amount</td><td>Decimal</td><td>Not required</td></tr>
+  <tr><td>revision_count</td><td>Integer</td><td>Automatically set</td></tr>
+  <tr><td>created_by</td><td>String</td><td>Automatically set</td></tr>
+  <tr><td>updated_by</td><td>String</td><td>Automatically set</td></tr>
+  <tr><td>external_url</td><td>String</td><td>Not required</td></tr>
+  <tr><td>external_host_url</td><td>String</td><td>Not required</td></tr>
+  <tr><td>booked_by_person_id</td><td>Integer</td><td>Not required. Person who made the booking (e.g. parent booking for child).</td></tr>
+  <tr><td>verification_method</td><td>String</td><td>Only for output.</td></tr>
+  <tr><td>location_url</td><td>String</td><td>Only for output.</td></tr>
+  <tr><td>location_host_url</td><td>String</td><td>Only for output.</td></tr>
   <tr><td>custom_data</td><td>Array</td><td>Not required</td></tr>
   <tr><td>state</td><td>String</td><td>Automatically set. See states</td></tr>
   <tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
@@ -84,6 +93,8 @@ See query parameters for filtering the output beyond the default outputs.
 `GET /bookings/all` will return all bookings of all states (including `declined`, `cancelled`, `deleted`, and `verification_expired`). This is a useful output for synchronisation when you need to keep a track of deleted bookings.
 
 `GET /bookings/visible` will return all active bookings as well as those declined or cancelled. This is the preferred output if you want to provide a list of all bookings for visual presentation.
+
+`GET /bookings/no_status` will return all active bookings with no status set.
 
 Response
 
@@ -217,6 +228,10 @@ You should always specify COUNT or UNTIL with RRULE. The max number of occurrenc
 ### List occurrences
 
 `GET /bookings/recurring/{collection_id}` will return all occurrences for a collection.
+
+### Cancel all occurrences
+
+`PUT /bookings/recurring/{collection_id}/cancel` will cancel *all* occurrences for a collection.
 
 ### Delete all occurrences
 

@@ -20,5 +20,6 @@ See the [guide](/guide/getting-started/) for general information about authentic
 - [Coupons](/endpoints/coupons/)
 - [Orders](/endpoints/orders/)
 - [Gift Cards](/endpoints/gift-cards/)
+- [Message Templates](/endpoints/message-templates/)
 - [Webhooks](/endpoints/webhooks/)
 - [Account](/endpoints/account/)

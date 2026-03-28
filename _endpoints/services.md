@@ -3,10 +3,12 @@ title: Services
 nav_order: 4
 ---
 
-There are two types of services:
+There are four types of services:
 
 * Appointment
 * Attendance
+* Product
+* Gift card
 
 Appointments can be booked within fixed opening hours as specified on the Resource and with exceptions specified in ResourceExceptionDate.
 
@@ -31,7 +33,7 @@ Attendance at an event is also a booking but the individual booking datetime or 
   <tr><td>same_day</td><td>Boolean</td><td>Not required (default false)</td></tr>
   <tr><td>template</td><td>String</td><td>Component template (calendar view)</td></tr>
   <tr><td>interval_rounding</td><td>Integer</td><td>Overrides account default (see info on account object)</td></tr>
-  <tr><td>booking_type</td><td>String</td><td>Required. Values: appointment (default) or attendance</td></tr>
+  <tr><td>booking_type</td><td>String</td><td>Required. Values: appointment (default), attendance, product, gift_card</td></tr>
   <tr><td>custom_data</td><td>Array</td><td>Not required</td></tr>
   <tr><td>booking_form</td><td>Liquid-Text</td><td>Custom booking form</td></tr>
   <tr><td>mail_verification</td><td>Liquid-Text</td><td></td></tr>
@@ -39,6 +41,20 @@ Attendance at an event is also a booking but the individual booking datetime or 
   <tr><td>sms_verification</td><td>Liquid-Text</td><td></td></tr>
   <tr><td>sms_confirmation</td><td>Liquid-Text</td><td></td></tr>
   <tr><td>sms_reminder</td><td>Liquid-Text</td><td></td></tr>
+  <tr><td>mail_modification</td><td>Liquid-Text</td><td></td></tr>
+  <tr><td>mail_awaiting_confirmation</td><td>Liquid-Text</td><td></td></tr>
+  <tr><td>mail_cancellation</td><td>Liquid-Text</td><td></td></tr>
+  <tr><td>sms_modification</td><td>Liquid-Text</td><td></td></tr>
+  <tr><td>sms_awaiting_confirmation</td><td>Liquid-Text</td><td></td></tr>
+  <tr><td>sms_cancellation</td><td>Liquid-Text</td><td></td></tr>
+  <tr><td>next_interval</td><td>Integer</td><td>Not required</td></tr>
+  <tr><td>payment_required</td><td>Boolean</td><td>Not required</td></tr>
+  <tr><td>allow_invoice</td><td>Boolean</td><td>Not required</td></tr>
+  <tr><td>booking_minimum</td><td>Integer</td><td>Not required</td></tr>
+  <tr><td>terms</td><td>Text</td><td>Not required</td></tr>
+  <tr><td>priority_strategy</td><td>String</td><td>Not required. Strategy for resource priority assignment.</td></tr>
+  <tr><td>availability_type</td><td>String</td><td>Not required. Type of availability calculation.</td></tr>
+  <tr><td>priority_value</td><td>Integer</td><td>Not required. Priority value for ordering.</td></tr>
 </table>
 
 ### Deprecated attributes
@@ -51,6 +67,14 @@ Attendance at an event is also a booking but the individual booking datetime or 
 ## Listing
 
 `GET /services` will return all services.
+
+`GET /services/appointments` will return all services with booking_type=appointment.
+
+`GET /services/attendances` will return all services with booking_type=attendance.
+
+`GET /services/products` will return all services with booking_type=product.
+
+`GET /services/gift_cards` will return all services with booking_type=gift_card.
 
 Response
 
@@ -91,6 +115,10 @@ Response
 ## Update service
 
 `PUT /services/{service_id}` will update existing service with id `{service_id}`.
+
+## Get availability
+
+`GET /services/{service_id}/availability` will return available resources for a service with id `{service_id}`.
 
 ## Delete service
 

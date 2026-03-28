@@ -15,6 +15,7 @@ Services can be listed in a category. Categories can be presented like a tree. R
   <tr><td>title</td><td>String</td><td>Required</td></tr>
   <tr><td>parent_id</td><td>Integer</td><td></td></tr>
   <tr><td>custom_data</td><td>Array</td><td>Not required.</td></tr>
+  <tr><td>priority_value</td><td>Integer</td><td>Not required. Priority value for ordering.</td></tr>
 </table>
 
 ## Listing

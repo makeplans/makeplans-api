@@ -23,6 +23,10 @@ While events are connected to a resource bookings or capacity of an event are no
   <tr><td>custom_data</td><td>Array</td><td>Not required</td></tr>
   <tr><td>title</td><td>String</td><td></td></tr>
   <tr><td>description</td><td>Text</td><td></td></tr>
+  <tr><td>first_booking_at</td><td>Datetime</td><td>Not required. Earliest allowed booking time.</td></tr>
+  <tr><td>last_booking_at</td><td>Datetime</td><td>Not required. Latest allowed booking time.</td></tr>
+  <tr><td>availability</td><td>Integer</td><td>Only for output. Current available capacity.</td></tr>
+  <tr><td>nr_of_attendances</td><td>Integer</td><td>Only for output. Number of current attendees.</td></tr>
 </table>
 
 ## Listing
