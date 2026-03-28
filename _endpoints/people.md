@@ -3,7 +3,7 @@ title: People
 nav_order: 3
 ---
 
-The primary key for a person is `id`. However the following fields are unique: `email`, `phonenumber`, `national_id_no` and `provider`+`uid`. There are no specific requirements for input but a person needs to have either name, email, national id number or phone number.
+The primary key for a person is `id`. However the following fields are unique: `email`, `phone_number`, `national_id_no` and `provider`+`uid`. There are no specific requirements for input but a person needs to have either name, email, national id number or phone number.
 
 It is possible to give a person ability to book on behalf of other people. This is linked through the `parent_id` attribute.
 
@@ -52,9 +52,16 @@ Response
       "name": "Espen Antonsen",
       "national_id_no": null,
       "notes": null,
-      "phonenumber": "",
-      "updated_at": "2012-09-20T15:34:16+02:00",
-      "phone_number_formatted": null
+      "phone_number": "",
+      "phone_number_formatted": null,
+      "date_of_birth": null,
+      "street": null,
+      "city": null,
+      "postal_code": null,
+      "state": null,
+      "country_code": null,
+      "parent_id": null,
+      "updated_at": "2012-09-20T15:34:16+02:00"
     }
   }
 ]

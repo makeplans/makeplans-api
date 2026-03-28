@@ -28,7 +28,7 @@ Opening hours for a provider works in the same way as availability is defined on
 
 ## Listing
 
-`GET /providers/` will return all providers.
+`GET /providers` will return all providers.
 
 Response
 
@@ -40,6 +40,13 @@ Response
       "id": 1,
       "resource_id": 1,
       "service_id": 1,
+      "opening_hours_mon": null,
+      "opening_hours_tue": null,
+      "opening_hours_wed": null,
+      "opening_hours_thu": null,
+      "opening_hours_fri": null,
+      "opening_hours_sat": null,
+      "opening_hours_sun": null,
       "updated_at": "2012-09-20T15:34:16+02:00"
     }
   }
@@ -53,6 +60,10 @@ Response
 ## Add new provider
 
 `POST /providers` will create a new provider.
+
+## Update provider
+
+`PUT /providers/{provider_id}` will update existing provider with id `{provider_id}`.
 
 ## Delete provider
 

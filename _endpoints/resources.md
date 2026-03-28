@@ -12,6 +12,7 @@ nav_order: 6
   <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
   <tr><td>title</td><td>String</td><td>Required</td></tr>
   <tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
+  <tr><td>capacity</td><td>Integer</td><td></td></tr>
   <tr><td>opening_hours_mon</td><td>Array</td><td>Default opening hours for Monday.</td></tr>
   <tr><td>opening_hours_tue</td><td>Array</td><td>Default opening hours for Tuesday.</td></tr>
   <tr><td>opening_hours_wed</td><td>Array</td><td>Default opening hours for Wednesday.</td></tr>
@@ -45,11 +46,11 @@ Values for the opening hours attributes is of type time in the array. Values are
   <tr><td>close_6</td><td>Time</td><td>Closing time for Sunday</td></tr>
 </table>
 
-These deprecated attributes define opening hours without breaks. Given `opening_hours_tue` with a break defined as this: `['08:00', '12:00', '12:30', '16:00']` it would yield `open_1` to be `08:00` and `close_1'` to be `16:00`. These attributes are deprecated and will be removed in a future API version.
+These deprecated attributes define opening hours without breaks. Given `opening_hours_tue` with a break defined as this: `['08:00', '12:00', '12:30', '16:00']` it would yield `open_1` to be `08:00` and `close_1` to be `16:00`. These attributes are deprecated and will be removed in a future API version.
 
 ## Listing
 
-`GET /resources/` will return all resources.
+`GET /resources` will return all resources.
 
 Response
 

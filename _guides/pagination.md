@@ -10,7 +10,7 @@ Maximum 50 items are returned per response for all endpoints except `bookings` w
 ## Example request and response
 
 ```shell
-curl -u APIKEY: \
+curl -H 'Authorization: Bearer APIKEY' \
 -H 'User-Agent: YourAppName' \
 -H 'Accept: application/json' \
 https://youraccount.test.makeplans.net/api/v1/services
@@ -19,7 +19,7 @@ https://youraccount.test.makeplans.net/api/v1/services
 To create something you have to make a POST:
 
 ```shell
-curl -u APIKEY: \
+curl -H 'Authorization: Bearer APIKEY' \
 -H 'User-Agent: YourAppName' \
 -H 'Accept: application/json' \
 -d 'service[title]=My new service!&service[interval]=40' \

@@ -36,6 +36,8 @@ Response
       "value": 500,
       "valid_until": null,
       "active": true,
+      "person_id": null,
+      "purchased_by_person_id": 888,
       "custom_data": null,
       "created_at": "2026-03-26T10:00:00+02:00",
       "updated_at": "2026-03-26T10:00:00+02:00"

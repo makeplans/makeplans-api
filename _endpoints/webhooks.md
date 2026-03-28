@@ -1,5 +1,5 @@
 ---
-title: Webhooks Endpoint
+title: Webhooks
 nav_order: 13
 ---
 
@@ -19,7 +19,7 @@ See webhook overview for a [list of events](/guide/webhooks/#supported-events), 
 
 ## Listing
 
-`GET /web_hooks/` will return all webhooks.
+`GET /web_hooks` will return all webhooks.
 
 Response
 
@@ -40,16 +40,16 @@ Response
 
 ## Get webhook
 
-`GET /web_hook/{web_hook_id}` will get a webhook with id `{web_hook_id}`.
+`GET /web_hooks/{web_hook_id}` will get a webhook with id `{web_hook_id}`.
 
 ## Add new webhook
 
-`POST /web_hook` will create a new webhook.
+`POST /web_hooks` will create a new webhook.
 
 ## Update webhook
 
-`PUT /web_hook/{web_hook_id}` will update existing webhook with id `{web_hook_id}`.
+`PUT /web_hooks/{web_hook_id}` will update existing webhook with id `{web_hook_id}`.
 
 ## Delete webhook
 
-`DELETE /web_hook/{web_hook_id}` will delete existing webhook with id `{web_hook_id}`.
+`DELETE /web_hooks/{web_hook_id}` will delete existing webhook with id `{web_hook_id}`.

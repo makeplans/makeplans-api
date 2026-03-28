@@ -28,7 +28,7 @@ So for example whenever a new booking is created in Makeplans we can send a POST
 
 ### Deprecated attributes
 
-The attributes in the data payload, 'object', 'id', and '*object_type*', is also included in the root payload due to legacy reasons. Please use the `data` attribute. The legacy attributes will be removed in the future.
+The attributes in the data payload, 'object', 'id', and '*object_type*', are also included in the root payload due to legacy reasons. Please use the `data` attribute. The legacy attributes will be removed in the future.
 
 ## Supported events
 
@@ -57,7 +57,7 @@ You can use wildcard to trigger all or grouped events: `*` or `booking.*`
 
 We include a `X-MakePlans-Signature` header in the webhook request. Use this to verify the request body to ensure the request is from Makeplans and signed with your account secret. The header includes details about the signature and the signature itself. We use HMAC SHA-256 to compute this signature.
 
-Example: `X-MakePlans-Signature:sha256=5257a869e7ecebeda32affa62cdca3fa51cad7e77a0e56ff536d0ce8e108d8bd`.
+Example: `X-MakePlans-Signature: sha256=5257a869e7ecebeda32affa62cdca3fa51cad7e77a0e56ff536d0ce8e108d8bd`.
 
 ### Authentication
 
@@ -65,4 +65,4 @@ You can add HTTP Basic Auth credentials or a parameter secret to the webhook URL
 
 ## Retries
 
-We will retry after any 4xx or 5xx http status response. Maximum retries are 5. The timeout is set to 10 seconds.
+We will retry after any 4xx or 5xx HTTP status response. Note that 4xx responses are also retried as they may be caused by temporary issues on the receiving end. Maximum retries are 5. The timeout is set to 10 seconds.

@@ -8,8 +8,8 @@ nav_order: 2
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
   <tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
-  <tr><td>created_at</td><td>DateTime</td><td>Automatically set</td></tr>
-  <tr><td>updated_at</td><td>DateTime</td><td>Automatically set</td></tr>
+  <tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+  <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
   <tr><td>service_id</td><td>Integer</td><td>Not required</td></tr>
   <tr><td>event_id</td><td>Integer</td><td>Not required</td></tr>
   <tr><td>resource_id</td><td>Integer</td><td>Required</td></tr>
@@ -19,9 +19,9 @@ nav_order: 2
   <tr><td>expires_at</td><td>Datetime</td><td>Not required</td></tr>
   <tr><td>title</td><td>String</td><td>Not required</td></tr>
   <tr><td>notes</td><td>Text</td><td>Not required</td></tr>
-  <tr><td>reminder_at</td><td>DateTime</td><td>Not required</td></tr>
-  <tr><td>reminded_at</td><td>DateTime</td><td>Not required</td></tr>
-  <tr><td>paid_at</td><td>DateTime</td><td>Not required</td></tr>
+  <tr><td>reminder_at</td><td>Datetime</td><td>Not required</td></tr>
+  <tr><td>reminded_at</td><td>Datetime</td><td>Not required</td></tr>
+  <tr><td>paid_at</td><td>Datetime</td><td>Not required</td></tr>
   <tr><td>external_id</td><td>String</td><td>Not required</td></tr>
   <tr><td>google_order_number</td><td>String</td><td>Not required</td></tr>
   <tr><td>custom_data</td><td>Array</td><td>Not required</td></tr>
@@ -77,11 +77,11 @@ See query parameters for filtering the output beyond the default outputs.
 
 `GET /bookings/recent` will return all active bookings ordered based on updated_at.
 
-`GET /bookings/upcoming` will return all active bookings from and including `{date}`.
+`GET /bookings/upcoming` will return all future active bookings.
 
 `GET /bookings/unconfirmed` will return only unconfirmed bookings.
 
-`GET /bookings/all` will return all bookings of all states (including `declined`, `cancelled`, `deleted`, and `verification_expired`). This is a useful output for syncronisation when you need to keep a track of deleted bookings.
+`GET /bookings/all` will return all bookings of all states (including `declined`, `cancelled`, `deleted`, and `verification_expired`). This is a useful output for synchronisation when you need to keep a track of deleted bookings.
 
 `GET /bookings/visible` will return all active bookings as well as those declined or cancelled. This is the preferred output if you want to provide a list of all bookings for visual presentation.
 
@@ -120,9 +120,9 @@ Response
   <tr><td>resource_id</td><td>Integer or array of integers</td><td></td></tr>
   <tr><td>person_id</td><td>Integer or array of integers</td><td></td></tr>
   <tr><td>external_id</td><td>String</td><td></td></tr>
-  <tr><td>start</td><td>DateTime</td><td>booked_from after param</td></tr>
-  <tr><td>end</td><td>DateTime</td><td>booked_to before param</td></tr>
-  <tr><td>since</td><td>DateTime</td><td>updated_at after param</td></tr>
+  <tr><td>start</td><td>Datetime</td><td>booked_from after param</td></tr>
+  <tr><td>end</td><td>Datetime</td><td>booked_to before param</td></tr>
+  <tr><td>since</td><td>Datetime</td><td>updated_at after param</td></tr>
   <tr><td>collection_id</td><td>UUID</td><td></td></tr>
   <tr><td>state</td><td>String or array of strings</td><td>See states</td></tr>
   <tr><td>status</td><td>String or array of strings</td><td>See statuses</td></tr>
@@ -162,7 +162,7 @@ These parameters are part of booking: `booking[public_booking]`.
 
 ### Additional parameters
 
-These parameters are part not of `booking[]`: `confirm`.
+These parameters are not part of `booking[]`: `confirm`.
 
 Outgoing messages requires person_id and service_id.
 
@@ -171,7 +171,7 @@ Default action for outgoing messages is according to the settings for booking ve
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
   <tr><td>confirm</td><td>Boolean</td><td>If set to false then the 'initiate verification' event is executed. If verification is required the state will be set to `awaiting_verification`. If no verification is required then the state will be set to `awaiting_confirmation` or `confirmed`.</td></tr>
-  <tr><td>ignore_capacity</td><td>Boolean</td><td>Will force save the booking even though other bookings exists within the same time on the specified resource_id (double booking). Not applicable when `public_booking` is set to false (no double bookings allowed). Default: false.</td></tr>
+  <tr><td>ignore_capacity</td><td>Boolean</td><td>Will force save the booking even though other bookings exists within the same time on the specified resource_id (double booking). Not applicable when `public_booking` is set to true (no double bookings allowed). Default: false.</td></tr>
   <tr><td>add_reminder_sms</td><td>Boolean</td><td>Automatically adds `reminder_at` based on setting from account attribute `sms_reminder_time`. Default: at 12PM the day before the appointment.</td></tr>
   <tr><td>add_messages</td><td>Boolean</td><td>Automatically generate messages based on message templates. (NOTE: Beta functionality available by invitation.)</td></tr>
   <tr><td>verification_send_email</td><td>Boolean</td><td>Send out verification email. Only applicable when `confirm` is set to false.</td></tr>

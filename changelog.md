@@ -30,7 +30,7 @@ Booking object now includes booking_type to indicate whether the booking is `app
 
 Previously date formats `DD.MM.YY HH:mm` and `YYYY-MM-DDTHH:mm` would be parsed in time zone UTC due to a bug in our parser. This is now parsed in local time.
 
-If you have specified ISO8601 without `T` seperator or with seconds it would have been parsed as local time.
+If you have specified ISO8601 without `T` separator or with seconds it would have been parsed as local time.
 
 While these date formats are assumingly common we have not found any indication of usage among API clients. So while this is a breaking change we consider this to be a safe breaking change.
 
@@ -73,7 +73,7 @@ The output of webhook payload has changed. Old attributes are still included but
 * `person.deleted`
 * `person.modified`
 
-**New query paramater for people**
+**New query parameter for people**
 
 Added `since` param for people endpoint to get modified people after specified date.
 
@@ -101,7 +101,7 @@ Bookings can now be filtered by status.
 
 ## 2022-07-28
 
-**Deprecated service booking_type_id in favor for booking_type**
+**Deprecated service booking_type_id in favor of booking_type**
 
 Attribute `booking_type` can be `appointment` or `attendance`. Previously `booking_type_id` was an integer indicating the type.
 
@@ -135,7 +135,7 @@ List dates with available slots for a service.
 
 **Added wildcard triggers for webhooks**
 
-You can now add wildcard entries when events are trigged. Example: `*` or `booking.*`.
+You can now add wildcard entries when events are triggered. Example: `*` or `booking.*`.
 
 ## 2021-02-03
 
@@ -265,7 +265,7 @@ Added endpoint for merging two people.
 
 **Default order of returned bookings and events**
 
-The default order used to be reverse chronological, this have not changed to chronological. So the oldest entry will now be the first item returned.
+The default order used to be reverse chronological, this has now changed to chronological. So the oldest entry will now be the first item returned.
 
 To use the old default please specify order using `order=booked_from_desc` for bookings and `order=starts_at_desc` for events.
 

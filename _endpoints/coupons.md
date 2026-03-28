@@ -30,7 +30,7 @@ nav_order: 10
 
 ## Listing
 
-`GET /coupons/` will return all coupons.
+`GET /coupons` will return all coupons.
 
 Response
 

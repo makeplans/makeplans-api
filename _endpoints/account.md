@@ -122,7 +122,7 @@ Response
 
 ## Users
 
-Users who can login into the account.
+Users who can log in to the account.
 
 ### Attributes for user role on the account
 
@@ -180,6 +180,6 @@ Response
 
 `GET /client/users/{user_link_id}` will get a user with id `{user_link_id}`.
 
-### Add new user
+## Add new user
 
-`GET /client/users` will create a new user. An email is sent to the user so the user can specify their password.
+`POST /client/users` will create a new user. An email is sent to the user so the user can specify their password.

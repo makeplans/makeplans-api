@@ -5,14 +5,14 @@ nav_order: 1
 
 Slots are not physical objects in Makeplans. It is a virtual representation of available times based on attributes from resources and services as well as various settings. So if a resource is open 8am to 4pm and selected service has interval of 60 minutes, slots will return an array of all time intervals (8am-9am, 9am-10am etc.) and indicate which resources are available.
 
-Slots are meant for listing available times on the Makeplans booking page. You can however make bookings at any time and with any length - as long as the resource is available off course.
+Slots are meant for listing available times on the Makeplans booking page. You can however make bookings at any time and with any length - as long as the resource is available of course.
 
 ## Attributes
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-  <tr><td>timestamp</td><td>DateTime</td><td>Start</td></tr>
-  <tr><td>timestamp_end</td><td>DateTime</td><td>End</td></tr>
+  <tr><td>timestamp</td><td>Datetime</td><td>Start</td></tr>
+  <tr><td>timestamp_end</td><td>Datetime</td><td>End</td></tr>
   <tr><td>formatted_timestamp</td><td>String</td><td>Localised human readable format</td></tr>
   <tr><td>formatted_timestamp_end</td><td>String</td><td>Localised human readable format</td></tr>
   <tr><td>free</td><td>Integer</td><td>Free capacity</td></tr>

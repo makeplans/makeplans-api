@@ -13,4 +13,4 @@ Example: `Authorization: Bearer APIKEY`
 
 Deprecated: For Basic Auth use the API-Key as username and empty password.
 
-If your application is installable by end-users you should use oAuth. However we do not yet support oAuth so please contact us if this is something you require.
+If your application is installable by end-users you should use OAuth. However we do not yet support OAuth so please contact us if this is something you require.

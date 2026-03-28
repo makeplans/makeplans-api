@@ -21,7 +21,7 @@ Example response:
 
 ## 401 - Unauthorized
 
-Authentication error. Response body will give explanation if there is authorisation issue or if the API is not enabled.
+Authentication error. Response body will give explanation if there is an authentication issue or if the API is not enabled.
 
 ## 402 - Payment Required
 
@@ -33,7 +33,7 @@ Authorization error. If you are authenticated but lack permissions.
 
 ## 404 - Not Found
 
-Obviously incorrect paths (`/cats`) returns 404. However, even though cool URIs should not change, previously available objects, lets say `/resources/666`, might have been deleted and thus return a 404 when requested. In most cases deleted resources will be returned and have a booking state or a flag that indicate that the resource is inactive or deleted.
+Obviously incorrect paths (`/cats`) returns 404. However, even though cool URIs should not change, previously available objects, let's say `/resources/666`, might have been deleted and thus return a 404 when requested. In most cases deleted resources will be returned and have a state or a flag that indicates that the resource is inactive or deleted.
 
 ## 429 - Too Many Requests
 

@@ -3,7 +3,7 @@ title: Events
 nav_order: 5
 ---
 
-Unlike appointments made through a normal service events starts and ends at a specific time. An event is connected to a resource and a service. It could be either a one-off event (e.q. a concert) or something that occurs multiple times (e.q. spinning class). Event bookings have a strong relation to the event. That means that it is not possible to modify details such as `{booked_from}`, `{booked_to}`, `{resource_id}` and `{service_id}` for the `{booking}`. To make such changes it must be done to the event. All bookings connected to the event will then automatically me modified.
+Unlike appointments made through a normal service events starts and ends at a specific time. An event is connected to a resource and a service. It could be either a one-off event (e.g. a concert) or something that occurs multiple times (e.g. spinning class). Event bookings have a strong relation to the event. That means that it is not possible to modify details such as `{booked_from}`, `{booked_to}`, `{resource_id}` and `{service_id}` for the `{booking}`. To make such changes it must be done to the event. All bookings connected to the event will then automatically be modified.
 
 While events are connected to a resource bookings or capacity of an event are not restricted by the opening hours or availability of a resource.
 
@@ -21,12 +21,13 @@ While events are connected to a resource bookings or capacity of an event are no
   <tr><td>starts_at</td><td>Datetime</td><td>Required</td></tr>
   <tr><td>ends_at</td><td>Datetime</td><td>Required</td></tr>
   <tr><td>custom_data</td><td>Array</td><td>Not required</td></tr>
+  <tr><td>title</td><td>String</td><td></td></tr>
   <tr><td>description</td><td>Text</td><td></td></tr>
 </table>
 
 ## Listing
 
-`GET /events/` will return all events.
+`GET /events` will return all events.
 
 Response
 
@@ -57,9 +58,9 @@ Response
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
   <tr><td>service_id</td><td>Integer</td><td></td></tr>
   <tr><td>resource_id</td><td>Integer</td><td></td></tr>
-  <tr><td>start</td><td>DateTime</td><td>starts_at after param</td></tr>
-  <tr><td>end</td><td>DateTime</td><td>ends_at before param</td></tr>
-  <tr><td>since</td><td>DateTime</td><td>updated_at after param</td></tr>
+  <tr><td>start</td><td>Datetime</td><td>starts_at after param</td></tr>
+  <tr><td>end</td><td>Datetime</td><td>ends_at before param</td></tr>
+  <tr><td>since</td><td>Datetime</td><td>updated_at after param</td></tr>
 </table>
 
 ## Get event
@@ -72,7 +73,7 @@ Response
 
 ## Add recurring/multiple events
 
-`POST /events/recurring` will create a multiple events.
+`POST /events/recurring` will create multiple events.
 
 The recurrence format follows the [iCalendar specification](https://tools.ietf.org/html/rfc5545){:target="_blank"}. The attributes for recurrence are: `RRULE`, `RDATE`, `EXDATE`. For an introduction and examples of these parameters see [this section from the iCalendar specification](http://www.kanzaki.com/docs/ical/rrule.html){:target="_blank"}.
 
@@ -103,11 +104,11 @@ You should always specify COUNT or UNTIL with RRULE. The max number of occurrenc
 
 ## Update event
 
-`PUT /events/{event_id}` will update existing service with id `{event_id}`.
+`PUT /events/{event_id}` will update existing event with id `{event_id}`.
 
 ## Delete event
 
-`DELETE /events/{event_id}` will delete existing event with id `{event_id}`. Deleting a event will set it to active=false and will not be returned in any listings.
+`DELETE /events/{event_id}` will delete existing event with id `{event_id}`. Deleting an event will set it to active=false and will not be returned in any listings.
 
 ## List bookings
 

@@ -46,7 +46,7 @@ The response includes nested `person` and `order_line_items`.
 
 ## Listing
 
-`GET /orders` will return all orders.
+`GET /orders` will return all orders. Orders are read-only via the API.
 
 Response
 

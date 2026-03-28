@@ -50,7 +50,7 @@ Attendance at an event is also a booking but the individual booking datetime or 
 
 ## Listing
 
-`GET /services/` will return all services.
+`GET /services` will return all services.
 
 Response
 
@@ -60,6 +60,7 @@ Response
     "service": {
       "active": true,
       "booking_capacity": 1,
+      "booking_type": "appointment",
       "booking_type_id": 1,
       "description": "The best service",
       "created_at": "2012-09-20T15:34:16+02:00",

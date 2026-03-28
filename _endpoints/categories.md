@@ -19,7 +19,7 @@ Services can be listed in a category. Categories can be presented like a tree. R
 
 ## Listing
 
-`GET /categories/` will return all categories.
+`GET /categories` will return all categories.
 
 Response
 
