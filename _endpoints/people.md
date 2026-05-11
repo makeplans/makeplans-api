@@ -32,6 +32,7 @@ It is possible to give a person ability to book on behalf of other people. This 
   <tr><td>blocked</td><td>Boolean</td><td>Whether the person is blocked from booking.</td></tr>
   <tr><td>locale</td><td>String</td><td>Person's preferred locale.</td></tr>
   <tr><td>opt_in_marketing</td><td>Boolean</td><td>Only for output. Whether person has opted in to marketing.</td></tr>
+  <tr><td>opt_in_marketing_at</td><td>Datetime</td><td>Only for output. Timestamp of when the person opted in to marketing. null if the person has not opted in. Paired with the opt_in_marketing boolean.</td></tr>
 </table>
 
 ## Listing
