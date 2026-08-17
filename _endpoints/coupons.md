@@ -1,6 +1,7 @@
 ---
 title: Coupons
 nav_order: 10
+description: API reference for the Makeplans coupons endpoint — attributes and operations for managing coupons.
 ---
 
 ## Attributes

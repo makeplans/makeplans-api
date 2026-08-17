@@ -1,6 +1,7 @@
 ---
 title: Resource Exception Dates
 nav_order: 7
+description: API reference for Makeplans resource exception dates — per-date opening hours overrides for resources.
 ---
 
 Opening hours for a resource is what is used to generate available slots for a service.

@@ -1,6 +1,7 @@
 ---
 title: Slots
 nav_order: 1
+description: API reference for the Makeplans slots endpoint — available times computed from resources, services and opening hours.
 ---
 
 Slots are not physical objects in Makeplans. It is a virtual representation of available times based on attributes from resources and services as well as various settings. So if a resource is open 8am to 4pm and selected service has interval of 60 minutes, slots will return an array of all time intervals (8am-9am, 9am-10am etc.) and indicate which resources are available.

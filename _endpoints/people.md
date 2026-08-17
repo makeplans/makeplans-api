@@ -1,6 +1,7 @@
 ---
 title: People
 nav_order: 3
+description: API reference for the Makeplans people endpoint — customers, their unique fields and relations.
 ---
 
 The primary key for a person is `id`. However the following fields are unique: `email`, `phone_number`, `national_id_no` and `provider`+`uid`. There are no specific requirements for input but a person needs to have either name, email, national id number or phone number.

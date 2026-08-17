@@ -1,6 +1,7 @@
 ---
 title: Account
 nav_order: 15
+description: API reference for the Makeplans account endpoint — information and settings for your account.
 ---
 
 Information and settings for your account.

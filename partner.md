@@ -2,6 +2,7 @@
 title: "Partner API"
 layout: default
 permalink: /partner/
+description: Create Makeplans accounts programmatically with the Partner API — for resellers and platform partners.
 ---
 
 Only account creation is done at this URL. All other requests are done on the URL for the API account subdomain.

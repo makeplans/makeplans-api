@@ -1,6 +1,7 @@
 ---
 title: Gift Cards
 nav_order: 12
+description: API reference for the Makeplans gift cards endpoint — attributes and operations for managing gift cards.
 ---
 
 ## Attributes

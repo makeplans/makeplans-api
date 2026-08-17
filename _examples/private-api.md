@@ -1,6 +1,7 @@
 ---
 title: "Private API"
 nav_order: 3
+description: Example requests and responses for the private Makeplans API.
 ---
 
 Please familiarise yourself with the key concepts of the Makeplans API first.

@@ -1,6 +1,7 @@
 ---
 title: Bookings
 nav_order: 2
+description: API reference for the Makeplans bookings endpoint — attributes, states and operations for managing bookings.
 ---
 
 ## Attributes

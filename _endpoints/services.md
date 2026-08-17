@@ -1,6 +1,7 @@
 ---
 title: Services
 nav_order: 4
+description: API reference for the Makeplans services endpoint — the four service types and their attributes.
 ---
 
 There are four types of services:

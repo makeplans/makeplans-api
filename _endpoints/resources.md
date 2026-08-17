@@ -1,6 +1,7 @@
 ---
 title: Resources
 nav_order: 6
+description: API reference for the Makeplans resources endpoint — attributes and operations for managing bookable resources.
 ---
 
 ## Attributes

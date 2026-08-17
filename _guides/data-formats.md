@@ -1,6 +1,7 @@
 ---
 title: Data Formats
 nav_order: 3
+description: Input and output formats for the Makeplans API — JSON output, JSON or form data input, all UTF-8.
 ---
 
 The API supports JSON for input and output. In addition you can specify input using form data.

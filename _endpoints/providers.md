@@ -1,6 +1,7 @@
 ---
 title: Providers
 nav_order: 8
+description: API reference for the Makeplans providers endpoint — the link between resources and the services they provide.
 ---
 
 Resources provides services. This link is called a provider.

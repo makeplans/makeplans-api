@@ -1,6 +1,7 @@
 ---
 title: Authentication
 nav_order: 6
+description: Authenticate with the private Makeplans API by sending your account API-Key as a Bearer token.
 ---
 
 Only the private API requires authentication. If you intend to use the API on a website please use the [public API](/guide/public-and-private-api/) which does not require authentication.

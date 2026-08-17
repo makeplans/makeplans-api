@@ -1,6 +1,7 @@
 ---
 title: Get Started
 nav_order: 1
+description: Get started with the Makeplans API — sign up for a test account, enable the API and get your API-Key.
 ---
 
 1) Read this documentation.

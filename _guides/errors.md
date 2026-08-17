@@ -1,6 +1,7 @@
 ---
 title: Errors
 nav_order: 9
+description: HTTP status codes and error responses from the Makeplans API, and how to handle them.
 ---
 
 4xx HTTP status codes means you made a mistake and you need to adjust your request.

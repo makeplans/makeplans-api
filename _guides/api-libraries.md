@@ -1,6 +1,7 @@
 ---
 title: API Libraries
 nav_order: 12
+description: Community-built client libraries for the Makeplans API, including Node.js, PHP and Go.
 ---
 
 Makeplans does not officially support API libraries but they might be useful for you. Please note that these projects are **not** made by Makeplans but made publicly available by other developers who have used the Makeplans API. Any questions should be made directly to the responsible developers. If you find any errors or areas of improvement please make a pull request to improve the project.

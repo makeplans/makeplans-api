@@ -1,6 +1,7 @@
 ---
 title: "Examples"
 nav_order: 1
+description: Two ways of using the Makeplans API — the public API with JavaScript on your website, or the private API from your application.
 ---
 
 There are two ways of using the Makeplans API:

@@ -1,6 +1,7 @@
 ---
 title: Message Templates
 nav_order: 13
+description: API reference for the Makeplans message templates endpoint — the content of booking confirmations, reminders and follow-ups.
 ---
 
 Message templates define the content of messages sent to customers for booking events such as confirmation, reminder, and follow-up.

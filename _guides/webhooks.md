@@ -1,6 +1,9 @@
 ---
 title: Webhooks
 nav_order: 13
+seo:
+  title: Webhooks guide
+description: Receive HTTP POST callbacks from Makeplans when bookings and other resources change — webhook concepts, payload and configuration.
 ---
 
 A webhook is simply a user-defined callback in the form of an HTTP POST which is invoked when something happens.

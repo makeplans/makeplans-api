@@ -1,6 +1,7 @@
 ---
 title: Events
 nav_order: 5
+description: API reference for the Makeplans events endpoint — fixed-time events such as classes and concerts, and their bookings.
 ---
 
 Unlike appointments made through a normal service events starts and ends at a specific time. An event is connected to a resource and a service. It could be either a one-off event (e.g. a concert) or something that occurs multiple times (e.g. spinning class). Event bookings have a strong relation to the event. That means that it is not possible to modify details such as `{booked_from}`, `{booked_to}`, `{resource_id}` and `{service_id}` for the `{booking}`. To make such changes it must be done to the event. All bookings connected to the event will then automatically be modified.

@@ -1,6 +1,7 @@
 ---
 title: Orders
 nav_order: 11
+description: API reference for the Makeplans orders endpoint — attributes and operations for managing orders.
 ---
 
 ## Attributes

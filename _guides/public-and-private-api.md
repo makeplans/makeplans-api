@@ -1,6 +1,7 @@
 ---
 title: Public and Private API
 nav_order: 2
+description: The two Makeplans APIs — the authenticated private API for integrations and the read-only public API for websites — and their base URLs.
 ---
 
 If you are planning to integrate directly from your application to Makeplans or need to modify information in Makeplans then you must use the private API. This API requires authentication with an API-key and should not be done publicly (on a website).

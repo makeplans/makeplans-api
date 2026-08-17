@@ -1,6 +1,7 @@
 ---
 title: "Public Booking Site"
 nav_order: 2
+description: Examples of building a public booking site with the Makeplans public API.
 ---
 
 Please familiarise yourself with the key concepts of the Makeplans API first.

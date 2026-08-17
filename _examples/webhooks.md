@@ -1,6 +1,9 @@
 ---
 title: "Webhooks"
 nav_order: 4
+seo:
+  title: Webhooks examples
+description: Example webhook event payloads from the Makeplans API.
 ---
 
 Please familiarise yourself with the key concepts of the Makeplans API first.

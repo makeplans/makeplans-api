@@ -1,5 +1,6 @@
 ---
 layout: home
+description: Build booking integrations with the Makeplans API — guides, endpoint reference and examples for appointments, classes and events.
 hero:
   name: Makeplans
   text: API Documentation

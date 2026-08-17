@@ -1,6 +1,9 @@
 ---
 title: Webhooks
 nav_order: 14
+seo:
+  title: Webhooks endpoint
+description: API reference for the Makeplans webhooks endpoint — attributes and operations for managing webhook subscriptions.
 ---
 
 ## Attributes

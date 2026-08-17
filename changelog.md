@@ -2,6 +2,7 @@
 title: "Changelog"
 layout: default
 permalink: /changelog/
+description: Changes and additions to the Makeplans API, newest first.
 ---
 
 ## 2026-03-28

@@ -1,6 +1,7 @@
 ---
 title: Categories
 nav_order: 9
+description: API reference for the Makeplans categories endpoint — organise services in a category tree.
 ---
 
 Services can be listed in a category. Categories can be presented like a tree. Root categories are defined with empty `{parent_id}`.

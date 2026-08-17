@@ -2,6 +2,7 @@
 title: "Overview"
 nav_order: 0
 permalink: /endpoints/
+description: Overview of the Makeplans API endpoints — one endpoint per object, all over HTTPS.
 ---
 
 All requests are done over HTTPS. Each object in Makeplans has its own endpoint.

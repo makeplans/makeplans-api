@@ -1,6 +1,7 @@
 ---
 title: MCP server (AI assistants)
 nav_order: 14
+description: Connect Claude, ChatGPT or any MCP-compatible AI assistant to Makeplans — endpoint, authentication, available tools and client setup.
 ---
 
 Makeplans provides an [MCP (Model Context Protocol)](https://modelcontextprotocol.io) server so AI assistants such as Claude and ChatGPT — and any other MCP-compatible client or agent — can work with your Makeplans account: check availability, list services and events, look up customers, and create or cancel bookings.
