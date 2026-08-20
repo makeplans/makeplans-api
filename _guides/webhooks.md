@@ -42,13 +42,15 @@ The attributes in the data payload, 'object', 'id', and '*object_type*', are als
 * booking.deleted
 * booking.modified
 * booking.verified
+* booking.waitlist_promoted
+* booking.waitlisted
 * event.created
 * event.deleted
 * event.modified
 * message.processed
 * person.created
 * person.deleted
-* person.modified
+* person.updated
 
 ## Wildcard usage
 
@@ -68,4 +70,6 @@ You can add HTTP Basic Auth credentials or a parameter secret to the webhook URL
 
 ## Retries
 
-We will retry after any 4xx or 5xx HTTP status response. Note that 4xx responses are also retried as they may be caused by temporary issues on the receiving end. Maximum retries are 5. The timeout is set to 10 seconds.
+We will retry after any 4xx or 5xx HTTP status response. Note that 4xx responses are also retried as they may be caused by temporary issues on the receiving end. Maximum retries are 20. The timeout is set to 10 seconds.
+
+A `410 Gone` response is not retried. It deactivates the webhook.

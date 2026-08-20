@@ -10,7 +10,6 @@ Information and settings for your account.
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-  <tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
   <tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
   <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
   <tr><td>subdomain</td><td>String</td><td>Required</td></tr>
@@ -22,8 +21,6 @@ Information and settings for your account.
   <tr><td>verification_method</td><td>Integer</td><td></td></tr>
   <tr><td>address</td><td>String</td><td></td></tr>
   <tr><td>country_code</td><td>String</td><td>Required. ISO 3166-1 alpha-2.</td></tr>
-  <tr><td>google_merchant_id</td><td>String</td><td></td></tr>
-  <tr><td>google_merchant_key</td><td>String</td><td></td></tr>
   <tr><td>logo</td><td>File</td><td></td></tr>
   <tr><td>template</td><td>Integer</td><td>Required</td></tr>
   <tr><td>service_template</td><td>String</td><td></td></tr>
@@ -37,7 +34,7 @@ Information and settings for your account.
   <tr><td>settings</td><td>Array</td><td></td></tr>
   <tr><td>public_access</td><td>Boolean</td><td></td></tr>
   <tr><td>interval_rounding</td><td>Integer</td><td>Default setting for all services for rounding to next available time. '15' will round 10:07 to become 10:15 as next available slot time.</td></tr>
-  <tr><td>slot_generation_type</td><td>Integer</td><td>Default: 2. 1=fixed. 2=next available.</td></tr>
+  <tr><td>slot_generation</td><td>String</td><td>Default: dynamic. Values: dynamic (next available), fixed.</td></tr>
   <tr><td>future_bookable_period</td><td>String</td><td>Natural language date/time relative to current time.</td></tr>
   <tr><td>first_bookable_period</td><td>String</td><td>Natural language date/time relative to current time.</td></tr>
   <tr><td>payment_provider</td><td>String</td><td></td></tr>
@@ -146,7 +143,6 @@ Users who can log in to the account.
   <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
   <tr><td>name</td><td>String</td><td>Required</td></tr>
   <tr><td>email</td><td>String</td><td>Required</td></tr>
-  <tr><td>phone_number</td><td>String</td><td>Also available as phonenumber (deprecated).</td></tr>
 </table>
 
 ### Listing
@@ -167,7 +163,6 @@ Response
       "user": {
           "id": 1,
           "email": "maestro@example.org",
-          "phone_number": "180",
           "name": "Espen Antonsen",
           "created_at": "2016-11-07T07:26:32+01:00",
           "updated_at": "2016-11-07T07:27:42+01:00"
@@ -184,3 +179,11 @@ Response
 ## Add new user
 
 `POST /client/users` will create a new user. An email is sent to the user so the user can specify their password.
+
+## Update user
+
+`PUT /client/users/{user_link_id}` will update the user role. Specify `role` in parameter `client_user_link`.
+
+## Delete user
+
+`DELETE /client/users/{user_link_id}` will remove the user from the account. The last admin user cannot be removed.

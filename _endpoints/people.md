@@ -20,7 +20,7 @@ It is possible to give a person ability to book on behalf of other people. This 
   <tr><td>phone_number</td><td>String</td><td>Not required. Phone number as stored. Also available as phonenumber (deprecated).</td></tr>
   <tr><td>phone_number_formatted</td><td>String</td><td>Only returnable. E.164 formatted phone number with plus sign, international code, and no spaces or parentheses.</td></tr>
   <tr><td>external_id</td><td>String</td><td>Not required</td></tr>
-  <tr><td>custom_data</td><td>Array</td><td>Not required. Key/value. Stored as strings.</td></tr>
+  <tr><td>custom_data</td><td>Object</td><td>Not required. Key/value. Stored as strings.</td></tr>
   <tr><td>date_of_birth</td><td>Date</td><td>Not required</td></tr>
   <tr><td>national_id_no</td><td>String</td><td>Not required.</td></tr>
   <tr><td>street</td><td>String</td><td>Not required.</td></tr>
@@ -59,13 +59,16 @@ Response
       "notes": null,
       "phone_number": "",
       "phone_number_formatted": null,
-      "date_of_birth": null,
       "street": null,
       "city": null,
       "postal_code": null,
       "state": null,
       "country_code": null,
       "parent_id": null,
+      "blocked": false,
+      "locale": null,
+      "opt_in_marketing": null,
+      "opt_in_marketing_at": null,
       "updated_at": "2012-09-20T15:34:16+02:00"
     }
   }
@@ -112,10 +115,6 @@ You can search multiple columns at once, for example `email` and `phone_number`,
 
 `PUT /people/{person_id}/unblock` will unblock person with id `{person_id}`.
 
-## Authenticate person
-
-`POST /people/authenticate` will authenticate a person. Specify credentials using `person[email]` or `person[phone_number]` and `person[password]`.
-
 ## Undelete person
 
 `PUT /people/{person_id}/undelete` will undelete existing person with id `{person_id}`.
@@ -132,15 +131,13 @@ Please note that this token is perishable, meaning that it will be removed from 
 
 ### Send perishable token
 
-`POST /people/perishable_token/send` will send a SMS with a five digit code (the token) or an email with a link which includes the token in the URL. Specify either `person[email]` or `person[phone_number]`.
-
-*Sending via email is not yet implemented. Only SMS token is possible.*
+`POST /people/perishable_token/send` will send a SMS with a five digit code (the token) or an email with a link which includes the token in the URL. Specify either `email` or `phone_number`.
 
 ### Verify perishable token
 
 `POST /people/perishable_token/verify`. This will return a person if authentication is successful. If the email or phone_number is already registered to a person then that person will be returned. If no person exists with the specified email/phone_number then a empty person object will be returned. You then have to make another call to create the person. If the token and the identifier do not match an error is returned.
 
-Specify the token as `perishable_token` and the identifier in `person[email]` or `person[phone_number]`.
+Specify the token as `perishable_token` and the identifier in `email` or `phone_number`.
 
 ## List bookings for person
 

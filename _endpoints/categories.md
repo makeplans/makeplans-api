@@ -15,7 +15,7 @@ Services can be listed in a category. Categories can be presented like a tree. R
   <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
   <tr><td>title</td><td>String</td><td>Required</td></tr>
   <tr><td>parent_id</td><td>Integer</td><td></td></tr>
-  <tr><td>custom_data</td><td>Array</td><td>Not required.</td></tr>
+  <tr><td>custom_data</td><td>Object</td><td>Not required. Key/value. Stored as strings.</td></tr>
   <tr><td>priority_value</td><td>Integer</td><td>Not required. Priority value for ordering.</td></tr>
 </table>
 
@@ -54,7 +54,7 @@ Response
 
 ## Delete category
 
-`DELETE /categories/{category_id}` will delete existing category with id `{category_id}`.
+`DELETE /categories/{category_id}` will delete existing category with id `{category_id}`. All subcategories of the category are also deleted. The connected services are not deleted, only the connections.
 
 ## List services
 

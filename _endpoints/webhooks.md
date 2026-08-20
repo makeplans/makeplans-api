@@ -13,9 +13,9 @@ description: API reference for the Makeplans webhooks endpoint — attributes an
   <tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
   <tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
   <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
-  <tr><td>target_url</td><td>String</td><td>Required</td></tr>
-  <tr><td>event</td><td>String</td><td>Required</td></tr>
-  <tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
+  <tr><td>target_url</td><td>String</td><td>Required. Must use HTTPS. Local addresses are not allowed. Maximum 2048 characters.</td></tr>
+  <tr><td>event</td><td>String</td><td>Required. Maximum 50 characters.</td></tr>
+  <tr><td>active</td><td>Boolean</td><td>Not required. Default true. Set to false to disable the webhook.</td></tr>
 </table>
 
 See webhook overview for a [list of events](/guide/webhooks/#supported-events), wildcard usage to trigger from multiple events, and how to handle webhook events from Makeplans.

@@ -12,9 +12,8 @@ description: API reference for the Makeplans resources endpoint — attributes a
   <tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
   <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
   <tr><td>title</td><td>String</td><td>Required</td></tr>
-  <tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
   <tr><td>capacity</td><td>Integer</td><td></td></tr>
-  <tr><td>custom_data</td><td>Array</td><td>Not required</td></tr>
+  <tr><td>custom_data</td><td>Object</td><td>Not required. Key/value. Stored as strings.</td></tr>
   <tr><td>opening_hours_mon</td><td>Array</td><td>Default opening hours for Monday.</td></tr>
   <tr><td>opening_hours_tue</td><td>Array</td><td>Default opening hours for Tuesday.</td></tr>
   <tr><td>opening_hours_wed</td><td>Array</td><td>Default opening hours for Wednesday.</td></tr>
@@ -95,7 +94,7 @@ Response
 
 ## Get opening hours for all resources
 
-`GET /resources/opening_hours` will return opening hours for all resources on specific dates.
+`GET /resources/opening_hours` will return opening hours for all active resources on specific dates.
 
 ### Query Parameters
 
@@ -103,7 +102,32 @@ Response
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
   <tr><td>from</td><td>Date</td><td>Default: today</td></tr>
   <tr><td>to</td><td>Date</td><td>Default: today</td></tr>
+  <tr><td>resource_id</td><td>String</td><td>Comma separated list of resource ids to limit the result.</td></tr>
+  <tr><td>service_id</td><td>Integer</td><td>Calculate opening hours for a specific service.</td></tr>
 </table>
+
+Response
+
+```json
+[
+  {
+    "resource": {
+      "id": 1,
+      "title": "Mr. Spine Twister",
+      "resource_opening_hours": [
+        {
+          "date": "2015-12-03",
+          "opening_hours": ["10:00", "12:00"]
+        },
+        {
+          "date": "2015-12-04",
+          "opening_hours": null
+        }
+      ]
+    }
+  }
+]
+```
 
 ## Get opening hours for specific dates
 
@@ -120,13 +144,15 @@ Response
   {
     "resource_opening_hours": {
       "date": "2015-12-03",
-      "opening_hours": ["10:00", "12:00"]
+      "opening_hours": ["10:00", "12:00"],
+      "service_id": null
     }
   },
   {
     "resource_opening_hours": {
       "date": "2015-12-04",
-      "opening_hours": null
+      "opening_hours": null,
+      "service_id": null
     }
   }
 ]
@@ -137,5 +163,6 @@ Response
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
   <tr><td>from</td><td>Date</td><td>Default: today</td></tr>
-  <tr><td>to</td><td>Date</td><td>Default: today</td></tr>
+  <tr><td>to</td><td>Date</td><td>Default: same as from</td></tr>
+  <tr><td>service_id</td><td>Integer</td><td>Calculate opening hours for a specific service provided by the resource.</td></tr>
 </table>

@@ -17,24 +17,25 @@ description: API reference for the Makeplans bookings endpoint — attributes, s
   <tr><td>person_id</td><td>Integer</td><td>Not required</td></tr>
   <tr><td>booked_from</td><td>Datetime</td><td>Required</td></tr>
   <tr><td>booked_to</td><td>Datetime</td><td>Required</td></tr>
-  <tr><td>expires_at</td><td>Datetime</td><td>Not required</td></tr>
+  <tr><td>expires_at</td><td>Datetime</td><td>Only for output</td></tr>
   <tr><td>title</td><td>String</td><td>Not required</td></tr>
   <tr><td>notes</td><td>Text</td><td>Not required</td></tr>
-  <tr><td>reminder_at</td><td>Datetime</td><td>Not required</td></tr>
-  <tr><td>reminded_at</td><td>Datetime</td><td>Not required</td></tr>
-  <tr><td>paid_at</td><td>Datetime</td><td>Not required</td></tr>
+  <tr><td>reminder_at</td><td>Datetime</td><td>Only for output</td></tr>
+  <tr><td>reminded_at</td><td>Datetime</td><td>Only for output</td></tr>
+  <tr><td>paid_at</td><td>Datetime</td><td>Only for output</td></tr>
   <tr><td>external_id</td><td>String</td><td>Not required</td></tr>
-  <tr><td>paid_amount</td><td>Decimal</td><td>Not required</td></tr>
+  <tr><td>paid_amount</td><td>Decimal</td><td>Only for output</td></tr>
+  <tr><td>invoiced_at</td><td>Datetime</td><td>Only for output</td></tr>
   <tr><td>revision_count</td><td>Integer</td><td>Automatically set</td></tr>
   <tr><td>created_by</td><td>String</td><td>Automatically set</td></tr>
   <tr><td>updated_by</td><td>String</td><td>Automatically set</td></tr>
   <tr><td>external_url</td><td>String</td><td>Not required</td></tr>
   <tr><td>external_host_url</td><td>String</td><td>Not required</td></tr>
-  <tr><td>booked_by_person_id</td><td>Integer</td><td>Not required. Person who made the booking (e.g. parent booking for child).</td></tr>
+  <tr><td>booked_by_person_id</td><td>Integer</td><td>Only for output. Person who made the booking (e.g. parent booking for child).</td></tr>
   <tr><td>verification_method</td><td>String</td><td>Only for output.</td></tr>
   <tr><td>location_url</td><td>String</td><td>Only for output.</td></tr>
   <tr><td>location_host_url</td><td>String</td><td>Only for output.</td></tr>
-  <tr><td>custom_data</td><td>Array</td><td>Not required</td></tr>
+  <tr><td>custom_data</td><td>Object</td><td>Not required. Key/value. Stored as strings.</td></tr>
   <tr><td>state</td><td>String</td><td>Automatically set. See states</td></tr>
   <tr><td>active</td><td>Boolean</td><td>Automatically set</td></tr>
   <tr><td>count</td><td>Integer</td><td>Default: 1</td></tr>
@@ -56,6 +57,7 @@ description: API reference for the Makeplans bookings endpoint — attributes, s
 * awaiting_payment
 * awaiting_confirmation
 * confirmed
+* waitlisted
 * declined
 * cancelled
 * deleted
@@ -74,6 +76,8 @@ The normal booking flow when a customer initiates a new booking starts with `awa
 Bookings that have been confirmed and then cancelled, either by customer or administrator, are set to `cancelled`.
 
 Bookings that are deleted are set to `deleted`.
+
+Bookings on a waitlist are set to `waitlisted`. A waitlisted booking is not active and does not count towards capacity. It can be promoted to an active state, see [promote](#promote-a-booking-from-the-waitlist).
 
 ## Active bookings
 
@@ -132,12 +136,15 @@ Response
   <tr><td>resource_id</td><td>Integer or array of integers</td><td></td></tr>
   <tr><td>person_id</td><td>Integer or array of integers</td><td></td></tr>
   <tr><td>external_id</td><td>String</td><td></td></tr>
-  <tr><td>start</td><td>Datetime</td><td>booked_from after param</td></tr>
-  <tr><td>end</td><td>Datetime</td><td>booked_to before param</td></tr>
-  <tr><td>since</td><td>Datetime</td><td>updated_at after param</td></tr>
+  <tr><td>start</td><td>Datetime</td><td>booked_from after param. Also accepts the values now and today.</td></tr>
+  <tr><td>end</td><td>Datetime</td><td>booked_to before param. Also accepts the values now and today.</td></tr>
+  <tr><td>since</td><td>Datetime</td><td>updated_at after param. Also accepts the values now and today.</td></tr>
   <tr><td>collection_id</td><td>UUID</td><td></td></tr>
   <tr><td>state</td><td>String or array of strings</td><td>See states</td></tr>
   <tr><td>status</td><td>String or array of strings</td><td>See statuses</td></tr>
+  <tr><td>exclude</td><td>Integer</td><td>Exclude booking with this id.</td></tr>
+  <tr><td>booking_type</td><td>String</td><td>See booking_type on <a href="/endpoints/services/">service</a>.</td></tr>
+  <tr><td>order</td><td>String</td><td>Values: changes (updated_at desc), booked_from_asc, booked_from_desc.</td></tr>
 </table>
 
 You can return bookings of multiple resources/services/events/people with an array.
@@ -153,9 +160,13 @@ You can return bookings of multiple resources/services/events/people with an arr
 
 `GET /bookings/{booking_id}` will get booking with id `{booking_id}`.
 
+The `extended` parameter is also available for get booking.
+
 You can also find a booking with `external_id`:
 
 `GET /bookings/find_by/external_id/{external_id}` will get booking with external_id `{external_id}`.
+
+`PUT /bookings/find_by/external_id/{external_id}` and `DELETE /bookings/find_by/external_id/{external_id}` will update or delete the booking with external_id `{external_id}`.
 
 ## Add new booking
 
@@ -258,6 +269,8 @@ See [information about additional parameters](#additional-parameters).
   <tr><td>confirmation_send_sms</td><td>Boolean</td><td>Send out confirmation SMS.</td></tr>
   <tr><td>notification_send_email</td><td>Boolean</td><td>Send out notification email to admin. Default: based on account setting.</td></tr>
   <tr><td>notification_send_sms</td><td>Boolean</td><td>Send out notification SMS to admin.</td></tr>
+  <tr><td>awaiting_confirmation_send_email</td><td>Boolean</td><td>Send out awaiting confirmation email. Only applicable when the verified booking requires confirmation by administrator.</td></tr>
+  <tr><td>awaiting_confirmation_send_sms</td><td>Boolean</td><td>Send out awaiting confirmation SMS. Only applicable when the verified booking requires confirmation by administrator.</td></tr>
   <tr><td>verification_code</td><td>String</td><td>Verification code send using SMS or email. Only applicable for the `verify_code` action.</td></tr>
 </table>
 
@@ -303,7 +316,13 @@ See [information about additional parameters](#additional-parameters).
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
   <tr><td>cancellation_send_email</td><td>Boolean</td><td>Send out cancellation email.</td></tr>
   <tr><td>cancellation_send_sms</td><td>Boolean</td><td>Send out cancellation SMS.</td></tr>
+  <tr><td>notification_send_email</td><td>Boolean</td><td>Send out notification email to admin.</td></tr>
+  <tr><td>notification_send_sms</td><td>Boolean</td><td>Send out notification SMS to admin.</td></tr>
 </table>
+
+### Promote a booking from the waitlist
+
+`PUT /bookings/{booking_id}/promote` will promote a booking with state `waitlisted`. The booking is promoted even if there is no available capacity. The new state follows the normal state flow: `confirmed`, `awaiting_payment` or `awaiting_confirmation`.
 
 ## Update booking
 
@@ -319,6 +338,8 @@ See [information about additional parameters](#additional-parameters).
   <tr><td>add_reminder_sms</td><td>Boolean</td><td>Automatically adds `reminder_at`.</td></tr>
   <tr><td>modification_send_email</td><td>Boolean</td><td>Send out modification email.</td></tr>
   <tr><td>modification_send_sms</td><td>Boolean</td><td>Send out modification SMS.</td></tr>
+  <tr><td>notification_send_email</td><td>Boolean</td><td>Send out notification email to admin.</td></tr>
+  <tr><td>notification_send_sms</td><td>Boolean</td><td>Send out notification SMS to admin.</td></tr>
   <tr><td>extended</td><td>Boolean</td><td>Extend output with full data from related objects.</td></tr>
 </table>
 
@@ -328,17 +349,7 @@ See [information about additional parameters](#additional-parameters).
 
 Deleting a booking will set it to state=deleted and active=false. It will not be visible in listing, only when requesting `GET /bookings/all` or by requesting the booking directly `GET /bookings/{booking_id}`.
 
-Do not use this method if the booking is rescheduled or cancelled.
-
-### Additional parameters
-
-See [information about additional parameters](#additional-parameters).
-
-<table>
-  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-  <tr><td>cancellation_send_email</td><td>Boolean</td><td>Send out cancellation email.</td></tr>
-  <tr><td>cancellation_send_sms</td><td>Boolean</td><td>Send out cancellation SMS.</td></tr>
-</table>
+Do not use this method if the booking is rescheduled or cancelled. No cancellation email or SMS is sent when deleting a booking. Use [cancel](#cancel-a-booking) to notify the customer.
 
 ## Update booking status
 

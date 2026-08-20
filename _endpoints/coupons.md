@@ -26,12 +26,12 @@ description: API reference for the Makeplans coupons endpoint — attributes and
   <tr><td>availability</td><td>Integer</td><td>Will decrease when used</td></tr>
   <tr><td>min_count</td><td>Integer</td><td></td></tr>
   <tr><td>max_count</td><td>Integer</td><td></td></tr>
-  <tr><td>custom_data</td><td>Array</td><td>Not required.</td></tr>
+  <tr><td>custom_data</td><td>Object</td><td>Not required. Key/value. Stored as strings.</td></tr>
 </table>
 
 ## Listing
 
-`GET /coupons` will return all coupons.
+`GET /coupons` will return all active coupons.
 
 Response
 

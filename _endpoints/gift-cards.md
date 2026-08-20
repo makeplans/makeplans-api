@@ -66,7 +66,7 @@ Response
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
   <tr><td>code</td><td>String</td><td>Not required. Auto-generated if not specified</td></tr>
   <tr><td>value</td><td>Integer</td><td>Required</td></tr>
-  <tr><td>initial_value</td><td>Integer</td><td>Not required</td></tr>
+  <tr><td>initial_value</td><td>Integer</td><td>Not required. Default: same as value.</td></tr>
   <tr><td>active</td><td>Boolean</td><td>Not required</td></tr>
   <tr><td>valid_until</td><td>Date</td><td>Not required</td></tr>
   <tr><td>person_id</td><td>Integer</td><td>Not required</td></tr>

@@ -21,18 +21,20 @@ While events are connected to a resource bookings or capacity of an event are no
   <tr><td>capacity</td><td>Integer</td><td>Required</td></tr>
   <tr><td>starts_at</td><td>Datetime</td><td>Required</td></tr>
   <tr><td>ends_at</td><td>Datetime</td><td>Required</td></tr>
-  <tr><td>custom_data</td><td>Array</td><td>Not required</td></tr>
+  <tr><td>custom_data</td><td>Object</td><td>Not required. Key/value. Stored as strings.</td></tr>
   <tr><td>title</td><td>String</td><td></td></tr>
   <tr><td>description</td><td>Text</td><td></td></tr>
   <tr><td>first_booking_at</td><td>Datetime</td><td>Not required. Earliest allowed booking time.</td></tr>
   <tr><td>last_booking_at</td><td>Datetime</td><td>Not required. Latest allowed booking time.</td></tr>
-  <tr><td>availability</td><td>Integer</td><td>Only for output. Current available capacity.</td></tr>
-  <tr><td>nr_of_attendances</td><td>Integer</td><td>Only for output. Number of current attendees.</td></tr>
+  <tr><td>availability</td><td>Integer</td><td>Only for output. Current available capacity. Not included in the listing unless `extended` is set.</td></tr>
+  <tr><td>nr_of_attendances</td><td>Integer</td><td>Only for output. Number of current attendees. Not included in the listing unless `extended` is set.</td></tr>
+  <tr><td>resource</td><td>Object</td><td>Only for output. The connected resource with id and title.</td></tr>
+  <tr><td>service</td><td>Object</td><td>Only for output. The connected service with id and title.</td></tr>
 </table>
 
 ## Listing
 
-`GET /events` will return all events.
+`GET /events` will return all events. The listing is [paginated](/guide/pagination/).
 
 Response
 
@@ -51,7 +53,15 @@ Response
       "starts_at": "2015-08-10T10:00:00+02:00",
       "service_id": 1,
       "title": "Super fun event",
-      "updated_at": "2012-09-20T15:34:16+02:00"
+      "updated_at": "2012-09-20T15:34:16+02:00",
+      "resource": {
+        "id": 1,
+        "title": "Mr. Spine Twister"
+      },
+      "service": {
+        "id": 1,
+        "title": "Spinning class"
+      }
     }
   }
 ]
@@ -61,11 +71,14 @@ Response
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-  <tr><td>service_id</td><td>Integer</td><td></td></tr>
-  <tr><td>resource_id</td><td>Integer</td><td></td></tr>
-  <tr><td>start</td><td>Datetime</td><td>starts_at after param</td></tr>
-  <tr><td>end</td><td>Datetime</td><td>ends_at before param</td></tr>
-  <tr><td>since</td><td>Datetime</td><td>updated_at after param</td></tr>
+  <tr><td>service_id</td><td>Integer</td><td>One or more ids, comma separated.</td></tr>
+  <tr><td>resource_id</td><td>Integer</td><td>One or more ids, comma separated.</td></tr>
+  <tr><td>start</td><td>Datetime</td><td>ends_at after param. Combine with end to return all events that overlap the period. Also accepts the values now and today.</td></tr>
+  <tr><td>end</td><td>Datetime</td><td>starts_at before param. Also accepts the values now and today.</td></tr>
+  <tr><td>since</td><td>Datetime</td><td>updated_at after param. Also accepts the values now and today.</td></tr>
+  <tr><td>exclude</td><td>Integer</td><td>Exclude event with this id.</td></tr>
+  <tr><td>order</td><td>String</td><td>Values: changes (updated_at desc), starts_at_asc, starts_at_desc. Default: starts_at asc.</td></tr>
+  <tr><td>extended</td><td>Boolean</td><td>Include availability and nr_of_attendances in the listing response.</td></tr>
 </table>
 
 ## Get event
@@ -92,13 +105,14 @@ Only the `collection_id` is returned. No events are created at the time of reque
 
 ### Parameters for recurrence
 
-The parameters for recurrence are not set in `event` but in `recurrence`.
+The parameters for recurrence are not set in `event` but in `recurring`.
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
   <tr><td>rrule</td><td>String</td><td>Repeating pattern. Example: `FREQ=DAILY;UNTIL=19971224T000000Z`.</td></tr>
-  <tr><td>rdate</td><td>String</td><td>List of recurring dates. Example: `VALUE=DATE:19970101,19970120,19970217,19970421`.</td></tr>
-  <tr><td>exdate</td><td>String</td><td>List of dates that should be excluded from the recurring rule. Example: `VALUE=DATE:19970102`.</td></tr>
+  <tr><td>exrule</td><td>String</td><td>Repeating pattern for dates that should be excluded from the recurring rule.</td></tr>
+  <tr><td>rdate</td><td>String</td><td>Comma separated list of recurring dates. Example: `19970101,19970120,19970217,19970421`.</td></tr>
+  <tr><td>exdate</td><td>String</td><td>Comma separated list of dates that should be excluded from the recurring rule. Example: `19970102`.</td></tr>
 </table>
 
 You should always specify COUNT or UNTIL with RRULE. The max number of occurrences is 731, regardless if a limit is set or not.
@@ -106,6 +120,10 @@ You should always specify COUNT or UNTIL with RRULE. The max number of occurrenc
 ### List occurrences
 
 `GET /events/recurring/{collection_id}` will return all occurrences for a collection.
+
+### Delete occurrences
+
+`DELETE /events/recurring/{collection_id}` will delete all events for a collection. The events are set to active=false and will not be returned in any listings.
 
 ## Update event
 

@@ -54,6 +54,8 @@ Response
   <tr><td>selected_resources</td><td>Array</td><td>Default: all active providers.</td></tr>
 </table>
 
+Dates in the past are ignored and replaced with today. Slots are only generated for today and future dates.
+
 ## Next available date
 
 `GET /services/{service_id}/next_available_date` will return the next available date within 30 days with a free slot.

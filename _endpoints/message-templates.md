@@ -20,7 +20,8 @@ Message templates define the content of messages sent to customers for booking e
   <tr><td>delivery_timing</td><td>String</td><td>When the message should be delivered. See delivery timing.</td></tr>
   <tr><td>active</td><td>Boolean</td><td>Whether the template is active.</td></tr>
   <tr><td>services</td><td>Array</td><td>Service IDs this template applies to.</td></tr>
-  <tr><td>custom_data</td><td>Array</td><td>Not required</td></tr>
+  <tr><td>settings</td><td>Object</td><td>Not required. Key/value. Stored as strings.</td></tr>
+  <tr><td>custom_data</td><td>Object</td><td>Not required. Key/value. Stored as strings.</td></tr>
 </table>
 
 ## Message types
@@ -64,6 +65,7 @@ Response
       "delivery_timing": "in 5 minutes",
       "active": true,
       "services": [1, 2],
+      "settings": null,
       "custom_data": null
     }
   }
