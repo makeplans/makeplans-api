@@ -5,6 +5,12 @@ permalink: /changelog/
 description: Changes and additions to the Makeplans API, newest first.
 ---
 
+## 2026-08-22
+
+**Restored pagination metadata headers, renamed `Page-Items` to `page-limit`**
+
+Due to a regression, paginated responses sent no pagination HTTP headers (including `Link`) since 2025-11-28. All headers are now restored with two changes: the `Page-Items` header is renamed to `page-limit`, and the `Link` relation type `prev` is renamed to `previous`. Header names are lowercase (`current-page`, `page-limit`, `total-count`, `total-pages`); as always, header names are case-insensitive. We recommend paginating by following the RFC 8288 `Link` header with `rel="next"` rather than using the metadata headers.
+
 ## 2026-03-28
 
 **Added message templates endpoint**

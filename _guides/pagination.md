@@ -6,7 +6,7 @@ description: Pagination in the Makeplans API — page sizes, the page parameter 
 
 Maximum 100 items are returned per response for all endpoints except `bookings` which returns 750. Specify page with parameter `page`. Pagination is used for: bookings, events, orders and people. All other objects return all available items. Please note that currently there is no way to specify exact part of the dataset. Thus an item might appear in both page 2 and 3 if the complete dataset for the query has changed.
 
-[RFC 8288](https://datatracker.ietf.org/doc/html/rfc8288){:target="_blank"} is used for pagination linking. You will find URLs for first, prev, next and last pages in the `Link` HTTP Header. In addition metadata is added in the following HTTP Headers: `Current-Page`, `Page-Items`, `Total-Count`, `Total-Pages`.
+[RFC 8288](https://datatracker.ietf.org/doc/html/rfc8288){:target="_blank"} is used for pagination linking. The `Link` HTTP header contains URLs with the relation types `first`, `previous`, `next` and `last`. `previous` and `next` are omitted on the first and last page respectively, so you can paginate by following `next` until it is absent. In addition metadata is added in the following HTTP Headers: `current-page`, `page-limit`, `total-count`, `total-pages`.
 
 ## Example request and response
 
