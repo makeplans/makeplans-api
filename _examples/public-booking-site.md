@@ -4,9 +4,11 @@ nav_order: 2
 description: Examples of building a public booking site with the Makeplans public API using JavaScript.
 ---
 
-Please familiarise yourself with the key concepts of the Makeplans API first.
+Please familiarise yourself with the [key concepts of the Makeplans API](/guide/getting-started/) first.
 
 The public API requires no authentication so you can call it directly from the browser with JavaScript. The browser sets the `User-Agent` header automatically so you only need to ask for JSON with the `Accept` header.
+
+Please note: cross-origin requests from the browser are only allowed from the website configured as the embed URL on the account. Without it the browser will block the requests with a CORS error.
 
 ## List available services
 
@@ -40,16 +42,15 @@ Content-Type: application/json; charset=utf-8
       "created_at": "2020-01-24T06:24:16+01:00",
       "updated_at": "2020-01-24T06:25:15+01:00",
       "interval": 45,
-      "has_day_booking": false,
       "booking_capacity": 1,
-      "day_booking_specify_time": null,
       "max_slots": 1,
       "same_day": false,
       "price": null,
+      "booking_minimum": null,
       "booking_type": "appointment",
       "booking_type_id": 1,
-      "description": null,
-      "custom_data": null
+      "custom_data": null,
+      "linked_service_ids": []
     }
   },
   {
@@ -59,16 +60,15 @@ Content-Type: application/json; charset=utf-8
       "created_at": "2020-01-24T06:24:16+01:00",
       "updated_at": "2020-01-24T06:25:15+01:00",
       "interval": 60,
-      "has_day_booking": false,
       "booking_capacity": 1,
-      "day_booking_specify_time": null,
       "max_slots": 1,
       "same_day": false,
       "price": null,
+      "booking_minimum": null,
       "booking_type": "appointment",
       "booking_type_id": 1,
-      "description": null,
-      "custom_data": null
+      "custom_data": null,
+      "linked_service_ids": []
     }
   }
 ]
@@ -113,7 +113,7 @@ loadServices();
 
 ## Find available timeslots for a service
 
-The user selects 'Massage' so lets get all available timeslots for 'Massage' (service_id 15).
+The user selects 'Massage' so let's get all available timeslots for 'Massage' (service_id 15).
 
 By default this will return timeslots for today, but you can specify the timeframe using from/to parameters.
 
@@ -139,34 +139,30 @@ Content-Type: application/json; charset=utf-8
 ```json
 [
   {
-    "slot": {
-      "timestamp": "2020-01-24T09:00:00+01:00",
-      "timestamp_end": "2020-01-24T10:00:00+01:00",
-      "formatted_timestamp": "Friday, 24 January 2020, 09:00",
-      "formatted_timestamp_end": "Friday, 24 January 2020, 10:00",
-      "free": 3,
-      "available_resources": [
-        10,
-        11,
-        12
-      ],
-      "maximum_capacity": 3
-    }
+    "timestamp": "2020-01-24T09:00:00+01:00",
+    "timestamp_end": "2020-01-24T10:00:00+01:00",
+    "formatted_timestamp": "Friday, 24 January 2020, 09:00",
+    "formatted_timestamp_end": "Friday, 24 January 2020, 10:00",
+    "free": 3,
+    "available_resources": [
+      10,
+      11,
+      12
+    ],
+    "maximum_capacity": 3
   },
   {
-    "slot": {
-      "timestamp": "2020-01-24T10:00:00+01:00",
-      "timestamp_end": "2020-01-24T11:00:00+01:00",
-      "formatted_timestamp": "Friday, 24 January 2020, 10:00",
-      "formatted_timestamp_end": "Friday, 24 January 2020, 11:00",
-      "free": 3,
-      "available_resources": [
-        10,
-        11,
-        12
-      ],
-      "maximum_capacity": 3
-    }
+    "timestamp": "2020-01-24T10:00:00+01:00",
+    "timestamp_end": "2020-01-24T11:00:00+01:00",
+    "formatted_timestamp": "Friday, 24 January 2020, 10:00",
+    "formatted_timestamp_end": "Friday, 24 January 2020, 11:00",
+    "free": 3,
+    "available_resources": [
+      10,
+      11,
+      12
+    ],
+    "maximum_capacity": 3
   }
 ]
 ```
@@ -174,7 +170,7 @@ Content-Type: application/json; charset=utf-8
 
 ### Displaying the timeslots
 
-Same pattern as the services list — each item is wrapped in a `slot` key, and `formatted_timestamp` gives you a ready-to-display time:
+Unlike the services list the public slots response is a plain array without a wrapping key, and `formatted_timestamp` gives you a ready-to-display time:
 
 ```html
 <ul id="slots"></ul>
@@ -197,7 +193,7 @@ async function loadSlots(serviceId) {
   const template = document.querySelector('#slot-template');
 
   list.replaceChildren();
-  for (const { slot } of slots) {
+  for (const slot of slots) {
     const item = template.content.cloneNode(true);
     item.querySelector('.slot-time').textContent = slot.formatted_timestamp;
     list.appendChild(item);
@@ -260,7 +256,7 @@ async function loadSlots(serviceId) {
   const template = document.querySelector('#slot-template');
 
   list.replaceChildren();
-  for (const { slot } of slots) {
+  for (const slot of slots) {
     const item = template.content.cloneNode(true);
     item.querySelector('.slot-time').textContent = slot.formatted_timestamp;
     list.appendChild(item);

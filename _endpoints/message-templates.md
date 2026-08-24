@@ -13,11 +13,11 @@ Message templates define the content of messages sent to customers for booking e
   <tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
   <tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
   <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
-  <tr><td>message_type</td><td>String</td><td>Values: confirmation, reminder, follow_up. See message types.</td></tr>
-  <tr><td>delivery_type</td><td>String</td><td>Values: email, sms.</td></tr>
-  <tr><td>subject</td><td>String</td><td>Message subject line. Only applicable for email.</td></tr>
-  <tr><td>template</td><td>Liquid-Text</td><td>Message body template.</td></tr>
-  <tr><td>delivery_timing</td><td>String</td><td>When the message should be delivered. See delivery timing.</td></tr>
+  <tr><td>message_type</td><td>String</td><td>Required. Values: confirmation, reminder, follow_up. See message types.</td></tr>
+  <tr><td>delivery_type</td><td>String</td><td>Required. Values: email, sms.</td></tr>
+  <tr><td>subject</td><td>String</td><td>Message subject line. Required for email, not applicable for sms.</td></tr>
+  <tr><td>template</td><td>Liquid-Text</td><td>Required. Message body template.</td></tr>
+  <tr><td>delivery_timing</td><td>String</td><td>When the message should be delivered. Required except for confirmation. See delivery timing.</td></tr>
   <tr><td>active</td><td>Boolean</td><td>Whether the template is active.</td></tr>
   <tr><td>services</td><td>Array</td><td>Service IDs this template applies to.</td></tr>
   <tr><td>settings</td><td>Object</td><td>Not required. Key/value. Stored as strings.</td></tr>

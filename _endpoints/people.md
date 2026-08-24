@@ -77,7 +77,7 @@ Response
 
 ### Query Parameters
 
-You can search multiple columns at once, for example `email` and `phone_number`, or you can use the shorthand `search` to search email, phone number, national id no or name.
+You can search multiple columns at once, for example `email` and `phone_number` — people matching any of the specified columns are returned. Or you can use the shorthand `search` to search email, phone number, national id no or name.
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
@@ -131,7 +131,7 @@ Please note that this token is perishable, meaning that it will be removed from 
 
 ### Send perishable token
 
-`POST /people/perishable_token/send` will send a SMS with a five digit code (the token) or an email with a link which includes the token in the URL. Specify either `email` or `phone_number`.
+`POST /people/perishable_token/send` will send a SMS with a six digit code (the token) or an email with a link which includes the token in the URL. Specify either `email` or `phone_number`.
 
 ### Verify perishable token
 

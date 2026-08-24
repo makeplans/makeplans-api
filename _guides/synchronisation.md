@@ -1,6 +1,6 @@
 ---
 title: Synchronisation
-nav_order: 11
+nav_order: 12
 description: Best practices for synchronising bookings and people between Makeplans and another system.
 ---
 

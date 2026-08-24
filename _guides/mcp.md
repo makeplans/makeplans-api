@@ -1,6 +1,6 @@
 ---
 title: MCP server (AI assistants)
-nav_order: 14
+nav_order: 15
 description: Connect Claude, ChatGPT or any MCP-compatible AI assistant to Makeplans — endpoint, authentication, available tools and client setup.
 ---
 

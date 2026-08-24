@@ -1,6 +1,6 @@
 ---
 title: Rate Limiting
-nav_order: 8
+nav_order: 9
 description: Rate limiting in the Makeplans API and how to handle HTTP 429 responses.
 ---
 

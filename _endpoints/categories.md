@@ -33,6 +33,7 @@ Response
       "custom_data": null,
       "id": 1,
       "parent_id": null,
+      "priority_value": null,
       "title": "My first little category",
       "updated_at": "2012-09-20T15:34:16+02:00"
     }

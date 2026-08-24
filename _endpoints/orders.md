@@ -42,6 +42,8 @@ The response includes nested `person` and `order_line_items`.
   <tr><td>quantity</td><td>Integer</td><td></td></tr>
   <tr><td>amount</td><td>Decimal</td><td>Unit price</td></tr>
   <tr><td>gift_card_id</td><td>Integer</td><td>Associated gift card if applicable</td></tr>
+  <tr><td>pass_id</td><td>Integer</td><td>Associated pass if applicable</td></tr>
+  <tr><td>subscription_id</td><td>Integer</td><td>Associated subscription if applicable</td></tr>
   <tr><td>booking_id</td><td>Integer</td><td>Associated booking if applicable</td></tr>
 </table>
 
@@ -79,6 +81,8 @@ Response
           "quantity": 1,
           "amount": "1000.0",
           "gift_card_id": null,
+          "pass_id": null,
+          "subscription_id": null,
           "booking_id": null
         }
       ]

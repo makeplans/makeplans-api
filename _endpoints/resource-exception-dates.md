@@ -11,7 +11,7 @@ If a resource should be closed for a week then you would add resource exception 
 If a resource should have opening hours 08:00 to 14:00 on January 5th 2016 instead of the default opening hours for that weekday which could be 09:00 to 15:00, then add it as a resource exception date.
 See [resource opening hours](/endpoints/resources/#default-opening-hours) for how to specify.
 
-A `null` value will fallback to the default availability for the resource. An empty array means the resource is closed on the specified exception date.
+A `null` value or an empty array means the resource is closed on the specified exception date. To fall back to the default availability for the resource, delete the exception date.
 
 Exception dates are related to a resource: `GET /resources/{resource_id}/exception_dates`.
 
@@ -37,7 +37,7 @@ An exception date without `service_id` applies to the resource. All endpoints be
 
 ## Listing
 
-`GET /resources/{resource_id}/exception_dates` will return all exception dates for resource with id `{resource_id}`.
+`GET /resources/{resource_id}/exception_dates` will return exception dates for resource with id `{resource_id}` within the specified period. Without `from` and `to` only the current week is returned.
 
 Response
 
@@ -49,6 +49,7 @@ Response
       "resource_id": 1,
       "exception_date": "2014-01-08",
       "opening_hours": ["08:00", "12:00", "12:30", "17:30"],
+      "service_id": null,
       "updated_at": "2012-09-20T15:34:16+02:00"
     }
   }
@@ -59,8 +60,8 @@ Response
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-  <tr><td>from</td><td>Date</td><td></td></tr>
-  <tr><td>to</td><td>Date</td><td></td></tr>
+  <tr><td>from</td><td>Date</td><td>Default: beginning of the current week.</td></tr>
+  <tr><td>to</td><td>Date</td><td>Default: end of the current week.</td></tr>
   <tr><td>service_id</td><td>Integer</td><td>Return exception dates scoped to this service. When not set only resource exception dates are returned.</td></tr>
 </table>
 

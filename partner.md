@@ -34,7 +34,7 @@ The initial user is set as admin on the account. The attributes for creation are
   <tr><td>name</td><td>String</td><td>Required</td></tr>
   <tr><td>time_zone</td><td>String</td><td>Required. See info below.</td></tr>
   <tr><td>country_code</td><td>String</td><td>Required. ISO 3166-1 alpha-2.</td></tr>
-  <tr><td>locale</td><td>String</td><td>Required. Supported locales: 'en', 'sv' and 'nb'. Default: 'en'.</td></tr>
+  <tr><td>locale</td><td>String</td><td>Supported locales: cs, da, de, en, en-GB, en-US, es, fr, he, it, lt, lv, ms, nb, nl, pl, ru, sl, sq, sv. Default: 'en'.</td></tr>
 </table>
 
 ##### Time zone

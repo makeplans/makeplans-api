@@ -25,10 +25,10 @@ description: API reference for the Makeplans bookings endpoint — attributes, s
   <tr><td>paid_at</td><td>Datetime</td><td>Only for output</td></tr>
   <tr><td>external_id</td><td>String</td><td>Not required</td></tr>
   <tr><td>paid_amount</td><td>Decimal</td><td>Only for output</td></tr>
-  <tr><td>invoiced_at</td><td>Datetime</td><td>Only for output</td></tr>
+  <tr><td>invoiced_at</td><td>Date</td><td>Only for output</td></tr>
   <tr><td>revision_count</td><td>Integer</td><td>Automatically set</td></tr>
-  <tr><td>created_by</td><td>String</td><td>Automatically set</td></tr>
-  <tr><td>updated_by</td><td>String</td><td>Automatically set</td></tr>
+  <tr><td>created_by</td><td>Integer</td><td>Automatically set. User id.</td></tr>
+  <tr><td>updated_by</td><td>Integer</td><td>Automatically set. User id.</td></tr>
   <tr><td>external_url</td><td>String</td><td>Not required</td></tr>
   <tr><td>external_host_url</td><td>String</td><td>Not required</td></tr>
   <tr><td>booked_by_person_id</td><td>Integer</td><td>Only for output. Person who made the booking (e.g. parent booking for child).</td></tr>
@@ -81,7 +81,7 @@ Bookings on a waitlist are set to `waitlisted`. A waitlisted booking is not acti
 
 ## Active bookings
 
-Bookings with states `awaiting_verification`, `awaiting_payment`, `awaiting_confirmation` or `confirmed` are considered to be active. Bookings with state `awaiting_verification` will be updated with state `verification_expired` after the current time passes `expires_at`. However updating states rely on automatic tasks so you must use the `active` attribute to check whether a booking is active or not. Only active bookings will be returned unless you specify: a booking by id, a specific state such as bookings that are awaiting confirmation, to return all bookings for a resource or dates, or for a person.
+Bookings with states `awaiting_verification`, `awaiting_payment`, `awaiting_confirmation` or `confirmed` are considered to be active. Bookings with state `awaiting_verification` will be updated with state `verification_expired` after the current time passes `expires_at`. However updating states rely on automatic tasks so you must use the `active` attribute to check whether a booking is active or not. Only active bookings will be returned unless you request a booking by id, specify a specific state such as bookings that are awaiting confirmation, or use the `all` or `visible` listings.
 
 ## Listing
 
@@ -97,11 +97,11 @@ See query parameters for filtering the output beyond the default outputs.
 
 `GET /bookings/all` will return all bookings of all states (including `declined`, `cancelled`, `deleted`, and `verification_expired`). This is a useful output for synchronisation when you need to keep a track of deleted bookings.
 
-`GET /bookings/visible` will return all active bookings as well as those declined or cancelled. This is the preferred output if you want to provide a list of all bookings for visual presentation.
+`GET /bookings/visible` will return all active bookings as well as those declined, cancelled or waitlisted. This is the preferred output if you want to provide a list of all bookings for visual presentation.
 
-`GET /bookings/no_status` will return all active bookings with no status set.
+`GET /bookings/no_status` will return past confirmed bookings with a person where the status is not `completed` or `no_show`.
 
-Response
+Abbreviated response. Responses include all attributes listed above, including the full `person` object and the related `resource`, `service` and `event` objects with id and title (use the `extended` parameter for their full data).
 
 ```json
 [
@@ -136,8 +136,8 @@ Response
   <tr><td>resource_id</td><td>Integer or array of integers</td><td></td></tr>
   <tr><td>person_id</td><td>Integer or array of integers</td><td></td></tr>
   <tr><td>external_id</td><td>String</td><td></td></tr>
-  <tr><td>start</td><td>Datetime</td><td>booked_from after param. Also accepts the values now and today.</td></tr>
-  <tr><td>end</td><td>Datetime</td><td>booked_to before param. Also accepts the values now and today.</td></tr>
+  <tr><td>start</td><td>Datetime</td><td>booked_to after param. Combine with end to return all bookings that overlap the period. Also accepts the values now and today.</td></tr>
+  <tr><td>end</td><td>Datetime</td><td>booked_from before param. Also accepts the values now and today.</td></tr>
   <tr><td>since</td><td>Datetime</td><td>updated_at after param. Also accepts the values now and today.</td></tr>
   <tr><td>collection_id</td><td>UUID</td><td></td></tr>
   <tr><td>state</td><td>String or array of strings</td><td>See states</td></tr>
@@ -231,8 +231,8 @@ The parameters for recurrence are not set in `booking` but in `recurring`.
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
   <tr><td>rrule</td><td>String</td><td>Repeating pattern. Example: `FREQ=DAILY;UNTIL=19971224T000000Z`.</td></tr>
-  <tr><td>rdate</td><td>String</td><td>List of recurring dates. Example: `VALUE=DATE:19970101,19970120,19970217,19970421`.</td></tr>
-  <tr><td>exdate</td><td>String</td><td>List of dates that should be excluded from the recurring rule. Example: `VALUE=DATE:19970102`.</td></tr>
+  <tr><td>rdate</td><td>String</td><td>Comma separated list of recurring dates. Example: `19970101,19970120,19970217,19970421`.</td></tr>
+  <tr><td>exdate</td><td>String</td><td>Comma separated list of dates that should be excluded from the recurring rule. Example: `19970102`.</td></tr>
 </table>
 
 You should always specify COUNT or UNTIL with RRULE. The max number of occurrences is 731, regardless if a limit is set or not.

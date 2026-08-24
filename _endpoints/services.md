@@ -1,15 +1,18 @@
 ---
 title: Services
 nav_order: 4
-description: API reference for the Makeplans services endpoint — the four service types and their attributes.
+description: API reference for the Makeplans services endpoint — service types and their attributes.
 ---
 
-There are four types of services:
+There are seven types of services:
 
 * Appointment
 * Attendance
 * Product
 * Gift card
+* Addon
+* Subscription
+* Pass
 
 Appointments can be booked within fixed opening hours as specified on the Resource and with exceptions specified in ResourceExceptionDate.
 
@@ -34,7 +37,7 @@ Attendance at an event is also a booking but the individual booking datetime or 
   <tr><td>same_day</td><td>Boolean</td><td>Not required (default false)</td></tr>
   <tr><td>template</td><td>String</td><td>Component template (calendar view)</td></tr>
   <tr><td>interval_rounding</td><td>Integer</td><td>Overrides account default (see info on account object)</td></tr>
-  <tr><td>booking_type</td><td>String</td><td>Required. Values: appointment (default), attendance, product, gift_card</td></tr>
+  <tr><td>booking_type</td><td>String</td><td>Required. Values: appointment (default), attendance, product, gift_card, addon, subscription, pass</td></tr>
   <tr><td>custom_data</td><td>Object</td><td>Not required. Key/value. Stored as strings.</td></tr>
   <tr><td>booking_form</td><td>Liquid-Text</td><td>Custom booking form</td></tr>
   <tr><td>mail_verification</td><td>Liquid-Text</td><td></td></tr>
@@ -58,13 +61,19 @@ Attendance at an event is also a booking but the individual booking datetime or 
   <tr><td>priority_strategy</td><td>String</td><td>Not required. Strategy for resource priority assignment.</td></tr>
   <tr><td>availability_type</td><td>String</td><td>Not required. Values: resource (default), provider. With resource the opening hours on the resource are used. With provider the opening hours on the [provider](/endpoints/providers/) are used.</td></tr>
   <tr><td>priority_value</td><td>Integer</td><td>Not required. Priority value for ordering.</td></tr>
+  <tr><td>quota</td><td>Integer</td><td>Number of uses. Required for subscription and pass unless `unlimited` is true. Not applicable for other types.</td></tr>
+  <tr><td>unlimited</td><td>Boolean</td><td>Unlimited number of uses. Only applicable for subscription and pass. Default: false.</td></tr>
+  <tr><td>billing_period</td><td>Integer</td><td>Required for subscription. Not applicable for other types.</td></tr>
+  <tr><td>renewal_price</td><td>Decimal</td><td>Only applicable for subscription.</td></tr>
+  <tr><td>validity_days</td><td>Integer</td><td>Number of days the pass is valid. Required for unlimited passes. Only applicable for pass.</td></tr>
+  <tr><td>linked_service_ids</td><td>Array</td><td>Ids of linked services.</td></tr>
 </table>
 
 ### Deprecated attributes
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-  <tr><td>booking_type_id</td><td>Integer</td><td>1: appointment. 2: attendance. 3: gift_card. 4: product.</td></tr>
+  <tr><td>booking_type_id</td><td>Integer</td><td>1: appointment. 2: attendance. 3: gift_card. 4: product. 5: addon. 6: subscription. 7: pass.</td></tr>
 </table>
 
 ## Listing
@@ -75,9 +84,15 @@ Attendance at an event is also a booking but the individual booking datetime or 
 
 `GET /services/attendances` will return all services with booking_type=attendance.
 
-`GET /services/products` will return all services with booking_type=product or booking_type=gift_card.
+`GET /services/products` will return all sellable services (booking_type product, gift_card, addon, subscription or pass).
 
 `GET /services/gift_cards` will return all services with booking_type=gift_card.
+
+`GET /services/addons` will return all services with booking_type=addon.
+
+`GET /services/subscriptions` will return all services with booking_type=subscription.
+
+`GET /services/passes` will return all services with booking_type=pass.
 
 ### Query Parameters
 

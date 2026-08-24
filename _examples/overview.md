@@ -14,7 +14,7 @@ If you are implementing a custom booking experience on your website using JavaSc
 
 ## Private API (For backend integration)
 
-To configure your account using the API you need to authenticate with our private API. It will give you full control over your account just as the administration system. So you can create new services, define opening hours and fully manage all appointments as well as customers. You can also use this create a custom booking experience on your website as long as the API communication from your server. In that case there are ways of limiting availability and bookings in the same was as the public booking site. If you do not specify this limitation your API calls will have full access to the calendar, which is useful when creating an integration that will synchronize your internal application with Makeplans.
+To configure your account using the API you need to authenticate with our private API. It will give you full control over your account just as the administration system. So you can create new services, define opening hours and fully manage all appointments as well as customers. You can also use this to create a custom booking experience on your website as long as the API communication is done from your server. In that case there are ways of limiting availability and bookings in the same way as the public booking site. If you do not specify this limitation your API calls will have full access to the calendar, which is useful when creating an integration that will synchronize your internal application with Makeplans.
 
 [See private API examples.](/examples/private-api/)
 

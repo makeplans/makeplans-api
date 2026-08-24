@@ -1,6 +1,6 @@
 ---
 title: Errors
-nav_order: 9
+nav_order: 10
 description: HTTP status codes and error responses from the Makeplans API, and how to handle them.
 ---
 
@@ -22,7 +22,18 @@ Example response:
 
 ## 401 - Unauthorized
 
-Authentication error. Response body will give explanation if there is an authentication issue or if the API is not enabled.
+Authentication error. Returned when the request is not authenticated, for example if the API-Key is missing or invalid, or if the API is not enabled for the account. The response body does not specify the cause.
+
+Example response:
+
+```json
+{
+  "error": {
+    "status": 1,
+    "description": "not authenticated"
+  }
+}
+```
 
 ## 402 - Payment Required
 

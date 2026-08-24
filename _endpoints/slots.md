@@ -50,7 +50,7 @@ Response
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
   <tr><td>from</td><td>Date</td><td>Default: today</td></tr>
-  <tr><td>to</td><td>Date</td><td>Default: today</td></tr>
+  <tr><td>to</td><td>Date</td><td>Default: same as from</td></tr>
   <tr><td>selected_resources</td><td>Array</td><td>Default: all active providers.</td></tr>
 </table>
 
@@ -58,7 +58,7 @@ Dates in the past are ignored and replaced with today. Slots are only generated 
 
 ## Next available date
 
-`GET /services/{service_id}/next_available_date` will return the next available date within 30 days with a free slot.
+`GET /services/{service_id}/next_available_date` will return the next available date within 90 days with a free slot.
 
 Response
 

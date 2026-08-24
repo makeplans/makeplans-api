@@ -61,6 +61,7 @@ Response
     "resource": {
       "capacity": 1,
       "created_at": "2012-09-20T15:34:16+02:00",
+      "custom_data": null,
       "id": 1,
       "opening_hours_mon": ["08:00", "16:00"],
       "opening_hours_tue": ["08:00", "11:00", "13:00", "17:30"],

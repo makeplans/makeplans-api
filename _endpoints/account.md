@@ -18,20 +18,20 @@ Information and settings for your account.
   <tr><td>google_analytics</td><td>String</td><td></td></tr>
   <tr><td>css_url</td><td>String</td><td></td></tr>
   <tr><td>time_zone</td><td>String</td><td>Required</td></tr>
-  <tr><td>verification_method</td><td>Integer</td><td></td></tr>
+  <tr><td>verification_method</td><td>String</td><td>Values: no_verification, email, sms, authenticated, id_porten, vipps.</td></tr>
   <tr><td>address</td><td>String</td><td></td></tr>
   <tr><td>country_code</td><td>String</td><td>Required. ISO 3166-1 alpha-2.</td></tr>
   <tr><td>logo</td><td>File</td><td></td></tr>
-  <tr><td>template</td><td>Integer</td><td>Required</td></tr>
+  <tr><td>template</td><td>String</td><td>Values: amsterdam, lviv, timisoara.</td></tr>
   <tr><td>service_template</td><td>String</td><td></td></tr>
-  <tr><td>locale</td><td>String</td><td>Required. Supported locales: 'en', 'sv' and 'nb'. Default: 'en'.</td></tr>
-  <tr><td>currency</td><td>String</td><td>ISO4217 currency code</td></tr>
+  <tr><td>locale</td><td>String</td><td>Required. Supported locales: cs, da, de, en, en-GB, en-US, es, fr, he, it, lt, lv, ms, nb, nl, pl, ru, sl, sq, sv. Default: 'en'.</td></tr>
+  <tr><td>currency</td><td>String</td><td>Required. ISO4217 currency code</td></tr>
   <tr><td>email_notification</td><td>Boolean</td><td></td></tr>
   <tr><td>mail_notification_recipient</td><td>Email</td><td></td></tr>
   <tr><td>sms_notification</td><td>Boolean</td><td></td></tr>
   <tr><td>phone_number</td><td>String</td><td></td></tr>
   <tr><td>confirm_manually</td><td>Boolean</td><td></td></tr>
-  <tr><td>settings</td><td>Array</td><td></td></tr>
+  <tr><td>settings</td><td>Object</td><td>Key/value. Stored as strings.</td></tr>
   <tr><td>public_access</td><td>Boolean</td><td></td></tr>
   <tr><td>interval_rounding</td><td>Integer</td><td>Default setting for all services for rounding to next available time. '15' will round 10:07 to become 10:15 as next available slot time.</td></tr>
   <tr><td>slot_generation</td><td>String</td><td>Default: dynamic. Values: dynamic (next available), fixed.</td></tr>
@@ -39,10 +39,10 @@ Information and settings for your account.
   <tr><td>first_bookable_period</td><td>String</td><td>Natural language date/time relative to current time.</td></tr>
   <tr><td>payment_provider</td><td>String</td><td></td></tr>
   <tr><td>footer</td><td>Text</td><td></td></tr>
-  <tr><td>verification_methods</td><td>String</td><td></td></tr>
+  <tr><td>verification_methods</td><td>Array</td><td>Array of strings, see verification_method for values.</td></tr>
   <tr><td>reminder_sms</td><td>Boolean</td><td></td></tr>
   <tr><td>closed_for_holidays</td><td>Boolean</td><td></td></tr>
-  <tr><td>new_user_text</td><td>Liquid-Text</td><td>Above booking form.</td></tr>
+  <tr><td>reservation_form_text</td><td>Liquid-Text</td><td>Above booking form.</td></tr>
   <tr><td>new_booking_text</td><td>Liquid-Text</td><td>Booking confirmation page.</td></tr>
   <tr><td>booking_form</td><td>Liquid-Text</td><td>Custom booking form.</td></tr>
   <tr><td>person_form</td><td>Liquid-Text</td><td>For custom data in administration system.</td></tr>
@@ -114,8 +114,8 @@ Response
 
 <table>
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
-  <tr><td>from</td><td>Date</td><td></td></tr>
-  <tr><td>to</td><td>Date</td><td></td></tr>
+  <tr><td>from</td><td>Date</td><td>Default: beginning of the current week.</td></tr>
+  <tr><td>to</td><td>Date</td><td>Default: end of the week of from.</td></tr>
 </table>
 
 ## Users

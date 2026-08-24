@@ -4,7 +4,7 @@ nav_order: 3
 description: Example requests and responses for the private Makeplans API.
 ---
 
-Please familiarise yourself with the key concepts of the Makeplans API first.
+Please familiarise yourself with the [key concepts of the Makeplans API](/guide/getting-started/) first.
 
 ## Public booking site examples
 
@@ -19,7 +19,7 @@ First we want to show a list of available services on the booking site.
 curl "https://youraccount.test.makeplans.net/api/v1/services" \
      -H 'User-Agent: YourAppName (http://example.org)' \
      -H 'Accept: application/json' \
-     -u 'YOURAPIKEY:'
+     -H 'Authorization: Bearer YOURAPIKEY'
 ```
 </details>
 
@@ -95,7 +95,7 @@ Content-Type: application/json; charset=utf-8
 
 ### Find available timeslots for a service
 
-The user select 'Massage' so lets get all available timeslots for 'Massage' (service_id 15).
+The user selects 'Massage' so let's get all available timeslots for 'Massage' (service_id 15).
 
 By default this will return timeslots for today, but you can specify the timeframe using from/to parameters.
 
@@ -106,7 +106,7 @@ By default this will return timeslots for today, but you can specify the timefra
 curl "https://youraccount.test.makeplans.net/api/v1/services/15/slots" \
      -H 'User-Agent: YourAppName (http://example.org)' \
      -H 'Accept: application/json' \
-     -u 'YOURAPIKEY:'
+     -H 'Authorization: Bearer YOURAPIKEY'
 ```
 </details>
 
@@ -159,7 +159,7 @@ Content-Type: application/json; charset=utf-8
 Now the customer is ready to book. So exciting!
 
 This is the first example where you will differentiate the request since the goal is to implement a custom booking site. The Makeplans booking site operates based on many settings and rules that define availability. Naturally existing bookings is taken into account so you do not get double bookings (it is possible to add double bookings, but not from the public booking site). And then there is the availability set for the resources; standard opening hours and opening hours set on specific dates. In addition you can set certain rules for when booking is allowed, for example only 2 months ahead or not the same day. You can also set the booking site to be closed during national holidays.
-But back to the API. When you make a request to create a new booking in the private API we will ignore most of these rules. These rules are only applicable on the public booking site. So it is very important that you add `public_booking=true` to the request to ensure booking are only allowed during the rules and availability you set on your account and resources. Unless you are authenticated your customers in your app it is also recommended that you let Makeplans handle verification. We will send an SMS that the customer needs to verify to confirm the booking.
+But back to the API. When you make a request to create a new booking in the private API we will ignore most of these rules. These rules are only applicable on the public booking site. So it is very important that you add `public_booking=true` to the request to ensure bookings are only allowed during the rules and availability you set on your account and resources. Unless you have authenticated your customers in your app it is also recommended that you let Makeplans handle verification. We will send an SMS that the customer needs to verify to confirm the booking.
 
 Please note: Makeplans will automatically match email and phone number to existing customer profile.
 
@@ -171,7 +171,7 @@ curl -X "POST" "https://youraccount.test.makeplans.net/api/v1/bookings" \
      -H 'User-Agent: YourAppName (http://example.org)' \
      -H 'Accept: application/json' \
      -H 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' \
-     -u 'YOURAPIKEY:' \
+     -H 'Authorization: Bearer YOURAPIKEY' \
      --data-urlencode "booking[service_id]=15" \
      --data-urlencode "booking[booked_from]=2020-01-27 14:00" \
      --data-urlencode "booking[booked_to]=2020-01-27 15:00" \
@@ -265,7 +265,7 @@ curl -X "PUT" "https://youraccount.test.makeplans.net/api/v1/bookings/208/verify
      -H 'User-Agent: YourAppName (http://example.org)' \
      -H 'Accept: application/json' \
      -H 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' \
-     -u 'YOURAPIKEY:' \
+     -H 'Authorization: Bearer YOURAPIKEY' \
      --data-urlencode "verification_code=75455"
 ```
 </details>
@@ -339,13 +339,13 @@ Content-Type: application/json; charset=utf-8
 
 The booking is now confirmed. Makeplans will now send an SMS confirmation to the customer (based on account settings, you can also set this per request).
 
-If the customers enters an incorrect code we will return 403 status:
+If the customer enters an incorrect code we will return 400 status:
 
 <details markdown="1">
 <summary>Response</summary>
 
 ```http
-HTTP/1.1 403 Forbidden
+HTTP/1.1 400 Bad Request
 Content-Type: application/json; charset=utf-8
 ```
 
@@ -368,7 +368,7 @@ curl -X "POST" "https://youraccount.test.makeplans.net/api/v1/bookings" \
      -H 'User-Agent: YourAppName (http://example.org)' \
      -H 'Accept: application/json' \
      -H 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' \
-     -u 'YOURAPIKEY:' \
+     -H 'Authorization: Bearer YOURAPIKEY' \
      --data-urlencode "booking[service_id]=15" \
      --data-urlencode "booking[booked_from]=2020-01-27 14:00" \
      --data-urlencode "booking[booked_to]=2020-01-27 15:00" \
@@ -462,7 +462,7 @@ curl -X "POST" "https://youraccount.test.makeplans.net/api/v1/bookings/recurring
      -H 'User-Agent: YourAppName (http://example.org)' \
      -H 'Accept: application/json' \
      -H 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' \
-     -u 'YOURAPIKEY:' \
+     -H 'Authorization: Bearer YOURAPIKEY' \
      --data-urlencode "booking[service_id]=15" \
      --data-urlencode "booking[booked_from]=2020-01-27 14:00" \
      --data-urlencode "booking[booked_to]=2020-01-27 15:00" \
@@ -471,7 +471,7 @@ curl -X "POST" "https://youraccount.test.makeplans.net/api/v1/bookings/recurring
      --data-urlencode "booking[public_booking]=true" \
      --data-urlencode "confirm=false" \
      --data-urlencode "confirmation_send_email=true" \
-     --data-urlencode "recurring[rrule]=FREQ=DAILY;UNTIL=20241008T000000Z"
+     --data-urlencode "recurring[rrule]=FREQ=DAILY;UNTIL=20200430T000000Z"
 ```
 </details>
 
@@ -485,19 +485,11 @@ Content-Type: application/json; charset=utf-8
 
 ```json
 {
-  "collection_id": "1337"
+  "booking": {
+    "collection_id": "d8231fbb-0f0e-4f04-b230-9bde86af1c2c"
+  }
 }
 ```
 </details>
 
-### Create new booking with a self pre-authenticated customer
-
-### Authenticate customer
-
-## Full integration examples (Setup and synchronization)
-
-### Create new service
-
-### Create new booking outside normal opening hours
-
-### Delete booking
+Only the `collection_id` is returned. The bookings are created in the background, see [add recurring bookings](/endpoints/bookings/#add-recurring-bookings).

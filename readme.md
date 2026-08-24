@@ -13,12 +13,14 @@ Visit **[developer.makeplans.com](https://developer.makeplans.com)** for the ren
 - [Custom Data](_guides/custom-data.md)
 - [Authentication](_guides/authentication.md)
 - [Identification](_guides/identification.md)
+- [Example Requests](_guides/example-requests.md)
 - [Rate Limiting](_guides/rate-limiting.md)
 - [Errors](_guides/errors.md)
-- [Pagination and Examples](_guides/pagination.md)
+- [Pagination](_guides/pagination.md)
 - [Synchronisation](_guides/synchronisation.md)
 - [API Libraries](_guides/api-libraries.md)
 - [Webhooks](_guides/webhooks.md)
+- [MCP](_guides/mcp.md)
 
 ## API Endpoints
 
@@ -32,6 +34,9 @@ Visit **[developer.makeplans.com](https://developer.makeplans.com)** for the ren
 - [Providers](_endpoints/providers.md)
 - [Categories](_endpoints/categories.md)
 - [Coupons](_endpoints/coupons.md)
+- [Orders](_endpoints/orders.md)
+- [Gift Cards](_endpoints/gift-cards.md)
+- [Message Templates](_endpoints/message-templates.md)
 - [Webhooks Endpoint](_endpoints/webhooks.md)
 - [Account](_endpoints/account.md)
 

@@ -108,7 +108,7 @@ The output of webhook payload has changed. Old attributes are still included but
 **New webhook events**
 
 * `person.deleted`
-* `person.modified`
+* `person.updated`
 
 **New query parameter for people**
 

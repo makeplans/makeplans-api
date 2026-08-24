@@ -11,10 +11,10 @@ description: API reference for the Makeplans coupons endpoint — attributes and
   <tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
   <tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
   <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
-  <tr><td>title</td><td>String</td><td>Required</td></tr>
+  <tr><td>title</td><td>String</td><td>Not required</td></tr>
   <tr><td>code</td><td>String</td><td>Required</td></tr>
-  <tr><td>value_type</td><td>String</td><td>Values: percentage or amount.</td></tr>
-  <tr><td>value</td><td>Integer</td><td>Required</td></tr>
+  <tr><td>value_type</td><td>String</td><td>Required. Values: percentage or amount.</td></tr>
+  <tr><td>value</td><td>Integer</td><td>Required. Maximum 100 when value_type is percentage.</td></tr>
   <tr><td>valid_from</td><td>Datetime</td><td></td></tr>
   <tr><td>valid_until</td><td>Datetime</td><td></td></tr>
   <tr><td>active</td><td>Boolean</td><td></td></tr>
