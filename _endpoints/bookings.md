@@ -95,6 +95,10 @@ See query parameters for filtering the output beyond the default outputs.
 
 `GET /bookings/unconfirmed` will return only unconfirmed bookings.
 
+`GET /bookings/declined` will return only declined bookings.
+
+`GET /bookings/cancelled` will return only cancelled bookings.
+
 `GET /bookings/all` will return all bookings of all states (including `declined`, `cancelled`, `deleted`, and `verification_expired`). This is a useful output for synchronisation when you need to keep a track of deleted bookings.
 
 `GET /bookings/visible` will return all active bookings as well as those declined, cancelled or waitlisted. This is the preferred output if you want to provide a list of all bookings for visual presentation.
