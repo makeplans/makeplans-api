@@ -51,6 +51,8 @@ Information and settings for your account.
   <tr><td>event_form</td><td>Liquid-Text</td><td>For custom data in administration system.</td></tr>
   <tr><td>appointment_form</td><td>Liquid-Text</td><td>For custom data in administration system.</td></tr>
   <tr><td>category_form</td><td>Liquid-Text</td><td>For custom data in administration system.</td></tr>
+  <tr><td>account_form</td><td>Liquid-Text</td><td>For custom data in administration system.</td></tr>
+  <tr><td>custom_data</td><td>Object</td><td>Key/value. Stored as strings.</td></tr>
   <tr><td>sms_verification</td><td>Liquid-Text</td><td></td></tr>
   <tr><td>sms_confirmation</td><td>Liquid-Text</td><td></td></tr>
   <tr><td>sms_modification</td><td>Liquid-Text</td><td></td></tr>

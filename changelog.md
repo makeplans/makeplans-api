@@ -5,6 +5,12 @@ permalink: /changelog/
 description: Changes and additions to the Makeplans API, newest first.
 ---
 
+## 2026-08-26
+
+**Added custom data to the account**
+
+`GET /client` and `PUT /client` now include `custom_data` (key/value object) and `account_form` (Liquid text for custom fields in the administration system).
+
 ## 2026-08-22
 
 **Restored pagination metadata headers, renamed `Page-Items` to `page-limit`**
