@@ -48,9 +48,11 @@ Attendance at an event is also a booking but the individual booking datetime or 
   <tr><td>mail_modification</td><td>Liquid-Text</td><td></td></tr>
   <tr><td>mail_awaiting_confirmation</td><td>Liquid-Text</td><td></td></tr>
   <tr><td>mail_cancellation</td><td>Liquid-Text</td><td></td></tr>
+  <tr><td>mail_declined</td><td>Liquid-Text</td><td></td></tr>
   <tr><td>sms_modification</td><td>Liquid-Text</td><td></td></tr>
   <tr><td>sms_awaiting_confirmation</td><td>Liquid-Text</td><td></td></tr>
   <tr><td>sms_cancellation</td><td>Liquid-Text</td><td></td></tr>
+  <tr><td>sms_declined</td><td>Liquid-Text</td><td></td></tr>
   <tr><td>mail_request_payment</td><td>Liquid-Text</td><td></td></tr>
   <tr><td>sms_request_payment</td><td>Liquid-Text</td><td></td></tr>
   <tr><td>next_interval</td><td>Integer</td><td>Not required</td></tr>

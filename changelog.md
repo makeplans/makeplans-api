@@ -5,6 +5,12 @@ permalink: /changelog/
 description: Changes and additions to the Makeplans API, newest first.
 ---
 
+## 2026-09-10
+
+**Added custom text for declined bookings**
+
+The declined booking notifications can now be customized like the other booking notifications. `GET /client` and `PUT /client` include `mail_declined` (Liquid text), `mail_declined_subject` and `sms_declined` (Liquid text). Services include `mail_declined` and `sms_declined`.
+
 ## 2026-08-26
 
 **Added custom data to the account**
