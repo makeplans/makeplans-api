@@ -5,6 +5,12 @@ permalink: /changelog/
 description: Changes and additions to the Makeplans API, newest first.
 ---
 
+## 2026-09-12
+
+**Added booking site analytics funnel events**
+
+The hosted booking site now emits `view_slots`, `view_available_dates`, `no_availability`, `sign_up`, `login` and `purchase` events when the account has Google Tag Manager or Google Analytics configured. `purchase` carries GA4 standard e-commerce data (`transaction_id`, `value`, `currency`, `items`). `booking_completed` now includes `resource_id` and `resource_title`, and also fires for bookings paid via cart checkout. See the new [booking site analytics guide](/guide/booking-site-analytics/).
+
 ## 2026-09-10
 
 **Added custom text for declined bookings**
