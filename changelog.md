@@ -29,6 +29,12 @@ The declined booking notifications can now be customized like the other booking 
 
 Due to a regression, paginated responses sent no pagination HTTP headers (including `Link`) since 2025-11-28. All headers are now restored with two changes: the `Page-Items` header is renamed to `page-limit`, and the `Link` relation type `prev` is renamed to `previous`. Header names are lowercase (`current-page`, `page-limit`, `total-count`, `total-pages`); as always, header names are case-insensitive. We recommend paginating by following the RFC 8288 `Link` header with `rel="next"` rather than using the metadata headers.
 
+## 2026-08-16
+
+**Added website to the account**
+
+`GET /client` and `PUT /client` now include `website`, the URL of your company website.
+
 ## 2026-03-28
 
 **Added message templates endpoint**

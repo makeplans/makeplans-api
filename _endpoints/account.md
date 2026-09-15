@@ -30,6 +30,7 @@ Information and settings for your account.
   <tr><td>mail_notification_recipient</td><td>Email</td><td></td></tr>
   <tr><td>sms_notification</td><td>Boolean</td><td></td></tr>
   <tr><td>phone_number</td><td>String</td><td></td></tr>
+  <tr><td>website</td><td>String</td><td>URL of your company website. Scheme http or https required.</td></tr>
   <tr><td>confirm_manually</td><td>Boolean</td><td></td></tr>
   <tr><td>settings</td><td>Object</td><td>Key/value. Stored as strings.</td></tr>
   <tr><td>public_access</td><td>Boolean</td><td></td></tr>
