@@ -5,6 +5,12 @@ permalink: /changelog/
 description: Changes and additions to the Makeplans API, newest first.
 ---
 
+## 2026-09-29
+
+**Documented the room display endpoint**
+
+`GET /api/v1/bookings/room_display/events` returns today's and future bookings and events for a single resource, authenticated with a pairing code instead of an API-Key. Use it to build a custom room display. See the new [room display guide](/guide/room-display/).
+
 ## 2026-09-12
 
 **Added booking site analytics funnel events**
