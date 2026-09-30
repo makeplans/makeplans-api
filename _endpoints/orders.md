@@ -71,8 +71,8 @@ Response
       "payable_amount": "1000.0",
       "person": {
         "id": 38,
-        "name": "Espen Antonsen",
-        "email": "espen@example.com"
+        "name": "Anna Larsen",
+        "email": "anna@example.org"
       },
       "order_line_items": [
         {

@@ -176,7 +176,7 @@ curl -X "POST" "https://youraccount.test.makeplans.net/api/v1/bookings" \
      --data-urlencode "booking[booked_from]=2020-01-27 14:00" \
      --data-urlencode "booking[booked_to]=2020-01-27 15:00" \
      --data-urlencode "booking[person_attributes][name]=Harald" \
-     --data-urlencode "booking[person_attributes][phone_number]=+18338367888" \
+     --data-urlencode "booking[person_attributes][phone_number]=+12125550123" \
      --data-urlencode "booking[public_booking]=true" \
      --data-urlencode "confirm=false"
 ```
@@ -221,7 +221,7 @@ Content-Type: application/json; charset=utf-8
     "person": {
       "id": 95,
       "email": null,
-      "phone_number": "+18338367888",
+      "phone_number": "+12125550123",
       "created_at": "2020-01-24T06:48:42+01:00",
       "updated_at": "2020-01-24T06:48:42+01:00",
       "name": "Harald",
@@ -309,7 +309,7 @@ Content-Type: application/json; charset=utf-8
     "person": {
       "id": 95,
       "email": null,
-      "phone_number": "+18338367888",
+      "phone_number": "+12125550123",
       "created_at": "2020-01-24T06:48:42+01:00",
       "updated_at": "2020-01-24T06:48:42+01:00",
       "name": "Harald",
@@ -373,7 +373,7 @@ curl -X "POST" "https://youraccount.test.makeplans.net/api/v1/bookings" \
      --data-urlencode "booking[booked_from]=2020-01-27 14:00" \
      --data-urlencode "booking[booked_to]=2020-01-27 15:00" \
      --data-urlencode "booking[person_attributes][name]=Harald" \
-     --data-urlencode "booking[person_attributes][phone_number]=+18338367888" \
+     --data-urlencode "booking[person_attributes][phone_number]=+12125550123" \
      --data-urlencode "booking[public_booking]=true" \
      --data-urlencode "confirm=false" \
      --data-urlencode "booking[custom_data][problems]=Right leg" \
@@ -422,7 +422,7 @@ Content-Type: application/json; charset=utf-8
     "person": {
       "id": 95,
       "email": null,
-      "phone_number": "+18338367888",
+      "phone_number": "+12125550123",
       "created_at": "2020-01-24T06:48:42+01:00",
       "updated_at": "2020-01-24T06:48:42+01:00",
       "name": "Harald",
@@ -467,7 +467,7 @@ curl -X "POST" "https://youraccount.test.makeplans.net/api/v1/bookings/recurring
      --data-urlencode "booking[booked_from]=2020-01-27 14:00" \
      --data-urlencode "booking[booked_to]=2020-01-27 15:00" \
      --data-urlencode "booking[person_attributes][name]=Harald" \
-     --data-urlencode "booking[person_attributes][phone_number]=+18338367888" \
+     --data-urlencode "booking[person_attributes][phone_number]=+12125550123" \
      --data-urlencode "booking[public_booking]=true" \
      --data-urlencode "confirm=false" \
      --data-urlencode "confirmation_send_email=true" \

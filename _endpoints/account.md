@@ -169,7 +169,7 @@ Response
       "user": {
           "id": 1,
           "email": "maestro@example.org",
-          "name": "Espen Antonsen",
+          "name": "Anna Larsen",
           "created_at": "2016-11-07T07:26:32+01:00",
           "updated_at": "2016-11-07T07:27:42+01:00"
       }
