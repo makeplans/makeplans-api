@@ -68,6 +68,7 @@ Attendance at an event is also a booking but the individual booking datetime or 
   <tr><td>billing_period</td><td>Integer</td><td>Required for subscription. Not applicable for other types.</td></tr>
   <tr><td>renewal_price</td><td>Decimal</td><td>Only applicable for subscription.</td></tr>
   <tr><td>validity_days</td><td>Integer</td><td>Number of days the pass is valid. Required for unlimited passes. Only applicable for pass.</td></tr>
+  <tr><td>workload_points</td><td>Integer</td><td>Not required. Points used per booking towards the daily maximum on the resource.</td></tr>
   <tr><td>linked_service_ids</td><td>Array</td><td>Ids of linked services.</td></tr>
 </table>
 

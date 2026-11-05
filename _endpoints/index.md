@@ -24,3 +24,5 @@ See the [guide](/guide/getting-started/) for general information about authentic
 - [Message Templates](/endpoints/message-templates/)
 - [Webhooks](/endpoints/webhooks/)
 - [Account](/endpoints/account/)
+- [Passes](/endpoints/passes/)
+- [Subscriptions](/endpoints/subscriptions/)

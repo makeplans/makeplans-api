@@ -13,6 +13,7 @@ description: API reference for the Makeplans resources endpoint — attributes a
   <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
   <tr><td>title</td><td>String</td><td>Required</td></tr>
   <tr><td>capacity</td><td>Integer</td><td></td></tr>
+  <tr><td>max_workload_points</td><td>Integer</td><td>Not required. Maximum workload points per day.</td></tr>
   <tr><td>custom_data</td><td>Object</td><td>Not required. Key/value. Stored as strings.</td></tr>
   <tr><td>opening_hours_mon</td><td>Array</td><td>Default opening hours for Monday.</td></tr>
   <tr><td>opening_hours_tue</td><td>Array</td><td>Default opening hours for Tuesday.</td></tr>

@@ -5,11 +5,44 @@ permalink: /changelog/
 description: Changes and additions to the Makeplans API, newest first.
 ---
 
+## 2026-10-29
+
+**Added workload points to services and resources**
+
+Services now include `workload_points` and resources include `max_workload_points`. Public bookings and booking site slots respect the daily maximum on the resource. Bookings created with the private API are not limited.
+
+## 2026-10-09
+
+**Added passes and subscriptions endpoints**
+
+- `GET /passes` and `GET /passes/{id}` - list and show passes sold to customers.
+- `GET /subscriptions` and `GET /subscriptions/{id}` - list and show subscriptions sold to customers.
+
+Both lists can be filtered with `person_id`. Order line items now include `pass_id` and `subscription_id`.
+
+## 2026-09-30
+
+**Reduced the output of the public API and the room display endpoint**
+
+The public API no longer returns internal fields. For example, people no longer include `notes`, `external_id`, `custom_data` or `blocked`, bookings no longer include audit and payment fields, and services no longer include `active`, `description` or notification texts. The room display endpoint returns only the fields a display uses, and `person` contains only `id` and `name`. The private API output is unchanged.
+
 ## 2026-09-29
 
 **Documented the room display endpoint**
 
 `GET /api/v1/bookings/room_display/events` returns today's and future bookings and events for a single resource, authenticated with a pairing code instead of an API-Key. Use it to build a custom room display. See the new [room display guide](/guide/room-display/).
+
+## 2026-09-17
+
+**Added booking ratings**
+
+Bookings now include `rating` (Integer, only for output). The value is between 1 and the top of the rating scale set on the account.
+
+## 2026-09-15
+
+**Fixed categories responses**
+
+`PUT /categories/{id}` and failed `POST /categories` returned 406 Not Acceptable. They now return the category or the validation errors.
 
 ## 2026-09-12
 
@@ -23,6 +56,19 @@ The hosted booking site now emits `view_slots`, `view_available_dates`, `no_avai
 
 The declined booking notifications can now be customized like the other booking notifications. `GET /client` and `PUT /client` include `mail_declined` (Liquid text), `mail_declined_subject` and `sms_declined` (Liquid text). Services include `mail_declined` and `sms_declined`.
 
+## 2026-09-02
+
+**Added declined and cancelled booking lists**
+
+- `GET /bookings/declined` - list declined bookings.
+- `GET /bookings/cancelled` - list cancelled bookings.
+
+## 2026-08-31
+
+**Fixed event booking window with a single date**
+
+Setting only `first_booking_at` or only `last_booking_at` on an event returned a validation error. Each date can now be set alone.
+
 ## 2026-08-26
 
 **Added custom data to the account**
@@ -35,11 +81,60 @@ The declined booking notifications can now be customized like the other booking 
 
 Due to a regression, paginated responses sent no pagination HTTP headers (including `Link`) since 2025-11-28. All headers are now restored with two changes: the `Page-Items` header is renamed to `page-limit`, and the `Link` relation type `prev` is renamed to `previous`. Header names are lowercase (`current-page`, `page-limit`, `total-count`, `total-pages`); as always, header names are case-insensitive. We recommend paginating by following the RFC 8288 `Link` header with `rel="next"` rather than using the metadata headers.
 
+## 2026-08-21
+
+**Added addon, subscription and pass services**
+
+`booking_type` on services now also accepts `addon`, `subscription` and `pass`. Services now include `quota`, `unlimited`, `billing_period`, `renewal_price`, `validity_days` and `linked_service_ids`.
+
+- `GET /services/addons`, `/services/subscriptions` and `/services/passes` - list services by booking type.
+- `GET /services/products` now returns all sellable services.
+
+## 2026-08-20
+
+**Removed `POST /people/authenticate`**
+
+The endpoint did not work and is removed.
+
+**Fixed endpoints**
+
+- `GET /services/{id}/availability` now returns JSON.
+- The person perishable token send and verify endpoints now work with the private API.
+- Creating a gift card without `initial_value` no longer fails. It now defaults to `value`.
+
+**Corrected the webhook event list**
+
+The list now shows `person.updated` instead of `person.modified`, and includes the waitlist events.
+
 ## 2026-08-16
 
 **Added website to the account**
 
 `GET /client` and `PUT /client` now include `website`, the URL of your company website.
+
+## 2026-08-15
+
+**Added MCP server**
+
+AI assistants can now use your account through the Model Context Protocol. See the [MCP guide](/guide/mcp/).
+
+## 2026-08-12
+
+**Added waitlist**
+
+Bookings can now have the state `waitlisted`. `PUT /bookings/{id}/promote` promotes a booking from the waitlist. Added the webhook events `booking.waitlisted` and `booking.waitlist_promoted`.
+
+## 2026-08-09
+
+**Changed `GET /bookings/no_status`**
+
+The endpoint now returns past confirmed bookings with a person where the status is not `completed` or `no_show`.
+
+## 2026-05-04
+
+**Added settings to message templates**
+
+Message templates now include `settings` (key/value object).
 
 ## 2026-03-28
 

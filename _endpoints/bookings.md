@@ -41,6 +41,7 @@ description: API reference for the Makeplans bookings endpoint — attributes, s
   <tr><td>count</td><td>Integer</td><td>Default: 1</td></tr>
   <tr><td>collection_id</td><td>UUID</td><td>Automatically set for recurring bookings.</td></tr>
   <tr><td>status</td><td>String</td><td>Default: null. See statuses.</td></tr>
+  <tr><td>rating</td><td>Integer</td><td>Only for output. Set when the customer rates the booking. Between 1 and the rating scale on the account.</td></tr>
   <tr><td>person_attributes</td><td>Object</td><td>See <a href="/endpoints/people/">person</a>. Only for input.</td></tr>
   <tr><td>person</td><td>Object</td><td>See <a href="/endpoints/people/">person</a>. Only for output.</td></tr>
   <tr><td>resource</td><td>Object</td><td>See <a href="/endpoints/resources/">resource</a>. Only for output.</td></tr>
