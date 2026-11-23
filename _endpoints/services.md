@@ -34,6 +34,8 @@ Attendance at an event is also a booking but the individual booking datetime or 
   <tr><td>interval</td><td>Integer</td><td>Not required (default 60)</td></tr>
   <tr><td>max_slots</td><td>Integer</td><td>Not required (default 1)</td></tr>
   <tr><td>price</td><td>Decimal</td><td>Not required.</td></tr>
+  <tr><td>price_rules</td><td>Array</td><td>Prices at given weekdays and times. See <a href="#price-rules">price rules</a>. Only for output.</td></tr>
+  <tr><td>price_rules_attributes</td><td>Array</td><td>See <a href="#price-rules">price rules</a>. Only for input.</td></tr>
   <tr><td>same_day</td><td>Boolean</td><td>Not required (default false)</td></tr>
   <tr><td>template</td><td>String</td><td>Component template (calendar view)</td></tr>
   <tr><td>interval_rounding</td><td>Integer</td><td>Overrides account default (see info on account object)</td></tr>
@@ -78,6 +80,101 @@ Attendance at an event is also a booking but the individual booking datetime or 
   <tr><th>Name</th><th>Type</th><th>Description</th></tr>
   <tr><td>booking_type_id</td><td>Integer</td><td>1: appointment. 2: attendance. 3: gift_card. 4: product. 5: addon. 6: subscription. 7: pass.</td></tr>
 </table>
+
+## Price rules
+
+A service can have a different price at given weekdays and times, for example peak and off-peak. Each price rule is one weekly time block with a fixed price.
+
+- Each slot of a booking gets the price of the rule that covers the start time of the slot.
+- Outside all rules the standard `price` of the service applies. `price` on the service does not change.
+- Times are in the time zone of the account.
+- `ends_at` is exclusive, so a rule from `08:00` to `12:00` and a rule from `12:00` to `16:00` can adjoin.
+
+`price_rules` is included in the service object of the private API when you list, get, add or update a service. A service with no rules returns an empty array. It is not included in the public API, and not in a service that is nested in another object (for example `service` in a booking).
+
+### Price rule attributes
+
+<table>
+  <tr><th>Name</th><th>Type</th><th>Description</th></tr>
+  <tr><td>id</td><td>Integer</td><td>Automatically set</td></tr>
+  <tr><td>created_at</td><td>Datetime</td><td>Automatically set</td></tr>
+  <tr><td>updated_at</td><td>Datetime</td><td>Automatically set</td></tr>
+  <tr><td>weekdays</td><td>Array</td><td>Required. Integers from 1 (Monday) to 7 (Sunday), as in ISO 8601.</td></tr>
+  <tr><td>starts_at</td><td>String</td><td>Required. Time of day, <code>HH:MM</code>.</td></tr>
+  <tr><td>ends_at</td><td>String</td><td>Required. Time of day, <code>HH:MM</code>, exclusive. Must be after <code>starts_at</code>. <code>24:00</code> is permitted.</td></tr>
+  <tr><td>price</td><td>Decimal</td><td>Required. Price for one slot. Must be more than 0.</td></tr>
+</table>
+
+Response
+
+```json
+{
+  "service": {
+    "id": 5,
+    "price": "200.0",
+    "price_rules": [
+      {
+        "id": 12,
+        "created_at": "2026-11-20T10:00:00+01:00",
+        "updated_at": "2026-11-20T10:00:00+01:00",
+        "weekdays": [1, 2],
+        "starts_at": "17:00",
+        "ends_at": "24:00",
+        "price": "300.0"
+      }
+    ]
+  }
+}
+```
+
+### Add, change and remove price rules
+
+Send `price_rules_attributes` in the `service` object when you [add](#add-new-service) or [update](#update-service) a service.
+
+- An entry with no `id` adds a rule.
+- An entry with the `id` of an existing rule changes that rule.
+- An entry with `id` and `_destroy` set to true removes that rule.
+- Rules that are not in the request do not change.
+
+```json
+{
+  "service": {
+    "price_rules_attributes": [
+      {
+        "weekdays": [1, 2, 3, 4, 5],
+        "starts_at": "17:00",
+        "ends_at": "24:00",
+        "price": 300
+      },
+      {
+        "id": 12,
+        "price": 350
+      },
+      {
+        "id": 13,
+        "_destroy": true
+      }
+    ]
+  }
+}
+```
+
+### Validation
+
+A request that breaks one of these rules is rejected and nothing is saved. See [errors](/guide/errors/) for the format of the response.
+
+- The service must have a `price`.
+- Price rules cannot be used on a service with `has_day_booking`.
+- Two rules of the same service cannot overlap on the same weekday.
+- `weekdays` must have one or more values from 1 to 7.
+- `ends_at` must be after `starts_at`. A rule cannot cross midnight.
+- `price` must be more than 0. When the service requires payment it must also be at least the minimum charge amount.
+
+### Price of a booking
+
+The price of a booking is the sum of the price of each slot, multiplied by `count`.
+
+Example: a service has `interval` 60 and `price` 200, and a price rule with `price` 300 from `17:00` on Mondays. A booking on a Monday from 16:00 to 18:00 is two slots. The first slot starts at 16:00 and costs 200. The second starts at 17:00 and costs 300. The price is 500. With `count` 3 the price is 1500.
 
 ## Listing
 

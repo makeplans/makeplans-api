@@ -5,6 +5,12 @@ permalink: /changelog/
 description: Changes and additions to the Makeplans API, newest first.
 ---
 
+## 2026-11-20
+
+**Added price rules to services**
+
+Services now include `price_rules`: prices at given weekdays and times. Each slot of a booking gets the price of the rule that covers its start time. Outside all rules the standard `price` applies. Rules can be added, changed and removed with `price_rules_attributes` when you create or update a service. See [price rules](/endpoints/services/#price-rules).
+
 ## 2026-10-29
 
 **Added workload points to services and resources**
