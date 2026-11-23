@@ -12,6 +12,8 @@ Send the API-Key as a Bearer token using the HTTP Authorization header.
 
 Example: `Authorization: Bearer APIKEY`
 
+To confirm that your API-Key works, [test your setup](/guide/getting-started/#test-your-setup).
+
 Deprecated: For Basic Auth use the API-Key as username and empty password.
 
 If your application is installable by end-users you should use OAuth. However we do not yet support OAuth so please contact us if this is something you require.

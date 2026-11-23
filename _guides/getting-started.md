@@ -21,3 +21,28 @@ Limitations of the test environment:
 * Bugs may occur during roll out of new features to be tested.
 * Lower uptime.
 * All financial transactions such as Stripe are performed in their respective test/sandbox environment. Other integrations are performed against real production accounts unless the integration offers a test environment.
+
+## Test your setup
+
+Once you have your account subdomain and your API-Key, confirm they line up with a single request:
+
+```shell
+curl -H 'Authorization: Bearer APIKEY' \
+-H 'User-Agent: YourAppName' \
+-H 'Accept: application/json' \
+https://youraccount.test.makeplans.net/api/v1/client
+```
+
+On success it returns `200` with the [account](/endpoints/account/) your API-Key resolves to:
+
+```json
+{
+  "client": {
+    "subdomain": "youraccount",
+    "name": "Your account",
+    ...
+  }
+}
+```
+
+A `401` means the API-Key (or header) is wrong, or the API is not enabled on the account. A redirect (`301`) means the subdomain does not match an account.
